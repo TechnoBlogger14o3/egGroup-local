@@ -131,6 +131,14 @@ const styles = StyleSheet.create({
         fontSize: 16,
         color: "#000000",
         lineHeight: 22
+    },
+
+    dateOverlay: {
+        width: "100%",
+        height: 70,
+        position: "absolute",
+        top: 0,
+        zIndex: 1
     }
 });
 

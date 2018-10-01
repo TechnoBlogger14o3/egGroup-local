@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, Image, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, Image, ScrollView, DatePickerAndroid } from 'react-native';
 import { Icon } from "react-native-elements";
 
-import {InputText, Button, LinkButton, Toolbar} from "../components";
+import {InputText, Button, LinkButton, Toolbar, DatePicker} from "../components";
 import { navigateBack } from "../helpers";
 
 import logo from "../assets/images/signup/Loginlogo.png"
@@ -17,8 +17,13 @@ class Register extends Component {
           isPasswordShown: false,
           email: "",
           password: "",
-          comfirmPassword: ""
+          comfirmPassword: "",
+          dateOfBirth: ""
       };
+  }
+
+  mapElement = node => {
+      this.datePicker = node
   }
 
   onIconPress = () => {
@@ -59,8 +64,14 @@ class Register extends Component {
                   value={this.state.lastName}
                   onChangeText={value => this.onChange("lastName", value)}
                   placeholder="Enter last name" />
+              <DatePicker
+                  label="Date of birth *"
+                  value={this.state.dateOfBirth}
+                  mapElement={this.mapElement}
+                  placeholder="Enter date of birth"
+                  onChangeDate={value => this.onChange("dateOfBirth", value)} />
               <InputText
-                  label="Email"
+                  label="Email *"
                   value={this.state.email}
                   onChangeText={value => this.onChange("email", value)}
                   placeholder="Enter email address" />

@@ -1,0 +1,33 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'egGroup' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for egGroup
+
+  target 'egGroup-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'egGroupTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
+
+target 'egGroup-tvOS' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for egGroup-tvOS
+
+  target 'egGroup-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end

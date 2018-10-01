@@ -79,6 +79,7 @@ class Login extends Component {
                       Do not have an account yet?
                   </Text>
                   <LinkButton
+                      onPress={() => navigateTo("register")}
                       title="Create One"
                       color="rgb(141, 198, 63)" />
               </View>

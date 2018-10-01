@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, Image, ScrollView, DatePickerAndroid } from 'react-native';
 import { Icon } from "react-native-elements";
 
-import {InputText, Button, LinkButton, Toolbar, DatePicker} from "../components";
+import {InputText, Button, LinkButton, Toolbar, DatePicker, Phone, Checkbox} from "../components";
 import { navigateBack } from "../helpers";
 
 import logo from "../assets/images/signup/Loginlogo.png"
@@ -18,7 +18,10 @@ class Register extends Component {
           email: "",
           password: "",
           comfirmPassword: "",
-          dateOfBirth: ""
+          dateOfBirth: "",
+          phone: "",
+          inActiveNewsletter: false,
+          termsConditions: false
       };
   }
 
@@ -35,6 +38,18 @@ class Register extends Component {
   onChange = (key, value) => {
       this.setState({
           [key]: value
+      });
+  }
+
+  onActivateNewsletter = () => {
+      this.setState({
+          inActiveNewsletter: !this.state.inActiveNewsletter
+      });
+  }
+
+  acceptTermsConditions = () => {
+      this.setState({
+          termsConditions: !this.state.termsConditions
       });
   }
 
@@ -70,6 +85,11 @@ class Register extends Component {
                   mapElement={this.mapElement}
                   placeholder="Enter date of birth"
                   onChangeDate={value => this.onChange("dateOfBirth", value)} />
+              <Phone
+                  label="Phone *"
+                  value={this.state.phone}
+                  onChangeText={value => this.onChange("phone", value)}
+                  placeholder="Enter phone number" />
               <InputText
                   label="Email *"
                   value={this.state.email}
@@ -91,6 +111,39 @@ class Register extends Component {
                   onChangeText={value => this.onChange("comfirmPassword", value)}
                   secureTextEntry={!this.state.isPasswordShown}
                   placeholder="Re-enter password" />
+              <View style={{paddingVertical: 16}}>
+                  <Checkbox
+                      onPress={this.onActivateNewsletter}
+                      checked={this.state.inActiveNewsletter}
+                      labelComponent={
+                        <View style={{flexDirection: "row", paddingHorizontal: 16,}}>
+                            <Text style={styles.checkboxText}>Subscribe the </Text>
+                            <LinkButton
+                                title="Newsletter"
+                                color="rgb(15, 113, 184)" />
+                        </View>
+                      } />
+                  <Checkbox
+                      onPress={this.acceptTermsConditions}
+                      checked={this.state.termsConditions}
+                      labelComponent={
+                        <View>
+                            <View style={{flexDirection: "row",overflow: "hidden", flex: 1, paddingLeft: 16, paddingRight: 32}}>
+                                <Text style={styles.checkboxText}>I agree to </Text>
+                                <LinkButton
+                                    title="Terms & Conditions"
+                                    color="rgb(15, 113, 184)" />
+                            </View>
+                            <View style={{flexDirection: "row",overflow: "hidden", flex: 1, paddingLeft: 16, paddingRight: 32}}>
+                                <Text style={styles.checkboxText}> and </Text>
+                                <LinkButton
+                                    title="Privacy Policy"
+                                    color="rgb(15, 113, 184)" />
+                            </View>
+                        </View>
+                      } />
+              </View>
+
               <Button
                   title="Register"
                   backgroundColor="rgb(15, 113, 184)" />

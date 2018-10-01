@@ -139,6 +139,17 @@ const styles = StyleSheet.create({
         position: "absolute",
         top: 0,
         zIndex: 1
+    },
+
+    checkboxContainer: {
+        flexDirection: "row",
+        paddingHorizontal: 16,
+        paddingVertical: 8
+    },
+
+    checkboxText: {
+        fontSize: 16,
+        color: "#000000"
     }
 });
 

@@ -10,6 +10,8 @@ target 'egGroup' do
   target 'egGroup-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
+
   end
 
   target 'egGroupTests' do

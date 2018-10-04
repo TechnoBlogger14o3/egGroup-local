@@ -18,7 +18,7 @@ class Home extends Component {
       };
   }
 
-  renderCamera: function() {
+  renderCamera() {
     if(this.state.showCamera) {
         return (
             <Camera
@@ -35,7 +35,7 @@ class Home extends Component {
     }
 }
 
-_onBarCodeRead: function(e) {
+_onBarCodeRead(e) {
     this.setState({showCamera: false});
     AlertIOS.alert(
         "Barcode Found!",

@@ -13,7 +13,7 @@ class App extends React.Component{
    componentDidMount() {
     setTimeout(function(){
       SplashScreen.hide()
-    }, 3000); 
+    }, 3000); // timeout second to close splashScreen
   }
 
   render(){

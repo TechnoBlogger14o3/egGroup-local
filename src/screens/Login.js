@@ -66,7 +66,7 @@ class Login extends Component {
                   </View>
               </View>
           </View>
-          <View style={{flex:3}}>
+          <View style={{flex:4, justifyContent: "flex-end"}}>
               <Button
                   title="Login"
                   backgroundColor="rgb(15, 113, 184)" />

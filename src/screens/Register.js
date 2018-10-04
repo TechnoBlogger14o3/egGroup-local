@@ -15,6 +15,7 @@ class Register extends Component {
       super(props);
       this.state = {
           isPasswordShown: false,
+          isCmfPasswordShown: false,
           email: "",
           password: "",
           comfirmPassword: "",
@@ -32,6 +33,12 @@ class Register extends Component {
   onIconPress = () => {
       this.setState({
           isPasswordShown: !this.state.isPasswordShown
+      });
+  }
+
+  onIconPress2 = () => {
+      this.setState({
+          isCmfPasswordShown: !this.state.isCmfPasswordShown
       });
   }
 
@@ -106,10 +113,10 @@ class Register extends Component {
               <InputText
                   label="Confirm Password *"
                   value={this.state.comfirmPassword}
-                  onIconPress={this.onIconPress}
+                  onIconPress={this.onIconPress2}
                   isPassword={true}
                   onChangeText={value => this.onChange("comfirmPassword", value)}
-                  secureTextEntry={!this.state.isPasswordShown}
+                  secureTextEntry={!this.state.isCmfPasswordShown}
                   placeholder="Re-enter password" />
               <View style={{paddingVertical: 16}}>
                   <Checkbox
@@ -143,7 +150,6 @@ class Register extends Component {
                         </View>
                       } />
               </View>
-
               <Button
                   title="Register"
                   backgroundColor="rgb(15, 113, 184)" />

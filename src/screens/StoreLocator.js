@@ -1,24 +1,19 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React, { Component } from 'react';
-import { StyleSheet, Text, TextInput, View, Dimensions, TouchableOpacity,FlatList,Alert } from 'react-native';
+import { StyleSheet, Text, TextInput, View, Dimensions, TouchableOpacity,FlatList,Alert, Platform, Image } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
-import { SearchBar } from 'react-native-elements'
+import { SearchBar, Icon } from 'react-native-elements';
 
 import StoreList from './StoreList';
+import { Toolbar } from "../components";
+import { navigateBack, navigateTo } from "../helpers";
+
+import styles from './../styles'
 
 const { width, height } = Dimensions.get('window');
 
-
-const aspectRatio = width / height
-const LATITUDE_DELTA = 0.0922
-const LONGITUDE_DELTA = LATITUDE_DELTA * aspectRatio
+const aspectRatio = width / height;
+const LATITUDE_DELTA = 0.0922;
+const LONGITUDE_DELTA = LATITUDE_DELTA * aspectRatio;
 
 class StoreLocator extends Component {
       constructor(props) {
@@ -108,23 +103,25 @@ class StoreLocator extends Component {
             this.setState({ lat: coordinates.latitude, lng: coordinates.longitude, data: [], textInputValue: name })
       }
 
+      getTypedIcon = name => {
+          return Platform.OS === "ios" ? `ios-${name}` : `${name}`;
+        };
+
       render() {
             return (
-                  <View style={styles.container}>
- <View style={{height:64,backgroundColor:'rgb(255, 255, 255)'}}>
-      <View style={{height:64,backgroundColor:'rgb(255, 255, 255)',flexDirection:'row'}}>
-      <View style={{flex:1,backgroundColor:'rgb(255, 255, 255)',justifyContent:'center'}}>
-      <TouchableOpacity>
-        <Text style={{marginLeft:16}}>Back</Text>
-      </TouchableOpacity>
-      </View>
-      <View style={{flex:3,backgroundColor:'rgb(255, 255, 255)',justifyContent:'center',alignItems:'center'}}>
-        <Text style={{marginLeft:17}}>Station Finder</Text>
-      </View>
-      <View style={{flex:1,backgroundColor:'rgb(255, 255, 255)'}}/>
-      </View>
-
-      </View>
+                  <View style={styles.mapContainer}>
+                      <Toolbar style={styles.noBorderToolbar} openDrawer={this.openDrawer}>
+                            <Icon
+                               name={this.getTypedIcon('arrow-left')}
+                               size={24}
+                               type="material-community"
+                               onPress={navigateBack}
+                               iconStyle={styles.leftIconContainer}
+                           />
+                           <View style={styles.toolbarUtils}>
+                               <Text style={styles.appTitle}>Settings</Text>
+                           </View>
+                       </Toolbar>
                         <View style={{ flex: 3 }}>
 
                               <MapView style={{ left: 0, right: 0, top: 0, bottom: 0, position: 'absolute' }}
@@ -136,10 +133,8 @@ class StoreLocator extends Component {
                                           longitude: this.state.lng,
                                           latitudeDelta: 0.0900,
                                           longitudeDelta: 0.0500,
-                                    }}
-                              >
+                                    }}>
                                     <MapView.Marker
-
                                           coordinate={{ latitude: this.state.lat, longitude: this.state.lng }} title={this.state.address}
                                           description={this.state.address}
                                     />
@@ -168,9 +163,7 @@ class StoreLocator extends Component {
                                     renderItem={({ item, index }) =>
 
                                           <View style={{ flex: 1, backgroundColor: 'rgb(255, 255, 255)' }}>
-
                                                 <View style={{ flex: 1, flexDirection: 'row', paddingTop: 10, paddingBottom: 10, paddingLeft: 16, paddingRight: 16, backgroundColor: 'rgb(255, 255, 255)' }}>
-
                                                       <View style={{ flex: 2.8, justifyContent: 'center', backgroundColor: 'rgb(255, 255, 255)' }}>
                                                             <Text style={{ marginLeft: 5, marginBottom: 5, fontSize: 17 }}>{item.name}</Text>
                                                             <Text style={{ marginLeft: 5, marginBottom: 10, color: 'rgb(123, 122, 118)' }}>{item.address}</Text>
@@ -189,11 +182,11 @@ class StoreLocator extends Component {
                                                             </View>
 
                                                       </View>
-                                                      <TouchableOpacity style={styles.loginbutton} onPress={() => this.distanceButtonTapped(item, index)}>
+                                                      <TouchableOpacity style={styles.loginbutton} onPress={() => navigateTo("storeDetails")}>
 
                                                       <View style={{ flex: 1, backgroundColor: 'rgb(255, 255, 255)', flexDirection: 'row', justifyContent: 'center' }}>
                                                       <Text style={{ color: 'black', fontSize: 15, alignSelf: 'center' }}> {item.Distance} </Text>
-
+                                                      <Image style={{width: 15, height: 15,alignSelf:'center'}} source={require('../assets/images/Arrow.png')} />
                                                       </View>
                                                       </TouchableOpacity>
 
@@ -211,24 +204,4 @@ class StoreLocator extends Component {
       }
 }
 
-
-
-var styles = StyleSheet.create({
-      container: {
-            flex: 1,
-            justifyContent: 'center',
-            backgroundColor: '#F5FCFF',
-      },
-      map: {
-            flex: 1,
-      },
-      inputView: {
-            backgroundColor: 'rgba(0,0,0,0)',
-            position: 'absolute',
-            top: 15,
-            left: 10,
-            right: 10
-      },
-
-})
 export default StoreLocator;

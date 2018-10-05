@@ -5,6 +5,7 @@ import Login from "../../screens/Login";
 import ForgotPassword from "../../screens/ForgotPassword";
 import Register from "../../screens/Register";
 import StoreLocator from '../../screens/StoreLocator';
+import StoreDetails from '../../screens/StoreDetails';
 import AddLoyaltyCard from '../../screens/AddLoyalityCard';
 import LoyaltyCardsList from '../../screens/LoyaltyCardsList';
 import AddLoyaltyCardManually from '../../screens/AddLoyaltyCardManually';
@@ -32,9 +33,12 @@ export default class Routes extends Component {
 									<Scene key="forgotPassword" component={ForgotPassword} title="ForgotPassword" />
 							</Scene>
 							<Scene key="app" hideNavBar={true} initial={false}>
-									<Scene key="home" component={Home} title="Home" />
-									<Scene key="forgotPassword" component={ForgotPassword} title="ForgotPassword" />
-									<Scene key="storeLocator" component={StoreLocator} title="StoreLocator" initial={true}/>
+									<Scene tabs key="home" hideNavBar={true} swipeEnabled={true} tabBarPosition="bottom">
+											<Scene key="home" component={Home} title="Home" />
+											<Scene key="settings" hideNavBar={true}  component={Settings} />
+											<Scene key="storeLocator" hideNavBar={true}  component={StoreLocator} />
+									</Scene>
+									<Scene key="storeDetails" component={StoreDetails} title="StoreDetails"/>
 									<Scene key="addLoyaltyCard" component={AddLoyaltyCard} title="Loyalty Cards" />
 									<Scene key="loyaltyCardsList" component={LoyaltyCardsList} title="Loyalty Cards" />
 									<Scene key="addLoyaltyCardManually" component={AddLoyaltyCardManually} title="Add Loyalty Card" />
@@ -47,6 +51,7 @@ export default class Routes extends Component {
 									<Scene key="notifications" component={Notifications} title="Notification Preference" />
 									<Scene key="newsLetters" component={NewsLetters} title="Newsletter subscriptions"/>
 									<Scene key="termsAndConditions" component={TermsAndConditions} title="Terms & Conditions"/>
+
 							</Scene>
 					</Scene>
 			</Router>

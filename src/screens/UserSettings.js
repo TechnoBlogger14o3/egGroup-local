@@ -9,9 +9,9 @@ import {
 import { Icon } from "react-native-elements";
 import { Toolbar } from "../components";
 import Sidebar from "../components/Sidebar/Sidebar";
-import { navigateBack } from "../helpers";
-import { navigateTo } from "../helpers";
-import styles from './../styles'
+import { navigateBack, navigateTo } from "../helpers";
+
+import styles from './../styles';
 
 class Settings extends Component {
     constructor(props){
@@ -34,9 +34,9 @@ class Settings extends Component {
     }
 
     getTypedIcon = name => {
-        return Platform.OS === "ios" ? `ios-${name}` : `${name}`;   
-      };
-    
+        return Platform.OS === "ios" ? `ios-${name}` : `${name}`;
+    };
+
     render() {
         const navigationView = (<Sidebar/>);
       return (
@@ -54,12 +54,12 @@ class Settings extends Component {
                             type="material-community"
                             onPress={navigateBack}
                             iconStyle={styles.leftIconContainer}
-                        /> 
+                        />
                         <View style={styles.toolbarUtils}>
-                            <Text style={styles.appTitle}>{this.props.title}</Text>
+                            <Text style={styles.appTitle}>Settings</Text>
                         </View>
                     </Toolbar>
-                
+
                 <FlatList
                     data={ this.state.data }
                     renderItem={({item}) =>
@@ -80,9 +80,9 @@ class Settings extends Component {
                     keyExtractor={(item) => item.settingTitle}
                             />
            </View>
-               
+
           </DrawerLayoutAndroid>
-      
+
       );
     }
   }
@@ -90,5 +90,5 @@ class Settings extends Component {
   const mapStateToProps = state => ({});
 
   const mapDispatchToProps = dispatch => ({});
-  
+
   export default connect(mapStateToProps, mapDispatchToProps)(Settings);

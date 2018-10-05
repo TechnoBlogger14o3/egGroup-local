@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
+
     appContainer: {
         flex: 1
     },
@@ -273,18 +274,16 @@ const styles = StyleSheet.create({
         width:25,
         height:25,
     },
-    //preferred Station styles
-    
+
     preferredStationContainer: {
         backgroundColor:'#FFF',
          flex:1,
-       
+
     },
     PreferredStationTitleView:{
         flex:0.5,
         borderBottomColor:'rgb(200, 199, 204)',
         borderBottomWidth:1,
-       
     },
     preferredStationText:{
         color:'rgb(142, 142, 147)',
@@ -377,7 +376,6 @@ const styles = StyleSheet.create({
         borderBottomWidth:1,
         paddingTop:5,
         marginTop:10
-       
     },
     emailSupportDetailView:{
         flexDirection:'row',
@@ -443,7 +441,6 @@ const styles = StyleSheet.create({
         paddingLeft:5
     },
 
-   //Notification 
    notificationContainer:{
         backgroundColor:'#FFF',
         flex:1,
@@ -478,7 +475,22 @@ const styles = StyleSheet.create({
         fontSize:12,
         color:'rgb(51, 51, 51)',
         paddingLeft:5
-    }
+    },
+    mapContainer: {
+          flex: 1,
+          justifyContent: 'center',
+          backgroundColor: '#F5FCFF',
+    },
+    map: {
+          flex: 1,
+    },
+    inputView: {
+          backgroundColor: 'rgba(0,0,0,0)',
+          position: 'absolute',
+          top: 15,
+          left: 10,
+          right: 10
+    },
 });
 
 export default styles;

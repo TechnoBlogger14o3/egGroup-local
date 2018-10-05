@@ -6,7 +6,6 @@ import {InputText, Button,Toolbar, LinkButton} from "../components";
 import { navigateBack } from "../helpers";
 import {GoogleSignin, GoogleSigninButton,statusCodes} from 'react-native-google-signin';
 
-
 class SocialLogin extends Component {
     constructor(props) {
         super(props);
@@ -70,7 +69,7 @@ class SocialLogin extends Component {
     const { userInfo } = this.state;
    // Alert.alert(JSON.stringify(userInfo.user));
    // Alert.alert(userInfo.user.name+" "+ userInfo.user.email);
-   // Alert.alert(userInfo.user.id)
+    Alert.alert(userInfo.user.id)
     return (
       <View style={styles.container}>
         <Text style={{ fontSize: 18, fontWeight: 'bold', marginBottom: 20 }}>
@@ -91,13 +90,16 @@ class SocialLogin extends Component {
   renderSignInButton() {
     return (
       <View style={styles.container}>
-        <GoogleSigninButton
-          style={{ width: 212, height: 48 }}
-          size={GoogleSigninButton.Size.Standard}
-          color={GoogleSigninButton.Color.Auto}
-          onPress={this._signIn}
-        />
-        {this.renderError()}
+          <TouchableOpacity onPress={this._signIn}>
+               <Image source={require('./../assets/images/signup/googlesignin.png')} style={{width:212,height:48}} />
+          </TouchableOpacity>
+          {/* <GoogleSigninButton
+            style={{ width: 212, height: 48 }}
+            size={GoogleSigninButton.Size.Standard}
+            color={GoogleSigninButton.Color.Auto}
+            onPress={this._signIn}
+          /> */}
+          {this.renderError()}
       </View>
     );
   }

@@ -110,7 +110,7 @@ class Login extends Component {
                     <View style={styles.loginFooterTextContainer}>
                         <Text style={[styles.fontSize16, styles.colorBlack, { marginRight: 7 }]}>
                             Do not have an account yet?
-                  </Text>
+                        </Text>
                         <LinkButton
                             onPress={() => navigateTo("register")}
                             title="Create One"

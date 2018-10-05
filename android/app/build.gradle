@@ -138,6 +138,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-awesome-card-io')
     compile project(':react-native-splash-screen')
     compile(project(':react-native-maps')){
         exclude group: 'com.google.android.gms', module: 'play-services-base'

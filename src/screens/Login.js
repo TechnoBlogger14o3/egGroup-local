@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, Image, Alert } from 'react-native';
+import { View, Text, TouchableOpacity, Image, Alert, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { compose } from "redux";
 import { Field, reduxForm } from "redux-form";
@@ -7,7 +7,7 @@ import validator from "validator";
 
 
 import { InputText, Button, LinkButton, ListPicker } from "../components";
-import { navigateTo } from "../helpers";
+import { navigateTo, redirectTo } from "../helpers";
 
 import logo from "../assets/images/signup/Loginlogo.png"
 import styles from '../styles';
@@ -36,6 +36,7 @@ class Login extends Component {
 
     onSubmit = values => {
         alert('Login Successful');
+        redirectTo("app")
     }
 
     renderTextInput = (field) => {
@@ -63,7 +64,6 @@ class Login extends Component {
 
         return (
             <View style={[styles.appContainer, styles.whiteBackground]}>
-
                 <View style={{ flex: 8 }}>
                     <View style={styles.loginFormCont}>
                         <View style={styles.loginLogoContainer}>
@@ -97,7 +97,7 @@ class Login extends Component {
                         </View>
                     </View>
                 </View>
-                <View style={{ flex: 4, justifyContent: "flex-end" }}>
+                <View style={{justifyContent: "flex-end" }}>
                     <Button
                         title="Login"
                         backgroundColor="rgb(15, 113, 184)"
@@ -110,7 +110,7 @@ class Login extends Component {
                     <View style={styles.loginFooterTextContainer}>
                         <Text style={[styles.fontSize16, styles.colorBlack, { marginRight: 7 }]}>
                             Do not have an account yet?
-                        </Text>
+                  </Text>
                         <LinkButton
                             onPress={() => navigateTo("register")}
                             title="Create One"

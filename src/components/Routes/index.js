@@ -9,6 +9,7 @@ import AddLoyaltyCard from '../../screens/AddLoyalityCard';
 import LoyaltyCardsList from '../../screens/LoyaltyCardsList';
 import AddLoyaltyCardManually from '../../screens/AddLoyaltyCardManually';
 import ScanLoyaltyCard from '../../screens/ScanLoyaltyCard';
+import Home from '../../screens/Home';
 
 
 
@@ -16,18 +17,22 @@ export default class Routes extends Component {
 	render() {
 		return (
 			<Router>
-				<Scene>
-					<Scene key="auth" hideNavBar={true} initial={true}>
-						<Scene key="login" component={Login} title="Login" />
-						<Scene key="register" component={Register} title="Register" />
-						<Scene key="forgotPassword" component={ForgotPassword} title="ForgotPassword" />
-						<Scene key="storeLocator" component={StoreLocator} title="StoreLocator" />
-						<Scene key="addLoyaltyCard" component={AddLoyaltyCard} title="Loyalty Cards" />
-						<Scene key="loyaltyCardsList" component={LoyaltyCardsList} title="Loyalty Cards" />
-						<Scene key="addLoyaltyCardManually" component={AddLoyaltyCardManually} title="Add Loyalty Card" />
-						<Scene key="scanLoyaltyCard" component={ScanLoyaltyCard} title="Scan Loyalty Card" />
+					<Scene>
+							<Scene key="auth" hideNavBar={true} initial={true}>
+									<Scene key="login" component={Login} title="Login" />
+									<Scene key="register" component={Register} title="Register" />
+									<Scene key="forgotPassword" component={ForgotPassword} title="ForgotPassword" />
+							</Scene>
+							<Scene key="app" hideNavBar={true} initial={false}>
+									<Scene key="home" component={Home} title="Home" />
+									<Scene key="forgotPassword" component={ForgotPassword} title="ForgotPassword" />
+									<Scene key="storeLocator" component={StoreLocator} title="StoreLocator" initial={true}/>
+									<Scene key="addLoyaltyCard" component={AddLoyaltyCard} title="Loyalty Cards" />
+									<Scene key="loyaltyCardsList" component={LoyaltyCardsList} title="Loyalty Cards" />
+									<Scene key="addLoyaltyCardManually" component={AddLoyaltyCardManually} title="Add Loyalty Card" />
+									<Scene key="scanLoyaltyCard" component={ScanLoyaltyCard} title="Scan Loyalty Card" />
+							</Scene>
 					</Scene>
-				</Scene>
 			</Router>
 		);
 	}

@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
-import { View, Text, ScrollView ,Image} from 'react-native';
+import { View, Text, ScrollView ,Image, BackHandler, Alert } from 'react-native';
 import { Icon } from "react-native-elements";
 import { compose } from "redux";
-import { Field, reduxForm } from "redux-form";
+import { Field, reduxForm , getFormValues } from "redux-form";
 import validator from "validator";
 
 import { InputText, Button, LinkButton, Toolbar, DatePicker, Checkbox, Phone } from "../components";
@@ -22,6 +22,35 @@ class Register extends Component {
             inActiveNewsletter: true,
             termsConditions: true
         };
+    }
+
+    componentDidMount() {
+       BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
+    }
+
+    componentWillUnmount() {
+       BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
+    }
+
+    handleBackPress = () => {
+      this.handleBackNavigation();
+      return true;
+    }
+
+    handleBackNavigation = () => {
+        if (this.props.formValues && Object.keys(this.props.formValues).length > 0) {
+          Alert.alert(
+              'Alert',
+              '“Please confirm, if you want to navigate away from this screen. Entered data will be lost.”',
+              [
+                {text: 'Close', onPress: () => console.log('Cancel Pressed!')},
+                {text: 'Confirm',  onPress: () => navigateBack() },
+              ],
+              { cancelable: false }
+          )
+        } else {
+            navigateBack();
+        }
     }
 
     onIconPress = () => {
@@ -118,7 +147,7 @@ class Register extends Component {
                         name="arrow-left"
                         size={24}
                         type="material-community"
-                        onPress={navigateBack}
+                        onPress={this.handleBackNavigation}
                         iconStyle={styles.leftIconContainer}
                     />
                     <View style={styles.toolbarUtils}>
@@ -281,7 +310,9 @@ const validate = values => {
     return errors;
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+    formValues: getFormValues("register")(state)
+});
 
 const mapDispatchToProps = dispatch => ({});
 

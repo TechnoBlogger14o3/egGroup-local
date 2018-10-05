@@ -73,7 +73,7 @@ class StoreLocator extends Component {
             this.setState({ textInputValue: text });
 
             if (text.length > 0) {
-                  sampleData = [{
+                var sampleData = [{
                         name: "JP Morghan",
                         address: "multiplex marathahalli, marathahalli village, marathahalli, bengaluru, karnataka 560037, india",
                         stateName:"Karnataka",

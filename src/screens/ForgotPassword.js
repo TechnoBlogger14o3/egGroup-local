@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, Alert } from 'react-native';
+import { View, Text, TouchableOpacity, Alert, BackHandler } from 'react-native';
 import { Icon } from "react-native-elements";
 import { compose } from "redux";
-import { Field, reduxForm } from "redux-form";
+import { Field, reduxForm, getFormValues } from "redux-form";
 import validator from "validator";
 
 import { navigateTo } from "../helpers";
@@ -19,6 +19,19 @@ class ForgotPassword extends Component {
         this.state = {
             email: ""
         };
+    }
+
+    componentDidMount() {
+        BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
+    }
+
+    componentWillUnmount() {
+        BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
+    }
+
+    handleBackPress = () => {
+        navigateBack();
+        return true;
     }
 
     onChange = (key, value) => {
@@ -103,14 +116,16 @@ const validate = values => {
     return errors;
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+  formValues: getFormValues("forgotPassword")(state)
+});
 
 const mapDispatchToProps = dispatch => ({});
 
 export default compose(
     connect(mapStateToProps, mapDispatchToProps),
     reduxForm({
-        form: "ForgotPassword",
+        form: "forgotPassword",
         validate
     })
 )(ForgotPassword);

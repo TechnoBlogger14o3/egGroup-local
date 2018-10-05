@@ -141,11 +141,11 @@ dependencies {
     compile project(':react-native-awesome-card-io')
     compile project(':react-native-splash-screen')
     compile(project(':react-native-maps')){
-    exclude group: 'com.google.android.gms', module: 'play-services-base'
-    exclude group: 'com.google.android.gms', module: 'play-services-maps'
+        exclude group: 'com.google.android.gms', module: 'play-services-base'
+        exclude group: 'com.google.android.gms', module: 'play-services-maps'
     }
-    compile 'com.google.android.gms:play-services-base:+'
-    compile 'com.google.android.gms:play-services-maps:+'
+    compile 'com.google.android.gms:play-services-base:11.4.2'
+    compile 'com.google.android.gms:play-services-maps:11.4.2'
     compile project(':react-native-vector-icons')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"

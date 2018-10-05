@@ -150,7 +150,51 @@ const styles = StyleSheet.create({
     checkboxText: {
         fontSize: 16,
         color: "#000000"
-    }
+    },
+
+    listPickerContainer: {
+        flex: 3,
+    },
+
+    listPickerStyle: {
+        width: 150,
+        flex: 2,
+        color: "rgb(15, 113, 184)"
+    },
+
+    countryImage:{
+        marginTop: 5,
+    },
+
+    checkboxStyle: {
+        paddingVertical: 16,
+    },
+
+    subscribeStyle: {
+        flexDirection: "row",
+        paddingHorizontal: 16
+    },
+
+    checkboxAgree: {
+        flexDirection: "row",
+        overflow: "hidden",
+        flex: 1,
+        paddingLeft: 16,
+        paddingRight: 32
+    },
+
+    checkboxPrivacy : {
+        flexDirection: 'row',
+        overflow: 'hidden',
+        flex: 1,
+        paddingLeft: 16,
+        paddingRight: 32
+    },
+
+    errorText: {
+        color:'red',
+        paddingHorizontal :16
+    },
 });
 
 export default styles;

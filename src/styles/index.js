@@ -195,6 +195,290 @@ const styles = StyleSheet.create({
         color:'red',
         paddingHorizontal :16
     },
+
+    menubar: {
+        height: 56,
+        alignItems: "center",
+        justifyContent: "center",
+        width: 36,
+        marginHorizontal: 16
+    },
+    menuIcon:{
+      backgroundColor:'#00F'
+    },
+
+    //sidebar
+    sidebarContainer: {
+        flex: 1,
+    },
+    sidebarIcon: {
+        width: 40,
+        height: 40,
+        backgroundColor: "#cccccc",
+        marginHorizontal: 8,
+        alignItems: "center",
+        justifyContent: "center",
+        borderRadius: 50
+    },
+    sidebarIconImage: {
+        width: 25,
+        height: 25
+    },
+
+    listViewCont: {
+        justifyContent: "center",
+        paddingHorizontal: 16
+    },
+    listViewContainer: {
+        width: "100%",
+        paddingHorizontal: 16,
+        paddingTop: 16
+    },
+    listViewWrapper: {
+        width: "100%"
+    },
+   menifestContainer: {
+        flexDirection: "row",
+        // backgroundColor: "#e4e4e4",
+        alignItems: "center",
+        padding: 8
+    },
+    //settingScreen
+    settingContainer: {
+        backgroundColor:'#FFF',
+         flex:1
+    },
+    settingListContainer:{
+        flex:1,
+        flexDirection: 'row',
+        borderBottomColor:'rgb(200, 199, 204)',
+        borderBottomWidth:1
+    },
+    settingTitleView:{
+        flex:8,
+        justifyContent:'center',
+        textAlign:'center',
+        color:'rgb(0, 0, 0)',
+        paddingTop:5,
+        paddingBottom:5
+    },
+    leftIconView:{
+      flex:1,
+      justifyContent:'flex-start',
+      alignItems:'center',
+      paddingTop:5,
+      paddingBottom:5
+    },
+    settingIcons:{
+        width:25,
+        height:25,
+    },
+    //preferred Station styles
+    
+    preferredStationContainer: {
+        backgroundColor:'#FFF',
+         flex:1,
+       
+    },
+    PreferredStationTitleView:{
+        flex:0.5,
+        borderBottomColor:'rgb(200, 199, 204)',
+        borderBottomWidth:1,
+       
+    },
+    preferredStationText:{
+        color:'rgb(142, 142, 147)',
+        paddingLeft:10
+    },
+    stationList:{
+        flex:9.5
+    },
+    ListContainer:{
+        flex:1,
+        flexDirection: 'row',
+        borderBottomColor:'rgb(200, 199, 204)',
+        borderBottomWidth:1,
+        paddingLeft:10
+    },
+    preferredStationView:{
+        flex:9,
+        flexDirection:'column'
+    },
+    rightIconView:{
+        flex:1,
+        justifyContent:'flex-end',
+        alignSelf:'center',
+        paddingTop:5,
+        paddingBottom:5
+    },
+    stationNameText:{
+        color:'rgb(51, 51, 51)',
+        fontSize:15,
+        paddingTop:5,
+    },
+    addressText:{
+       fontSize:10,
+       color:'rgb(123, 122, 118)'
+    },
+    stausText:{
+        color:'rgb(15, 113, 184)',
+        fontSize:12,
+    },
+    hourText:{
+        fontSize:13,
+        color:'rgb(51, 51, 51)',
+        paddingTop:5,
+        paddingBottom:5
+    },
+    distanceText:{
+        fontSize:12,
+        color:'rgb(51, 51, 51)',
+        textAlign:'right'
+    },
+    statusAndDistanceView:{
+        flexDirection:'row',
+        flex:1
+    },
+    storeStatusView:{
+        flex:1,
+        justifyContent:'flex-start'
+    },
+    storeDistance:{
+        flex:1,
+        justifyContent:'flex-end'
+    },
+    //Edit Profile
+    profilePic: {
+        flex: 3,
+        flexDirection:'row',
+        backgroundColor: "#f5f5f5",
+        justifyContent: 'center',
+        alignItems: 'center',
+      },
+      profilePicImage:{
+       height:150,
+        width:150,
+        borderRadius: 500/2,
+        overflow: 'hidden'
+      },
+      profileContainer: {
+        flex: 6,
+      },
+      submitButton: {
+        marginTop: 20,
+      },
+
+    supportContainer: {
+        backgroundColor:'#FFF',
+         flex:1,
+    },
+    supportView:{
+        borderBottomColor:'rgb(200, 199, 204)',
+        borderBottomWidth:1,
+        paddingTop:5,
+        marginTop:10
+       
+    },
+    emailSupportDetailView:{
+        flexDirection:'row',
+        borderBottomWidth:1,
+        borderBottomColor:'rgb(200, 199, 204)',
+        paddingLeft:5
+    },
+    supportleftIconView:{
+        justifyContent:'flex-start',
+    },
+    contactView:{
+        flex:1,
+        justifyContent:'flex-start',
+        paddingTop:5
+    },
+    SupportTitleText:{
+        color:'rgb(142, 142, 147)',
+        paddingLeft:10
+    },
+    preferredStationDetails:{
+        color:'rgb(15, 113, 184)',
+        textDecorationLine: 'underline',
+        paddingLeft:5
+    },
+    // Privacy Policy
+    PrivacytContainer:{
+        backgroundColor:'#FFF',
+        flex:1,
+   },
+   //newsletter
+    newsLetterContainer:{
+        backgroundColor:'#FFF',
+        flex:1,
+    },
+    newsletterView:{
+        flexDirection: 'row',
+        borderBottomColor:'rgb(200, 199, 204)',
+        borderBottomWidth:1,
+        borderTopColor:'rgb(200, 199, 204)',
+        borderTopWidth:1,
+    },
+    newsLetterTitleView:{
+        flex:9,
+        justifyContent:'flex-start',
+        textAlign:'center',
+        paddingTop:5,
+        paddingBottom:5
+    },
+    newsLetterTitleText:{
+        color:'rgb(0, 0, 0)',
+        fontSize:15,
+        paddingLeft:6
+    },
+    notificationRightIconView:{
+        flex:1,
+        justifyContent:'flex-start',
+        paddingTop:5,
+        paddingBottom:5
+    },
+    newsLetterContentText:{
+        fontSize:12,
+        color:'rgb(51, 51, 51)',
+        paddingLeft:5
+    },
+
+   //Notification 
+   notificationContainer:{
+        backgroundColor:'#FFF',
+        flex:1,
+    },
+    notificationView:{
+        flexDirection: 'row',
+        borderBottomColor:'rgb(200, 199, 204)',
+        borderBottomWidth:1,
+        borderTopColor:'rgb(200, 199, 204)',
+        borderTopWidth:1,
+    },
+    notificationTitleView:{
+        flex:9,
+        justifyContent:'flex-start',
+        textAlign:'center',
+        color:'rgb(0, 0, 0)',
+        paddingTop:5,
+        paddingBottom:5,
+    },
+    notificationTitleText:{
+        color:'rgb(0, 0, 0)',
+        fontSize:15,
+        paddingLeft:6
+    },
+    notificaitonRightIconView:{
+        flex:1,
+        justifyContent:'flex-start',
+        paddingTop:5,
+        paddingBottom:5
+    },
+    notificationContentText:{
+        fontSize:12,
+        color:'rgb(51, 51, 51)',
+        paddingLeft:5
+    }
 });
 
 export default styles;

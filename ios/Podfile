@@ -12,6 +12,8 @@ target 'egGroup' do
     # Pods for testing
     pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
 
+    pod 'RNGoogleSignin', :path => '../node_modules/react-native-google-signin'
+
   end
 
   target 'egGroupTests' do

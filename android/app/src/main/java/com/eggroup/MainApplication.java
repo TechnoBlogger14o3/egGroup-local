@@ -3,7 +3,7 @@ package com.eggroup;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
-import co.apptailor.googlesignin.RNGoogleSigninPackage;
+import com.cardio.RNCardIOPackage;
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
 import com.airbnb.android.react.maps.MapsPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -26,8 +26,10 @@ public class MainApplication extends Application implements ReactApplication {
     @Override
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
-          new MainReactPackage(),
-            new RNGoogleSigninPackage(),
+
+            new MainReactPackage(),
+            new RNCardIOPackage(),
+
             new SplashScreenReactPackage(),
             new MapsPackage(),
             new VectorIconsPackage()

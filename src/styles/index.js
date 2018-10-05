@@ -140,6 +140,62 @@ const styles = StyleSheet.create({
         top: 0,
         zIndex: 1
     },
+
+    checkboxContainer: {
+        flexDirection: "row",
+        paddingHorizontal: 16,
+        paddingVertical: 8
+    },
+
+    checkboxText: {
+        fontSize: 16,
+        color: "#000000"
+    },
+
+    listPickerContainer: {
+        flex: 3,
+    },
+
+    listPickerStyle: {
+        width: 150,
+        flex: 2,
+        color: "rgb(15, 113, 184)"
+    },
+
+    countryImage:{
+        marginTop: 5,
+    },
+
+    checkboxStyle: {
+        paddingVertical: 16,
+    },
+
+    subscribeStyle: {
+        flexDirection: "row",
+        paddingHorizontal: 16
+    },
+
+    checkboxAgree: {
+        flexDirection: "row",
+        overflow: "hidden",
+        flex: 1,
+        paddingLeft: 16,
+        paddingRight: 32
+    },
+
+    checkboxPrivacy : {
+        flexDirection: 'row',
+        overflow: 'hidden',
+        flex: 1,
+        paddingLeft: 16,
+        paddingRight: 32
+    },
+
+    errorText: {
+        color:'red',
+        paddingHorizontal :16
+    },
+
     menubar: {
         height: 56,
         alignItems: "center",
@@ -311,16 +367,6 @@ const styles = StyleSheet.create({
       submitButton: {
         marginTop: 20,
       },
-      errorText: {
-        color: 'red',
-        paddingHorizontal: 0,
-        paddingLeft: 14,
-    
-    
-        fontSize: 15,
-      },
-
-    // Support Screen
 
     supportContainer: {
         backgroundColor:'#FFF',
@@ -433,7 +479,6 @@ const styles = StyleSheet.create({
         color:'rgb(51, 51, 51)',
         paddingLeft:5
     }
-
 });
 
 export default styles;

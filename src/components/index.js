@@ -7,5 +7,6 @@ import DatePicker from "./DatePicker";
 import Phone from "./Phone";
 import Checkbox from "./Checkbox";
 import ListPicker from "./ListPicker";
+import PickerImage from "./PickerImage"
 
-export {Routes, InputText, Button, LinkButton, Toolbar, DatePicker, Phone, Checkbox, ListPicker};
+export {Routes, InputText, Button, LinkButton, Toolbar, DatePicker, Phone, Checkbox, ListPicker, PickerImage};

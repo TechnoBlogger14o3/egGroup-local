@@ -25,12 +25,12 @@ export default class Routes extends Component {
 		return (
 			<Router>
 					<Scene>
-							<Scene key="auth" hideNavBar={true} initial={true}>
+							<Scene key="auth" hideNavBar={true} initial={false}>
 									<Scene key="login" component={Login} title="Login" />
 									<Scene key="register" component={Register} title="Register" />
 									<Scene key="forgotPassword" component={ForgotPassword} title="ForgotPassword" />
 							</Scene>
-							<Scene key="app" hideNavBar={true} initial={false}>
+							<Scene key="app" hideNavBar={true} initial={true}>
 									<Scene tabs key="home" hideNavBar={true} swipeEnabled={true} tabBarPosition="bottom">
 											<Scene key="home" component={Home} title="Home" />
 											<Scene key="settings" hideNavBar={true}  component={Settings} />

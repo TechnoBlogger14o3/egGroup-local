@@ -7,7 +7,7 @@ import { Field, reduxForm , getFormValues } from "redux-form";
 import validator from "validator";
 
 import { InputText, Button, LinkButton, Toolbar, DatePicker, Checkbox, Phone } from "../components";
-import { navigateBack } from "../helpers";
+import { navigateBack, navigateTo } from "../helpers";
 
 import logo from "../assets/images/signup/Loginlogo.png"
 import styles from '../styles';
@@ -84,7 +84,8 @@ class Register extends Component {
     }
 
     onSubmit = values => {
-     alert('Successful Registered');
+      alert('Thank you for signing up. You will receive an email shortly with a link to confirm your email address');
+      navigateTo("login");
     }
 
 
@@ -219,6 +220,7 @@ class Register extends Component {
                                     <View style={styles.subscribeStyle}>
                                     <Text style={styles.checkboxText}>Subscribe the </Text>
                                     <LinkButton
+                                        disabled={true}
                                         title="Newsletter"
                                         color="rgb(15, 113, 184)" />
                                 </View>
@@ -260,23 +262,18 @@ const validate = values => {
 
     if (!values.firstName) {
         errors.firstName = "Rerquired"
-    } else if (values.firstName.length < 8) {
-        errors.firstName = "Length should me greater than 8";
-    } else if (values.firstName.length > 30) {
+    }  else if (values.firstName.length > 30) {
         errors.firstName = "Length should me less than 30";
     } else if (!/^[a-zA-Z ]+$/.test(values.firstName.trim())) {
-        errors.name = "Please enter a valid name"
+        errors.firstName = "Please enter a valid input in the Firstname"
     }
-
 
     if (!values.lastName) {
         errors.lastName = "Rerquired"
-    } else if (values.lastName.length < 8) {
-        errors.lastName = "Length should me greater than 8";
     } else if (values.lastName.length > 30) {
         errors.lastName = "Length should me less than 30";
     } else if (!/^[a-zA-Z ]+$/.test(values.lastName.trim())) {
-        errors.name = "Please enter a valid name"
+        errors.firstName = "Please enter a valid input in the Lastname"
     }
 
     if (!values.datePicker) {
@@ -287,14 +284,16 @@ const validate = values => {
         errors.phone = "Required"
     } else if (!validator.isNumeric(values.phone.trim())) {
         errors.phone = "Please enter a valid phone"
+    }else if (values.phone.length < 10) {
+        errors.phone = "Please enter a valid input in the Phone";
     } else if (values.phone.length > 10) {
-        errors.lastName = "Mobile number should be 10 digits";
+        errors.phone = "Please enter a valid input in the Phone";
     }
 
     if (!values.email) {
         errors.email = "Required"
     } else if (!validator.isEmail(values.email.trim())) {
-        errors.email = "Please enter a valid email"
+        errors.email = "Please enter a valid input in the Email"
     }
 
     if (!values.password) {
@@ -304,7 +303,7 @@ const validate = values => {
     if (!values.confirmpassword) {
         errors.confirmpassword = "Required"
     }else if(values.confirmpassword !== values.password){
-        errors.confirmpassword = "Password Mismatched!"
+        errors.confirmpassword = "Password and confirm password don't match"
     }
 
     return errors;

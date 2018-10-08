@@ -5,15 +5,13 @@ import { Field, reduxForm } from 'redux-form';
 import validator from 'validator';
 import { Icon } from "react-native-elements";
 
-import {
-  View, ScrollView, Text, Image,
-} from 'react-native';
-import {
-  InputText, Button, DatePicker,Toolbar,
-} from '../components';
-import Phone from './../components/Phone'
+import { View, ScrollView, Text, Image } from 'react-native';
+
+import { InputText, Button, DatePicker,Toolbar, Phone, PickerImage } from '../components';
+
 import { navigateBack } from "../helpers";
 import { navigateTo } from "../helpers";
+
 import styles from '../styles';
 
 class EditProfile extends Component {
@@ -94,6 +92,7 @@ render() {
   const { handleSubmit } = this.props;
   return (
     <View style={[styles.appContainer, styles.whiteBackground]}>
+
        <Toolbar style={styles.noBorderToolbar} openDrawer={this.openDrawer}>
                          <Icon
                             name='arrow-left'
@@ -101,19 +100,19 @@ render() {
                             type="material-community"
                             onPress={navigateBack}
                             iconStyle={styles.leftIconContainer}
-                        /> 
+                        />
                         <View style={styles.toolbarUtils}>
                             <Text style={styles.appTitle}>{this.props.title}</Text>
                         </View>
       </Toolbar>
      <ScrollView>
       <View style={styles.profilePic}>
-        <Image source={require('./../assets/images/settings/profile.jpg')} style={styles.profilePicImage} />
 
+        <PickerImage />
       </View>
-     
+
       <View style={styles.profileContainer}>
-        
+
           <Field
             name="firstname"
             label="First name *"
@@ -147,7 +146,7 @@ render() {
               onPress={handleSubmit(this.onSubmit)}
             />
           </View>
-       
+
       </View>
       </ScrollView>
 

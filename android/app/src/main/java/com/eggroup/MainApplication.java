@@ -3,6 +3,7 @@ package com.eggroup;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.imagepicker.ImagePickerPackage;
 import com.cardio.RNCardIOPackage;
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
 import com.airbnb.android.react.maps.MapsPackage;
@@ -28,6 +29,7 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
 
             new MainReactPackage(),
+            new ImagePickerPackage(),
             new RNCardIOPackage(),
 
             new SplashScreenReactPackage(),

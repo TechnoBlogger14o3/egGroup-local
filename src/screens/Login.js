@@ -35,7 +35,6 @@ class Login extends Component {
     }
 
     onSubmit = values => {
-        alert('Login Successful');
         redirectTo("app")
     }
 

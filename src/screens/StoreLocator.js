@@ -89,7 +89,9 @@ class StoreLocator extends Component {
                               latitude: 12.9516,
                               longitude: 77.6996
                         },
-                  }];
+
+                  },
+                ];
                   var farray = sampleData.filter((item) => {
                         return item.zipCode.startsWith(searchedStore) || item.city.startsWith(searchedStore) || item.stateName.startsWith(searchedStore);
                   })
@@ -124,7 +126,7 @@ class StoreLocator extends Component {
                        </Toolbar>
                         <View style={{ flex: 3 }}>
 
-                              <MapView style={{ left: 0, right: 0, top: 0, bottom: 0, position: 'absolute' }}
+                              <MapView style={{ width: Dimensions.get('window').width, height: Dimensions.get('window').height/2, left: 0, right: 0, top: 0, bottom: 0, position: 'absolute' }}
                                     provider={PROVIDER_GOOGLE}
                                     showsUserLocation={true}
                                     showsMyLocationButton={true}

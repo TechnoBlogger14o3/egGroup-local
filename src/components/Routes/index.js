@@ -20,8 +20,6 @@ import NewsLetters from "../../screens/NewsLetters";
 import TermsAndConditions from "../../screens/TermsAndConditions";
 import Home from '../../screens/Home';
 
-
-
 export default class Routes extends Component {
 	render() {
 		return (
@@ -51,7 +49,6 @@ export default class Routes extends Component {
 									<Scene key="notifications" component={Notifications} title="Notification Preference" />
 									<Scene key="newsLetters" component={NewsLetters} title="Newsletter subscriptions"/>
 									<Scene key="termsAndConditions" component={TermsAndConditions} title="Terms & Conditions"/>
-
 							</Scene>
 					</Scene>
 			</Router>

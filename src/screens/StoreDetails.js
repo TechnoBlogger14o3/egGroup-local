@@ -61,7 +61,7 @@ class StoreLocator extends Component {
 
       render() {
             return (
-                  <View style={styles.container}>
+                  <View style={styles.mapContainer}>
                       <Toolbar style={styles.noBorderToolbar} openDrawer={this.openDrawer}>
                             <Icon
                                name={this.getTypedIcon('arrow-left')}
@@ -75,8 +75,7 @@ class StoreLocator extends Component {
                            </View>
                        </Toolbar>
                         <View style={{ flex: 3 }}>
-
-                              <MapView style={{ left: 0, right: 0, top: 0, bottom: 0, position: 'absolute' }}
+                              <MapView style={{ width: Dimensions.get('window').width, height: Dimensions.get('window').height/2, left: 0, right: 0, top: 0, bottom: 0, position: 'absolute' }}
                                     provider={PROVIDER_GOOGLE}
                                     showsUserLocation={true}
                                     showsMyLocationButton={true}
@@ -85,15 +84,12 @@ class StoreLocator extends Component {
                                           longitude: this.state.lng,
                                           latitudeDelta: 0.0900,
                                           longitudeDelta: 0.0500,
-                                    }}
-                              >
+                                    }}>
                                     <MapView.Marker
-
                                           coordinate={{ latitude: this.state.lat, longitude: this.state.lng }} title={this.state.address}
                                           description={this.state.address}
                                     />
                               </MapView>
-
                         </View>
                         <View style={{ flex: 2 }}>
                               <FlatList
@@ -118,7 +114,7 @@ class StoreLocator extends Component {
 
                                                             <View style={{ flex: 1, backgroundColor: 'rgb(255, 255, 255)', flexDirection: 'row', justifyContent: 'center' }}>
                                                                   <Text style={{ color: 'black', fontSize: 15, alignSelf: 'center' }}> {item.Distance} </Text>
-                                                                  
+
                                                             </View>
 
                                                       </TouchableOpacity>

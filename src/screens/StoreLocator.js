@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { StyleSheet, Text, TextInput, View, Dimensions, TouchableOpacity,FlatList,Alert, Platform, Image } from 'react-native';
+import { StyleSheet, Text, TextInput, View, Dimensions, TouchableOpacity,FlatList,Alert, Platform, Image,SafeAreaView } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import { SearchBar, Icon } from 'react-native-elements';
 
@@ -143,6 +143,7 @@ class StoreLocator extends Component {
 
       render() {
             return (
+                  <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
                   <View style={styles.mapContainer}>
                       <Toolbar style={styles.noBorderToolbar} openDrawer={this.openDrawer}>
                             <Icon
@@ -159,7 +160,7 @@ class StoreLocator extends Component {
                         <View style={{ flex: 3 }}>
 
                               <MapView style={{ width: Dimensions.get('window').width, height: Dimensions.get('window').height/2, left: 0, right: 0, top: 0, bottom: 0, position: 'absolute' }}
-                                    provider={PROVIDER_GOOGLE}
+                                    provider={MapView.PROVIDER_GOOGLE}
                                     showsUserLocation={true}
                                     showsMyLocationButton={true}
                                     region={{
@@ -236,8 +237,7 @@ class StoreLocator extends Component {
                         </View>
 
                   </View>
-
-
+                  </SafeAreaView>
             );
       }
 }

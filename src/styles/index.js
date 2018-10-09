@@ -491,6 +491,32 @@ const styles = StyleSheet.create({
           left: 10,
           right: 10
     },
+    mainView: {
+        flex: 1, 
+        padding: 70, 
+        alignItems: 'center',
+        justifyContent:'center',
+    },
+
+    loyalabilityplusDesign: {
+        color: "rgb(15, 113, 184)", 
+        fontSize: 100, 
+        flexDirection: 'column', 
+        justifyContent: 'center',
+        alignItems: 'center',    
+    },
+    
+    loyalabilityText: {
+        color: 'black', 
+        fontSize: 16, 
+        flex: 1, 
+        flexDirection: 'row', 
+        alignItems: 'center',
+        paddingHorizontal: 10, 
+        paddingRight: 20,
+        paddingLeft:20,
+        marginTop:1,
+    },
 });
 
 export default styles;

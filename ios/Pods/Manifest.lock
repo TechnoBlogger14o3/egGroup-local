@@ -89,6 +89,9 @@ DEPENDENCIES:
   - Google-Maps-iOS-Utils
   - GoogleMaps
   - react-native-google-maps (from `../node_modules/react-native-maps`)
+
+  - react-native-image-picker (from `../node_modules/react-native-image-picker`)
+
   - react-native-maps (from `../node_modules/react-native-maps`)
   - react-native-splash-screen (from `../node_modules/react-native-splash-screen`)
   - React/Core (from `../node_modules/react-native`)
@@ -104,6 +107,9 @@ DEPENDENCIES:
   - React/RCTText (from `../node_modules/react-native`)
   - React/RCTVibration (from `../node_modules/react-native`)
   - React/RCTWebSocket (from `../node_modules/react-native`)
+
+  - ReactNativePermissions (from `../node_modules/react-native-permissions`)
+
   - RNGoogleSignin (from `../node_modules/react-native-google-signin`)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga/yoga.podspec`)
 
@@ -124,10 +130,18 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native"
   react-native-google-maps:
     :path: "../node_modules/react-native-maps"
+
+  react-native-image-picker:
+    :path: "../node_modules/react-native-image-picker"
+
   react-native-maps:
     :path: "../node_modules/react-native-maps"
   react-native-splash-screen:
     :path: "../node_modules/react-native-splash-screen"
+
+  ReactNativePermissions:
+    :path: "../node_modules/react-native-permissions"
+
   RNGoogleSignin:
     :path: "../node_modules/react-native-google-signin"
   yoga:
@@ -145,6 +159,8 @@ SPEC CHECKSUMS:
   react-native-maps: 066c2afcc89e18726377bcc685315f989ca22449
   yoga: b1ce48b6cf950b98deae82838f5173ea7cf89e85
 
-PODFILE CHECKSUM: 36161d0f52526c17bfe7f3a23a21717ae6248784
+
+PODFILE CHECKSUM: fbe934ca8b0ffc23f9c85d9502603b0e2a039f44
+
 
 COCOAPODS: 1.5.3

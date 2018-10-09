@@ -151,6 +151,10 @@ android {
 }
 
 dependencies {
+
+    compile project(':react-native-push-notification')
+    compile project(':react-native-google-signin')
+    compile project(':react-native-camera')
     compile project(':rn-fetch-blob')
     compile project(':react-native-image-picker')
     implementation 'net.hockeyapp.android:HockeySDK:5.1.1'

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity ,SafeAreaView} from 'react-native';
 import { Icon } from "react-native-elements";
 
 import { InputText, Button, Toolbar } from "../components";
@@ -16,6 +16,7 @@ class Home extends Component {
 
   render() {
       return (
+        <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
         <View style={[styles.appContainer, styles.whiteBackground]}>
             <Toolbar style={styles.noBorderToolbar}>
                   <View style={styles.toolbarUtils}>
@@ -26,6 +27,7 @@ class Home extends Component {
                 <Text>Hi, I am a home page</Text>
             </View>
         </View>
+        </SafeAreaView>
       );
     }
 }

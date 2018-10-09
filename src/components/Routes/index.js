@@ -23,6 +23,42 @@ import Home from '../../screens/Home';
 
 export default class Routes extends Component {
 
+	renderSettingsIcon = () => {
+			return (
+				<Icon
+						name="settings"
+						size={24}
+						type="material-community"/>
+			)
+	}
+
+	renderHomeIcon = () => {
+			return (
+				<Icon
+						name="home"
+						size={24}
+						type="material-community"/>
+			)
+	}
+
+	renderHomeIcon = () => {
+			return (
+				<Icon
+						name="home"
+						size={24}
+						type="material-community"/>
+			)
+	}
+
+	renderFindIcon = () => {
+			return (
+				<Icon
+						name="crosshairs"
+						size={24}
+						type="material-community"/>
+			)
+	}
+
 	render() {
 		return (
 			<Router>
@@ -34,11 +70,9 @@ export default class Routes extends Component {
 							</Scene>
 							<Scene key="app" hideNavBar={true} initial={false}>
 									<Scene tabs key="home" hideNavBar={true} swipeEnabled={true} tabBarPosition="bottom">
-											<Scene key="home" component={Home} title="Home" />
-											<Scene key="settings" hideNavBar={true}
-													icon={<Icon color='#f53d3d' type="material-community" name="arrow-left" size={25} />}
-													component={Settings} />
-											<Scene key="storeLocator" hideNavBar={true}  component={StoreLocator} />
+											<Scene key="home" icon={this.renderHomeIcon} hideNavBar={true}  component={Home} title="Home" />
+											<Scene key="settings" icon={this.renderSettingsIcon} hideNavBar={true} title="Settings" component={Settings} />
+											<Scene key="storeLocator" icon={this.renderFindIcon} hideNavBar={true} title="Station Finder" component={StoreLocator} />
 									</Scene>
 									<Scene key="storeDetails" component={StoreDetails} title="StoreDetails"/>
 									<Scene key="addLoyaltyCard" component={AddLoyaltyCard} title="Loyalty Cards" />

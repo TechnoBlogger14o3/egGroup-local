@@ -3,7 +3,7 @@ import React,{Component} from 'react';
 import {
     Text,
     View,
-    Image,DrawerLayoutAndroid,
+    Image,
     FlatList,Platform,TouchableNativeFeedback
   } from 'react-native';
 import { Icon } from "react-native-elements";
@@ -18,19 +18,15 @@ class Settings extends Component {
       super(props);
       this.state={
         data:[
-            {settingTitle:'Set preferred station',leftIconName:require('./../assets/images/settings/Setpreferredstation.png'),rightIconName:require('./../assets/images/settings/ArrowRight.png'),Scence:'preferredStation'},
+            {settingTitle:'Set Preferred Station',leftIconName:require('./../assets/images/settings/Setpreferredstation.png'),rightIconName:require('./../assets/images/settings/ArrowRight.png'),Scence:'preferredStation'},
             {settingTitle:'Edit Profile',leftIconName:require('./../assets/images/settings/Editprofile.png'),rightIconName:require('./../assets/images/settings/ArrowRight.png'),Scence:'editProfile'},
             {settingTitle:'Support',leftIconName:require('./../assets/images/settings/Support.png'),rightIconName:require('./../assets/images/settings/ArrowRight.png'),Scence:'support'},
             {settingTitle:'Terms & Conditions',leftIconName:require('./../assets/images/settings/T&C.png'),rightIconName:require('./../assets/images/settings/ArrowRight.png'),Scence:'termsAndConditions'},
             {settingTitle: 'Privacy Policy',leftIconName:require('./../assets/images/settings/Privacypolicy.png'),rightIconName:require('./../assets/images/settings/ArrowRight.png'),Scence:'privacyPolicy'},
             {settingTitle:'Notification Preferences',leftIconName:require('./../assets/images/settings/Notification.png'),rightIconName:require('./../assets/images/settings/ArrowRight.png'),Scence:'notifications'},
-            {settingTitle:'Newsletter subscriptions',leftIconName:require('./../assets/images/settings/NewsletterSignup.png'),rightIconName:require('./../assets/images/settings/ArrowRight.png'),Scence:'newsLetters'}
+            {settingTitle:'Newsletter Subscriptions',leftIconName:require('./../assets/images/settings/NewsletterSignup.png'),rightIconName:require('./../assets/images/settings/ArrowRight.png'),Scence:'newsLetters'}
         ]
       }
-    }
-
-    openDrawer = () => {
-        this.drawer.openDrawer();
     }
 
     getTypedIcon = name => {
@@ -40,14 +36,8 @@ class Settings extends Component {
     render() {
         const navigationView = (<Sidebar/>);
       return (
-        <DrawerLayoutAndroid
-           id="drawer"
-           drawerWidth={300}
-           ref={node => this.drawer = node}
-           drawerPosition={DrawerLayoutAndroid.positions.Left}
-           renderNavigationView={() => navigationView}>
            <View style={styles.settingContainer}>
-                   <Toolbar style={styles.noBorderToolbar} openDrawer={this.openDrawer}>
+                   <Toolbar style={styles.noBorderToolbar}>
                          <Icon
                             name={this.getTypedIcon('arrow-left')}
                             size={24}
@@ -78,10 +68,8 @@ class Settings extends Component {
                     </TouchableNativeFeedback>
                     }
                     keyExtractor={(item) => item.settingTitle}
-                            />
+                  />
            </View>
-
-          </DrawerLayoutAndroid>
 
       );
     }

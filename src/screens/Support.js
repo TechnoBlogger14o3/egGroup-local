@@ -1,15 +1,14 @@
 import { connect } from 'react-redux';
 import React,{Component} from 'react';
-import {
-    StyleSheet,
-    Text,Image,NativeModules,
-    View,TouchableNativeFeedback
+import {Platform,Linking,
+    Text,Image,TouchableOpacity,
+    View,
   } from 'react-native';
 import { Icon } from "react-native-elements";
 import { Toolbar } from "../components";
 import { navigateBack } from "../helpers";
-import { navigateTo } from "../helpers";
 import styles from './../styles'
+
 class Support extends Component{
     constructor(props){
         super(props);
@@ -18,9 +17,40 @@ class Support extends Component{
           ]
         }
       }
+
+
+      sendAnEmail=()=>{
+        const url='mailto:?to=enquiries@eurogarages.com&subject=Feedback&body='
+        Linking.canOpenURL(url).then(supported => {
+            if (!supported) {
+              console.log('Can\'t handle url: ' + url);
+            } else {
+
+              return Linking.openURL(url);
+            }
+          }).catch(err => console.error('An error occurred', err));
+      }
+
+      makeACall=()=>{
+        const url = 'tel:01254582111';
+        Linking.canOpenURL(url)
+            .then((supported) => {
+                if (!supported) {
+                    console.error('Can\'t handle url: ' + url);
+                } else {
+                    return Linking.openURL(url)
+                        .then((data) => console.error("then", data))
+                        .catch((err) => { throw err; });
+                }
+            })
+            .catch((err) => console.error('An error occurred', err));
+      }
+
+
+
     render(){
         return (
-         
+
              <View style={styles.supportContainer}>
                 <Toolbar style={styles.noBorderToolbar} openDrawer={this.openDrawer}>
                     <Icon
@@ -29,9 +59,16 @@ class Support extends Component{
                         type="material-community"
                         onPress={navigateBack}
                         iconStyle={styles.leftIconContainer}
-                    /> 
-                    <View style={styles.toolbarUtils}>
-                        <Text style={styles.appTitle}>{this.props.title}</Text>
+                    />
+                     <View style={styles.toolbarUtils}>
+                        <View style={styles.notificationTitleView}>
+                            <Text style={styles.appTitle}>Support</Text>
+                        </View>
+                        <View style={styles.logoutView}>
+                        <TouchableOpacity onPress={this.logoutFunction}>
+                            <Text style={[styles.logoutText,{fontSize:18}]}>+</Text>
+                        </TouchableOpacity>
+                        </View>
                     </View>
                 </Toolbar>
                 <View style={styles.supportView}>
@@ -42,9 +79,11 @@ class Support extends Component{
                        <Image source={require('./../assets/images/settings/Support.png')} style={styles.settingIcons}></Image>
                     </View>
                     <View style={styles.contactView}>
-                            <Text style={styles.preferredStationDetails}>enquiries@eurogarages.com</Text>
+                        <TouchableOpacity onPress={this.sendAnEmail}>
+                             <Text style={styles.preferredStationDetails}>enquiries@eurogarages.com</Text>
+                        </TouchableOpacity>
                     </View>
-                  
+
                 </View>
                 <View style={styles.supportView}>
                     <Text style={styles.SupportTitleText}>CALL US ON</Text>
@@ -54,7 +93,9 @@ class Support extends Component{
                        <Image source={require('./../assets/images/settings/Support.png')} style={styles.settingIcons}></Image>
                     </View>
                     <View style={styles.contactView}>
-                       <Text style={styles.preferredStationDetails}>01254 582111</Text>
+                       <TouchableOpacity onPress={this.makeACall}>
+                            <Text style={styles.preferredStationDetails}>01254 582111</Text>
+                       </TouchableOpacity>
                     </View>
                 </View>
              </View>

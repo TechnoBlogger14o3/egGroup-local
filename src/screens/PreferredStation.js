@@ -19,17 +19,16 @@ class PreferredStation extends Component{
         super(props);
         this.state={
           data:[
-              {id:'1',stationName:'esso', address:'Basement, Building No. 29, Seshadri Road, Anand Rao Circle, Gandhi Nagar, Bengaluru, Karnataka 560009', storeOpensAt:'07:00 AM',storeClosesAt:'11:00 PM', distanceOfTheStore:'1 Km',storeStatus:'Open', rightIconName:require('./../assets/images/settings/ArrowRight.png'), Scence:'preferredStation'},
-              {id:'2',stationName:'kfc',address:'Hospital, KBR Mall 88 NH 44 Opposite to VIMS, Marathahalli, Bengaluru, Karnataka 560037', storeOpensAt:'07:00 AM',storeClosesAt:'11:00 PM', distanceOfTheStore:'2 Km',storeStatus:'Closed', rightIconName:require('./../assets/images/settings/ArrowRight.png'), Scence:'preferredStation'},
-              {id:'3',stationName:'subway',address:'Basement, Building No. 29, Seshadri Road, Anand Rao Circle, Gandhi Nagar, Bengaluru, Karnataka 560009',  storeOpensAt:'07:00 AM',storeClosesAt:'11:00 PM', distanceOfTheStore:'18 Km',storeStatus:'Open',rightIconName:require('./../assets/images/settings/ArrowRight.png'), Scence:'preferredStation'},
-             
+              {id:'1',stationName:'Esso', address:'Basement, Building No. 29, Seshadri Road, ', storeOpensAt:'07:00 AM',storeClosesAt:'11:00 PM', distanceOfTheStore:'1 Km',storeStatus:'Open', rightIconName:require('./../assets/images/settings/ArrowRight.png'), Scence:'preferredStation'},
+              {id:'2',stationName:'Kfc',address:'Hospital, KBR Mall 88 NH 44 Opposite to VIMS,', storeOpensAt:'07:00 AM',storeClosesAt:'11:00 PM', distanceOfTheStore:'2 Km',storeStatus:'Closed', rightIconName:require('./../assets/images/settings/ArrowRight.png'), Scence:'preferredStation'},
+              {id:'3',stationName:'Subway',address:'Basement, Building No. 29, Seshadri Road, ',  storeOpensAt:'07:00 AM',storeClosesAt:'11:00 PM', distanceOfTheStore:'18 Km',storeStatus:'Open',rightIconName:require('./../assets/images/settings/ArrowRight.png'), Scence:'preferredStation'},
           ]
         }
       }
     render(){
         const navigationView = (<Sidebar/>);
         return (
-         
+
              <View style={styles.preferredStationContainer}>
                      <Toolbar style={styles.noBorderToolbar} openDrawer={this.openDrawer}>
                            <Icon
@@ -38,7 +37,7 @@ class PreferredStation extends Component{
                               type="material-community"
                               onPress={navigateBack}
                               iconStyle={styles.leftIconContainer}
-                          /> 
+                          />
                           <View style={styles.toolbarUtils}>
                               <Text style={styles.appTitle}>{this.props.title}</Text>
                           </View>
@@ -50,7 +49,7 @@ class PreferredStation extends Component{
                         <FlatList
                             data={ this.state.data }
                             renderItem={({item}) =>
-                             <TouchableNativeFeedback onPress={()=>alert('link to station finder')}> 
+                             <TouchableNativeFeedback onPress={()=>alert('link to station finder')}>
                             {/* navigateTo(item.Scence) */}
                                 <View style={styles.ListContainer}>
                                     <View style={styles.preferredStationView}>
@@ -64,10 +63,10 @@ class PreferredStation extends Component{
                                               <Text style={styles.distanceText}>{item.distanceOfTheStore}</Text>
                                             </View>
                                         </View>
-                                        
-                                        <Text style={styles.hourText}>Today's hours: {item.storeOpensAt} - {item.storeClosesAt}</Text>
+
+                                        <Text style={styles.hourText}>Todays hours: {item.storeOpensAt} - {item.storeClosesAt}</Text>
                                     </View>
-                                    <View style={styles.rightIconView}>
+                                    <View style={[styles.rightIconView,{ alignSelf:'center',marginTop:10}]}>
                                          <Image source={item.rightIconName} style={styles.settingIcons}  onPress={navigateBack}></Image>
                                     </View>
                                 </View>
@@ -76,7 +75,7 @@ class PreferredStation extends Component{
                             keyExtractor={(item) => item.id}
                         />
                   </View>
-                  
+
              </View>
         );
     }

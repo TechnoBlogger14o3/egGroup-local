@@ -9,7 +9,6 @@ import co.apptailor.googlesignin.RNGoogleSigninPackage;
 import org.reactnative.camera.RNCameraPackage;
 import com.RNFetchBlob.RNFetchBlobPackage;
 import com.imagepicker.ImagePickerPackage;
-import com.cardio.RNCardIOPackage;
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
 import com.airbnb.android.react.maps.MapsPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -39,7 +38,6 @@ public class MainApplication extends Application implements ReactApplication {
             new RNCameraPackage(),
             new RNFetchBlobPackage(),
             new ImagePickerPackage(),
-            new RNCardIOPackage(),
 
             new SplashScreenReactPackage(),
             new MapsPackage(),

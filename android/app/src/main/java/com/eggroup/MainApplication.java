@@ -3,6 +3,7 @@ package com.eggroup;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.RNFetchBlob.RNFetchBlobPackage;
 import com.imagepicker.ImagePickerPackage;
 import com.cardio.RNCardIOPackage;
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
@@ -29,6 +30,7 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
 
             new MainReactPackage(),
+            new RNFetchBlobPackage(),
             new ImagePickerPackage(),
             new RNCardIOPackage(),
 

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Router, Scene } from "react-native-router-flux";
+import { Icon } from "react-native-elements";
 
 import Login from "../../screens/Login";
 import ForgotPassword from "../../screens/ForgotPassword";
@@ -21,19 +22,22 @@ import TermsAndConditions from "../../screens/TermsAndConditions";
 import Home from '../../screens/Home';
 
 export default class Routes extends Component {
+
 	render() {
 		return (
 			<Router>
 					<Scene>
-							<Scene key="auth" hideNavBar={true} initial={false}>
+							<Scene key="auth" hideNavBar={true} initial={true}>
 									<Scene key="login" component={Login} title="Login" />
 									<Scene key="register" component={Register} title="Register" />
 									<Scene key="forgotPassword" component={ForgotPassword} title="ForgotPassword" />
 							</Scene>
-							<Scene key="app" hideNavBar={true} initial={true}>
+							<Scene key="app" hideNavBar={true} initial={false}>
 									<Scene tabs key="home" hideNavBar={true} swipeEnabled={true} tabBarPosition="bottom">
 											<Scene key="home" component={Home} title="Home" />
-											<Scene key="settings" hideNavBar={true}  component={Settings} />
+											<Scene key="settings" hideNavBar={true}
+													icon={<Icon color='#f53d3d' type="material-community" name="arrow-left" size={25} />}
+													component={Settings} />
 											<Scene key="storeLocator" hideNavBar={true}  component={StoreLocator} />
 									</Scene>
 									<Scene key="storeDetails" component={StoreDetails} title="StoreDetails"/>

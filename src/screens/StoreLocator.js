@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import { StyleSheet, Text, TextInput, View, Dimensions, TouchableOpacity,FlatList,Alert, Platform, Image } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
@@ -64,7 +65,7 @@ class StoreLocator extends Component {
             console.log('data after:: ', this.state.stationdata);
           }
       searchStore = (text) => {
-            let searchedStore = text;
+            let searchedStore = text.toLowerCase();
             this.setState({ textInputValue: text });
 
             if (text.length > 0) {
@@ -72,7 +73,7 @@ class StoreLocator extends Component {
                         name: "JP Morghan",
                         address: "multiplex marathahalli, marathahalli village, marathahalli, bengaluru, karnataka 560037, india",
                         stateName:"Karnataka",
-                        city:"Bengalore",
+                        city:"Bangalore",
                         zipCode:"683248",
                         coordinates: {
                               latitude: 12.9428,
@@ -83,17 +84,48 @@ class StoreLocator extends Component {
                         name: "Innovative Multiplex",
                         address: "multiplex marathahalli, marathahalli village, marathahalli, bengaluru, karnataka 560037, india",
                         stateName:"Karnataka",
-                        city:"Bengalore",
-                        zipCode:"683248",
+                        city:"Bangalore",
+                        zipCode:"683249",
                         coordinates: {
                               latitude: 12.9516,
                               longitude: 77.6996
                         },
 
                   },
+                  {
+                        name:"More Megastore",
+                        city :"Bangalore",
+                        stateName:"Karnataka",
+                        zipCode:"560037",
+                       coordinates: {
+                        longitude:	77.698657,
+                        latitude:	12.948178
+                       }
+                      },
+                      {
+                        name:"Phoenix Marketcity",
+                        city :"Bangalore",
+                        stateName:"Karnataka",
+                        zipCode:"560048",
+                        coordinates: {
+                        latitude:12.984710,
+                        longitude:77.524460
+                        }
+                      },
+                      {
+                        name:"Garuda Mall",
+                        city :"Bangalore",
+                        stateName:"Karnataka",
+                        zipCode:"560025",
+                        coordinates: {
+                        latitude:15.136950,
+                        longitude:76.924454
+                        }
+
+                      }
                 ];
                   var farray = sampleData.filter((item) => {
-                        return item.zipCode.startsWith(searchedStore) || item.city.startsWith(searchedStore) || item.stateName.startsWith(searchedStore);
+                        return item.zipCode.toLowerCase().startsWith(searchedStore) || item.city.toLowerCase().startsWith(searchedStore) || item.stateName.toLowerCase().startsWith(searchedStore);
                   })
                   this.setState({ data: farray });
             }
@@ -147,7 +179,8 @@ class StoreLocator extends Component {
                                     <SearchBar lightTheme placeholder='Search' inputStyle={{ backgroundColor: 'rgb(250,250,250)' }}
                                           containerStyle={{ backgroundColor: 'rgb(250,250,250)' }}
                                           icon={{ type: 'font-awesome', color: 'gray', name: this.state.iconName }}
-                                          onFocus={() => this.setState({ iconName: 'arrow-left' })}
+                                          //as per vikranth request removed below event
+                                          // onFocus={() => this.setState({ iconName: 'arrow-left' })}
                                           onBlur={() => this.setState({ iconName: 'search' })}
                                           value={this.state.textInputValue}
                                           clearIcon={{ color: 'gray' }} onChangeText={this.searchStore} />
@@ -174,12 +207,15 @@ class StoreLocator extends Component {
 
                                                             <View style={{ flexDirection: 'row', width: 180, height: 30, borderRadius: 5, justifyContent: 'center', borderColor: 'gray', borderWidth: 1, backgroundColor: 'rgb(255, 255, 255)' }}>
                                                                   <View style={{ width: 60, borderTopLeftRadius: 5, borderBottomLeftRadius: 5, justifyContent: 'center', alignItems: 'center' }}>
+                                                                        <Image style={{width: 30, height: 20}} source={require('../assets/images/Logo_1.png')}/>
                                                                   </View>
                                                                   <View style={{ backgroundColor: 'gray', width: 1, height: 20, marginTop: 5 }} />
                                                                   <View style={{ width: 60, justifyContent: 'center', alignItems: 'center' }}>
+                                                                        <Image style={{width: 30, height: 20}} source={require('../assets/images/Logo_2.png')} />
                                                                   </View>
                                                                   <View style={{ backgroundColor: 'gray', width: 1, height: 20, marginTop: 5 }} />
                                                                   <View style={{ width: 60, borderTopRightRadius: 5, borderBottomRightRadius: 5, justifyContent: 'center', alignItems: 'center' }}>
+                                                                        <Image style={{width: 30, height: 20}} source={require('../assets/images/Logo_3.png')} />
                                                                   </View>
                                                             </View>
 

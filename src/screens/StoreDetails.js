@@ -126,36 +126,45 @@ class StoreLocator extends Component {
 
                                                 <View style={{ flexDirection: 'row', height: 40, borderRadius: 5, marginLeft: 16, marginRight: 16, marginTop: 10, justifyContent: 'center', borderColor: 'gray', borderWidth: 1, backgroundColor: 'rgb(255, 255, 255)' }}>
                                                       <View style={{ flex: 1, borderTopLeftRadius: 5, borderBottomLeftRadius: 5, justifyContent: 'center', alignItems: 'center' }}>
+                                                      <Image source={require('../assets/images/Logo_1.png')}     />
                                                       </View>
                                                       <View style={{ backgroundColor: 'gray', width: 1, height: 30, marginTop: 5 }} />
                                                       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                                                      <Image source={require('../assets/images/Logo_2.png')}     />
                                                       </View>
                                                       <View style={{ backgroundColor: 'gray', width: 1, height: 30, marginTop: 5 }} />
                                                       <View style={{ flex: 1, borderTopRightRadius: 5, borderBottomRightRadius: 5, justifyContent: 'center', alignItems: 'center' }}>
+                                                      <Image source={require('../assets/images/Logo_3.png')}     />
                                                       </View>
                                                 </View>
 
                                                 <View style={{ backgroundColor: 'gray', height: 1, marginTop: 10, marginLeft: 0, marginRight: 0, marginBottom: 10 }} />
 
-                                                <View style={{ flexDirection: 'row', height: 30, marginLeft: 16, marginRight: 16 ,marginBottom:20}}>
+                                                <View style={{ flexDirection: 'row', height: 30, marginLeft: 16, marginRight: 16 }}>
 
                                                       <View style={{flex:1,height: 30,justifyContent:'center' }}>
                                                             <Text style={{ color: 'black', alignSelf:'flex-start',fontSize: 15 }}> Opening Hours </Text>
                                                       </View>
 
-                                                      <View style={{flex:1,  height: 30,justifyContent:'center' }}>
+                                                      <View style={{flex:1,  height: 30,justifyContent:'center'}}>
                                                             <Image style={{ width: 20,alignSelf: 'flex-end', height: 20 }} />
                                                       </View>
                                                 </View>
 
-                                                 <View style={{ flexDirection: 'row', height: 30, padding:16 }}>
-                                                 <View style={{flex:1,height: 30,justifyContent:'center' }}>
+                                                 <View style={{ flexDirection: 'row', padding:16 }}>
+                                                 <View style={{flex:1,justifyContent:'center' }}>
+                                                            <Text style={{ color: 'black', alignSelf:'flex-start',fontSize: 15,marginTop:5,marginBottom:5 }}>Mon, Oct 08</Text>
+                                                            <Text style={{ color: 'black', alignSelf:'flex-start',fontSize: 15,marginTop:5,marginBottom:5 }}>Mon, Oct 09  </Text>
+                                                            <Text style={{ color: 'black', alignSelf:'flex-start',fontSize: 15,marginTop:5,marginBottom:5 }}>Mon, Oct 10  </Text>
                                                             <Text style={{ color: 'black', alignSelf:'flex-start',fontSize: 15,marginTop:5,marginBottom:5 }}>Mon, Oct 08</Text>
                                                             <Text style={{ color: 'black', alignSelf:'flex-start',fontSize: 15,marginTop:5,marginBottom:5 }}>Mon, Oct 09  </Text>
                                                             <Text style={{ color: 'black', alignSelf:'flex-start',fontSize: 15,marginTop:5,marginBottom:5 }}>Mon, Oct 10  </Text>
                                                       </View>
 
-                                                      <View style={{flex:1,height: 30,justifyContent:'center' }}>
+                                                      <View style={{flex:1,justifyContent:'center' }}>
+                                                            <Text style={{ color: 'black', alignSelf:'flex-end',fontSize: 15,marginTop:5,marginBottom:5 }}> 7:00 AM to 11:00 PM </Text>
+                                                            <Text style={{ color: 'black', alignSelf:'flex-end',fontSize: 15,marginTop:5,marginBottom:5 }}> 7:00 AM to 11:00 PM </Text>
+                                                            <Text style={{ color: 'black', alignSelf:'flex-end',fontSize: 15,marginTop:5,marginBottom:5 }}> 7:00 AM to 11:00 PM </Text>
                                                             <Text style={{ color: 'black', alignSelf:'flex-end',fontSize: 15,marginTop:5,marginBottom:5 }}> 7:00 AM to 11:00 PM </Text>
                                                             <Text style={{ color: 'black', alignSelf:'flex-end',fontSize: 15,marginTop:5,marginBottom:5 }}> 7:00 AM to 11:00 PM </Text>
                                                             <Text style={{ color: 'black', alignSelf:'flex-end',fontSize: 15,marginTop:5,marginBottom:5 }}> 7:00 AM to 11:00 PM </Text>

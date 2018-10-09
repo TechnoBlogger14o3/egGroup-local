@@ -7,7 +7,7 @@ import { Field, reduxForm , getFormValues } from "redux-form";
 import validator from "validator";
 
 import { InputText, Button, LinkButton, Toolbar, DatePicker, Checkbox, Phone } from "../components";
-import { navigateBack, navigateTo } from "../helpers";
+import { navigateBack,navigateTo } from "../helpers";
 
 import logo from "../assets/images/signup/Loginlogo.png"
 import styles from '../styles';
@@ -84,8 +84,8 @@ class Register extends Component {
     }
 
     onSubmit = values => {
-      alert('Thank you for signing up. You will receive an email shortly with a link to confirm your email address');
-      navigateTo("login");
+     alert('Successful Registered');
+     navigateTo('login');
     }
 
 
@@ -218,11 +218,12 @@ class Register extends Component {
                             checked={this.state.inActiveNewsletter}
                             labelComponent={
                                     <View style={styles.subscribeStyle}>
-                                    <Text style={styles.checkboxText}>Subscribe the </Text>
-                                    <LinkButton
-                                        disabled={true}
+                                    <Text style={styles.checkboxText}>Subscribe the Newsletter</Text>
+                                    {/* as per vikranth's request removed below toucahability */}
+                                    {/*
+                                     <LinkButton
                                         title="Newsletter"
-                                        color="rgb(15, 113, 184)" />
+                                        color="rgb(15, 113, 184)" /> */}
                                 </View>
                             } />
                         <Checkbox
@@ -262,18 +263,31 @@ const validate = values => {
 
     if (!values.firstName) {
         errors.firstName = "Rerquired"
-    }  else if (values.firstName.length > 30) {
+    }
+    //as per vikranth's request removed below validation
+
+    //  else if (values.firstName.length < 😎 {
+    //     errors.firstName = "Length should me greater than 8";
+    // }
+     else if (values.firstName.length > 30) {
         errors.firstName = "Length should me less than 30";
     } else if (!/^[a-zA-Z ]+$/.test(values.firstName.trim())) {
-        errors.firstName = "Please enter a valid input in the Firstname"
+        errors.name = "Please enter a valid name"
     }
+
 
     if (!values.lastName) {
         errors.lastName = "Rerquired"
-    } else if (values.lastName.length > 30) {
+    }
+    //as per vikranth's request removed below validation
+
+    // else if (values.lastName.length < 😎 {
+    //     errors.lastName = "Length should me greater than 8";
+    // }
+    else if (values.lastName.length > 30) {
         errors.lastName = "Length should me less than 30";
     } else if (!/^[a-zA-Z ]+$/.test(values.lastName.trim())) {
-        errors.firstName = "Please enter a valid input in the Lastname"
+        errors.name = "Please enter a valid name"
     }
 
     if (!values.datePicker) {
@@ -284,16 +298,14 @@ const validate = values => {
         errors.phone = "Required"
     } else if (!validator.isNumeric(values.phone.trim())) {
         errors.phone = "Please enter a valid phone"
-    }else if (values.phone.length < 10) {
-        errors.phone = "Please enter a valid input in the Phone";
     } else if (values.phone.length > 10) {
-        errors.phone = "Please enter a valid input in the Phone";
+        errors.lastName = "Mobile number should be 10 digits";
     }
 
     if (!values.email) {
         errors.email = "Required"
     } else if (!validator.isEmail(values.email.trim())) {
-        errors.email = "Please enter a valid input in the Email"
+        errors.email = "Please enter a valid email"
     }
 
     if (!values.password) {
@@ -303,7 +315,7 @@ const validate = values => {
     if (!values.confirmpassword) {
         errors.confirmpassword = "Required"
     }else if(values.confirmpassword !== values.password){
-        errors.confirmpassword = "Password and confirm password don't match"
+        errors.confirmpassword = "Password Mismatched!"
     }
 
     return errors;

@@ -3,9 +3,11 @@ package com.eggroup;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+
 import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
 import co.apptailor.googlesignin.RNGoogleSigninPackage;
 import org.reactnative.camera.RNCameraPackage;
+import com.RNFetchBlob.RNFetchBlobPackage;
 import com.imagepicker.ImagePickerPackage;
 import com.cardio.RNCardIOPackage;
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
@@ -35,6 +37,7 @@ public class MainApplication extends Application implements ReactApplication {
             new ReactNativePushNotificationPackage(),
             new RNGoogleSigninPackage(),
             new RNCameraPackage(),
+            new RNFetchBlobPackage(),
             new ImagePickerPackage(),
             new RNCardIOPackage(),
 

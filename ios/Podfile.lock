@@ -128,6 +128,7 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-maps"
   react-native-image-picker:
     :path: "../node_modules/react-native-image-picker"
+
   react-native-maps:
     :path: "../node_modules/react-native-maps"
   react-native-splash-screen:
@@ -152,5 +153,6 @@ SPEC CHECKSUMS:
   yoga: b1ce48b6cf950b98deae82838f5173ea7cf89e85
 
 PODFILE CHECKSUM: fbe934ca8b0ffc23f9c85d9502603b0e2a039f44
+
 
 COCOAPODS: 1.5.3

@@ -9,8 +9,7 @@ import { View, ScrollView, Text, Image } from 'react-native';
 
 import { InputText, Button, DatePicker,Toolbar, Phone, PickerImage } from '../components';
 
-import { navigateBack } from "../helpers";
-import { navigateTo } from "../helpers";
+import { navigateBack, navigateTo } from "../helpers";
 
 import styles from '../styles';
 

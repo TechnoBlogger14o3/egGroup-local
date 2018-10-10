@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, Image, Alert, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, Image, Alert, ScrollView, Platform } from 'react-native';
 import { connect } from 'react-redux';
 import { compose } from "redux";
 import { Field, reduxForm } from "redux-form";
@@ -86,8 +86,12 @@ class Login extends Component {
                                 secureTextEntry={!this.state.isPasswordShown}
                             />
                             <View style={styles.loginHelperCont}>
-                                <Image source={require('./../assets/images/select_country.png')} style={styles.countryImage} />
-                                <ListPicker />
+
+                                {Platform.OS !== 'ios' &&
+                                  <View>
+                                    <Image source={require('./../assets/images/select_country.png')} style={styles.countryImage} />
+                                    <ListPicker />
+                                  </View> }
                                 <LinkButton
                                     onPress={() => navigateTo("forgotPassword")}
                                     title="Forgot Password?"

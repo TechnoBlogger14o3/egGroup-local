@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
-import { View, Text, ScrollView ,Image, BackHandler, Alert } from 'react-native';
+import { View, Text, ScrollView ,Image, BackHandler, Alert, Platform } from 'react-native';
 import { Icon } from "react-native-elements";
 import { compose } from "redux";
 import { Field, reduxForm , getFormValues } from "redux-form";
@@ -139,14 +139,27 @@ class Register extends Component {
         );
     }
 
+    getTypedIcon = () => {
+        return Platform.OS === "ios" ? "chevron-left" : "arrow-left";
+    };
+
+    getSizeIcon = () => {
+        return Platform.OS === "ios" ? 38 : 24;
+    };
+
+    getColorIcon = () => {
+        return Platform.OS === "ios" ? "rgb(15, 113, 184)" : "rgb(0, 0, 0)";
+    };
+
     render() {
         const { handleSubmit } = this.props;
         return (
             <View style={[styles.appContainer, styles.whiteBackground]}>
                 <Toolbar style={styles.noBorderToolbar}>
                     <Icon
-                        name="arrow-left"
-                        size={24}
+                        name={this.getTypedIcon()}
+                        size={this.getSizeIcon()}
+                        color={this.getColorIcon()}
                         type="material-community"
                         onPress={this.handleBackNavigation}
                         iconStyle={styles.leftIconContainer}

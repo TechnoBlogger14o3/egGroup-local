@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import React,{Component} from 'react';
 import {
     Text,
-    View, Switch,StyleSheet,Image
+    View, Switch,StyleSheet,Image, Platform
   } from 'react-native';
 import { Icon } from "react-native-elements";
 
@@ -23,13 +23,26 @@ class Notifications extends Component {
         this.setState({ switchValue: value })
     }
 
+    getTypedIcon = () => {
+        return Platform.OS === "ios" ? "chevron-left" : "arrow-left";
+    };
+
+    getSizeIcon = () => {
+        return Platform.OS === "ios" ? 38 : 24;
+    };
+
+    getColorIcon = () => {
+        return Platform.OS === "ios" ? "rgb(15, 113, 184)" : "rgb(0, 0, 0)";
+    };
+
       render() {
         return (
             <View style={styles.notificationContainer}>
                 <Toolbar style={[styles.noBorderToolbar,{borderBottomWidth:1,borderBottomColor:'rgb(204, 204, 204)'}]}>
                     <Icon
-                        name="arrow-left"
-                        size={24}
+                        name={this.getTypedIcon()}
+                        size={this.getSizeIcon()}
+                        color={this.getColorIcon()}
                         type="material-community"
                         onPress={navigateBack}
                         iconStyle={styles.leftIconContainer} />

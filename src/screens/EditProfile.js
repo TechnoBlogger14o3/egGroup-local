@@ -4,7 +4,7 @@ import { compose } from "redux";
 import { Field, reduxForm } from "redux-form";
 import validator from "validator";
 import { Icon } from "react-native-elements";
-import { View, ScrollView, Text, Image, StyleSheet,TouchableOpacity,Alert} from "react-native";
+import { View, ScrollView, Text, Image, StyleSheet,TouchableOpacity,Alert, Platform} from "react-native";
 import { InputText, Button, DatePicker, Toolbar } from "../components";
 import Phone from "./../components/Phone";
 import { navigateBack } from "../helpers";
@@ -116,6 +116,18 @@ class EditProfile extends Component {
     );
   };
 
+  getTypedIcon = () => {
+      return Platform.OS === "ios" ? "chevron-left" : "arrow-left";
+  };
+
+  getSizeIcon = () => {
+      return Platform.OS === "ios" ? 38 : 24;
+  };
+
+  getColorIcon = () => {
+      return Platform.OS === "ios" ? "rgb(15, 113, 184)" : "rgb(0, 0, 0)";
+  };
+
   render() {
     const { handleSubmit } = this.props;
     return (
@@ -128,8 +140,9 @@ class EditProfile extends Component {
           openDrawer={this.openDrawer}
         >
           <Icon
-            name="arrow-left"
-            size={24}
+            name={this.getTypedIcon()}
+            size={this.getSizeIcon()}
+            color={this.getColorIcon()}
             type="material-community"
             onPress={navigateBack}
             iconStyle={styles.leftIconContainer}

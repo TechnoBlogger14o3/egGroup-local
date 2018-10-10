@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 
 const styles = StyleSheet.create({
 
@@ -12,11 +12,14 @@ const styles = StyleSheet.create({
 
     appTitle: {
         fontSize: 18,
-        color: "#000000"
+        color: "#000000",
+        textAlign: Platform.OS === "ios" ? "center" : "left",
+
     },
 
     noBorderToolbar: {
-        elevation: 0
+        elevation: 0,
+        marginVertical: Platform.OS === "ios" ? 16 : 0
     },
 
     textInputContainer: {
@@ -118,12 +121,15 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         flex: 1,
         alignItems: "center",
-        paddingRight: 8
+        paddingRight: 8,
+        justifyContent: Platform.OS === "ios" ? "center" : "flex-start"
     },
 
     leftIconContainer: {
         justifyContent: "space-around",
-        padding: 16
+        padding: 16,
+        position: Platform.OS === "ios" ? "absolute" : "relative",
+        left: Platform.OS === "ios" ? 0 : 0
     },
 
     paragraphOne: {

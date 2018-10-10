@@ -3,9 +3,9 @@ package com.eggroup;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.cardio.RNCardIOPackage;
 
 import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
-import co.apptailor.googlesignin.RNGoogleSigninPackage;
 import org.reactnative.camera.RNCameraPackage;
 import com.RNFetchBlob.RNFetchBlobPackage;
 import com.imagepicker.ImagePickerPackage;
@@ -33,8 +33,8 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
 
             new MainReactPackage(),
+            new RNCardIOPackage(),
             new ReactNativePushNotificationPackage(),
-            new RNGoogleSigninPackage(),
             new RNCameraPackage(),
             new RNFetchBlobPackage(),
             new ImagePickerPackage(),

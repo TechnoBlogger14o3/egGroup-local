@@ -98,6 +98,7 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
+        multiDexEnabled true
         applicationId "com.eggroup"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
@@ -150,10 +151,11 @@ android {
     }
 }
 
-dependencies {
+def playServiceVersion = '11.8.0';
 
+dependencies {
+    compile project(':react-native-awesome-card-io')
     compile project(':react-native-push-notification')
-    compile project(':react-native-google-signin')
     compile project(':react-native-camera')
     compile project(':rn-fetch-blob')
     compile project(':react-native-image-picker')
@@ -164,8 +166,11 @@ dependencies {
         exclude group: 'com.google.android.gms', module: 'play-services-base'
         exclude group: 'com.google.android.gms', module: 'play-services-maps'
     }
-    compile 'com.google.android.gms:play-services-base:11.4.2'
-    compile 'com.google.android.gms:play-services-maps:11.4.2'
+    compile "com.google.android.gms:play-services-base:${playServiceVersion}"
+    compile ("com.google.android.gms:play-services-maps:+") {
+      force = true;
+    }
+compile 'com.android.support:multidex:1.0.0'
     compile project(':react-native-vector-icons')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"

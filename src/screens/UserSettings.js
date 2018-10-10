@@ -4,7 +4,7 @@ import {
     Text,
     View,
     Image,
-    FlatList,Platform,TouchableNativeFeedback
+    FlatList,Platform,TouchableOpacity
   } from 'react-native';
 import { Icon } from "react-native-elements";
 import { Toolbar } from "../components";
@@ -29,8 +29,16 @@ class Settings extends Component {
       }
     }
 
-    getTypedIcon = name => {
-        return Platform.OS === "ios" ? `ios-${name}` : `${name}`;
+    getTypedIcon = () => {
+        return Platform.OS === "ios" ? "chevron-left" : "arrow-left";
+    };
+
+    getSizeIcon = () => {
+        return Platform.OS === "ios" ? 38 : 24;
+    };
+
+    getColorIcon = () => {
+        return Platform.OS === "ios" ? "rgb(15, 113, 184)" : "rgb(0, 0, 0)";
     };
 
     render() {
@@ -39,8 +47,9 @@ class Settings extends Component {
            <View style={styles.settingContainer}>
                    <Toolbar style={styles.noBorderToolbar}>
                          <Icon
-                            name={this.getTypedIcon('arrow-left')}
-                            size={24}
+                            name={this.getTypedIcon()}
+                            size={this.getSizeIcon()}
+                            color={this.getColorIcon()}
                             type="material-community"
                             onPress={navigateBack}
                             iconStyle={styles.leftIconContainer}
@@ -53,7 +62,7 @@ class Settings extends Component {
                 <FlatList
                     data={ this.state.data }
                     renderItem={({item}) =>
-                    <TouchableNativeFeedback onPress={()=>navigateTo(item.Scence)}>
+                    <TouchableOpacity onPress={()=>navigateTo(item.Scence)}>
                         <View style={styles.settingListContainer}>
                             <View style={styles.leftIconView}>
                                <Image source={item.leftIconName} style={styles.settingIcons}  onPress={navigateBack}></Image>
@@ -65,7 +74,7 @@ class Settings extends Component {
                                 <Image source={item.rightIconName} style={styles.settingIcons}  onPress={navigateBack}></Image>
                                 </View>
                         </View>
-                    </TouchableNativeFeedback>
+                    </TouchableOpacity>
                     }
                     keyExtractor={(item) => item.settingTitle}
                   />

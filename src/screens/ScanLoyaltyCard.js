@@ -5,87 +5,89 @@ import { Icon,Card } from "react-native-elements";
 
 import { InputText, Button, Toolbar } from "../components";
 import { navigateBack ,navigateTo} from "../helpers";
-import { CardIOView, CardIOUtilities,CardIOModule } from 'react-native-awesome-card-io';
+import { CardIOModule,CardIOUtilities,preloadCardIO} from "react-native-awesome-card-io";
 
 import styles from '../styles';
 
 class ScanLoyaltyCard extends Component {
 
   constructor(props) {
-      super(props);
-      this.state = {
-          email: ""
-      };
-  }
+    super(props);
+    this.state = {
+        email: ""
+    };
+}
+  // componentWillMount() {
+  //   CardIOUtilities.preload();
+  // }
 
-  onChange = (key, value) => {
-      this.setState({
-          [key]: value
-      });
-  }
+didScanCard = (card) => {
+    cardNumber: string
+    redactedCardNumber: string
+    expiryMonth: number
+    expiryYear: number
+    cvv: string
+    postalCode: string
+    scanned: boolean
+    cardImage: string
+    cardType: string
+    logoForCardType: string
+}
 
-//   componentWillMount() {
-//     CardIOUtilities.preload();
-//   }
+scanCard(){
+  CardIOModule
+    .scanCard()
+    .then(card => {
+      //  EXTRA_SUPPRESS_MANUAL_ENTRY = false;
 
-  didScanCard = (card) => {
-    // the scanned card
-  }
+    })
+    .catch(() => {
+      
+      // the user cancelled
+    })
+}
 
-  scanCard() {
-    CardIOModule
-      .scanCard()
-      .then(card => {
-        // the scanned card
-      })
-      .catch(() => {
-        // the user cancelled
-      })
-  }
+render() {
+  return (
+    <View style={[styles.appContainer, styles.whiteBackground]}>
+        <Toolbar style={styles.noBorderToolbar}>
+              <Icon
+                  name="arrow-left"
+                  size={24}
+                  type="material-community"
+                  onPress={navigateBack}
+                  iconStyle={styles.leftIconContainer}
+              />
+              <View style={styles.toolbarUtils}>
+                  <Text style={{fontSize: 20,
+                   color: "#000000",
+                   padding:40,
+                     }}>Scan Loyalty card</Text>
+              </View>
+        </Toolbar>
+        <View style={{flex:3}}>
 
+        <Text style={styles.paragraphthree}>
+             Hold the card inside the frame, it will {"\n"} be scanned automatically
+            </Text>    
+        </View>
 
-  render() {
-    return (
-      <View style={[styles.appContainer, styles.whiteBackground]}>
-          <Toolbar
-              style={styles.noBorderToolbar}
-              onClickLeftIcon={navigateBack}
-              iconName="back-arrow"
-              title="Scan Loyalty card" />
-          <View style={{flex:3}}>
-
-          <Text style={styles.paragraphOne}>
-               Hold the card inside the frame, it will be scanned automatically
-              </Text>
-
-
-
-
-          </View>
-
-          <View style={{flex:4}}>
-
-
-
-         <TouchableOpacity onPress={this.scanCard.bind(this)}>
-          <Text>Scan card!</Text>
-        </TouchableOpacity>
-
-          </View>
-          <View style={{flex:3, justifyContent: "flex-end", paddingBottom: 8}}>
-
-          <Button style={{borderRadius:50,}}
-
-                  title="Enter Manually"
-
-
-                  onPress = { () => alert('Your Go Fuel Card scanned successfully!') }
-
-                  backgroundColor="rgb(15, 113, 184)" />
-          </View>
-      </View>
-    );
-  }
+        <View style={{flex:4}}>
+    
+       <TouchableOpacity onPress={this.scanCard.bind(this)}>
+        <Text style={{textAlign:"center",paddingTop:30}}>Scan card!</Text>
+      </TouchableOpacity>  
+        </View>
+        <View >
+          
+        <Button
+                title="Enter Manually"
+                onPress = { () => alert('Your Go Fuel Card scanned successfully!') }
+                backgroundColor="rgb(15, 113, 184)" />
+        </View>
+    </View>
+  );
+}
 }
 
 const mapStateToProps = state => ({});

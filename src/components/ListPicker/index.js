@@ -14,6 +14,7 @@ class ListPicker extends Component {
         this.setState({
             pickerValue: value
         });
+        this.props.onChangePickerValue(value);
     }
 
     render() {

@@ -4,11 +4,11 @@ import { compose } from "redux";
 import { Field, reduxForm } from "redux-form";
 import validator from "validator";
 import { Icon } from "react-native-elements";
-import { View, ScrollView, Text, Image, StyleSheet,TouchableOpacity,Alert, Platform} from "react-native";
-
-import { InputText, Button, DatePicker, Toolbar, Phone } from "../components";
-import { navigateTo, redirectTo, navigateBack } from "../helpers";
-
+import { View, ScrollView, Text, Image, StyleSheet, TouchableOpacity, Alert, Platform } from "react-native";
+import { InputText, Button, DatePicker, Toolbar } from "../components";
+import Phone from "./../components/Phone";
+import { navigateBack } from "../helpers";
+import { navigateTo } from "../helpers";
 import styles from "../styles";
 
 class EditProfile extends Component {
@@ -23,9 +23,8 @@ class EditProfile extends Component {
   }
 
   onSubmit = () => {
-    alert("Login Successful");
+    alert("Changes to your profile has been successfully updated");
   };
-
 
   logoutFunction = () => {
     Alert.alert(
@@ -40,7 +39,7 @@ class EditProfile extends Component {
         {
           text: "Yes",
           onPress: () => {
-            redirectTo("auth");
+            navigateTo("auth");
           }
         }
       ],
@@ -116,48 +115,81 @@ class EditProfile extends Component {
     );
   };
 
+  getTypedIcon = () => {
+    return Platform.OS === "ios" ? "chevron-left" : "arrow-left";
+  };
+
+  getSizeIcon = () => {
+    return Platform.OS === "ios" ? 38 : 24;
+  };
+
+  getColorIcon = () => {
+    return Platform.OS === "ios" ? "rgb(15, 113, 184)" : "rgb(0, 0, 0)";
+  };
+
   render() {
     const { handleSubmit } = this.props;
     return (
       <View style={[styles.appContainer, styles.whiteBackground]}>
-        <Toolbar
-            style={[styles.noBorderToolbar,{backgroundColor: "#f5f5f5"}]}
-            onClickLeftIcon={navigateBack}
-            iconName="back-arrow"
-            title="Edit Profile"
-            rightButtonName="Logout"
-            onRightButtonPress={this.logoutFunction} />
+        <Toolbar style={[styles.noBorderToolbar, { backgroundColor: "#f5f5f5" }]}>
+          <Icon
+            name={this.getTypedIcon()}
+            size={this.getSizeIcon()}
+            color={this.getColorIcon()}
+            type="material-community"
+            onPress={navigateBack}
+            iconStyle={styles.leftIconContainer}
+          />
+          <View style={styles.toolbarUtils}>
+            <View style={styles.notificationTitleView}>
+              <Text style={styles.appTitle}>Edit Profile</Text>
+            </View>
+            <View style={styles.logoutView}>
+              <TouchableOpacity onPress={this.logoutFunction}>
+                <Text style={styles.logoutText}>Logout</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </Toolbar>
         <ScrollView>
           <View style={styles.profilePic}>
             <Image
               source={require("./../assets/images/settings/profile.jpg")}
               style={styles.profilePicImage}
             />
+            <Text style={styles.editText}>Edit pic</Text>
           </View>
 
           <View style={styles.profileContainer}>
             <Field
               name="firstname"
               label="First name *"
-              placeholder="John"
+              placeholder="Enter first name"
               component={this.renderTextInput}
             />
             <Field
               name="lastname"
               label="Last name *"
-              placeholder="Doe"
+              placeholder="Enter last name"
               component={this.renderTextInput}
+            />
+            <Field
+              name="email"
+              label="Email *"
+              placeholder="Enter email address"
+              component={this.renderTextInput}
+              keyboardType="email-address"
             />
             <Field
               name="datePicker"
               label="Date of birth *"
-              placeholder="05/20/1980"
+              placeholder="Enter date of birth"
               component={this.renderDatePicker}
             />
             <Field
               name="phone"
               label="Phone *"
-              placeholder="0488 63 39 38"
+              placeholder="Enter mobile number"
               keyboardType="number-pad"
               component={this.renderPhone}
               maxLength={10}
@@ -198,6 +230,12 @@ const validate = values => {
     errors.name = "Please enter a valid name";
   }
 
+  if (!values.email) {
+    errors.email = "Required"
+  } else if (!validator.isEmail(values.email.trim())) {
+    errors.email = "Please enter a valid email"
+  }
+
   if (!values.datePicker) {
     errors.datePicker = "Required";
   }
@@ -215,24 +253,6 @@ const validate = values => {
   return errors;
 };
 
-var istyles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: 64
-  },
-  cameraButtonContainer: {
-    position: "absolute",
-    bottom: 20,
-    left: 20,
-    right: 20
-  },
-  cameraButton: {
-    backgroundColor: "#5B29C1",
-    borderRadius: 4,
-    paddingHorizontal: 20,
-    paddingVertical: 15
-  }
-});
 const mapStateToProps = state => ({});
 
 const mapDispatchToProps = dispatch => ({});

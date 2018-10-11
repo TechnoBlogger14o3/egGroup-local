@@ -73,6 +73,7 @@ class Login extends Component {
                                 style={{ marginTop: 0 }}
                                 name="email"
                                 label="Email"
+                                keyboardType="email-address"
                                 placeholder="Enter Email Address"
                                 component={this.renderTextInput}
                             />
@@ -86,12 +87,8 @@ class Login extends Component {
                                 secureTextEntry={!this.state.isPasswordShown}
                             />
                             <View style={styles.loginHelperCont}>
-
-                                {Platform.OS !== 'ios' &&
-                                  <View>
-                                    <Image source={require('./../assets/images/select_country.png')} style={styles.countryImage} />
-                                    <ListPicker />
-                                  </View> }
+                                {Platform.OS !== 'ios' && <Image source={require('./../assets/images/select_country.png')} style={styles.countryImage} />}
+                                {Platform.OS !== 'ios' && <ListPicker />}
                                 <LinkButton
                                     onPress={() => navigateTo("forgotPassword")}
                                     title="Forgot Password?"
@@ -105,11 +102,10 @@ class Login extends Component {
                         title="Login"
                         backgroundColor="rgb(15, 113, 184)"
                         onPress={handleSubmit(this.onSubmit)} />
-
                     <Button
-                        title="Login with Google"
-                        backgroundColor="rgb(218, 71, 51)"
-                        iconName="google-plus" />
+                        title="Login with Facebook"
+                        backgroundColor="rgb(57, 83, 152)"
+                        iconName="facebook" />
                     <View style={styles.loginFooterTextContainer}>
                         <Text style={[styles.fontSize16, styles.colorBlack, { marginRight: 7 }]}>
                             Do not have an account yet?

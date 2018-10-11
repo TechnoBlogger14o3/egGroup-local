@@ -54,35 +54,15 @@ class StoreLocator extends Component {
             console.log('data after:: ', this.state.stationdata);
       }
 
-      getTypedIcon = () => {
-          return Platform.OS === "ios" ? "chevron-left" : "arrow-left";
-      };
-
-      getSizeIcon = () => {
-          return Platform.OS === "ios" ? 38 : 24;
-      };
-
-      getColorIcon = () => {
-          return Platform.OS === "ios" ? "rgb(15, 113, 184)" : "rgb(0, 0, 0)";
-      };
-
 
       render() {
             return (
                   <View style={styles.mapContainer}>
-                      <Toolbar style={styles.noBorderToolbar} openDrawer={this.openDrawer}>
-                            <Icon
-                              name={this.getTypedIcon()}
-                              size={this.getSizeIcon()}
-                              color={this.getColorIcon()}
-                               type="material-community"
-                               onPress={navigateBack}
-                               iconStyle={styles.leftIconContainer}
-                           />
-                           <View style={styles.toolbarUtils}>
-                               <Text style={styles.appTitle}>Store Details</Text>
-                           </View>
-                       </Toolbar>
+                       <Toolbar
+                           style={[styles.noBorderToolbar]}
+                           onClickLeftIcon={navigateBack}
+                           iconName="back-arrow"
+                           title="Store Details" />
                         <View style={{ flex: 3 }}>
                               <MapView style={{ width: Dimensions.get('window').width, height: Dimensions.get('window').height/2, left: 0, right: 0, top: 0, bottom: 0, position: 'absolute' }}
                                     provider={PROVIDER_GOOGLE}

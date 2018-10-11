@@ -26,36 +26,16 @@ class PreferredStation extends Component{
         }
       }
 
-      getTypedIcon = () => {
-          return Platform.OS === "ios" ? "chevron-left" : "arrow-left";
-      };
-
-      getSizeIcon = () => {
-          return Platform.OS === "ios" ? 38 : 24;
-      };
-
-      getColorIcon = () => {
-          return Platform.OS === "ios" ? "rgb(15, 113, 184)" : "rgb(0, 0, 0)";
-      };
-
     render(){
         const navigationView = (<Sidebar/>);
         return (
 
              <View style={styles.preferredStationContainer}>
-                     <Toolbar style={styles.noBorderToolbar} openDrawer={this.openDrawer}>
-                           <Icon
-                              name={this.getTypedIcon()}
-                              size={this.getSizeIcon()}
-                              color={this.getColorIcon()}
-                              type="material-community"
-                              onPress={navigateBack}
-                              iconStyle={styles.leftIconContainer}
-                          />
-                          <View style={styles.toolbarUtils}>
-                              <Text style={styles.appTitle}>{this.props.title}</Text>
-                          </View>
-                      </Toolbar>
+                  <Toolbar
+                      style={styles.noBorderToolbar}
+                      onClickLeftIcon={navigateBack}
+                      iconName="back-arrow"
+                      title={this.props.title} />
                   <View style={styles.PreferredStationTitleView}>
                       <Text style={styles.preferredStationText}>PREFERRED STATIONS</Text>
                   </View>

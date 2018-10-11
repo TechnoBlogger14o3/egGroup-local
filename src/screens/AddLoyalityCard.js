@@ -15,26 +15,21 @@ class AddLoyaltyCard extends Component {
             email: ""
         };
     }
+
     onChange = (key, value) => {
         this.setState({
             [key]: value
         });
     }
+
     render() {
         return (
             <View style={[styles.appContainer, styles.whiteBackground]}>
-                <Toolbar style={styles.noBorderToolbar}>
-                    <Icon
-                        name="arrow-left"
-                        size={24}
-                        type="material-community"
-                        onPress={this.navigateBack}
-                        iconStyle={styles.leftIconContainer}
-                    />
-                    <View style={styles.toolbarUtils}>
-                        <Text style={styles.appTitle}>Loyalty Cards</Text>
-                    </View>
-                </Toolbar>
+                <Toolbar
+                    style={styles.noBorderToolbar}
+                    onClickLeftIcon={navigateBack}
+                    iconName="back-arrow"
+                    title="Loyalty Cards" />
                 <View style={styles.mainView}>
                     <TouchableOpacity onPress={() => navigateTo("scanLoyaltyCard")}
                         style={{

@@ -21,7 +21,7 @@ class AddLoyaltyCardManually extends Component {
         const that = this;
         if (nextProps.errors) {
             that.setState({errors: true})
-         }   
+         }
     }
     onChange = (key, value) => {
         this.setState({
@@ -32,7 +32,7 @@ class AddLoyaltyCardManually extends Component {
      alert('Your Go Fuel card added sucessfully!');
      navigateTo("loyaltyCardsList");
     }
-    
+
     renderTextInput = (field) => {
         const { meta: { touched, error }, placeholder, keyboardType, onIconPress, isPassword,label, secureTextEntry,maxLength, input: { onChange, ...restInput } } = field;
         return (
@@ -46,7 +46,7 @@ class AddLoyaltyCardManually extends Component {
                     onIconPress={onIconPress}
                     secureTextEntry={secureTextEntry}
                     placeholder={placeholder}
-                   
+
                     {...restInput} />
                 <Text style={styles.errorText}>{touched ? error : ""}</Text>
             </View>
@@ -71,18 +71,11 @@ class AddLoyaltyCardManually extends Component {
         const { handleSubmit,submitting, pristine} = this.props;
         return (
             <View style={[styles.appContainer, styles.whiteBackground]}>
-                <Toolbar style={styles.noBorderToolbar}>
-                    <Icon
-                        name="arrow-left"
-                        size={24}
-                        type="material-community"
-                        onPress={this.navigateBack}
-                        iconStyle={styles.leftIconContainer}
-                    />
-                    <View style={styles.toolbarUtils}>
-                        <Text style={styles.appTitle}>Add Loyalty Card</Text>
-                    </View>
-                </Toolbar>
+                    <Toolbar
+                        style={styles.noBorderToolbar}
+                        onClickLeftIcon={navigateBack}
+                        iconName="back-arrow"
+                        title="Add Loyalty Card" />
                     <Field
                         name="cardNumber"
                         label="Enter Go Fuel Card number"
@@ -117,7 +110,7 @@ const validate = values => {
         errors.cardNumber = "Rerquired"
     }  else if (values.cardNumber.length > 18) {
         errors.cardNumber = "Please enter a valid card number or expiry date";
-    }   
+    }
 
     if (!values.datePicker) {
         errors.datePicker = "Required"
@@ -146,7 +139,7 @@ const normalizePhone = (value, previousValue) => {
     }
     return onlyNums.slice(0, 4) + ' ' + onlyNums.slice(4, 8) + ' ' + onlyNums.slice(8, 12)
   }
-  
+
 
 const mapStateToProps = state => ({
     formValues: getFormValues("loyaltyCardsList")(state)

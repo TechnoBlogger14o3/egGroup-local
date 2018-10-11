@@ -23,33 +23,14 @@ class Notifications extends Component {
         this.setState({ switchValue: value })
     }
 
-    getTypedIcon = () => {
-        return Platform.OS === "ios" ? "chevron-left" : "arrow-left";
-    };
-
-    getSizeIcon = () => {
-        return Platform.OS === "ios" ? 38 : 24;
-    };
-
-    getColorIcon = () => {
-        return Platform.OS === "ios" ? "rgb(15, 113, 184)" : "rgb(0, 0, 0)";
-    };
-
       render() {
         return (
             <View style={styles.notificationContainer}>
-                <Toolbar style={[styles.noBorderToolbar,{borderBottomWidth:1,borderBottomColor:'rgb(204, 204, 204)'}]}>
-                    <Icon
-                        name={this.getTypedIcon()}
-                        size={this.getSizeIcon()}
-                        color={this.getColorIcon()}
-                        type="material-community"
-                        onPress={navigateBack}
-                        iconStyle={styles.leftIconContainer} />
-                    <View style={styles.toolbarUtils}>
-                        <Text style={styles.appTitle}>{this.props.title}</Text>
-                    </View>
-                </Toolbar>
+                <Toolbar
+                    style={styles.noBorderToolbar}
+                    onClickLeftIcon={navigateBack}
+                    iconName="back-arrow"
+                    title={this.props.title} />
                 <View style={styles.newsletterView}>
                     <View style={styles.newsLetterTitleView}>
                         <Text style={styles.newsLetterTitleText} >Notification subscriptions</Text>

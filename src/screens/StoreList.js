@@ -10,16 +10,14 @@ class StoreList extends Component {
     render(){
         return(
             <View style={{ flex: 1, justifyContent: "center" }}>
-              
                     <FlatList style={{marginLeft:15,marginRight:15,marginTop:10}}
-                           
                            data={this.props.data}
                            renderItem={({ item }) => (
                             <TouchableOpacity onPress={this.selectedStore.bind(this, item)}>
                             <View style={{backgroundColor:"rgb(255,255,255)",flex:1,padding:10}} >
-                                 
+
                                       <Text  style={{color:'black'}}>{item.name}</Text>
-                                      
+
                             </View>
                             </TouchableOpacity>
                           )}
@@ -31,12 +29,12 @@ class StoreList extends Component {
                             marginLeft: "14%"
                           }}></View>)}
                         />
-                    
-               
+
+
             </View>
         )
     }
-    
+
 }
 
 export default StoreList;

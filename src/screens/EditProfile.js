@@ -132,13 +132,7 @@ class EditProfile extends Component {
     const { handleSubmit } = this.props;
     return (
       <View style={[styles.appContainer, styles.whiteBackground]}>
-        <Toolbar
-          style={[
-            styles.noBorderToolbar,
-           {  backgroundColor: "#f5f5f5",}
-          ]}
-          openDrawer={this.openDrawer}
-        >
+        <Toolbar style={[styles.noBorderToolbar,{backgroundColor: "#f5f5f5"}]}>
           <Icon
             name={this.getTypedIcon()}
             size={this.getSizeIcon()}

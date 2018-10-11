@@ -45,20 +45,11 @@ class Settings extends Component {
         const navigationView = (<Sidebar/>);
       return (
            <View style={styles.settingContainer}>
-                   <Toolbar style={styles.noBorderToolbar}>
-                         <Icon
-                            name={this.getTypedIcon()}
-                            size={this.getSizeIcon()}
-                            color={this.getColorIcon()}
-                            type="material-community"
-                            onPress={navigateBack}
-                            iconStyle={styles.leftIconContainer}
-                        />
-                        <View style={styles.toolbarUtils}>
-                            <Text style={styles.appTitle}>Settings</Text>
-                        </View>
-                    </Toolbar>
-
+                <Toolbar
+                    style={[styles.noBorderToolbar]}
+                    onClickLeftIcon={navigateBack}
+                    iconName="back-arrow"
+                    title="Settings" />
                 <FlatList
                     data={ this.state.data }
                     renderItem={({item}) =>

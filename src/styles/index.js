@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
 
     buttonStyle: {
         padding: 14,
-        borderRadius: 4,
+        borderRadius: Platform.OS === "ios" ? 12 : 4,
         flexDirection: "row",
         justifyContent: "center"
     },
@@ -127,9 +127,26 @@ const styles = StyleSheet.create({
 
     leftIconContainer: {
         justifyContent: "space-around",
-        padding: 16,
+        padding: 16
+    },
+
+    toolbarIconCont: {
         position: Platform.OS === "ios" ? "absolute" : "relative",
-        left: Platform.OS === "ios" ? 0 : 0
+        left: Platform.OS === "ios" ? 0 : 0,
+        zIndex: 1
+    },
+
+    toolbarRightIconCont: {
+        position: Platform.OS === "ios" ? "absolute" : "relative",
+        right: 0,
+        zIndex: 1
+    },
+
+    toolbarRightButtonCont: {
+        paddingRight: 16,
+        position: Platform.OS === "ios" ? "absolute" : "relative",
+        right: 0,
+        zIndex: 1
     },
 
     paragraphOne: {

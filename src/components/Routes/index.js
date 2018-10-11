@@ -21,6 +21,9 @@ import NewsLetters from "../../screens/NewsLetters";
 import TermsAndConditions from "../../screens/TermsAndConditions";
 import Home from "../../screens/Home";
 import PushNotification from "../../screens/PushNotification";
+import CoupensList from "../../screens/CoupensList";
+import PromotionsDetails from "../../screens/PromotionsDetails";
+
 
 export default class Routes extends Component {
 

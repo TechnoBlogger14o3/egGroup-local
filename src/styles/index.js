@@ -379,12 +379,15 @@ const styles = StyleSheet.create({
       },
       //Edit Profile
       profilePic: {
-          flex: 3,
-          flexDirection:'row',
-          backgroundColor: "#f5f5f5",
-          justifyContent: 'center',
-          alignItems: 'center',
-          paddingBottom:20,
+        flex: 3,
+        flexDirection:'column',
+        backgroundColor: "#f5f5f5",
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingBottom:20,
+        },
+        editText:{
+            color:'rgb(15,113,184)'
         },
         profilePicImage:{
 
@@ -574,6 +577,222 @@ const styles = StyleSheet.create({
             paddingLeft:20,
             marginTop:1,
         },
+        //Coupen model 
+    
+    CouponmodalView: {
+        backgroundColor: 'white',
+        margin: 10,
+        flex: 1,
+        borderBottomLeftRadius: 5,
+		borderBottomRightRadius: 5,
+    },
+    CouponImageStyle: {
+        height: 150,
+        resizeMode: 'contain',
+		borderTopStartRadius: 5,
+        borderTopEndRadius: 5,
+        overflow: 'hidden'
+    },
+    CouponIconStyle: {
+        margin: 5,
+        flex: 1,
+        flexDirection: 'row-reverse',
+        alignSelf: 'flex-end',
+        marginBottom: 130
+    },
+    CouponOffText: {
+        fontSize: 35,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        color: '#000',
+        marginTop: 15
+    },
+    CouponCodeText: {
+        color: 'rgb(15,113,184)',
+        textAlign: "center",
+        fontSize: 14,
+        marginTop: 20
+    },
+    CoupnSubwayText: {
+        // backgroundColor: 'rgb(150,196,28)',
+        justifyContent: 'center',
+        alignSelf: 'center',
+        width: 140,
+        padding: 12,
+        marginTop: 10
+    },
+    CouponSubwayTextColor: {
+        color: 'white',
+        textAlign: 'center'
+    },
+    CouponBarcodeImage: {
+        width: 230,
+        height: 50,
+        justifyContent: 'center',
+        alignSelf: 'center',
+        marginTop: 15
+    },
+    CouponSpace: {
+        marginLeft: 20,
+        marginTop: 15
+    },
+    CouponTermsText: {
+        color: 'rgb(15,113,184)',
+        fontSize: 16
+    },
+    CouponTextColor: {
+        color: '#000',
+    },
+    CouponSpaceText: {
+        marginLeft: 20,
+        marginTop: 5
+    },
+    CouponValidityText: {
+        textAlign: 'center',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 10,
+        marginTop: 20,
+        marginBottom:20
+    },
+    CouponValidTextDesign: {
+        borderWidth: 2,
+        padding: 5,
+        textAlign: 'center',
+        borderStyle: 'dotted',
+        borderRadius: 1,
+        width: 200,
+        borderColor: 'rgb(151,151,151)'
+    },
+    //Card component
+      
+    cardContainer: {
+        flex: 1,
+      },
+      cardView: {
+        elevation:4,
+        height: 100,
+        flexDirection:'column',
+        margin: 10,
+        borderRadius: 5,
+      },
+      cardCoupenView:{
+        flex:1,
+        justifyContent:'flex-start',
+        flexDirection:'row',
+        height: 80,
+        borderTopEndRadius: 5,
+        borderTopStartRadius: 5,
+      },
+      cardValidityView:{
+        height: 25,
+        justifyContent:'flex-end',
+        backgroundColor:'#FFF',
+        borderBottomEndRadius: 5,
+        borderBottomStartRadius: 5,
+        
+      },
+      validityContentView:{
+          marginLeft:10,
+          paddingBottom:3,
+
+      },
+      validityText:{
+          fontSize:12,
+      },
+      imageView:{
+        flex:1.5,
+        justifyContent:'center',
+        alignItems:'center',
+        borderTopStartRadius: 5,
+      },
+      image: {
+        width: 50,
+        height: 50,
+        borderRadius:50,
+      },
+      imageborderView:{
+        width: 52,
+        height: 52,
+        borderRadius:45,
+        borderWidth:1,
+        borderColor:'#FFF',
+      },
+      contentContainer:{
+        flex:3,
+        flexDirection:'column',
+        justifyContent:'center',
+        //paddingLeft:5,
+      },
+      storeTextStyle:{
+        fontSize:14,
+        color:'#FFF',
+        fontWeight:'bold'
+      },
+
+      containtStore:{
+        justifyContent:'flex-start',
+      },
+      containtText:{
+        justifyContent:'center',
+      },
+      cashoffTextStyle:{
+        fontSize:12,
+        color:'#FFF',
+      },
+      dottedView:{
+        alignSelf:'center',
+        height:50,
+        borderColor:'#fff',
+        borderRightWidth:1,
+        
+     },
+      coupenCodeView:{
+        flex:2.2,
+        flexDirection:'column',
+        justifyContent:'center',
+        alignItems:'center',
+        alignSelf:'center',
+        borderTopEndRadius: 5,
+        height:50,
+       
+      },
+     
+      CoupenCodeTextView:{
+        justifyContent:'center',
+        paddingBottom:2
+      },
+      coupenCodeTextStyle:{
+        fontSize:13,
+        color:'rgb(255, 255, 255)',
+      },
+      CoupenCodeText:{
+        justifyContent:'flex-end',
+        borderWidth:1,
+        borderColor:'#32CD32',
+        paddingLeft:5,
+        paddingRight:5,
+      },
+      codeTextStyle:{
+        fontSize:12,
+        color:'#FFF',
+        paddingTop:2,
+        paddingBottom:2,
+      },
+      paragraphthree: {
+        paddingHorizontal: 16,
+        paddingTop: 90,
+        fontSize: 17,
+        color: "#000000",
+        lineHeight: 22,
+        textAlign:"center"
+     
+    },
+    appTitleone: {
+        fontSize: 18,
+        color: "#000000",
+        padding:30
+    },
 });
 
 export default styles;

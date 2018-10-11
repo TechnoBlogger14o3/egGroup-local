@@ -152,6 +152,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-linear-gradient')
     compile project(':react-native-awesome-card-io')
     compile project(':react-native-push-notification')
     compile project(':react-native-camera')
@@ -165,7 +166,9 @@ dependencies {
         exclude group: 'com.google.android.gms', module: 'play-services-maps'
     }
     compile "com.google.android.gms:play-services-base:11.8.0"
-    compile "com.google.android.gms:play-services-maps:11.8.0"
+     compile ("com.google.android.gms:play-services-maps:+") {
+        force = true;
+    }
     compile "com.android.support:multidex:1.0.0"
     compile project(':react-native-vector-icons')
     implementation fileTree(dir: "libs", include: ["*.jar"])
@@ -183,4 +186,4 @@ task copyDownloadableDepsToLibs(type: Copy) {
     into 'libs'
 }
 
-apply plugin: "com.google.gms.google-services"
+//apply plugin: "com.google.gms.google-services"

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, TextInput, View, Dimensions, TouchableOpacity, FlatList, Alert, Image, Platform } from 'react-native';
+import { StyleSheet, Text, TextInput, View, Dimensions, TouchableOpacity, FlatList, Alert, Image, Platform,Linking } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import { SearchBar, Icon } from 'react-native-elements'
 
@@ -49,20 +49,48 @@ class StoreLocator extends Component {
             });
       }
       distanceButtonTapped = (item, index) => {
+            const scheme = Platform.select({ ios: 'maps:0,0?q=', android: 'geo:0,0?q=' });
+            const latLng = `${this.state.lat},${this.state.lng}`;
+            const label = 'Custom Label';
+            const url = Platform.select({
+              ios: `${scheme}${label}@${latLng}`,
+              android: `${scheme}${latLng}(${label})`
+            });
+            Linking.openURL(url); 
             var dataList = [...this.state.stationdata]
             Alert.alert('Distance Button Tapped');
             console.log('data after:: ', this.state.stationdata);
       }
 
+      getTypedIcon = () => {
+          return Platform.OS === "ios" ? "chevron-left" : "arrow-left";
+      };
+
+      getSizeIcon = () => {
+          return Platform.OS === "ios" ? 38 : 24;
+      };
+
+      getColorIcon = () => {
+          return Platform.OS === "ios" ? "rgb(15, 113, 184)" : "rgb(0, 0, 0)";
+      };
+
 
       render() {
             return (
                   <View style={styles.mapContainer}>
-                       <Toolbar
-                           style={[styles.noBorderToolbar]}
-                           onClickLeftIcon={navigateBack}
-                           iconName="back-arrow"
-                           title="Store Details" />
+                      <Toolbar style={styles.noBorderToolbar} openDrawer={this.openDrawer}>
+                            <Icon
+                              name={this.getTypedIcon()}
+                              size={this.getSizeIcon()}
+                              color={this.getColorIcon()}
+                               type="material-community"
+                               onPress={navigateBack}
+                               iconStyle={styles.leftIconContainer}
+                           />
+                           <View style={styles.toolbarUtils}>
+                               <Text style={styles.appTitle}>Store Details</Text>
+                           </View>
+                       </Toolbar>
                         <View style={{ flex: 3 }}>
                               <MapView style={{ width: Dimensions.get('window').width, height: Dimensions.get('window').height/2, left: 0, right: 0, top: 0, bottom: 0, position: 'absolute' }}
                                     provider={PROVIDER_GOOGLE}
@@ -90,6 +118,15 @@ class StoreLocator extends Component {
 
                                           <View style={{ flex: 1, backgroundColor: 'rgb(255, 255, 255)' }}>
 
+                                                      <TouchableOpacity style={{marginLeft:30}} onPress={() => this.distanceButtonTapped(item, index)}>
+                                                            <View style={{ flex: 1, backgroundColor: 'rgb(255, 255, 255)', flexDirection: 'row', justifyContent: 'flex-end',marginRight:20 }}>
+                                                                  <Image style={{width: 50, height: 50}} source={require('../assets/images/ic_directions.png')} />
+                                                            </View>
+
+                                                      </TouchableOpacity>
+
+
+
                                                 <View style={{ flex: 1, flexDirection: 'row', paddingTop: 10, paddingBottom: 10, paddingLeft: 16, paddingRight: 16, backgroundColor: 'rgb(255, 255, 255)' }}>
 
                                                       <View style={{ flex: 2.8, justifyContent: 'center', backgroundColor: 'rgb(255, 255, 255)' }}>
@@ -99,14 +136,15 @@ class StoreLocator extends Component {
                                                             <Text style={{ marginLeft: 5, marginBottom: 10, fontSize: 17 }}>{item.Houres}</Text>
                                                       </View>
 
-                                                      <TouchableOpacity style={styles.loginbutton} onPress={() => this.distanceButtonTapped(item, index)}>
 
+
+                                                      
                                                             <View style={{ flex: 1, backgroundColor: 'rgb(255, 255, 255)', flexDirection: 'row', justifyContent: 'center' }}>
-                                                                  <Text style={{ color: 'black', fontSize: 15, alignSelf: 'center' }}> {item.Distance} </Text>
-
+                                                                  <Text style={{ color: 'black', fontSize: 15, alignSelf: 'center' }}> {item.Distance}</Text>
+                                                                  <Image style={{width: 15, height: 15,alignSelf:'center'}} source={require('../assets/images/Arrow.png')} />
                                                             </View>
 
-                                                      </TouchableOpacity>
+                                                      
 
 
                                                 </View>

@@ -18,7 +18,11 @@ class Login extends Component {
         super(props);
         this.state = {
             isPasswordShown: false,
-            PickerValueHolder: ""
+            PickerValueHolder: "",
+            pickerViewHideIOS:false,
+            pickerViewHideAndroid:false,
+            language: "English",
+            pickerValue: ""
         };
     }
 
@@ -55,7 +59,57 @@ class Login extends Component {
             </View>
         );
     }
+    pickerDoneBtnTapped = (value) => {
+        this.setState({
+            language: this.state.pickerValue,
+            pickerViewHideIOS:false})
+    }
 
+    handlePickerValue = (value) => {
+        this.setState({pickerValue:value})
+    }
+
+    _segmentPicker = () => {
+        if (Platform.OS !== 'ios') {
+            if (this.state.pickerViewHideAndroid){
+                 return (
+                <View>
+                <ListPicker />
+                </View>
+            );
+         }
+        } else {
+                if (this.state.pickerViewHideIOS){
+                    return (
+                        <View style={{height:230,backgroundColor:'white',position:'absolute', bottom:0,left:0,right:0}}>
+                        <View style={{left:0,right:0,height:40,flexDirection:'row',backgroundColor:"rgb(225, 224, 224)",justifyContent:'center',padding:10}}>
+                        <View style={{flex:1}}>
+                        </View>
+                        <View style={{flex:3}}>
+                        <Text style={{alignSelf:'center',fontSize:17}}>Select Laungage</Text>
+                        </View>
+                        <View style={{flex:1}}>
+                            <TouchableOpacity onPress={this.pickerDoneBtnTapped}>
+                                 <Text style={{alignSelf:'flex-end',color:'rgb(0, 122, 255)',fontSize:15}}>Done</Text>
+                            </TouchableOpacity>
+                        </View>
+                        </View>
+                            <ListPicker onChangePickerValue={this.handlePickerValue}/>
+                        </View>
+                    );   
+                }else{
+
+                }              
+    
+        }
+    }
+    languageButtonTapped = () => {
+        if (Platform.OS !== 'ios') {
+
+        } else {
+        this.setState({pickerViewHideIOS:true})
+        }
+    }
 
 
     render() {
@@ -88,7 +142,9 @@ class Login extends Component {
                             />
                             <View style={styles.loginHelperCont}>
                                 {Platform.OS !== 'ios' && <Image source={require('./../assets/images/select_country.png')} style={styles.countryImage} />}
-                                {Platform.OS !== 'ios' && <ListPicker />}
+                                <TouchableOpacity onPress={this.languageButtonTapped}>
+                                <Text>{this.state.language}</Text>
+                                </TouchableOpacity>
                                 <LinkButton
                                     onPress={() => navigateTo("forgotPassword")}
                                     title="Forgot Password?"
@@ -116,6 +172,7 @@ class Login extends Component {
                             color="rgb(141, 198, 63)" />
                     </View>
                 </View>
+                {this._segmentPicker()}
             </View>
         );
     }

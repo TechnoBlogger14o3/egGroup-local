@@ -43,6 +43,8 @@ target 'egGroup' do
   pod 'Google-Maps-iOS-Utils' # Remove this line if you don't want to support GoogleMaps on iOS
   pod 'react-native-camera', :path => '../node_modules/react-native-camera'
 
+  pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
+
 end
 
 post_install do |installer|

@@ -3,6 +3,7 @@ package com.eggroup;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.BV.LinearGradient.LinearGradientPackage;
 import com.cardio.RNCardIOPackage;
 
 import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
@@ -34,6 +35,7 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
 
             new MainReactPackage(),
+            new LinearGradientPackage(),
             new RNCardIOPackage(),
             new ReactNativePushNotificationPackage(),
             new RNCameraPackage(),

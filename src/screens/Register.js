@@ -146,7 +146,6 @@ class Register extends Component {
                     style={styles.noBorderToolbar}
                     onClickLeftIcon={this.handleBackNavigation}
                     iconName="back-arrow"
-                    rightButtonName="Logout"
                     title="Registration" />
                 <ScrollView>
                     <View style={styles.loginLogoContainer}>

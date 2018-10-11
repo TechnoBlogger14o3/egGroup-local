@@ -36,7 +36,7 @@ class LoyaltyCardsList extends Component {
   setModalVisible(visible) {
     this.setState({modalVisible: visible});
   }
-  
+
 
   render() {
     return (
@@ -54,25 +54,25 @@ class LoyaltyCardsList extends Component {
                     <Text style={styles.appTitle}>Loyalty Cards</Text>
                 </View>
           </Toolbar>
-          
-         
-          <Card  >
+
+
+          <Card>
 <View style={{ flexDirection: 'row',justifyContent: 'space-between'}}>
 <View>
 
 <Image source={logo}/>
 
 </View>
- 
+
 <View >
-   
+
 <Text style={{color:"rgb(15, 113, 184)"}}>Fuel card Number </Text>
 <Text>1234 5678 9012 3455{"\n"}</Text>
 
 <Text style={{color:"rgb(15, 113, 184)"}}>Card Expiry</Text>
 <Text>05/20/2022</Text>
-</View> 
-<View><Icon style={{ position: 'absolute'}} name="cancel"  size={14} 
+</View>
+<View><Icon style={{ position: 'absolute'}} name="cancel"  size={14}
  onPress={() => {
     this.setModalVisible(true);
   }}
@@ -87,16 +87,16 @@ class LoyaltyCardsList extends Component {
 <Image source={logo}/>
 
 </View>
- 
+
 <View >
-   
+
 <Text style={{color:"rgb(15, 113, 184)"}}>Fuel card Number </Text>
 <Text>1234 5678 9012 3455{"\n"}</Text>
 
 <Text style={{color:"rgb(15, 113, 184)"}}>Card Expiry</Text>
 <Text>05/20/2022</Text>
-</View> 
-<View><Icon style={{ position: 'absolute'}} name="cancel"  size={14} 
+</View>
+<View><Icon style={{ position: 'absolute'}} name="cancel"  size={14}
  onPress={() => {
     this.setModalVisible(true);
   }}
@@ -111,16 +111,16 @@ class LoyaltyCardsList extends Component {
 <Image source={logo}/>
 
 </View>
- 
+
 <View >
-   
+
 <Text style={{color:"rgb(15, 113, 184)"}}>Fuel card Number </Text>
 <Text>1234 5678 9012 3455{"\n"}</Text>
 
 <Text style={{color:"rgb(15, 113, 184)"}}>Card Expiry</Text>
 <Text>05/20/2022</Text>
-</View> 
-<View><Icon style={{ position: 'absolute'}} name="cancel"  size={14} 
+</View>
+<View><Icon style={{ position: 'absolute'}} name="cancel"  size={14}
  onPress={() => {
     this.setModalVisible(true);
   }}
@@ -128,8 +128,8 @@ class LoyaltyCardsList extends Component {
 </View>
 </Card>
           <View style={{flex:3, justifyContent: "flex-end", paddingBottom: 8}}>
-            
-         
+
+
           </View>
       </View>
     );

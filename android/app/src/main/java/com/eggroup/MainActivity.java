@@ -4,6 +4,7 @@ import com.facebook.react.ReactActivity;
 import org.devio.rn.splashscreen.SplashScreen; // import this
 import android.os.Bundle; // import this
 import net.hockeyapp.android.CrashManager;
+import android.content.Intent;
 
 public class MainActivity extends ReactActivity {
 
@@ -20,6 +21,12 @@ public class MainActivity extends ReactActivity {
     }
     private void checkForCrashes() {
         CrashManager.register(this);
+    }
+
+    @Override
+    public void onNewIntent (Intent intent) {
+     super.onNewIntent(intent);
+       super.setIntent(intent);
     }
 
     @Override

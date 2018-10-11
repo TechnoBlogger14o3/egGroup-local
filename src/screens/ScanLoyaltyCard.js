@@ -42,35 +42,25 @@ class ScanLoyaltyCard extends Component {
         // the user cancelled
       })
   }
-  
+
 
   render() {
     return (
       <View style={[styles.appContainer, styles.whiteBackground]}>
-          <Toolbar style={styles.noBorderToolbar}>
-                <Icon
-                    name="arrow-left"
-                    size={24}
-                    type="material-community"
-                    onPress={navigateBack}
-                    iconStyle={styles.leftIconContainer}
-                />
-                <View style={styles.toolbarUtils}>
-                    <Text style={{fontSize: 18,
-        // fontWeight:"bold",
-        color: "#000000",
-        padding:60}}>Scan Loyalty card</Text>
-                </View>
-          </Toolbar>
+          <Toolbar
+              style={styles.noBorderToolbar}
+              onClickLeftIcon={navigateBack}
+              iconName="back-arrow"
+              title="Scan Loyalty card" />
           <View style={{flex:3}}>
 
           <Text style={styles.paragraphOne}>
                Hold the card inside the frame, it will be scanned automatically
               </Text>
-        
-          
 
-                   
+
+
+
           </View>
 
           <View style={{flex:4}}>
@@ -80,17 +70,17 @@ class ScanLoyaltyCard extends Component {
          <TouchableOpacity onPress={this.scanCard.bind(this)}>
           <Text>Scan card!</Text>
         </TouchableOpacity>
-            
+
           </View>
           <View style={{flex:3, justifyContent: "flex-end", paddingBottom: 8}}>
-            
+
           <Button style={{borderRadius:50,}}
-          
+
                   title="Enter Manually"
-              
+
 
                   onPress = { () => alert('Your Go Fuel Card scanned successfully!') }
-              
+
                   backgroundColor="rgb(15, 113, 184)" />
           </View>
       </View>

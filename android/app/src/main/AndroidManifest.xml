@@ -6,6 +6,13 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-sdk
+      android:minSdkVersion="16"
+      android:targetSdkVersion="22" />
 
     <application
       android:name=".MainApplication"
@@ -19,6 +26,19 @@
       <meta-data
         android:name="net.hockeyapp.android.appIdentifier"
         android:value="${HOCKEYAPP_APP_ID}" />
+
+      <service android:name="com.evollu.react.fcm.MessagingService">
+        <intent-filter>
+          <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+        </intent-filter>
+      </service>
+
+      <service android:name="com.evollu.react.fcm.InstanceIdService" android:exported="false">
+        <intent-filter>
+          <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+        </intent-filter>
+      </service>
+
      <activity
         android:name=".SplashActivity"
         android:theme="@style/SplashTheme"
@@ -28,6 +48,11 @@
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
             <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
+        </intent-filter>
+
+        <intent-filter>
+            <action android:name="fcm.ACTION.HELLO" />
+            <category android:name="android.intent.category.DEFAULT" />
         </intent-filter>
 
     </activity>

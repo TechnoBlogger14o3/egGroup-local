@@ -60,28 +60,14 @@ class Support extends Component{
 
     render(){
         return (
-
              <View style={styles.supportContainer}>
-                <Toolbar style={styles.noBorderToolbar} openDrawer={this.openDrawer}>
-                    <Icon
-                        name={this.getTypedIcon()}
-                        size={this.getSizeIcon()}
-                        color={this.getColorIcon()}
-                        type="material-community"
-                        onPress={navigateBack}
-                        iconStyle={styles.leftIconContainer}
-                    />
-                     <View style={styles.toolbarUtils}>
-                        <View style={styles.notificationTitleView}>
-                            <Text style={styles.appTitle}>Support</Text>
-                        </View>
-                        <View style={styles.logoutView}>
-                        <TouchableOpacity onPress={this.logoutFunction}>
-                            <Text style={[styles.logoutText,{fontSize:18}]}>+</Text>
-                        </TouchableOpacity>
-                        </View>
-                    </View>
-                </Toolbar>
+                <Toolbar
+                    style={[styles.noBorderToolbar,{backgroundColor: "#f5f5f5"}]}
+                    onClickLeftIcon={navigateBack}
+                    iconName="back-arrow"
+                    title="Support"
+                    rightIconName="plus"
+                    onRightIconPress={this.logoutFunction} />
                 <View style={styles.supportView}>
                     <Text style={styles.SupportTitleText}>EMAIL US ON</Text>
                 </View>
@@ -94,7 +80,6 @@ class Support extends Component{
                              <Text style={styles.preferredStationDetails}>enquiries@eurogarages.com</Text>
                         </TouchableOpacity>
                     </View>
-
                 </View>
                 <View style={styles.supportView}>
                     <Text style={styles.SupportTitleText}>CALL US ON</Text>

@@ -5,10 +5,10 @@ import { Field, reduxForm } from "redux-form";
 import validator from "validator";
 import { Icon } from "react-native-elements";
 import { View, ScrollView, Text, Image, StyleSheet,TouchableOpacity,Alert, Platform} from "react-native";
-import { InputText, Button, DatePicker, Toolbar } from "../components";
-import Phone from "./../components/Phone";
-import { navigateBack } from "../helpers";
-import { navigateTo } from "../helpers";
+
+import { InputText, Button, DatePicker, Toolbar, Phone } from "../components";
+import { navigateTo, redirectTo, navigateBack } from "../helpers";
+
 import styles from "../styles";
 
 class EditProfile extends Component {
@@ -40,7 +40,7 @@ class EditProfile extends Component {
         {
           text: "Yes",
           onPress: () => {
-            navigateTo("auth");
+            redirectTo("auth");
           }
         }
       ],
@@ -116,42 +116,17 @@ class EditProfile extends Component {
     );
   };
 
-  getTypedIcon = () => {
-      return Platform.OS === "ios" ? "chevron-left" : "arrow-left";
-  };
-
-  getSizeIcon = () => {
-      return Platform.OS === "ios" ? 38 : 24;
-  };
-
-  getColorIcon = () => {
-      return Platform.OS === "ios" ? "rgb(15, 113, 184)" : "rgb(0, 0, 0)";
-  };
-
   render() {
     const { handleSubmit } = this.props;
     return (
       <View style={[styles.appContainer, styles.whiteBackground]}>
-        <Toolbar style={[styles.noBorderToolbar,{backgroundColor: "#f5f5f5"}]}>
-          <Icon
-            name={this.getTypedIcon()}
-            size={this.getSizeIcon()}
-            color={this.getColorIcon()}
-            type="material-community"
-            onPress={navigateBack}
-            iconStyle={styles.leftIconContainer}
-          />
-          <View style={styles.toolbarUtils}>
-            <View style={styles.notificationTitleView}>
-              <Text style={styles.appTitle}>Edit Profile</Text>
-            </View>
-            <View style={styles.logoutView}>
-              <TouchableOpacity onPress={this.logoutFunction}>
-                <Text style={styles.logoutText}>Logout</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        </Toolbar>
+        <Toolbar
+            style={[styles.noBorderToolbar,{backgroundColor: "#f5f5f5"}]}
+            onClickLeftIcon={navigateBack}
+            iconName="back-arrow"
+            title="Edit Profile"
+            rightButtonName="Logout"
+            onRightButtonPress={this.logoutFunction} />
         <ScrollView>
           <View style={styles.profilePic}>
             <Image

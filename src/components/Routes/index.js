@@ -5,13 +5,13 @@ import { Icon } from "react-native-elements";
 import Login from "../../screens/Login";
 import ForgotPassword from "../../screens/ForgotPassword";
 import Register from "../../screens/Register";
-import StoreLocator from '../../screens/StoreLocator';
-import StoreDetails from '../../screens/StoreDetails';
-import AddLoyaltyCard from '../../screens/AddLoyalityCard';
-import LoyaltyCardsList from '../../screens/LoyaltyCardsList';
-import AddLoyaltyCardManually from '../../screens/AddLoyaltyCardManually';
-import ScanLoyaltyCard from '../../screens/ScanLoyaltyCard';
-import Settings from '../../screens/UserSettings';
+import StoreLocator from "../../screens/StoreLocator";
+import StoreDetails from "../../screens/StoreDetails";
+import AddLoyaltyCard from "../../screens/AddLoyalityCard";
+import LoyaltyCardsList from "../../screens/LoyaltyCardsList";
+import AddLoyaltyCardManually from "../../screens/AddLoyaltyCardManually";
+import ScanLoyaltyCard from "../../screens/ScanLoyaltyCard";
+import Settings from "../../screens/UserSettings";
 import PreferredStation from "../../screens/PreferredStation";
 import Support from "../../screens/Support";
 import EditProfile from "../../screens/EditProfile";
@@ -19,7 +19,8 @@ import PrivarcyPolicy from "../../screens/PrivarcyPolicy";
 import Notifications from "../../screens/Notifications";
 import NewsLetters from "../../screens/NewsLetters";
 import TermsAndConditions from "../../screens/TermsAndConditions";
-import Home from '../../screens/Home';
+import Home from "../../screens/Home";
+import PushNotification from "../../screens/PushNotification";
 
 export default class Routes extends Component {
 
@@ -87,6 +88,7 @@ export default class Routes extends Component {
 									<Scene key="notifications" component={Notifications} title="Notification Preference" />
 									<Scene key="newsLetters" component={NewsLetters} title="Newsletter subscriptions"/>
 									<Scene key="termsAndConditions" component={TermsAndConditions} title="Terms & Conditions"/>
+									<Scene key="pushNotification" component={PushNotification} title="Push Notification" />
 							</Scene>
 					</Scene>
 			</Router>

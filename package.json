@@ -31,7 +31,8 @@
     "redux-persist": "^5.10.0",
     "redux-thunk": "^2.3.0",
     "rn-fetch-blob": "^0.10.13",
-    "validator": "^10.8.0"
+    "validator": "^10.8.0",
+    "react-native-fcm": "^16.2.3"
   },
   "devDependencies": {
     "@babel/core": "^7.1.0",

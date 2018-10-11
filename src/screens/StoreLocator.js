@@ -145,9 +145,8 @@ class StoreLocator extends Component {
                            style={[styles.noBorderToolbar]}
                            onClickLeftIcon={navigateBack}
                            iconName="back-arrow"
-                           title="Store Locator" />
+                           title="Station Finder" />
                         <View style={{ flex: 3 }}>
-
                               <MapView style={{ width: Dimensions.get('window').width, height: Dimensions.get('window').height/2, left: 0, right: 0, top: 0, bottom: 0, position: 'absolute' }}
                                     provider={MapView.PROVIDER_GOOGLE}
                                     showsUserLocation={true}
@@ -163,9 +162,7 @@ class StoreLocator extends Component {
                                           description={this.state.address}
                                     />
                               </MapView>
-
                               <View style={styles.inputView}>
-
                                     <SearchBar lightTheme placeholder='Search' inputStyle={{ backgroundColor: 'rgb(250,250,250)' }}
                                           containerStyle={{ backgroundColor: 'rgb(250,250,250)' }}
                                           icon={{ type: 'font-awesome', color: 'gray', name: this.state.iconName }}
@@ -186,7 +183,6 @@ class StoreLocator extends Component {
                                     ref={(ref) => { this.flatListRef = ref; }}
                                     ItemSeparatorComponent={() => <View style={{ marginLeft: 0, marginRight: 0, height: 0.5, backgroundColor: 'gray' }} />}
                                     renderItem={({ item, index }) =>
-
                                           <View style={{ flex: 1, backgroundColor: 'rgb(255, 255, 255)' }}>
                                                 <View style={{ flex: 1, flexDirection: 'row', paddingTop: 10, paddingBottom: 10, paddingLeft: 16, paddingRight: 16, backgroundColor: 'rgb(255, 255, 255)' }}>
                                                       <View style={{ flex: 2.8, justifyContent: 'center', backgroundColor: 'rgb(255, 255, 255)' }}>
@@ -217,8 +213,6 @@ class StoreLocator extends Component {
                                                       <Image style={{width: 15, height: 15,alignSelf:'center'}} source={require('../assets/images/Arrow.png')} />
                                                       </View>
                                                       </TouchableOpacity>
-
-
                                                 </View>
                                           </View>
                                     }

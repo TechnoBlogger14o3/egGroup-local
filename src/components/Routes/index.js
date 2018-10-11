@@ -27,57 +27,50 @@ import PromotionsDetails from "../../screens/PromotionsDetails";
 
 export default class Routes extends Component {
 
-	renderSettingsIcon = () => {
-			return (
-				<Icon
-						name="settings"
-						size={24}
-						type="material-community"/>
-			)
-	}
+	renderSettingsIcon = () => (<Icon
+				name="settings"
+				size={24}
+				type="material-community"/>);
 
-	renderHomeIcon = () => {
-			return (
-				<Icon
-						name="home"
-						size={24}
-						type="material-community"/>
-			)
-	}
+	renderHomeIcon = () => (<Icon
+				name="home"
+				size={24}
+				type="material-community"/>);
 
-	renderHomeIcon = () => {
-			return (
-				<Icon
-						name="home"
-						size={24}
-						type="material-community"/>
-			)
-	}
+	renderFindIcon = () => (<Icon
+			name="crosshairs"
+			size={24}
+			type="material-community"/>);
 
-	renderFindIcon = () => {
-			return (
-				<Icon
-						name="crosshairs"
-						size={24}
-						type="material-community"/>
-			)
-	}
+	renderCouponIcon = () => (<Icon
+			name="tag-multiple"
+			size={24}
+			type="material-community"/>);
+
+	renderLoyalityIcon = () => (<Icon
+			name="account-card-details"
+			size={24}
+			type="material-community"/>);
+
 
 	render() {
 		return (
 			<Router>
 					<Scene>
-							<Scene key="auth" hideNavBar={true} initial={true}>
+							<Scene key="auth" hideNavBar={true} initial={false}>
 									<Scene key="login" component={Login} title="Login" />
 									<Scene key="register" component={Register} title="Register" />
 									<Scene key="forgotPassword" component={ForgotPassword} title="ForgotPassword" />
 							</Scene>
-							<Scene key="app" hideNavBar={true} initial={false}>
+							<Scene key="app" hideNavBar={true} initial={true}>
 									<Scene tabs key="home" hideNavBar={true} swipeEnabled={true} tabBarPosition="bottom">
 											<Scene key="home" icon={this.renderHomeIcon} hideNavBar={true}  component={Home} title="Home" />
 											<Scene key="settings" icon={this.renderSettingsIcon} hideNavBar={true} title="Settings" component={Settings} />
 											<Scene key="storeLocator" icon={this.renderFindIcon} hideNavBar={true} title="Station Finder" component={StoreLocator} />
+											<Scene key="coupens" icon={this.renderCouponIcon} hideNavBar={true} title="Coupens" component={CoupensList} />
+											<Scene key="loyalityList" icon={this.renderLoyalityIcon} hideNavBar={true} title="Loyalty Cards" component={LoyaltyCardsList} />
 									</Scene>
+									<Scene key="addLoyalityCardManually" component={AddLoyaltyCardManually} title="Add Card Manually"/>
 									<Scene key="storeDetails" component={StoreDetails} title="StoreDetails"/>
 									<Scene key="addLoyaltyCard" component={AddLoyaltyCard} title="Loyalty Cards" />
 									<Scene key="loyaltyCardsList" component={LoyaltyCardsList} title="Loyalty Cards" />

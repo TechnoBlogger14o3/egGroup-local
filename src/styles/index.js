@@ -577,14 +577,13 @@ const styles = StyleSheet.create({
             paddingLeft:20,
             marginTop:1,
         },
-        //Coupen model 
-    
+        //Coupen model
+
     CouponmodalView: {
         backgroundColor: 'white',
         margin: 10,
         flex: 1,
-        borderBottomLeftRadius: 5,
-		borderBottomRightRadius: 5,
+        borderRadius: 5,
     },
     CouponImageStyle: {
         height: 150,
@@ -594,11 +593,12 @@ const styles = StyleSheet.create({
         overflow: 'hidden'
     },
     CouponIconStyle: {
-        margin: 5,
         flex: 1,
         flexDirection: 'row-reverse',
         alignSelf: 'flex-end',
-        marginBottom: 130
+        position: "absolute",
+        right: 3,
+        top: 3
     },
     CouponOffText: {
         fontSize: 35,
@@ -665,7 +665,7 @@ const styles = StyleSheet.create({
         borderColor: 'rgb(151,151,151)'
     },
     //Card component
-      
+
     cardContainer: {
         flex: 1,
       },
@@ -690,7 +690,7 @@ const styles = StyleSheet.create({
         backgroundColor:'#FFF',
         borderBottomEndRadius: 5,
         borderBottomStartRadius: 5,
-        
+
       },
       validityContentView:{
           marginLeft:10,
@@ -745,7 +745,7 @@ const styles = StyleSheet.create({
         height:50,
         borderColor:'#fff',
         borderRightWidth:1,
-        
+
      },
       coupenCodeView:{
         flex:2.2,
@@ -755,9 +755,9 @@ const styles = StyleSheet.create({
         alignSelf:'center',
         borderTopEndRadius: 5,
         height:50,
-       
+
       },
-     
+
       CoupenCodeTextView:{
         justifyContent:'center',
         paddingBottom:2
@@ -786,7 +786,7 @@ const styles = StyleSheet.create({
         color: "#000000",
         lineHeight: 22,
         textAlign:"center"
-     
+
     },
     appTitleone: {
         fontSize: 18,

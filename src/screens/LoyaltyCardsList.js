@@ -75,23 +75,16 @@ render() {
   };
   return (
     <View style={[styles.appContainer, styles.whiteBackground]}>
-        <Toolbar style={styles.noBorderToolbar}>
-              <Icon
-                  name="arrow-left"
-                  size={24}
-                  type="material-community"
-                  onPress={navigateBack}
-                  iconStyle={styles.leftIconContainer}
-              />
-              <View style={styles.toolbarUtils}>
-                  <Text style={styles.appTitleone}>Loyalty Cards</Text>
-
-              </View>
-              <View><Text onPress={() => navigateTo("AddLoyaltyCard")} style={{color:"rgb(15,113,184)",fontSize:30,width:35,}} >+</Text></View>
-        </Toolbar>
-        
-       
-        <Card   
+        <Toolbar
+            style={[styles.noBorderToolbar]}
+            onClickLeftIcon={navigateBack}
+            iconName="back-arrow"
+            title="Loyalty Cards"
+            rightIconName="plus"
+            onClickRightIcon={() => {
+              navigateTo("addLoyalityCardManually")
+            }} />
+        <Card
           animationType="slide"
           transparent={false}
           visible={this.state.modalVisible}
@@ -104,15 +97,15 @@ render() {
 </View>
 
 <View >
- 
+
 <Text style={{color:"rgb(15, 113, 184)"}}>Fuel card Number </Text>
 <Text>1234 5678 9012 3455{"\n"}</Text>
 
 <Text style={{color:"rgb(15, 113, 184)"}}>Card Expiry</Text>
 <Text>05/20/2022</Text>
-</View> 
+</View>
 <View>
-  <Icon style={{}} name="cancel"  size={16} reverseColor={'red'} 
+  <Icon style={{}} name="cancel"  size={16} reverseColor={'red'}
 onPress={this.closeModal} />
 </View>
 </View>
@@ -127,15 +120,15 @@ onPress={this.closeModal} />
 </View>
 
 <View >
- 
+
 <Text style={{color:"rgb(15, 113, 184)"}}>Fuel card Number </Text>
 <Text>1234 5678 9012 3455{"\n"}</Text>
 
 <Text style={{color:"rgb(15, 113, 184)"}}>Card Expiry</Text>
 <Text>05/20/2022</Text>
-</View> 
+</View>
 <View>
-<Icon style={{}} name="cancel"  size={16} reverseColor={'red'} 
+<Icon style={{}} name="cancel"  size={16} reverseColor={'red'}
 onPress={() => {
   this.props.parentFlatList.refreshFlatList(deletingRow);
 }}
@@ -152,16 +145,16 @@ onPress={() => {
 </View>
 
 <View >
- 
+
 <Text style={{color:"rgb(15, 113, 184)"}}>Fuel card Number </Text>
 <Text>1234 5678 9012 3455{"\n"}</Text>
 
 <Text style={{color:"rgb(15, 113, 184)"}}>Card Expiry</Text>
 <Text>05/20/2022</Text>
-</View> 
+</View>
 <View>
-  
-<Icon style={{}} name="cancel"  size={16} reverseColor={'red'} 
+
+<Icon style={{}} name="cancel"  size={16} reverseColor={'red'}
 onPress={() => {
   this.props.parentFlatList.refreshFlatList(deletingRow);
 }}
@@ -169,8 +162,8 @@ onPress={() => {
 </View>
 </Card>
         <View style={{flex:3, justifyContent: "flex-end", paddingBottom: 8}}>
-          
-       
+
+
         </View>
     </View>
   );

@@ -42,7 +42,7 @@ class CoupensList extends Component {
     }
 
       _getProducts = (page = 1, limit = 5) => {
-        this.props.actions.getProducts(page, limit);
+        //this.props.actions.getProducts(page, limit);
       };
 
       /*  flat list supporting methods */
@@ -50,7 +50,7 @@ class CoupensList extends Component {
     _getMore = () => {
         this._getProducts(++this.props.page, this.props.limit);
     };
-    
+
     _renderItem = ({ index, item }) => {
       console.log(item);
         return (
@@ -70,12 +70,12 @@ class CoupensList extends Component {
       _keyExtractor = (item, index) => {
         return index+"";
       };
-    
+
       _onRefresh = () => {
         //this.setState({ isRefreshing: true });
         this._getProducts();
       };
-    
+
       _renderRefreshControl() {
         return (
           <RefreshControl
@@ -94,43 +94,42 @@ class CoupensList extends Component {
   render() {
       return (
         <View style={[styles.appContainer, styles.whiteBackground]}>
-            <Toolbar 
+            <Toolbar
                   style={[styles.noBorderToolbar,{borderBottomWidth:1,borderBottomColor:'rgb(204, 204, 204)'}]}
                   onClickLeftIcon={navigateBack}
                   iconName="back-arrow"
                   title="Coupens" />
-                    
-            <View style={[this.state.modalVisible ? { backgroundColor: 'rgba(0,0,0,0.5)' } : '']}>
+            <View style={[this.state.modalVisible ? { backgroundColor: 'rgba(0,0,0,1)' } : '']}>
                 <Modal
                   animationType={"fade"}
-                  transparent={false}
+                  transparent={true}
                   visible={this.state.modalVisible}
                   onRequestClose={() => { }}>
+                      <View style={{flex: 1, backgroundColor: "rgba(0, 0, 0, 0.6)"}}>
                         <ScrollView>
                             <View style={styles.CouponmodalView} >
                                 <View>
-                                    <ImageBackground 
-                                        style={styles.CouponImageStyle} 
+                                    <ImageBackground
+                                        style={styles.CouponImageStyle}
                                         source={require('./../assets/images/mask.png')}>
                                         <View style={styles.CouponIconStyle}>
                                             <Icon
                                                 onPress={() => { this.toggleModal(!this.state.modalVisible) }}
                                                 reverseColor='red'
                                                 color='white'
-                                                name="cancel" 
-                                                size={16} 
+                                                name="cancel"
+                                                size={24}
                                             />
                                         </View>
                                     </ImageBackground>
                                 </View>
                                     <Text style={styles.CouponOffText}>€2 OFF</Text>
                                     <Text style={styles.CouponCodeText}>Coupon Code</Text>
-                                
                                     <LinearGradient style={styles.CoupnSubwayText} start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={['#339933', '#006666', '#003366']}>
                                     <Text style={styles.CouponSubwayTextColor}>SUBWAY OFF</Text>
                                     </LinearGradient>
-    
-                                <Image 
+
+                                <Image
                                     style={styles.CouponBarcodeImage}
                                     source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa8mHRczu1flp3Evh0M9wM4tppSxHWYeBzfANDH-nbDlSxdgK6Rg' }} />
                                 <View style={styles.CouponSpace}>
@@ -141,16 +140,17 @@ class CoupensList extends Component {
                                     <Text style={styles.CouponTextColor}>€2 OFF in your next purchase.  Lorem Ipsum is</Text>
                                     <Text style={styles.CouponTextColor}>simply dummy text of the printing and</Text>
                                     <Text style={styles.CouponTextColor}>typesetting industry. Lorem Ipsum has been the</Text>
-                                    <Text style={styles.CouponTextColor}>industry's standard.</Text>
+                                    <Text style={styles.CouponTextColor}>industry standard.</Text>
                                 </View>
                                 <View style={styles.CouponValidityText}>
                                     <Text style={styles.CouponValidTextDesign}>Valid till 02 Nov 2018</Text>
                                 </View>
                             </View>
                         </ScrollView>
+                      </View>
                     </Modal>
              </View>
-           
+
            <FlatList
             data={this.state.products}
             renderItem={this._renderItem}
@@ -159,8 +159,8 @@ class CoupensList extends Component {
             onEndReached={this._getMore}
             refreshControl={this._renderRefreshControl()}
           />
-              
-            
+
+
          </View>
       );
     }

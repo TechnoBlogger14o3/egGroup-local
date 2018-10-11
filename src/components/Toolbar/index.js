@@ -19,6 +19,8 @@ class Toolbar extends Component<{}> {
         switch (iconName) {
             case "back-arrow":
                 return Platform.OS === "ios" ? "chevron-left" : "arrow-left";
+            case "plus":
+                return "plus";
             default:
                 return "chevron-left"
         }

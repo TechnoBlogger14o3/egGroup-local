@@ -30,7 +30,7 @@ class DatePicker extends Component {
                 date: new Date(this.props.value)
             });
             if (action !== DatePickerAndroid.dismissedAction) {
-                this.props.onChangeDate(`${month+1}/${day}/${year}`);
+                this.props.onChangeDate(`${day}/${month+1}/${year}`);
                 this.datePicker.blur();
             } else if(action === DatePickerAndroid.dismissedAction) {
                 this.datePicker.blur();

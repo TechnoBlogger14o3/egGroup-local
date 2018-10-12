@@ -47,7 +47,7 @@ class CardItem extends Component {
                           <View style={styles.dottedView}></View>
                           <View style={styles.coupenCodeView}>
                                 <View style={styles.CoupenCodeTextView}>
-                                    <Text style={styles.coupenCodeTextStyle}>Coupen Code</Text>
+                                    <Text style={styles.coupenCodeTextStyle}>Coupon Code</Text>
                                 </View>
                                 <View style={styles.CoupenCodeText}>
                                     <Text style={styles.codeTextStyle}>{coupenCode? coupenCode:'Code Not Found'}</Text>

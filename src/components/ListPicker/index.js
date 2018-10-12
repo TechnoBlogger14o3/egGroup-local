@@ -24,11 +24,11 @@ class ListPicker extends Component {
                     selectedValue={this.state.pickerValue}
                     style={styles.listPickerStyle}
                     onValueChange={this.onChange}>
-                    <Picker.Item label="Netherlands" value="Netherlands" />
-                    <Picker.Item label="UK" value="UK" />
-                    <Picker.Item label="Germany" value="Germany" />
-                    <Picker.Item label="Italy" value="Italy" />
-                    <Picker.Item label="USA" value="USA" />
+                    <Picker.Item label="Dutch" value="Dutch" />
+                    <Picker.Item label="English" value="English" />
+                    <Picker.Item label="French" value="French" />
+                    <Picker.Item label="German" value="German" />
+                    <Picker.Item label="Italian" value="Italian" />
                 </Picker>
             </View>
         );

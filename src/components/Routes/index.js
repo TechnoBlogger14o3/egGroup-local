@@ -67,7 +67,7 @@ export default class Routes extends Component {
 											<Scene key="home" icon={this.renderHomeIcon} hideNavBar={true}  component={Home} title="Home" />
 											<Scene key="settings" icon={this.renderSettingsIcon} hideNavBar={true} title="Settings" component={Settings} />
 											<Scene key="storeLocator" icon={this.renderFindIcon} hideNavBar={true} title="Station Finder" component={StoreLocator} />
-											<Scene key="coupens" icon={this.renderCouponIcon} hideNavBar={true} title="Coupens" component={CoupensList} />
+											<Scene key="coupens" icon={this.renderCouponIcon} hideNavBar={true} title="Coupons" component={CoupensList} />
 											<Scene key="loyalityList" icon={this.renderLoyalityIcon} hideNavBar={true} title="Loyalty Cards" component={LoyaltyCardsList} />
 									</Scene>
 									<Scene key="addLoyalityCardManually" component={AddLoyaltyCardManually} title="Add Card Manually"/>

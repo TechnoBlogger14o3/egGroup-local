@@ -81,14 +81,14 @@ class AddLoyaltyCardManually extends Component {
                         label="Enter Go Fuel Card number"
                         placeholder="1234 5678 9012 3455"
                         keyboardType="number-pad"
-                        maxLength={16}
+                        maxLength={19}
                         component={this.renderTextInput}
                         normalize={normalizePhone}
                     />
                     <Field
                         name="datePicker"
                         label="Card Expiry"
-                        placeholder="05/20/2022"
+                        placeholder="20/05/2022"
                         component={this.renderDatePicker}
                     />
                    <View style={{ flex: 3, justifyContent: "flex-end", paddingBottom: 8 }}>
@@ -108,9 +108,9 @@ const validate = values => {
 
     if (!values.cardNumber) {
         errors.cardNumber = "Rerquired"
-    }  else if (values.cardNumber.length > 18) {
-        errors.cardNumber = "Please enter a valid card number or expiry date";
-    }
+    }  else if (values.cardNumber.length < 19) {
+        errors.cardNumber = "Please enter a valid card number";
+    }  
 
     if (!values.datePicker) {
         errors.datePicker = "Required"
@@ -137,7 +137,7 @@ const normalizePhone = (value, previousValue) => {
     if (onlyNums.length <= 8) {
       return onlyNums.slice(0, 4) + ' ' + onlyNums.slice(4)
     }
-    return onlyNums.slice(0, 4) + ' ' + onlyNums.slice(4, 8) + ' ' + onlyNums.slice(8, 12)
+    return onlyNums.slice(0, 4) + ' ' + onlyNums.slice(4, 8) + ' ' + onlyNums.slice(8, 12)+' '+ onlyNums.slice(12, 16)
   }
 
 

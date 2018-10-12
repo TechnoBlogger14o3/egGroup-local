@@ -98,7 +98,7 @@ class CoupensList extends Component {
                   style={[styles.noBorderToolbar,{borderBottomWidth:1,borderBottomColor:'rgb(204, 204, 204)'}]}
                   onClickLeftIcon={navigateBack}
                   iconName="back-arrow"
-                  title="Coupens" />
+                  title="Coupons" />
             <View style={[this.state.modalVisible ? { backgroundColor: 'rgba(0,0,0,1)' } : '']}>
                 <Modal
                   animationType={"fade"}

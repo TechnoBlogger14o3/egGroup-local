@@ -11,22 +11,6 @@ import styles from '../styles';
 
 class LoyaltyCardsList extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-        email: "",
-        activeRowKey: null
-    };
-}
-
-onChange = (key, value) => {
-    this.setState({
-        [key]: value
-    });
-}
-
-
-
 state = {
   modalVisible: false,
 };
@@ -40,39 +24,7 @@ closeModal = () => {
 }
 
 render() {
-  const swipesettings = {
-    autoclose: true,
-    onClose: (secId, rowId, direction) => {
-      if(this.state.activeRowkey != null){
-        this.setState({ activeRowkey: null });
-      }
-    },
-
-    onOpen: (secId, rowId, direction) =>{
-      this.setState({activeRowkey:this.props.item.key});
-    },
-    right: [
-      {
-        onpress: () => {
-          Alert.alert (
-            'Alert',
-            'Please conform if you want to delete the card',
-            [
-              {text: "No",onpress: () => console.log('Cancel Pressed'), style: 'cancel'},
-              {text:'Yes',onPress: () => {
-                flatListData.splice(this.props.index, 1);
-              }},
-            ],
-            {cancelable:true}
-          );
-        },
-
-        text: 'Delete', type: 'delete'
-      }
-    ],
-    rowId: this.props.index,
-    sectionId: 1
-  };
+ 
   return (
     <View style={[styles.appContainer, styles.whiteBackground]}>
         <Toolbar
@@ -89,11 +41,11 @@ render() {
           transparent={false}
           visible={this.state.modalVisible}
           onRequestClose={() => {alert("Modal has been closed.")}}>
-<View onPress={() => {
-              this.setModalVisible(!this.state.modalVisible)
-            }} style={{ flexDirection: 'row',justifyContent: 'space-between'}}>
-<View>
- <Image style={{width:160,height:80,borderRadius:5,}}source={feulcard}/>
+<View
+            
+            style={{ flexDirection: 'row',justifyContent: 'space-between'}}>
+<View style={{paddingRight:10}}>
+ <Image style={{width:130,height:80,borderRadius:5,alignSelf: 'stretch', flex: 1,alignItems: "center",}}source={feulcard}/>
 </View>
 
 <View >
@@ -102,21 +54,25 @@ render() {
 <Text>1234 5678 9012 3455{"\n"}</Text>
 
 <Text style={{color:"rgb(15, 113, 184)"}}>Card Expiry</Text>
-<Text>05/20/2022</Text>
+<Text>20/05/2022</Text>
 </View>
-<View>
+<View >
   <Icon style={{}} name="cancel"  size={16} reverseColor={'red'}
-onPress={this.closeModal} />
+ />
 </View>
 </View>
 </Card>
 
-<Card  >
-<View style={{ flexDirection: 'row',justifyContent: 'space-between'}}>
-<View>
-
- <Image style={{width:160,height:80,borderRadius:5}}source={feulcard}/>
-
+              <Card
+          animationType="slide"
+          transparent={false}
+          visible={this.state.modalVisible}
+          onRequestClose={() => {alert("Modal has been closed.")}}>
+<View
+           
+            style={{ flexDirection: 'row',justifyContent: 'space-between'}}>
+<View style={{paddingRight:10}}>
+ <Image style={{width:130,height:80,borderRadius:5,alignSelf: 'stretch',flex: 1,alignItems: "center",}}source={feulcard}/>
 </View>
 
 <View >
@@ -125,23 +81,24 @@ onPress={this.closeModal} />
 <Text>1234 5678 9012 3455{"\n"}</Text>
 
 <Text style={{color:"rgb(15, 113, 184)"}}>Card Expiry</Text>
-<Text>05/20/2022</Text>
+<Text>20/05/2022</Text>
 </View>
-<View>
-<Icon style={{}} name="cancel"  size={16} reverseColor={'red'}
-onPress={() => {
-  this.props.parentFlatList.refreshFlatList(deletingRow);
-}}
-/></View>
+<View >
+  <Icon style={{}} name="cancel"  size={16} reverseColor={'red'}
+ />
+</View>
 </View>
 </Card>
 
-<Card  >
-<View style={{ flexDirection: 'row',justifyContent: 'space-between'}}>
-<View>
-
- <Image style={{width:160,height:80,borderRadius:5}}source={feulcard}/>
-
+               <Card
+          animationType="slide"
+          transparent={false}
+          visible={this.state.modalVisible}
+          onRequestClose={() => {alert("Modal has been closed.")}}>
+<View       
+            style={{ flexDirection: 'row',justifyContent: 'space-between'}}>
+<View style={{paddingRight:10}}>
+ <Image style={{width:130,height:80,borderRadius:5,alignSelf: 'stretch',flex: 1,alignItems: "center",}}source={feulcard}/>
 </View>
 
 <View >
@@ -150,15 +107,12 @@ onPress={() => {
 <Text>1234 5678 9012 3455{"\n"}</Text>
 
 <Text style={{color:"rgb(15, 113, 184)"}}>Card Expiry</Text>
-<Text>05/20/2022</Text>
+<Text>20/05/2022</Text>
 </View>
-<View>
-
-<Icon style={{}} name="cancel"  size={16} reverseColor={'red'}
-onPress={() => {
-  this.props.parentFlatList.refreshFlatList(deletingRow);
-}}
-/></View>
+<View >
+  <Icon style={{}} name="cancel"  size={16} reverseColor={'red'}
+ />
+</View>
 </View>
 </Card>
         <View style={{flex:3, justifyContent: "flex-end", paddingBottom: 8}}>
@@ -173,4 +127,4 @@ const mapStateToProps = state => ({});
 
 const mapDispatchToProps = dispatch => ({});
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoyaltyCardsList);
+export default connect(mapStateToProps, mapDispatchToProps)(LoyaltyCardsList)

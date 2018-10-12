@@ -96,11 +96,11 @@ class Login extends Component {
                         </View>
                             <ListPicker onChangePickerValue={this.handlePickerValue}/>
                         </View>
-                    );   
+                    );
                 }else{
 
-                }              
-    
+                }
+
         }
     }
     languageButtonTapped = () => {
@@ -142,9 +142,7 @@ class Login extends Component {
                             />
                             <View style={styles.loginHelperCont}>
                                 {Platform.OS !== 'ios' && <Image source={require('./../assets/images/select_country.png')} style={styles.countryImage} />}
-                                <TouchableOpacity onPress={this.languageButtonTapped}>
-                                <Text>{this.state.language}</Text>
-                                </TouchableOpacity>
+                                {Platform.OS !== 'ios' && <ListPicker onChangePickerValue={this.handlePickerValue}/>}
                                 <LinkButton
                                     onPress={() => navigateTo("forgotPassword")}
                                     title="Forgot Password?"

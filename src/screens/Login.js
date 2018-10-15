@@ -79,7 +79,7 @@ class Login extends Component {
             );
          }
         } else {
-                if (this.state.pickerViewHideIOS){
+                if (this.state.pickerViewHideIOS) {
                     return (
                         <View style={{height:230,backgroundColor:'white',position:'absolute', bottom:0,left:0,right:0}}>
                         <View style={{left:0,right:0,height:40,flexDirection:'row',backgroundColor:"rgb(225, 224, 224)",justifyContent:'center',padding:10}}>
@@ -97,10 +97,7 @@ class Login extends Component {
                             <ListPicker onChangePickerValue={this.handlePickerValue}/>
                         </View>
                     );
-                }else{
-
                 }
-
         }
     }
     languageButtonTapped = () => {
@@ -141,7 +138,6 @@ class Login extends Component {
                                 secureTextEntry={!this.state.isPasswordShown}
                             />
                             <View style={styles.loginHelperCont}>
-                                {Platform.OS !== 'ios' && <Image source={require('./../assets/images/select_country.png')} style={styles.countryImage} />}
                                 {Platform.OS !== 'ios' && <ListPicker onChangePickerValue={this.handlePickerValue}/>}
                                 <LinkButton
                                     onPress={() => navigateTo("forgotPassword")}
@@ -170,7 +166,6 @@ class Login extends Component {
                             color="rgb(141, 198, 63)" />
                     </View>
                 </View>
-                {this._segmentPicker()}
             </View>
         );
     }

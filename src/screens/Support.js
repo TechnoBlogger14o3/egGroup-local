@@ -12,12 +12,10 @@ import styles from './../styles'
 class Support extends Component{
     constructor(props){
         super(props);
-        this.state={
-          data:[
-          ]
+        this.state = {
+          data:[]
         }
-      }
-
+    }
 
       sendAnEmail=()=>{
         const url='mailto:?to=enquiries@eurogarages.com&subject=Feedback&body='
@@ -98,8 +96,6 @@ class Support extends Component{
         );
     }
 }
-
-
 
 const mapStateToProps = state => ({});
 

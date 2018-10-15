@@ -1,3 +1,9 @@
+/**
+* @author Vineet Mishra <vineet.m@photoninfotech.net>
+* @version 1.0.0
+* @summary Starting point of the application
+*/
+
 import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
 import React, {Component} from 'react';
@@ -9,7 +15,11 @@ import Main from './src/Main';
 import store from './src/config/store';
 
 const persist = store();
-// test
+
+/**
+* Represents App.
+* @constructor
+*/
 class App extends Component {
 
    componentDidMount() {

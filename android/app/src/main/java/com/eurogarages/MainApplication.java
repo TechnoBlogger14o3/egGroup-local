@@ -1,4 +1,4 @@
-package com.eggroup;
+package com.eurogarages;
 
 import android.app.Application;
 

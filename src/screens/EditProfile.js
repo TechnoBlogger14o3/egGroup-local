@@ -4,11 +4,12 @@ import { compose } from "redux";
 import { Field, reduxForm } from "redux-form";
 import validator from "validator";
 import { Icon } from "react-native-elements";
-import { View, ScrollView, Text, Image, StyleSheet, TouchableOpacity, Alert, Platform } from "react-native";
+import { View, ScrollView, Text, Image, StyleSheet, TouchableOpacity, Alert, Platform, PixelRatio, PermissionsAndroid } from "react-native";
 import { InputText, Button, DatePicker, Toolbar } from "../components";
 import Phone from "./../components/Phone";
 import { navigateBack, navigateTo, redirectTo } from "../helpers";
 import styles from "../styles";
+import ImagePicker from 'react-native-image-picker';
 
 class EditProfile extends Component {
   constructor(props) {
@@ -17,7 +18,8 @@ class EditProfile extends Component {
       firstname: "",
       lastname: "",
       datepicker: "",
-      phone: ""
+      phone: "",
+      ImageSource: null
     };
   }
 
@@ -114,6 +116,39 @@ class EditProfile extends Component {
     );
   };
 
+  selectPhotoTapped() {
+    const options = {
+      quality: 1.0,
+      maxWidth: 500,
+      maxHeight: 500,
+      storageOptions: {
+        skipBackup: true
+      }
+    };
+
+    ImagePicker.showImagePicker(options, (response) => {
+      console.log('Response = ', response);
+
+      if (response.didCancel) {
+        console.log('ImagePicker Cancelled')
+      }
+      else if (response.error) {
+        console.log('ImagePicker error')
+      }
+      else if (response.customButton) {
+        console.log('ImagePicker custom buttton')
+      }
+      else {
+        let source = { uri: response.uri };
+        // You can also display the image using data:
+        // let source = { uri: 'data:image/jpeg;base64,' + response.data };
+        this.setState({
+          ImageSource: source
+        });
+      }
+    });
+  }
+
   render() {
     const { handleSubmit } = this.props;
     return (
@@ -127,11 +162,14 @@ class EditProfile extends Component {
             onRightButtonPress={this.logoutFunction} />
         <ScrollView>
           <View style={styles.profilePic}>
-            <Image
-              source={require("./../assets/images/settings/profile.jpg")}
-              style={styles.profilePicImage}
-            />
-            <Text style={styles.editText}>Edit pic</Text>
+          <TouchableOpacity onPress={this.selectPhotoTapped.bind(this)}>
+            <Image source={ this.state.ImageSource === null ? require("./../assets/images/settings/profile.jpg") : this.state.ImageSource}
+                 style={styles.profilePicImage}/>
+          </TouchableOpacity>
+          { this.state.ImageSource === null ?
+          <Text style={styles.editText}>Add pic</Text> :
+          <Text style={styles.editText}>Edit pic</Text>
+          }
           </View>
 
           <View style={styles.profileContainer}>

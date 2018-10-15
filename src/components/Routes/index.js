@@ -23,7 +23,7 @@ import Home from "../../screens/Home";
 import PushNotification from "../../screens/PushNotification";
 import CoupensList from "../../screens/CoupensList";
 import PromotionsDetails from "../../screens/PromotionsDetails";
-
+import PromotionsList from "../../screens/PromotionsList";
 
 export default class Routes extends Component {
 
@@ -52,6 +52,11 @@ export default class Routes extends Component {
 			size={24}
 			type="material-community"/>);
 
+	renderPromotionIcon = () => (<Icon
+			name="account-card-details"
+			size={24}
+			type="material-community"/>);
+
 
 	render() {
 		return (
@@ -69,6 +74,7 @@ export default class Routes extends Component {
 											<Scene key="storeLocator" icon={this.renderFindIcon} hideNavBar={true} title="Station Finder" component={StoreLocator} />
 											<Scene key="coupens" icon={this.renderCouponIcon} hideNavBar={true} title="Coupons" component={CoupensList} />
 											<Scene key="loyalityList" icon={this.renderLoyalityIcon} hideNavBar={true} title="Loyalty Cards" component={LoyaltyCardsList} />
+											<Scene key="promotionsList" icon={this.renderPromotionIcon} hideNavBar={true} title="Promotions List" component={PromotionsList} />
 									</Scene>
 									<Scene key="addLoyalityCardManually" component={AddLoyaltyCardManually} title="Add Card Manually"/>
 									<Scene key="storeDetails" component={StoreDetails} title="StoreDetails"/>

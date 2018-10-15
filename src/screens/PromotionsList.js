@@ -17,11 +17,11 @@ export class Promotion extends Component {
             {promo: 'GET 20', validitytext: "Valid till 02 Nov 2018"},
             {promo: 'PROMO10', validitytext: "Valid till 02 Nov 2018"},
           ]}
-          renderItem={({item}) => 
+          renderItem={({item}) =>
           <View style={styles.mainContainer}>
 
         <LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={['#339933', '#006666', '#003366']} style={styles.gradientContainer}>
-        <Text style={{ flex: 1, fontSize: 18, alignSelf: 'center', color: 'white', paddingLeft: 10 }}>20% {"\n"}OFF</Text> 
+        <Text style={{ flex: 1, fontSize: 18, alignSelf: 'center', color: 'white', paddingLeft: 10 }}>20% {"\n"}OFF</Text>
         <View  style={styles.descriptionContainer}>
           <Text style={{ color: 'white', marginTop: 8 }}>Fill fuel above €20 in Esso petrol {"\n"}bunk and get 20% OFF in KFC {"\n"}chicken.</Text>
         <View style={styles.promoContainer}>
@@ -32,13 +32,12 @@ export class Promotion extends Component {
         </View>
         </View>
         </LinearGradient>
-
-          <Text style={styles.validityStyle}>{item.validitytext}</Text> 
+          <Text style={styles.validityStyle}>{item.validitytext}</Text>
           </View>
         }
         />
         <Button onPress={() => this.props.navigation.navigate('Test')} title="Test"/>
-      </View>   
+      </View>
     )
   }
 }
@@ -56,7 +55,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     height: 150,
     marginTop: 15,
-    marginLeft: 16, 
+    marginLeft: 16,
     marginRight: 16,
     marginBottom: 16
    },

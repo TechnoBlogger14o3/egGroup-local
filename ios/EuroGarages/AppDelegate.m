@@ -11,6 +11,7 @@
 #import <React/RCTRootView.h>
 #import <GoogleMaps/GoogleMaps.h>
 #import <React/RCTPushNotificationManager.h>
+#import "RNFIRMessaging.h"
 
 @import HockeySDK;
 
@@ -20,7 +21,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   [GMSServices provideAPIKey:@"AIzaSyCSz-UdETOoXDVRqGpt8N4cww0a5HgELBo"];
- 
+ // [FIRApp configure];
+
   NSURL *jsCodeLocation;
 
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];

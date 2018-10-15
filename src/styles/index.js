@@ -1,4 +1,6 @@
-import { StyleSheet, Platform } from 'react-native';
+import { StyleSheet, Platform,Dimensions } from 'react-native';
+
+let deviceWidth = Dimensions.get('window').width
 
 const styles = StyleSheet.create({
 
@@ -181,7 +183,7 @@ const styles = StyleSheet.create({
     },
 
     listPickerStyle: {
-        width: 150,
+        width: Platform.OS === 'ios' ? deviceWidth : 150,
         flex: 2,
         color: "rgb(15, 113, 184)"
     },
@@ -793,6 +795,12 @@ const styles = StyleSheet.create({
         color: "#000000",
         padding:30
     },
+
+    languagePickerTitle: {
+        color: "rgb(15, 113, 184)",
+        fontSize:15
+
+    }
 });
 
 export default styles;

@@ -60,6 +60,7 @@
 		F7331F22216C8738002D8D36 /* HockeySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F7331F20216C8738002D8D36 /* HockeySDKResources.bundle */; };
 		F7331F23216C8738002D8D36 /* HockeySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7331F21216C8738002D8D36 /* HockeySDK.framework */; };
 		F7331F2D216C8935002D8D36 /* libRCTPushNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7331F2A216C8922002D8D36 /* libRCTPushNotification.a */; };
+		F7F4AFA1217133F800C8E205 /* libRNFIRMessaging.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F4AFA0217133EC00C8E205 /* libRNFIRMessaging.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -364,6 +365,13 @@
 			remoteGlobalIDString = 5DBEB1501B18CEA900B34395;
 			remoteInfo = RNVectorIcons;
 		};
+		F7F4AF9F217133EC00C8E205 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F7F4AF9B217133EC00C8E205 /* RNFIRMessaging.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNFIRMessaging;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -380,7 +388,7 @@
 		0FFEF982AB0D44B9A99E8094 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* egGroup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = egGroup.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* EG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = egGroup/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = egGroup/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -422,6 +430,7 @@
 		F7331F24216C890C002D8D36 /* RCTPushNotification.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTPushNotification.xcodeproj; path = "../node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj"; sourceTree = "<group>"; };
 		F7331F2E216C8B65002D8D36 /* egGroup.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = egGroup.entitlements; path = egGroup/egGroup.entitlements; sourceTree = "<group>"; };
 		F735C418DC50486F942114B2 /* libRNCardIO.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNCardIO.a; sourceTree = "<group>"; };
+		F7F4AF9B217133EC00C8E205 /* RNFIRMessaging.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNFIRMessaging.xcodeproj; path = "../node_modules/react-native-fcm/ios/RNFIRMessaging.xcodeproj"; sourceTree = "<group>"; };
 		F7FF3EE34000C40136B6EA78 /* Pods-egGroup-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-egGroup-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-egGroup-tvOS/Pods-egGroup-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		FEB403A1DB064C8EADB273D1 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -439,6 +448,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7F4AFA1217133F800C8E205 /* libRNFIRMessaging.a in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
@@ -637,6 +647,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				F7F4AF9B217133EC00C8E205 /* RNFIRMessaging.xcodeproj */,
 				F7331F24216C890C002D8D36 /* RCTPushNotification.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
@@ -685,7 +696,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* egGroup.app */,
+				13B07F961A680F5B00A75B9A /* EG.app */,
 				00E356EE1AD99517003FC87E /* egGroupTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* egGroup-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* egGroup-tvOSTests.xctest */,
@@ -767,6 +778,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		F7F4AF9C217133EC00C8E205 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F7F4AFA0217133EC00C8E205 /* libRNFIRMessaging.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		FB1BDA6B7C85E9E3E92363F1 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -819,7 +838,7 @@
 			);
 			name = egGroup;
 			productName = "Hello World";
-			productReference = 13B07F961A680F5B00A75B9A /* egGroup.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* EG.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2D02E47A1E0B4A5D006451C7 /* egGroup-tvOS */ = {
@@ -964,6 +983,10 @@
 				{
 					ProductGroup = F7331EBE216C7DAE002D8D36 /* Products */;
 					ProjectRef = B7EC7446FBFB4F098FABA596 /* RNCardIO.xcodeproj */;
+				},
+				{
+					ProductGroup = F7F4AF9C217133EC00C8E205 /* Products */;
+					ProjectRef = F7F4AF9B217133EC00C8E205 /* RNFIRMessaging.xcodeproj */;
 				},
 				{
 					ProductGroup = F7BFED38215E781500666FAF /* Products */;
@@ -1266,6 +1289,13 @@
 			fileType = archive.ar;
 			path = libRNVectorIcons.a;
 			remoteRef = F7BFED3B215E781500666FAF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F7F4AFA0217133EC00C8E205 /* libRNFIRMessaging.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNFIRMessaging.a;
+			remoteRef = F7F4AF9F217133EC00C8E205 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1580,6 +1610,8 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-awesome-card-io/ios/**",
+					"$(PROJECT_DIR)/Frameworks",
+					"$(SRCROOT)/../node_modules/react-native-fcm/ios",
 				);
 				INFOPLIST_FILE = egGroup/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1589,7 +1621,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.photon.egpoc;
-				PRODUCT_NAME = egGroup;
+				PRODUCT_NAME = EG;
 				PROVISIONING_PROFILE = "21ea149a-81ba-438a-9d0d-2c27cb7a531c";
 				PROVISIONING_PROFILE_SPECIFIER = EuroGaragesPOCEnterpriseDistribution_V1;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1614,6 +1646,8 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-awesome-card-io/ios/**",
+					"$(PROJECT_DIR)/Frameworks",
+					"$(SRCROOT)/../node_modules/react-native-fcm/ios",
 				);
 				INFOPLIST_FILE = egGroup/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1623,7 +1657,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.photon.egpoc;
-				PRODUCT_NAME = egGroup;
+				PRODUCT_NAME = EG;
 				PROVISIONING_PROFILE = "21ea149a-81ba-438a-9d0d-2c27cb7a531c";
 				PROVISIONING_PROFILE_SPECIFIER = EuroGaragesPOCEnterpriseDistribution_V1;
 				VERSIONING_SYSTEM = "apple-generic";

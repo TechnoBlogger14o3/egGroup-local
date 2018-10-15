@@ -68,14 +68,14 @@ class Login extends Component {
     handlePickerValue = (value) => {
         this.setState({pickerValue:value})
     }
-
+       
+    //Checking the condition For Android & iOS to Display Different Pickers as per Wireframe
     _segmentPicker = () => {
         if (Platform.OS !== 'ios') {
-            if (this.state.pickerViewHideAndroid){
+            alert('android picker ');
+            if (this.state.pickerViewHideIOS){
                  return (
-                <View>
                 <ListPicker />
-                </View>
             );
          }
         } else {
@@ -97,8 +97,6 @@ class Login extends Component {
                             <ListPicker onChangePickerValue={this.handlePickerValue}/>
                         </View>
                     );
-                }else{
-
                 }
 
         }
@@ -141,8 +139,14 @@ class Login extends Component {
                                 secureTextEntry={!this.state.isPasswordShown}
                             />
                             <View style={styles.loginHelperCont}>
-                                {Platform.OS !== 'ios' && <Image source={require('./../assets/images/select_country.png')} style={styles.countryImage} />}
-                                {Platform.OS !== 'ios' && <ListPicker onChangePickerValue={this.handlePickerValue}/>}
+                            {Platform.OS !== 'ios' ? <ListPicker onChangePickerValue={this.handlePickerValue}/>
+                            :  
+                            <TouchableOpacity onPress={this.languageButtonTapped}>
+                                <Text style={styles.languagePickerTitle}>{this.state.language}</Text>
+                            </TouchableOpacity>   
+                            }
+
+                                
                                 <LinkButton
                                     onPress={() => navigateTo("forgotPassword")}
                                     title="Forgot Password?"

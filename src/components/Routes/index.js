@@ -64,6 +64,7 @@ export default class Routes extends Component {
 			<Router>
 					<Scene>
 							<Scene key="auth" hideNavBar={true} initial={true}>
+
 									<Scene key="login" component={Login} title="Login" />
 									<Scene key="register" component={Register} title="Register" />
 									<Scene key="forgotPassword" component={ForgotPassword} title="ForgotPassword" />

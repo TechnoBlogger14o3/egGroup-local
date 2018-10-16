@@ -101,11 +101,7 @@ class Login extends Component {
         }
     }
     languageButtonTapped = () => {
-        if (Platform.OS !== 'ios') {
-
-        } else {
         this.setState({pickerViewHideIOS:true})
-        }
     }
 
 

@@ -8,7 +8,7 @@ import { View, ScrollView, Text, Image, StyleSheet, TouchableOpacity, Alert, Pla
 import { InputText, Button, DatePicker, Toolbar } from "../components";
 import Phone from "./../components/Phone";
 import { navigateBack, navigateTo, redirectTo } from "../helpers";
-import styles from "../styles";
+import styles from "../styles/screenStyles";
 import ImagePicker from 'react-native-image-picker';
 
 class EditProfile extends Component {

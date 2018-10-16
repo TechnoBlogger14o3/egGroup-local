@@ -11,7 +11,7 @@ import { Toolbar } from "../components";
 import Sidebar from "../components/Sidebar/Sidebar";
 import { navigateBack, navigateTo } from "../helpers";
 
-import styles from './../styles';
+import styles from "../styles/screenStyles";
 
 class Settings extends Component {
     constructor(props){

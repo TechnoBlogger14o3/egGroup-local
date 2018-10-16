@@ -9,7 +9,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import { InputText, Button, Toolbar,CardItem } from "../components";
 import { navigateBack,navigateTo } from "../helpers";
 
-import styles from '../styles';
+import styles from "../styles/screenStyles";
 
 class CoupensList extends Component {
 

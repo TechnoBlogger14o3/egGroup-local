@@ -7,7 +7,7 @@ import { InputText, Button, Toolbar } from "../components";
 import { navigateBack ,navigateTo} from "../helpers";
 import { CardIOModule,CardIOUtilities,preloadCardIO} from "react-native-awesome-card-io";
 
-import styles from '../styles';
+import styles from "../styles/screenStyles";
 
 class ScanLoyaltyCard extends Component {
 

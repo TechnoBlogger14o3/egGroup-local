@@ -6,7 +6,7 @@ import { Icon } from "react-native-elements";
 import { Toolbar } from "../components";
 import { navigateBack, navigateTo } from "../helpers";
 
-import styles from '../styles';
+import styles from "../styles/screenStyles";
 
 class AddLoyaltyCard extends Component {
     constructor(props) {

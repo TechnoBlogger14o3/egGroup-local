@@ -9,7 +9,7 @@ import { InputText, Button, LinkButton, Toolbar, DatePicker, Checkbox, Phone } f
 import { navigateBack,navigateTo } from "../helpers";
 
 import logo from "../assets/images/signup/Loginlogo.png"
-import styles from '../styles';
+import styles from "../styles/screenStyles";
 
 class Register extends Component {
 

@@ -10,7 +10,7 @@ import { navigateTo } from "../helpers";
 import { InputText, Button, Toolbar } from "../components";
 import { navigateBack } from "../helpers";
 
-import styles from '../styles';
+import styles from "../styles/screenStyles";
 
 class ForgotPassword extends Component {
 

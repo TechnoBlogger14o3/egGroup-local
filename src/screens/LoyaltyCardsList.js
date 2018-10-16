@@ -7,7 +7,7 @@ import feulcard from "../assets/images/go_fuel_card.png"
 import { InputText, Button, Toolbar } from "../components";
 import { navigateBack,navigateTo } from "../helpers";
 
-import styles from '../styles';
+import styles from "../styles/screenStyles";
 
 class LoyaltyCardsList extends Component {
 

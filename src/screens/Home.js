@@ -6,7 +6,7 @@ import { Icon } from "react-native-elements";
 import { InputText, Button, Toolbar } from "../components";
 import { navigateBack } from "../helpers";
 
-import styles from '../styles';
+import styles from "../styles/screenStyles";
 
 class Home extends Component {
 

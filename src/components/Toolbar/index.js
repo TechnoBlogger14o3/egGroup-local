@@ -4,7 +4,7 @@ import { Icon } from "react-native-elements";
 
 import { LinkButton } from "../index";
 
-import styles from "../../styles";
+import styles from "../../styles/componentStyles";
 
 const defaultProps = {
     style: {},

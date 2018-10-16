@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { Icon } from "react-native-elements";
 
-import styles from "../../styles";
+import styles from "../../styles/componentStyles";
 
 const defaultProps = {
     title: "Button",

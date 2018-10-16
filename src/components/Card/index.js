@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity,StyleSheet,Image } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import styles from './../../styles';
+import styles from "../../styles/componentStyles";
+
 const defaultProps = {
     title: "Card",
     onPress: () => {},

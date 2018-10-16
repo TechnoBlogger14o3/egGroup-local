@@ -5,7 +5,7 @@ import ImagePicker from 'react-native-image-picker';
 import CameraRollPicker from 'react-native-camera-roll-picker';
 import Permissions from 'react-native-permissions'
 
-import styles from "../../styles";
+import styles from "../../styles/componentStyles";
 
 class PickerImage extends Component {
 

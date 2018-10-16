@@ -8,7 +8,7 @@ import StoreList from './StoreList';
 import { Toolbar } from "../components";
 import { navigateBack, navigateTo } from "../helpers";
 
-import styles from './../styles'
+import styles from "../styles/screenStyles";
 
 const { width, height } = Dimensions.get('window');
 

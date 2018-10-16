@@ -9,7 +9,7 @@ import { Icon } from "react-native-elements";
 import { Toolbar,ToggleSwitch } from "../components";
 import { navigateBack } from "../helpers";
 import { navigateTo } from "../helpers";
-import styles from './../styles'
+import styles from "../styles/screenStyles";
 
 class NewsLetters extends Component{
 

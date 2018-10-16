@@ -7,7 +7,7 @@ import {Platform,Linking,
 import { Icon } from "react-native-elements";
 import { Toolbar } from "../components";
 import { navigateBack } from "../helpers";
-import styles from './../styles'
+import styles from "../styles/screenStyles";
 
 class Support extends Component{
     constructor(props){

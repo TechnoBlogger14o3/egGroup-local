@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 
-import styles from "../../styles";
+import styles from "../../styles/componentStyles";
 
 const defaultProps = {
     title: "Button",

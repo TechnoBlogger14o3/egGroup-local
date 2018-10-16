@@ -91,6 +91,7 @@ export default class Routes extends Component {
 									<Scene key="newsLetters" component={NewsLetters} title="Newsletter subscriptions"/>
 									<Scene key="termsAndConditions" component={TermsAndConditions} title="Terms & Conditions"/>
 									<Scene key="pushNotification" component={PushNotification} title="Push Notification" />
+									<Scene key="promotionsdetails" component={PromotionsDetails} title="PromotionsDetails" />
 							</Scene>
 					</Scene>
 			</Router>

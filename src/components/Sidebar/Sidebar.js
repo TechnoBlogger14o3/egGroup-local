@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, View, TouchableNativeFeedback,Image, ScrollView,StyleSheet} from 'react-native';
-import styles from './../../styles'
+import styles from "../../styles/componentStyles";
 import { navigateTo } from "./../../helpers";
 class Sidebar extends React.Component {
   render() {

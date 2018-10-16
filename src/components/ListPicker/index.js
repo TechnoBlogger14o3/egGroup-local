@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Picker } from 'react-native';
-import styles from './../../styles';
+import styles from "../../styles/componentStyles";
 
 class ListPicker extends Component {
     constructor(props) {

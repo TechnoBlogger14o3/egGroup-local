@@ -4,13 +4,10 @@ import { connect } from 'react-redux';
 import { compose } from "redux";
 import { Field, reduxForm } from "redux-form";
 import validator from "validator";
-
-
 import { InputText, Button, LinkButton, ListPicker } from "../components";
 import { navigateTo, redirectTo } from "../helpers";
-
 import logo from "../assets/images/signup/Loginlogo.png"
-import styles from '../styles';
+import styles from "../styles/screenStyles";
 
 class Login extends Component {
 

@@ -8,7 +8,8 @@ const defaultProps = {
     title: "Button",
     backgroundColor: "gray",
     iconName: "",
-    onPress: () => {}
+    onPress: () => {},
+    disabled: false
 }
 
 class Button extends Component {
@@ -16,7 +17,7 @@ class Button extends Component {
     render() {
         return (
             <View style={styles.buttonContainer}>
-                <TouchableOpacity onPress={this.props.onPress}>
+                <TouchableOpacity onPress={this.props.onPress} disabled={this.props.disabled}>
                     <View style={[styles.buttonStyle, {backgroundColor: this.props.backgroundColor}]}>
                         {this.props.iconName.length > 0 &&
                             <Icon

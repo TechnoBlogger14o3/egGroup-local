@@ -1,11 +1,11 @@
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity,Alert } from 'react-native';
 import { Icon,Card } from "react-native-elements";
 
 import { InputText, Button, Toolbar } from "../components";
 import { navigateBack ,navigateTo} from "../helpers";
-import { CardIOModule,CardIOUtilities,preloadCardIO} from "react-native-awesome-card-io";
+//import { CardIOModule} from "react-native-awesome-card-io";
 
 import styles from '../styles';
 
@@ -42,7 +42,7 @@ scanCard(){
 
     })
     .catch(() => {
-      
+
       // the user cancelled
     })
 }
@@ -69,17 +69,17 @@ render() {
 
         <Text style={styles.paragraphthree}>
              Hold the card inside the frame, it will {"\n"} be scanned automatically
-            </Text>    
+            </Text>
         </View>
 
         <View style={{flex:4}}>
-    
+
        <TouchableOpacity onPress={this.scanCard.bind(this)}>
         <Text style={{textAlign:"center",paddingTop:30}}>Scan card!</Text>
-      </TouchableOpacity>  
+      </TouchableOpacity>
         </View>
         <View >
-          
+
         <Button
                 title="Enter Manually"
                 onPress = { () => alert('Your Go Fuel Card scanned successfully!') }

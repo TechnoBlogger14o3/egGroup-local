@@ -9,6 +9,7 @@ import { navigateBack, navigateTo } from "../helpers";
 import styles from '../styles';
 
 class AddLoyaltyCard extends Component {
+  
     constructor(props) {
         super(props);
         this.state = {

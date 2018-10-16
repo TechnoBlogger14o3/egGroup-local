@@ -16,7 +16,6 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: "#000000",
         textAlign: Platform.OS === "ios" ? "center" : "left",
-
     },
 
     noBorderToolbar: {

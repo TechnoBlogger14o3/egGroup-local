@@ -12,7 +12,6 @@ class CardItem extends Component {
 
     render() {
         let {
-
             image,
             cashOff,
             coupenCode,
@@ -21,7 +20,7 @@ class CardItem extends Component {
             currencyIcon,
           } = this.props;
         return (
-      
+
           <TouchableOpacity activeOpacity={0.5} onPress={this.props.onPress}>
               <View style={styles.cardcontainer}>
                   <LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={['#339933', '#006666', '#003366']} style={[styles.cardView,this.props.styles]}>
@@ -32,7 +31,7 @@ class CardItem extends Component {
                                                 source={image ? { uri: image } : require("./../../assets/images/noimage.jpg")}
                                                 style={styles.image}
                                                 resizeMode="contain"
-                                            /> 
+                                            />
                                     </View>
                           </View>
                           <View style={styles.contentContainer}>
@@ -41,8 +40,8 @@ class CardItem extends Component {
                               </View>
                               <View style={styles.containtText}>
                                 <Text style={styles.cashoffTextStyle}>{currencyIcon ? currencyIcon :''}{cashOff? cashOff:'0'} OFF in your in your next purchase</Text>
-                              </View> 
-                          
+                              </View>
+
                           </View>
                           <View style={styles.dottedView}></View>
                           <View style={styles.coupenCodeView}>
@@ -51,7 +50,7 @@ class CardItem extends Component {
                                 </View>
                                 <View style={styles.CoupenCodeText}>
                                     <Text style={styles.codeTextStyle}>{coupenCode? coupenCode:'Code Not Found'}</Text>
-                                </View> 
+                                </View>
                           </View>
                       </View>
                       <View style={[styles.cardValidityView]}>

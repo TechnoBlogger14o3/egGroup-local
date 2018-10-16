@@ -59,6 +59,11 @@
     "redux-mock-store": "^1.5.3"
   },
   "jest": {
+    "collectCoverage": true,
+    "coverageReporters": [
+      "json",
+      "html"
+    ],
     "verbose": true,
     "preset": "react-native",
     "moduleFileExtensions": [

@@ -23,6 +23,7 @@ class Settings extends Component {
             {settingTitle:'Support',leftIconName:require('./../assets/images/settings/Support.png'),rightIconName:require('./../assets/images/settings/ArrowRight.png'),Scence:'support'},
             {settingTitle:'Terms & Conditions',leftIconName:require('./../assets/images/settings/T&C.png'),rightIconName:require('./../assets/images/settings/ArrowRight.png'),Scence:'termsAndConditions'},
             {settingTitle: 'Privacy Policy',leftIconName:require('./../assets/images/settings/Privacypolicy.png'),rightIconName:require('./../assets/images/settings/ArrowRight.png'),Scence:'privacyPolicy'},
+            {settingTitle: 'Frequently asked questions',leftIconName:require('./../assets/images/settings/FAQ.png'),rightIconName:require('./../assets/images/settings/ArrowRight.png'),Scence:'faqs'},
             {settingTitle:'Notification Preferences',leftIconName:require('./../assets/images/settings/Notification.png'),rightIconName:require('./../assets/images/settings/ArrowRight.png'),Scence:'notifications'},
             {settingTitle:'Newsletter Subscriptions',leftIconName:require('./../assets/images/settings/NewsletterSignup.png'),rightIconName:require('./../assets/images/settings/ArrowRight.png'),Scence:'newsLetters'}
         ]

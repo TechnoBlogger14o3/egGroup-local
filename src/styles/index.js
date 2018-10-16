@@ -799,7 +799,18 @@ const styles = StyleSheet.create({
         color: "rgb(15, 113, 184)",
         fontSize:15
 
-    }
+    },
+    faqDescContainer:{
+        padding: 16
+     },
+     faqListItemTitleTextStyle:{
+        color: "#000000",
+        fontSize: 16,
+     },
+     faqListItemDescTextStyle:{
+        color: "#000000",
+        fontSize: 13,
+     },
 });
 
 export default styles;

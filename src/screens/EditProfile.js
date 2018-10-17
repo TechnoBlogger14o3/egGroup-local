@@ -4,7 +4,7 @@ import { compose } from "redux";
 import { Field, reduxForm } from "redux-form";
 import validator from "validator";
 import { Icon } from "react-native-elements";
-import { View, ScrollView, Text, Image, StyleSheet, TouchableOpacity, Alert, Platform, PixelRatio, PermissionsAndroid } from "react-native";
+import { View, ScrollView, Text, Image, StyleSheet, TouchableOpacity, Alert, Platform, PixelRatio, PermissionsAndroid,DatePickerIOS } from "react-native";
 import { InputText, Button, DatePicker, Toolbar } from "../components";
 import Phone from "./../components/Phone";
 import { navigateBack, navigateTo, redirectTo } from "../helpers";
@@ -19,10 +19,12 @@ class EditProfile extends Component {
       lastname: "",
       datepicker: "",
       phone: "",
+      chosenDate: new Date(), 
+      showDatePickerIOS: false,
       ImageSource: null
     };
+    this.setDate = this.setDate.bind(this);
   }
-
   onSubmit = () => {
     alert("Changes to your profile has been successfully updated");
   };
@@ -70,6 +72,10 @@ class EditProfile extends Component {
     );
   };
 
+  setDate(newDate) {
+    console.log("newdate",newDate);
+    this.setState({chosenDate: newDate})
+  }
   renderDatePicker = field => {
     const {
       meta: { touched, error },
@@ -77,6 +83,7 @@ class EditProfile extends Component {
       label,
       input: { onChange, ...restInput }
     } = field;
+    if (Platform.OS !== "ios"){
     return (
       <View>
         <DatePicker
@@ -90,6 +97,33 @@ class EditProfile extends Component {
         <Text style={styles.errorText}>{touched ? error : ""}</Text>
       </View>
     );
+    }else{
+     /* if (this.state.showDatePickerIOS){
+      return (
+      <View >
+         <View style={{height:230,backgroundColor:'white',position:'absolute', bottom:0,left:0,right:0}}>
+                        <View style={{left:0,right:0,height:40,flexDirection:'row',backgroundColor:"rgb(225, 224, 224)",justifyContent:'center',padding:10}}>
+                        <View style={{flex:1}}>
+                        </View>
+                        <View style={{flex:3}}>
+                        <Text style={{alignSelf:'center',fontSize:17}}>Select DOB</Text>
+                        </View>
+                        <View style={{flex:1}}>
+                            <TouchableOpacity onPress={this.pickerDoneBtnTapped}>
+                                 <Text style={{alignSelf:'flex-end',color:'rgb(0, 122, 255)',fontSize:15}}>Done</Text>
+                            </TouchableOpacity>
+                        </View>
+                        </View>
+                        <DatePickerIOS
+                           date={this.state.chosenDate}
+                            mode="date"
+                            onDateChange={(date) => this.setDate(date)}/>
+                        </View>
+                        </View>
+     
+      );
+      }*/
+    }
   };
 
   renderPhone = field => {

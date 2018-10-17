@@ -5,7 +5,7 @@ import { compose } from "redux";
 import { Field, reduxForm , getFormValues } from "redux-form";
 import validator from "validator";
 
-import { InputText, Button, LinkButton, Toolbar, DatePicker, Checkbox, Phone } from "../components";
+import { InputText, Button, LinkButton, Toolbar, Checkbox } from "../components";
 import { navigateBack,navigateTo } from "../helpers";
 
 import logo from "../assets/images/signup/Loginlogo.png"
@@ -83,13 +83,13 @@ class Register extends Component {
     }
 
     onSubmit = values => {
-     alert('Successful Registered');
+     alert('Thank you for signing up. You will receive an email shortly with a link to confirm your email address');
      navigateTo('login');
     }
 
 
     renderTextInput = (field) => {
-        const { meta: { touched, error }, placeholder, keyboardType, onIconPress, isPassword, label, secureTextEntry, input: { onChange, ...restInput } } = field;
+        const { meta: { touched, error }, placeholder, keyboardType, onIconPress, isPassword, label, maxLength, secureTextEntry, input: { onChange, ...restInput } } = field;
         return (
             <View>
                 <InputText
@@ -97,6 +97,7 @@ class Register extends Component {
                     keyboardType={keyboardType}
                     isPassword={isPassword}
                     label={label}
+                    maxLength={maxLength}
                     onIconPress={onIconPress}
                     secureTextEntry={secureTextEntry}
                     placeholder={placeholder}
@@ -106,37 +107,7 @@ class Register extends Component {
         );
     }
 
-    renderDatePicker = (field) => {
-        const { meta: { touched, error }, placeholder, label, input: { onChange, ...restInput } } = field;
-        return (
-            <View>
-                <DatePicker
-                    label={label}
-                    onChangeText={onChange}
-                    value={this.state.dateOfBirth}
-                    placeholder={placeholder}
-                    onChangeDate={onChange}
-                    {...restInput} />
-                <Text style={styles.errorText}>{touched ? error : ""}</Text>
-            </View>
-        );
-    }
 
-    renderPhone = (field) => {
-        const { meta: { touched, error }, placeholder, maxLength, keyboardType, label, input: { onChange, ...restInput } } = field;
-        return (
-            <View>
-                <Phone
-                    label={label}
-                    onChangeText={onChange}
-                    keyboardType={keyboardType}
-                    placeholder={placeholder}
-                    maxLength={maxLength}
-                    {...restInput} />
-                <Text style={styles.errorText}>{touched ? error : ""}</Text>
-            </View>
-        );
-    }
 
     render() {
         const { handleSubmit } = this.props;
@@ -239,60 +210,44 @@ const validate = values => {
     const errors = {};
 
     if (!values.firstName) {
-        errors.firstName = "Rerquired"
+        errors.firstName = "Please enter a valid first name"
     }
     //as per vikranth's request removed below validation
 
     //  else if (values.firstName.length < 😎 {
     //     errors.firstName = "Length should me greater than 8";
     // }
-     else if (values.firstName.length > 30) {
-        errors.firstName = "Length should me less than 30";
-    } else if (!/^[a-zA-Z ]+$/.test(values.firstName.trim())) {
-        errors.name = "Please enter a valid name"
+     else if (!/^[a-zA-Z ]+$/.test(values.firstName.trim())) {
+        errors.name = "Please enter a valid first name"
     }
 
-
     if (!values.lastName) {
-        errors.lastName = "Rerquired"
+        errors.lastName = "Please enter a valid last name"
     }
     //as per vikranth's request removed below validation
 
     // else if (values.lastName.length < 😎 {
     //     errors.lastName = "Length should me greater than 8";
     // }
-    else if (values.lastName.length > 30) {
-        errors.lastName = "Length should me less than 30";
-    } else if (!/^[a-zA-Z ]+$/.test(values.lastName.trim())) {
-        errors.name = "Please enter a valid name"
+    else if (!/^[a-zA-Z ]+$/.test(values.lastName.trim())) {
+        errors.name = "Please enter a valid last name"
     }
 
-    if (!values.datePicker) {
-        errors.datePicker = "Required"
-    }
-
-    if (!values.phone) {
-        errors.phone = "Required"
-    } else if (!validator.isNumeric(values.phone.trim())) {
-        errors.phone = "Please enter a valid phone"
-    } else if (values.phone.length > 10) {
-        errors.lastName = "Mobile number should be 10 digits";
-    }
 
     if (!values.email) {
-        errors.email = "Required"
+        errors.email = "Please enter a valid email"
     } else if (!validator.isEmail(values.email.trim())) {
         errors.email = "Please enter a valid email"
     }
 
     if (!values.password) {
-        errors.password = "Required"
+        errors.password = "Please enter a valid password"
     }
 
     if (!values.confirmpassword) {
-        errors.confirmpassword = "Required"
-    }else if(values.confirmpassword !== values.password){
-        errors.confirmpassword = "Password Mismatched!"
+        errors.confirmpassword = "Please enter a valid password"
+    } else if (values.confirmpassword !== values.password){
+        errors.confirmpassword = "Password and confirm password don't match"
     }
 
     return errors;

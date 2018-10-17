@@ -24,6 +24,7 @@ import PushNotification from "../../screens/PushNotification";
 import CoupensList from "../../screens/CoupensList";
 import PromotionsDetails from "../../screens/PromotionsDetails";
 import PromotionsList from "../../screens/PromotionsList";
+import Faq from "../../screens/Faq";
 
 export default class Routes extends Component {
 
@@ -52,10 +53,10 @@ export default class Routes extends Component {
 			size={24}
 			type="material-community"/>);
 
-	renderPromotionIcon = () => (<Icon
-			name="account-card-details"
-			size={24}
-			type="material-community"/>);
+			renderPromotionIcon = () => (<Icon
+				name="account-card-details"
+				size={24}
+				type="material-community"/>);
 
 
 	render() {
@@ -63,6 +64,7 @@ export default class Routes extends Component {
 			<Router>
 					<Scene>
 							<Scene key="auth" hideNavBar={true} initial={true}>
+
 									<Scene key="login" component={Login} title="Login" />
 									<Scene key="register" component={Register} title="Register" />
 									<Scene key="forgotPassword" component={ForgotPassword} title="ForgotPassword" />
@@ -92,6 +94,7 @@ export default class Routes extends Component {
 									<Scene key="termsAndConditions" component={TermsAndConditions} title="Terms & Conditions"/>
 									<Scene key="pushNotification" component={PushNotification} title="Push Notification" />
 									<Scene key="promotionsdetails" component={PromotionsDetails} title="PromotionsDetails" />
+									<Scene key="faqs" component={Faq} title="Frequently asked questions"/>
 							</Scene>
 					</Scene>
 			</Router>

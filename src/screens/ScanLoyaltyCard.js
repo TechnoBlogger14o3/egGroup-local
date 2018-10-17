@@ -7,7 +7,7 @@ import { InputText, Button, Toolbar } from "../components";
 import { navigateBack ,navigateTo} from "../helpers";
 //import { CardIOModule} from "react-native-awesome-card-io";
 
-import styles from '../styles';
+import screenstyles from "../styles/screenStyles";
 
 class ScanLoyaltyCard extends Component {
 
@@ -49,16 +49,16 @@ scanCard(){
 
 render() {
   return (
-    <View style={[styles.appContainer, styles.whiteBackground]}>
-        <Toolbar style={styles.noBorderToolbar}>
+    <View style={[screenstyles.appContainer, screenstyles.whiteBackground]}>
+        <Toolbar style={screenstyles.noBorderToolbar}>
               <Icon
                   name="arrow-left"
                   size={24}
                   type="material-community"
                   onPress={navigateBack}
-                  iconStyle={styles.leftIconContainer}
+                  iconStyle={screenstyles.leftIconContainer}
               />
-              <View style={styles.toolbarUtils}>
+              <View style={screenstyles.toolbarUtils}>
                   <Text style={{fontSize: 20,
                    color: "#000000",
                    padding:40,
@@ -67,7 +67,7 @@ render() {
         </Toolbar>
         <View style={{flex:3}}>
 
-        <Text style={styles.paragraphthree}>
+        <Text style={screenstyles.paragraphthree}>
              Hold the card inside the frame, it will {"\n"} be scanned automatically
             </Text>
         </View>

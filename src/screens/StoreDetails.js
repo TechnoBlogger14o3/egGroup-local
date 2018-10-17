@@ -8,7 +8,7 @@ import StoreList from './StoreList';
 import { Toolbar } from "../components";
 import { navigateBack, navigateTo } from "../helpers";
 
-import styles from './../styles';
+import screenstyles from "../styles/screenStyles";
 
 const { width, height } = Dimensions.get('window');
 
@@ -77,9 +77,9 @@ class StoreLocator extends Component {
 
       render() {
             return (
-                  <View style={styles.mapContainer}>
+                  <View style={screenstyles.mapContainer}>
                        <Toolbar
-                           style={styles.noBorderToolbar}
+                           style={screenstyles.noBorderToolbar}
                            onClickLeftIcon={navigateBack}
                            iconName="back-arrow"
                            title="Station Details" />

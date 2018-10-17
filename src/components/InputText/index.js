@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import { Icon } from "react-native-elements";
 
-import styles from "../../styles";
+import componentstyles from "../../styles/componentStyles";
 
 const defaultProps = {
     mapElement: (n) => {},
@@ -27,10 +27,10 @@ class InputText extends Component {
 
     render() {
         return (
-            <View style={[styles.textInputContainer, this.props.style]}>
-                <Text style={styles.textInputLabel}>{this.props.label}</Text>
+            <View style={[componentstyles.textInputContainer, this.props.style]}>
+                <Text style={componentstyles.textInputLabel}>{this.props.label}</Text>
                 <TextInput
-                    style={styles.textInputBox}
+                    style={componentstyles.textInputBox}
                     underlineColorAndroid="rgba(0,0,0,0)"
                     placeholderTextColor="rgba(51, 51, 51, 0.6)"
                     selectionColor= "rgb(51, 51, 51)"
@@ -42,7 +42,7 @@ class InputText extends Component {
                     value= {this.props.value}
                     onChangeText= {this.props.onChangeText} />
                 {this.props.isPassword &&
-                  <View style={styles.passwordEyeIconCont}>
+                  <View style={componentstyles.passwordEyeIconCont}>
                       <TouchableOpacity onPress={this.props.onIconPress}>
                           <Icon
                               name={this.props.secureTextEntry ? "eye" : "eye-off"}

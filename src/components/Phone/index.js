@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import { Icon } from "react-native-elements";
 
-import styles from "../../styles";
+import componentstyles from "../../styles/componentStyles";
 
 const defaultProps = {
     mapElement: (n) => {},
@@ -27,11 +27,11 @@ class Phone extends Component {
 
     render() {
         return (
-            <View style={[styles.textInputContainer, this.props.style]}>
-                <Text style={styles.textInputLabel}>{this.props.label}</Text>
+            <View style={[componentstyles.textInputContainer, this.props.style]}>
+                <Text style={componentstyles.textInputLabel}>{this.props.label}</Text>
                 <View style={{flexDirection: "row"}}>
                     <TextInput
-                        style={[styles.textInputBox, {width: "12%"}]}
+                        style={[componentstyles.textInputBox, {width: "12%"}]}
                         underlineColorAndroid="rgba(0,0,0,0)"
                         placeholderTextColor="rgba(51, 51, 51, 0.6)"
                         selectionColor= "rgb(51, 51, 51)"
@@ -43,7 +43,7 @@ class Phone extends Component {
                         onChangeText= {this.props.onChangeText} />
                     <View style={{marginTop: 15, height: 25, borderRightWidth: 1, borderColor: "rgba(51, 51, 51, 0.6)"}}></View>
                     <TextInput
-                        style={[styles.textInputBox, {width: "88%", paddingLeft: 16}]}
+                        style={[componentstyles.textInputBox, {width: "88%", paddingLeft: 16}]}
                         underlineColorAndroid="rgba(0,0,0,0)"
                         placeholderTextColor="rgba(51, 51, 51, 0.6)"
                         selectionColor= "rgb(51, 51, 51)"

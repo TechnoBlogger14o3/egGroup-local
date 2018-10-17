@@ -4,7 +4,7 @@ import { Icon } from "react-native-elements";
 
 import { LinkButton } from "../index";
 
-import styles from "../../styles";
+import componentstyles from "../../styles/componentStyles";
 
 const defaultProps = {
     style: {},
@@ -36,34 +36,34 @@ class Toolbar extends Component<{}> {
 
     render() {
         return (
-          <View style={[styles.toolbarContainer, this.props.style]}>
+          <View style={[componentstyles.toolbarContainer, this.props.style]}>
               {this.props.iconName.length > 0 &&
-                  <View style={styles.toolbarIconCont}>
+                  <View style={componentstyles.toolbarIconCont}>
                       <Icon
                           name={this.getTypedIcon(this.props.iconName)}
                           size={this.getSizeIcon()}
                           color={this.getColorIcon()}
                           type="material-community"
                           onPress={this.props.onClickLeftIcon}
-                          iconStyle={styles.leftIconContainer} />
+                          iconStyle={componentstyles.leftIconContainer} />
                   </View>
               }
-              <View style={styles.toolbarUtils}>
-                  <Text style={styles.appTitle}>{this.props.title}</Text>
+              <View style={componentstyles.toolbarUtils}>
+                  <Text style={componentstyles.appTitle}>{this.props.title}</Text>
               </View>
               {this.props.rightIconName.length > 0 &&
-                  <View style={styles.toolbarRightIconCont}>
+                  <View style={componentstyles.toolbarRightIconCont}>
                       <Icon
                           name={this.getTypedIcon(this.props.rightIconName)}
                           size={this.getSizeIcon()}
                           color={this.getColorIcon()}
                           type="material-community"
                           onPress={this.props.onClickRightIcon}
-                          iconStyle={styles.leftIconContainer} />
+                          iconStyle={componentstyles.leftIconContainer} />
                   </View>
               }
               {this.props.rightButtonName.length > 0 &&
-                  <View style={styles.toolbarRightButtonCont}>
+                  <View style={componentstyles.toolbarRightButtonCont}>
                       <LinkButton
                           onPress={this.props.onRightButtonPress}
                           title={this.props.rightButtonName}

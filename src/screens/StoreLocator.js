@@ -8,7 +8,7 @@ import StoreList from './StoreList';
 import { Toolbar } from "../components";
 import { navigateBack, navigateTo } from "../helpers";
 
-import styles from './../styles'
+import screenstyles from "../styles/screenStyles";
 
 const { width, height } = Dimensions.get('window');
 
@@ -140,9 +140,9 @@ class StoreLocator extends Component {
       render() {
             return (
                   <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
-                  <View style={styles.mapContainer}>
+                  <View style={screenstyles.mapContainer}>
                        <Toolbar
-                           style={[styles.noBorderToolbar]}
+                           style={[screenstyles.noBorderToolbar]}
                            onClickLeftIcon={navigateBack}
                            iconName="back-arrow"
                            title="Station Finder" />
@@ -162,7 +162,7 @@ class StoreLocator extends Component {
                                           description={this.state.address}
                                     />
                               </MapView>
-                              <View style={styles.inputView}>
+                              <View style={screenstyles.inputView}>
                                     <SearchBar lightTheme placeholder='Search' inputStyle={{ backgroundColor: 'rgb(250,250,250)' }}
                                           containerStyle={{ backgroundColor: 'rgb(250,250,250)' }}
                                           icon={{ type: 'font-awesome', color: 'gray', name: this.state.iconName }}
@@ -206,7 +206,7 @@ class StoreLocator extends Component {
                                                             </View>
 
                                                       </View>
-                                                      <TouchableOpacity style={styles.loginbutton} onPress={() => navigateTo("storeDetails")}>
+                                                      <TouchableOpacity style={screenstyles.loginbutton} onPress={() => navigateTo("storeDetails")}>
 
                                                       <View style={{ flex: 1, backgroundColor: 'rgb(255, 255, 255)', flexDirection: 'row', justifyContent: 'center' }}>
                                                       <Text style={{ color: 'black', fontSize: 15, alignSelf: 'center' }}> {item.Distance} </Text>

@@ -4,13 +4,10 @@ import { connect } from 'react-redux';
 import { compose } from "redux";
 import { Field, reduxForm } from "redux-form";
 import validator from "validator";
-
-
 import { InputText, Button, LinkButton, ListPicker } from "../components";
 import { navigateTo, redirectTo } from "../helpers";
-
 import logo from "../assets/images/signup/Loginlogo.png"
-import styles from '../styles';
+import screenstyles from "../styles/screenStyles";
 
 class Login extends Component {
 
@@ -55,7 +52,7 @@ class Login extends Component {
                     isPassword={isPassword}
                     placeholder={placeholder}
                     {...restInput} />
-                <Text style={styles.errorText}>{touched ? error : ""}</Text>
+                <Text style={screenstyles.errorText}>{touched ? error : ""}</Text>
             </View>
         );
     }
@@ -109,10 +106,10 @@ class Login extends Component {
         const { Email, Password, handleSubmit } = this.props;
 
         return (
-            <View style={[styles.appContainer, styles.whiteBackground]}>
+            <View style={[screenstyles.appContainer, screenstyles.whiteBackground]}>
                 <View style={{ flex: 8 }}>
-                    <View style={styles.loginFormCont}>
-                        <View style={styles.loginLogoContainer}>
+                    <View style={screenstyles.loginFormCont}>
+                        <View style={screenstyles.loginLogoContainer}>
                             <Image source={logo} />
                         </View>
                         <View>
@@ -133,11 +130,11 @@ class Login extends Component {
                                 isPassword={true}
                                 secureTextEntry={!this.state.isPasswordShown}
                             />
-                            <View style={styles.loginHelperCont}>
+                            <View style={screenstyles.loginHelperCont}>
                                 {Platform.OS !== 'ios' ? <ListPicker onChangePickerValue={this.handlePickerValue}/>
                                 :
                                 <TouchableOpacity onPress={this.languageButtonTapped}>
-                                    <Text style={styles.languagePickerTitle}>{this.state.language}</Text>
+                                    <Text style={screenstyles.languagePickerTitle}>{this.state.language}</Text>
                                 </TouchableOpacity>
                                 }
                                 <LinkButton
@@ -157,8 +154,8 @@ class Login extends Component {
                         title="Login with Facebook"
                         backgroundColor="rgb(57, 83, 152)"
                         iconName="facebook" />
-                    <View style={styles.loginFooterTextContainer}>
-                        <Text style={[styles.fontSize16, styles.colorBlack, { marginRight: 7 }]}>
+                    <View style={screenstyles.loginFooterTextContainer}>
+                        <Text style={[screenstyles.fontSize16, screenstyles.colorBlack, { marginRight: 7 }]}>
                             Do not have an account yet?
                   </Text>
                         <LinkButton

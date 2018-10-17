@@ -9,7 +9,8 @@ import { Icon } from "react-native-elements";
 import { Toolbar,ToggleSwitch } from "../components";
 import { navigateBack } from "../helpers";
 import { navigateTo } from "../helpers";
-import styles from './../styles';
+import screenstyles from "../styles/screenStyles";
+
 
 class Notifications extends Component {
     constructor(props){
@@ -25,24 +26,24 @@ class Notifications extends Component {
 
       render() {
         return (
-            <View style={styles.notificationContainer}>
+            <View style={screenstyles.notificationContainer}>
                 <Toolbar
-                    style={styles.noBorderToolbar}
+                    style={screenstyles.noBorderToolbar}
                     onClickLeftIcon={navigateBack}
                     iconName="back-arrow"
                     title={this.props.title} />
-                <View style={styles.newsletterView}>
-                    <View style={styles.newsLetterTitleView}>
-                        <Text style={styles.newsLetterTitleText} >Notification subscriptions</Text>
+                <View style={screenstyles.newsletterView}>
+                    <View style={screenstyles.newsLetterTitleView}>
+                        <Text style={screenstyles.newsLetterTitleText} >Notification subscriptions</Text>
                     </View>
-                    <View style={styles.notificationRightIconView}>
+                    <View style={screenstyles.notificationRightIconView}>
                         <ToggleSwitch
                             toggleSwitch = {this.toggleSwitch}
                             switchValue = {this.state.switchValue} />
                     </View>
                 </View>
                 <View>
-                    <Text style={styles.newsLetterContentText}>
+                    <Text style={screenstyles.newsLetterContentText}>
                         React Native combines smoothly with components written in Objective-C, Java, or Swift. It  is simple to drop down to native code if you need to optimize a few aspects of your application.
                     </Text>
                 </View>

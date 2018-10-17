@@ -10,7 +10,7 @@ import { navigateTo } from "../helpers";
 import { InputText, Button, Toolbar } from "../components";
 import { navigateBack } from "../helpers";
 
-import styles from '../styles';
+import screenstyles from "../styles/screenStyles";
 
 class ForgotPassword extends Component {
 
@@ -62,7 +62,7 @@ class ForgotPassword extends Component {
                     label={label}
                     placeholder={placeholder}
                     {...restInput} />
-                <Text style={styles.errorText}>{touched ? error : ""}</Text>
+                <Text style={screenstyles.errorText}>{touched ? error : ""}</Text>
             </View>
         );
     }
@@ -70,14 +70,14 @@ class ForgotPassword extends Component {
     render() {
         const { email, handleSubmit } = this.props;
         return (
-            <View style={[styles.appContainer, styles.whiteBackground]}>
+            <View style={[screenstyles.appContainer, screenstyles.whiteBackground]}>
                 <Toolbar
-                    style={styles.noBorderToolbar}
+                    style={screenstyles.noBorderToolbar}
                     onClickLeftIcon={navigateBack}
                     iconName="back-arrow"
                     title="Forgot Password" />
                 <View style={{ flex: 7 }}>
-                    <Text style={styles.paragraphOne}>
+                    <Text style={screenstyles.paragraphOne}>
                         Enter your email address below to receive your password reset instructions.
                     </Text>
                     <Field

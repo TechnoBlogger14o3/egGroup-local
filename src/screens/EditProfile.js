@@ -8,7 +8,7 @@ import { View, ScrollView, Text, Image, StyleSheet, TouchableOpacity, Alert, Pla
 import { InputText, Button, DatePicker, Toolbar, DatePickerAndroid, DatePickerIos } from "../components";
 import Phone from "./../components/Phone";
 import { navigateBack, navigateTo, redirectTo } from "../helpers";
-import styles from "../styles";
+import screenstyles from "../styles/screenStyles";
 import ImagePicker from 'react-native-image-picker';
 
 class EditProfile extends Component {
@@ -67,7 +67,7 @@ class EditProfile extends Component {
           placeholder={placeholder}
           {...restInput}
         />
-        <Text style={styles.errorText}>{touched ? error : ""}</Text>
+        <Text style={screenstyles.errorText}>{touched ? error : ""}</Text>
       </View>
     );
   };
@@ -135,7 +135,7 @@ class EditProfile extends Component {
           maxLength={maxLength}
           {...restInput}
         />
-        <Text style={styles.errorText}>{touched ? error : ""}</Text>
+        <Text style={screenstyles.errorText}>{touched ? error : ""}</Text>
       </View>
     );
   };
@@ -176,27 +176,27 @@ class EditProfile extends Component {
   render() {
     const { handleSubmit } = this.props;
     return (
-      <View style={[styles.appContainer, styles.whiteBackground]}>
+      <View style={[screenstyles.appContainer, screenstyles.whiteBackground]}>
         <Toolbar
-            style={[styles.noBorderToolbar, { backgroundColor: "#f5f5f5" }]}
+            style={[screenstyles.noBorderToolbar, { backgroundColor: "#f5f5f5" }]}
             onClickLeftIcon={navigateBack}
             iconName="back-arrow"
             title="Edit Profile"
             rightButtonName="Logout"
             onRightButtonPress={this.logoutFunction} />
         <ScrollView>
-          <View style={styles.profilePic}>
+          <View style={screenstyles.profilePic}>
           <TouchableOpacity onPress={this.selectPhotoTapped.bind(this)}>
             <Image source={ this.state.ImageSource === null ? require("./../assets/images/settings/profile.jpg") : this.state.ImageSource}
-                 style={styles.profilePicImage}/>
+                 style={screenstyles.profilePicImage}/>
           </TouchableOpacity>
           { this.state.ImageSource === null ?
-          <Text style={styles.editText}>Add pic</Text> :
-          <Text style={styles.editText}>Edit pic</Text>
+          <Text style={screenstyles.editText}>Add pic</Text> :
+          <Text style={screenstyles.editText}>Edit pic</Text>
           }
           </View>
 
-          <View style={styles.profileContainer}>
+          <View style={screenstyles.profileContainer}>
             <Field
               name="firstname"
               label="First name *"
@@ -230,7 +230,7 @@ class EditProfile extends Component {
               component={this.renderPhone}
               maxLength={10}
             />
-            <View style={styles.submitButton}>
+            <View style={screenstyles.submitButton}>
               <Button
                 title="Submit"
                 backgroundColor="rgb(15,113,184)"

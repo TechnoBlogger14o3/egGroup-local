@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { View, ScrollView, Text, Image, StyleSheet, TouchableOpacity, Alert, Platform, FlatList } from "react-native";
 import { InputText, Button, DatePicker, Toolbar } from "../components";
 import { navigateBack, navigateTo, redirectTo } from "../helpers";
-import styles from "../styles";
+import screenstyles from "../styles";
 import ExpandCollapseView from "../components/ExpandCollapseView";
 
 class Faq extends Component {
@@ -26,9 +26,9 @@ class Faq extends Component {
 
       render() {
         return (
-          <View style={[styles.appContainer, styles.whiteBackground]}>
+          <View style={[screenstyles.appContainer, screenstyles.whiteBackground]}>
             <Toolbar
-                style={[styles.noBorderToolbar, { backgroundColor: "#ffffff" }]}
+                style={[screenstyles.noBorderToolbar, { backgroundColor: "#ffffff" }]}
                 onClickLeftIcon={navigateBack}
                 iconName="back-arrow"
                 title="Frequently asked questions"

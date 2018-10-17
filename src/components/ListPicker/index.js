@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Picker } from 'react-native';
-import styles from './../../styles';
+import componentstyles from "../../styles/componentStyles";
 
 class ListPicker extends Component {
     constructor(props) {
@@ -19,10 +19,10 @@ class ListPicker extends Component {
 
     render() {
         return (
-            <View style={styles.listPickerContainer}>
+            <View style={componentstyles.listPickerContainer}>
                 <Picker
                     selectedValue={this.state.pickerValue}
-                    style={styles.listPickerStyle}
+                    style={componentstyles.listPickerStyle}
                     onValueChange={this.onChange}>
                     <Picker.Item label="Dutch" value="Dutch" />
                     <Picker.Item label="English" value="English" />

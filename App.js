@@ -27,6 +27,10 @@ const persist = store();
 * @extends Component
 */
 class App extends Component {
+    constructor(props) {
+        super(props);
+        this.myFunction = this.myFunction.bind(this);
+    }
 
     /**
     * @function componentDidMount
@@ -37,11 +41,13 @@ class App extends Component {
         PushNotification.configure({
 
             // (optional) Called when Token is generated (iOS and Android)
-            onRegister: (token) => {
+
+            onRegister: /* istanbul ignore next */ (token) => {
                 console.log("TOKEN:", token);
             },
 
             // (required) Called when a remote or local notification is opened or received
+            /* istanbul ignore next */
             onNotification: (notification) => {
                 console.log("NOTIFICATION:", notification);
                 // process the notification
@@ -50,6 +56,7 @@ class App extends Component {
             },
 
             // ANDROID ONLY: GCM or FCM Sender ID (product_number) (optional - not required for local notifications, but is need to receive remote push notifications)
+            /*istanbul ignore next*/
             senderID: "YOUR GCM (OR FCM) SENDER ID",
 
             // IOS ONLY (optional): default: all - Permissions to register.
@@ -71,12 +78,16 @@ class App extends Component {
             requestPermissions: true
         });
         setTimeout(() => {
+            /* istanbul ignore else */
             if (Platform.OS !== "ios") {
                 SplashScreen.hide();
             }
         }, 2000);
     }
 
+    myFunction() {
+
+    }
     /**
     * @function render
     * React render method for rendering the native elements

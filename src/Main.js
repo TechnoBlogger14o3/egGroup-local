@@ -5,15 +5,15 @@
 */
 
 // Import npm modules
-import { connect } from 'react-redux';
-import React, { Component } from 'react';
-import { StatusBar, View } from 'react-native';
+import {connect} from "react-redux";
+import React, {Component} from "react";
+import {StatusBar, View} from "react-native";
 
 // Import custom classes
-import Routes from './components/Routes/index';
+import Routes from "./components/Routes/index";
 
 // Import styles
-import styles from './styles';
+import styles from "./styles";
 
 /**
 * Represents Main class.
@@ -21,21 +21,20 @@ import styles from './styles';
 * @extends Component
 */
 class Main extends Component {
-  /**
-  * @function render
-  * React render method for rendering the native elements
-  */
-  render() {
-      return (
-          <View style={styles.appContainer}>
-            <StatusBar
-              backgroundColor="#ffffff"
-              barStyle="dark-content"
-            />
-            <Routes />
-          </View>
-      );
-  }
+    /**
+    * @function render
+    * React render method for rendering the native elements
+    */
+    render() {
+        return (
+            <View style={styles.appContainer}>
+                <StatusBar
+                    backgroundColor="#ffffff"
+                    barStyle="dark-content" />
+                <Routes />
+            </View>
+        );
+    }
 }
 
 /**

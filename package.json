@@ -55,17 +55,26 @@
     "react-dom": "^16.5.2",
     "react-native-config": "^0.11.5",
     "react-native-scripts": "^2.0.1",
-    "react-test-renderer": "16.5.0"
+    "react-test-renderer": "16.5.0",
+    "redux-mock-store": "^1.5.3"
   },
   "jest": {
+    "collectCoverage": true,
+    "coverageReporters": [
+      "json",
+      "html"
+    ],
     "verbose": true,
     "preset": "react-native",
     "moduleFileExtensions": [
       "js"
     ],
     "transform": {
-      "^.+\\.(js)$": "/Users/vineet_m/Desktop/eggroup/egGroup/node_modules/react-native/jest/preprocessor.js"
+      "^.+\\.(js)$": "/Users/vineet_m/Desktop/eggroup/egGroup-local/node_modules/react-native/jest/preprocessor.js"
     },
+    "transformIgnorePatterns": [
+      "/node_modules/(?!react-native|react-navigation).+\\.js$"
+    ],
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(js)$",
     "cacheDirectory": ".jest/cache",
     "setupFiles": [

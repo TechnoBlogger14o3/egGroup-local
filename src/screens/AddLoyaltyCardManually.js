@@ -8,7 +8,7 @@ import { Field, reduxForm , getFormValues } from "redux-form";
 import { InputText, Button, Toolbar, DatePicker } from "../components";
 import { navigateBack,navigateTo } from "../helpers";
 
-import styles from "../styles/screenStyles";
+import screenstyles from "../styles/screenStyles";
 
 class AddLoyaltyCardManually extends Component {
     constructor(props) {
@@ -48,7 +48,7 @@ class AddLoyaltyCardManually extends Component {
                     placeholder={placeholder}
 
                     {...restInput} />
-                <Text style={styles.errorText}>{touched ? error : ""}</Text>
+                <Text style={screenstyles.errorText}>{touched ? error : ""}</Text>
             </View>
         );
     }
@@ -63,16 +63,16 @@ class AddLoyaltyCardManually extends Component {
                     placeholder={placeholder}
                     onChangeDate={onChange}
                     {...restInput} />
-                <Text style={styles.errorText}>{touched ? error : ""}</Text>
+                <Text style={screenstyles.errorText}>{touched ? error : ""}</Text>
             </View>
         );
     }
     render() {
         const { handleSubmit,submitting, pristine} = this.props;
         return (
-            <View style={[styles.appContainer, styles.whiteBackground]}>
+            <View style={[screenstyles.appContainer, screenstyles.whiteBackground]}>
                     <Toolbar
-                        style={styles.noBorderToolbar}
+                        style={screenstyles.noBorderToolbar}
                         onClickLeftIcon={navigateBack}
                         iconName="back-arrow"
                         title="Add Loyalty Card" />

@@ -3,7 +3,7 @@ import {Platform, StyleSheet, Text, View, FlatList, Button, Image, AppRegistry, 
 import LinearGradient from 'react-native-linear-gradient';
 import { navigateTo } from "../helpers";
 import { connect } from 'react-redux';
-import styles from "../styles/screenStyles";
+import screenstyles from "../styles/screenStyles";
 
 export class PromotionsList extends Component {
   render() {
@@ -22,21 +22,21 @@ export class PromotionsList extends Component {
           ]}
           renderItem={({item}) =>
           <TouchableHighlight onPress={() => navigateTo("promotionsdetails")}>
-          <View style={styles.mainContainer}>
+          <View style={screenstyles.mainContainer}>
 
-        <LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={['#339933', '#006666', '#003366']} style={styles.gradientContainer}>
+        <LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={['#339933', '#006666', '#003366']} style={screenstyles.gradientContainer}>
         <Text style={{ flex: 1, fontSize: 18, alignSelf: 'center', color: 'white', paddingLeft: 10 }}>20% {"\n"}OFF</Text>
-        <View  style={styles.descriptionContainer}>
+        <View  style={screenstyles.descriptionContainer}>
           <Text style={{ color: 'white', marginTop: 8 }}>Fill fuel above €20 in Esso petrol {"\n"}bunk and get 20% OFF in KFC {"\n"}chicken.</Text>
-        <View style={styles.promoContainer}>
-          <Text style={ styles.promoCodeText }>Promo Code</Text>
-          <LinearGradient style={styles.promoBorder} start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={['#339933', '#006666', '#003366']}>
-            <Text style={styles.promoText}>{item.promo}</Text>
+        <View style={screenstyles.promoContainer}>
+          <Text style={ screenstyles.promoCodeText }>Promo Code</Text>
+          <LinearGradient style={screenstyles.promoBorder} start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={['#339933', '#006666', '#003366']}>
+            <Text style={screenstyles.promoText}>{item.promo}</Text>
           </LinearGradient>
         </View>
         </View>
         </LinearGradient>
-          <Text style={styles.validityStyle}>{item.validitytext}</Text>
+          <Text style={screenstyles.validityStyle}>{item.validitytext}</Text>
           </View>
           </TouchableHighlight>
         }

@@ -5,7 +5,7 @@ import ImagePicker from 'react-native-image-picker';
 import CameraRollPicker from 'react-native-camera-roll-picker';
 import Permissions from 'react-native-permissions'
 
-import styles from "../../styles/componentStyles";
+import componentstyles from "../../styles/componentStyles";
 
 class PickerImage extends Component {
 
@@ -29,7 +29,7 @@ class PickerImage extends Component {
             <View>
                 <CameraRollPicker
                   callback={this.getSelectedImages} />
-                 <Image source={this.state.avatarSource} style={styles.profilePicImage} />
+                 <Image source={this.state.avatarSource} style={componentstyles.profilePicImage} />
             </View>
         );
     }

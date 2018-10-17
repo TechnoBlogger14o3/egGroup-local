@@ -6,9 +6,10 @@ import { Icon } from "react-native-elements";
 import { Toolbar } from "../components";
 import { navigateBack, navigateTo } from "../helpers";
 
-import styles from "../styles/screenStyles";
+import screenstyles from "../styles/screenStyles";
 
 class AddLoyaltyCard extends Component {
+  
     constructor(props) {
         super(props);
         this.state = {
@@ -24,13 +25,13 @@ class AddLoyaltyCard extends Component {
 
     render() {
         return (
-            <View style={[styles.appContainer, styles.whiteBackground]}>
+            <View style={[screenstyles.appContainer, screenstyles.whiteBackground]}>
                 <Toolbar
-                    style={styles.noBorderToolbar}
+                    style={screenstyles.noBorderToolbar}
                     onClickLeftIcon={navigateBack}
                     iconName="back-arrow"
                     title="Loyalty Cards" />
-                <View style={styles.mainView}>
+                <View style={screenstyles.mainView}>
                     <TouchableOpacity onPress={() => navigateTo("scanLoyaltyCard")}
                         style={{
                             borderRadius: Math.round(Dimensions.get('window').width + Dimensions.get('window').height) / 2,
@@ -43,11 +44,11 @@ class AddLoyaltyCard extends Component {
                             borderColor: 'lightgrey',
                         }}>
                         <Text>
-                            <Text style={styles.loyalabilityplusDesign}> + </Text>
+                            <Text style={screenstyles.loyalabilityplusDesign}> + </Text>
                             {"\n"}
-                            <Text style={styles.loyalabilityText}>     Add Your </Text>
+                            <Text style={screenstyles.loyalabilityText}>     Add Your </Text>
                             {"\n"}
-                            <Text style={styles.loyalabilityText}>   Loyalty Card</Text>
+                            <Text style={screenstyles.loyalabilityText}>   Loyalty Card</Text>
                             {"\n"} {"\n"}
                         </Text>
                     </TouchableOpacity>

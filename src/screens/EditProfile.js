@@ -4,11 +4,11 @@ import { compose } from "redux";
 import { Field, reduxForm } from "redux-form";
 import validator from "validator";
 import { Icon } from "react-native-elements";
-import { View, ScrollView, Text, Image, StyleSheet, TouchableOpacity, Alert, Platform, PixelRatio, PermissionsAndroid } from "react-native";
+import { View, ScrollView, Text, Image, StyleSheet, TouchableOpacity, Alert, Platform, PixelRatio, PermissionsAndroid,DatePickerIOS } from "react-native";
 import { InputText, Button, DatePicker, Toolbar } from "../components";
 import Phone from "./../components/Phone";
 import { navigateBack, navigateTo, redirectTo } from "../helpers";
-import styles from "../styles/screenStyles";
+import screenstyles from "../styles/screenStyles";
 import ImagePicker from 'react-native-image-picker';
 
 class EditProfile extends Component {
@@ -19,10 +19,12 @@ class EditProfile extends Component {
       lastname: "",
       datepicker: "",
       phone: "",
+      chosenDate: new Date(), 
+      showDatePickerIOS: false,
       ImageSource: null
     };
+    this.setDate = this.setDate.bind(this);
   }
-
   onSubmit = () => {
     alert("Changes to your profile has been successfully updated");
   };
@@ -65,11 +67,15 @@ class EditProfile extends Component {
           placeholder={placeholder}
           {...restInput}
         />
-        <Text style={styles.errorText}>{touched ? error : ""}</Text>
+        <Text style={screenstyles.errorText}>{touched ? error : ""}</Text>
       </View>
     );
   };
 
+  setDate(newDate) {
+    console.log("newdate",newDate);
+    this.setState({chosenDate: newDate})
+  }
   renderDatePicker = field => {
     const {
       meta: { touched, error },
@@ -77,6 +83,7 @@ class EditProfile extends Component {
       label,
       input: { onChange, ...restInput }
     } = field;
+    if (Platform.OS !== "ios"){
     return (
       <View>
         <DatePicker
@@ -87,9 +94,36 @@ class EditProfile extends Component {
           onChangeDate={onChange}
           {...restInput}
         />
-        <Text style={styles.errorText}>{touched ? error : ""}</Text>
+        <Text style={screenstyles.errorText}>{touched ? error : ""}</Text>
       </View>
     );
+    }else{
+     /* if (this.state.showDatePickerIOS){
+      return (
+      <View >
+         <View style={{height:230,backgroundColor:'white',position:'absolute', bottom:0,left:0,right:0}}>
+                        <View style={{left:0,right:0,height:40,flexDirection:'row',backgroundColor:"rgb(225, 224, 224)",justifyContent:'center',padding:10}}>
+                        <View style={{flex:1}}>
+                        </View>
+                        <View style={{flex:3}}>
+                        <Text style={{alignSelf:'center',fontSize:17}}>Select DOB</Text>
+                        </View>
+                        <View style={{flex:1}}>
+                            <TouchableOpacity onPress={this.pickerDoneBtnTapped}>
+                                 <Text style={{alignSelf:'flex-end',color:'rgb(0, 122, 255)',fontSize:15}}>Done</Text>
+                            </TouchableOpacity>
+                        </View>
+                        </View>
+                        <DatePickerIOS
+                           date={this.state.chosenDate}
+                            mode="date"
+                            onDateChange={(date) => this.setDate(date)}/>
+                        </View>
+                        </View>
+     
+      );
+      }*/
+    }
   };
 
   renderPhone = field => {
@@ -111,7 +145,7 @@ class EditProfile extends Component {
           maxLength={maxLength}
           {...restInput}
         />
-        <Text style={styles.errorText}>{touched ? error : ""}</Text>
+        <Text style={screenstyles.errorText}>{touched ? error : ""}</Text>
       </View>
     );
   };
@@ -152,27 +186,27 @@ class EditProfile extends Component {
   render() {
     const { handleSubmit } = this.props;
     return (
-      <View style={[styles.appContainer, styles.whiteBackground]}>
+      <View style={[screenstyles.appContainer, screenstyles.whiteBackground]}>
         <Toolbar
-            style={[styles.noBorderToolbar, { backgroundColor: "#f5f5f5" }]}
+            style={[screenstyles.noBorderToolbar, { backgroundColor: "#f5f5f5" }]}
             onClickLeftIcon={navigateBack}
             iconName="back-arrow"
             title="Edit Profile"
             rightButtonName="Logout"
             onRightButtonPress={this.logoutFunction} />
         <ScrollView>
-          <View style={styles.profilePic}>
+          <View style={screenstyles.profilePic}>
           <TouchableOpacity onPress={this.selectPhotoTapped.bind(this)}>
             <Image source={ this.state.ImageSource === null ? require("./../assets/images/settings/profile.jpg") : this.state.ImageSource}
-                 style={styles.profilePicImage}/>
+                 style={screenstyles.profilePicImage}/>
           </TouchableOpacity>
           { this.state.ImageSource === null ?
-          <Text style={styles.editText}>Add pic</Text> :
-          <Text style={styles.editText}>Edit pic</Text>
+          <Text style={screenstyles.editText}>Add pic</Text> :
+          <Text style={screenstyles.editText}>Edit pic</Text>
           }
           </View>
 
-          <View style={styles.profileContainer}>
+          <View style={screenstyles.profileContainer}>
             <Field
               name="firstname"
               label="First name *"
@@ -206,7 +240,7 @@ class EditProfile extends Component {
               component={this.renderPhone}
               maxLength={10}
             />
-            <View style={styles.submitButton}>
+            <View style={screenstyles.submitButton}>
               <Button
                 title="Submit"
                 backgroundColor="rgb(15,113,184)"

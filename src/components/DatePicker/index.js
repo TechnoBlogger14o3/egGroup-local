@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, TextInput, TouchableOpacity, DatePickerAndroid, TouchableWithoutFeedback } from 'react-native';
 import { Icon } from "react-native-elements";
 
-import styles from "../../styles/componentStyles";
+import componentstyles from "../../styles/componentStyles";
 
 const defaultProps = {
     mapElement: (n) => {},
@@ -42,15 +42,15 @@ class DatePicker extends Component {
 
     render() {
         return (
-            <View style={[styles.textInputContainer, this.props.style]}>
+            <View style={[componentstyles.textInputContainer, this.props.style]}>
                 <TouchableWithoutFeedback onPress={this.openDatePicker}>
                     <View>
-                        <Text style={styles.textInputLabel}>{this.props.label}</Text>
+                        <Text style={componentstyles.textInputLabel}>{this.props.label}</Text>
                         <TextInput
                             underlineColorAndroid="rgba(0,0,0,0)"
                             placeholderTextColor="rgba(51, 51, 51, 0.6)"
                             selectionColor= "rgb(51, 51, 51)"
-                            style={styles.textInputBox}
+                            style={componentstyles.textInputBox}
                             ref= {this.mapElement}
                             returnKeyType={this.props.returnKeyType}
                             placeholder={this.props.placeholder}
@@ -59,7 +59,7 @@ class DatePicker extends Component {
                             maxLength= {this.props.maxLength}
                             value= {this.props.value}
                             onChangeText= {this.props.onChangeText} />
-                        <View style={styles.dateOverlay} />
+                        <View style={componentstyles.dateOverlay} />
                     </View>
                 </TouchableWithoutFeedback>
             </View>

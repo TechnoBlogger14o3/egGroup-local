@@ -12,7 +12,7 @@ import { Toolbar } from "../components";
 import Sidebar from "../components/Sidebar/Sidebar";
 import { navigateBack } from "../helpers";
 import { navigateTo } from "../helpers";
-import styles from "../styles/screenStyles";
+import screenstyles from "../styles/screenStyles";
 
 class PreferredStation extends Component{
     constructor(props){
@@ -30,38 +30,38 @@ class PreferredStation extends Component{
         const navigationView = (<Sidebar/>);
         return (
 
-             <View style={styles.preferredStationContainer}>
+             <View style={screenstyles.preferredStationContainer}>
                   <Toolbar
-                      style={styles.noBorderToolbar}
+                      style={screenstyles.noBorderToolbar}
                       onClickLeftIcon={navigateBack}
                       iconName="back-arrow"
                       title={this.props.title} />
-                  <View style={styles.PreferredStationTitleView}>
-                      <Text style={styles.preferredStationText}>PREFERRED STATIONS</Text>
+                  <View style={screenstyles.PreferredStationTitleView}>
+                      <Text style={screenstyles.preferredStationText}>PREFERRED STATIONS</Text>
                   </View>
-                  <View style={styles.stationList}>
+                  <View style={screenstyles.stationList}>
                         <FlatList
                             data={ this.state.data }
                             renderItem={({item}) =>
                              <TouchableOpacity onPress={()=>alert('link to station finder')}>
                             {/* navigateTo(item.Scence) */}
-                                <View style={styles.ListContainer}>
-                                    <View style={styles.preferredStationView}>
-                                        <Text style={styles.stationNameText}>{item.stationName}</Text>
-                                        <Text style={styles.addressText}>{item.address}</Text>
-                                        <View style={styles.statusAndDistanceView}>
-                                            <View style={styles.storeStatusView}>
-                                               <Text style={styles.stausText}>{item.storeStatus}</Text>
+                                <View style={screenstyles.ListContainer}>
+                                    <View style={screenstyles.preferredStationView}>
+                                        <Text style={screenstyles.stationNameText}>{item.stationName}</Text>
+                                        <Text style={screenstyles.addressText}>{item.address}</Text>
+                                        <View style={screenstyles.statusAndDistanceView}>
+                                            <View style={screenstyles.storeStatusView}>
+                                               <Text style={screenstyles.stausText}>{item.storeStatus}</Text>
                                             </View>
-                                            <View style={styles.storeDistance}>
-                                              <Text style={styles.distanceText}>{item.distanceOfTheStore}</Text>
+                                            <View style={screenstyles.storeDistance}>
+                                              <Text style={screenstyles.distanceText}>{item.distanceOfTheStore}</Text>
                                             </View>
                                         </View>
 
-                                        <Text style={styles.hourText}>Todays hours: {item.storeOpensAt} - {item.storeClosesAt}</Text>
+                                        <Text style={screenstyles.hourText}>Todays hours: {item.storeOpensAt} - {item.storeClosesAt}</Text>
                                     </View>
-                                    <View style={[styles.rightIconView,{ alignSelf:'center',marginTop:10}]}>
-                                         <Image source={item.rightIconName} style={styles.settingIcons}  onPress={navigateBack}></Image>
+                                    <View style={[screenstyles.rightIconView,{ alignSelf:'center',marginTop:10}]}>
+                                         <Image source={item.rightIconName} style={screenstyles.settingIcons}  onPress={navigateBack}></Image>
                                     </View>
                                 </View>
                             </TouchableOpacity>

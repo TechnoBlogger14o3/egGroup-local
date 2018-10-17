@@ -2,22 +2,23 @@ import React, { Component } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { Icon } from "react-native-elements";
 
-import styles from "../../styles/componentStyles";
+import componentstyles from "../../styles/componentStyles";
 
 const defaultProps = {
     title: "Button",
     backgroundColor: "gray",
     iconName: "",
-    onPress: () => {}
+    onPress: () => {},
+    disabled: false
 }
 
 class Button extends Component {
 
     render() {
         return (
-            <View style={styles.buttonContainer}>
-                <TouchableOpacity onPress={this.props.onPress}>
-                    <View style={[styles.buttonStyle, {backgroundColor: this.props.backgroundColor}]}>
+            <View style={componentstyles.buttonContainer}>
+                <TouchableOpacity onPress={this.props.onPress} disabled={this.props.disabled}>
+                    <View style={[componentstyles.buttonStyle, {backgroundColor: this.props.backgroundColor}]}>
                         {this.props.iconName.length > 0 &&
                             <Icon
                                 name={this.props.iconName}
@@ -25,7 +26,7 @@ class Button extends Component {
                                 color='#ffffff'
                                 iconStyle={{marginRight: 7}} />
                         }
-                        <Text style={styles.buttonTitle}>{this.props.title}</Text>
+                        <Text style={componentstyles.buttonTitle}>{this.props.title}</Text>
                     </View>
                 </TouchableOpacity>
             </View>

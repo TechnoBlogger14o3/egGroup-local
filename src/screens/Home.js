@@ -6,7 +6,7 @@ import { Icon } from "react-native-elements";
 import { InputText, Button, Toolbar } from "../components";
 import { navigateBack } from "../helpers";
 
-import styles from "../styles/screenStyles";
+import screenstyles from "../styles/screenStyles";
 
 class Home extends Component {
 
@@ -17,10 +17,10 @@ class Home extends Component {
   render() {
       return (
         <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
-        <View style={[styles.appContainer, styles.whiteBackground]}>
-            <Toolbar style={styles.noBorderToolbar}>
-                  <View style={styles.toolbarUtils}>
-                      <Text style={styles.appTitle}>Home</Text>
+        <View style={[screenstyles.appContainer, screenstyles.whiteBackground]}>
+            <Toolbar style={screenstyles.noBorderToolbar}>
+                  <View style={screenstyles.toolbarUtils}>
+                      <Text style={screenstyles.appTitle}>Home</Text>
                   </View>
             </Toolbar>
             <View style={{flex:1, justifyContent: "center", alignItems: "center"}}>

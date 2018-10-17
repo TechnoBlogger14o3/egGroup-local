@@ -7,7 +7,7 @@ import banner from "../assets/images/img_banner_esso.png";
 import LinearGradient from 'react-native-linear-gradient';
 import { InputText, Button, Toolbar } from "../components";
 import { navigateBack } from "../helpers";
-import styles from "../styles/screenStyles";
+import screenstyles from "../styles/screenStyles";
 
 
 class PromotionsDetails extends Component {

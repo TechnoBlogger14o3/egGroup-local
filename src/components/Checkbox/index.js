@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { Icon } from "react-native-elements";
 
-import styles from "../../styles/componentStyles";
+import componentstyles from "../../styles/componentStyles";
 
 const defaultProps = {
     label: "Subscribe the Newsletter",
@@ -13,7 +13,7 @@ class Checkbox extends Component {
 
     render() {
         return (
-            <View style={[styles.checkboxContainer, this.props.style]}>
+            <View style={[componentstyles.checkboxContainer, this.props.style]}>
                 <TouchableOpacity onPress={this.props.onPress}>
                     <Icon
                         name={this.props.checked ? "checkbox-marked" : "checkbox-blank-outline"}

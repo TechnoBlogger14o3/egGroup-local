@@ -11,7 +11,7 @@ import { Toolbar } from "../components";
 import Sidebar from "../components/Sidebar/Sidebar";
 import { navigateBack, navigateTo } from "../helpers";
 
-import styles from "../styles/screenStyles";
+import screenstyles from "../styles/screenStyles";
 
 class Settings extends Component {
     constructor(props){
@@ -23,6 +23,7 @@ class Settings extends Component {
             {settingTitle:'Support',leftIconName:require('./../assets/images/settings/Support.png'),rightIconName:require('./../assets/images/settings/ArrowRight.png'),Scence:'support'},
             {settingTitle:'Terms & Conditions',leftIconName:require('./../assets/images/settings/T&C.png'),rightIconName:require('./../assets/images/settings/ArrowRight.png'),Scence:'termsAndConditions'},
             {settingTitle: 'Privacy Policy',leftIconName:require('./../assets/images/settings/Privacypolicy.png'),rightIconName:require('./../assets/images/settings/ArrowRight.png'),Scence:'privacyPolicy'},
+            {settingTitle: 'Frequently asked questions',leftIconName:require('./../assets/images/settings/FAQ.png'),rightIconName:require('./../assets/images/settings/ArrowRight.png'),Scence:'faqs'},
             {settingTitle:'Notification Preferences',leftIconName:require('./../assets/images/settings/Notification.png'),rightIconName:require('./../assets/images/settings/ArrowRight.png'),Scence:'notifications'},
             {settingTitle:'Newsletter Subscriptions',leftIconName:require('./../assets/images/settings/NewsletterSignup.png'),rightIconName:require('./../assets/images/settings/ArrowRight.png'),Scence:'newsLetters'}
         ]
@@ -44,9 +45,9 @@ class Settings extends Component {
     render() {
         const navigationView = (<Sidebar/>);
       return (
-           <View style={styles.settingContainer}>
+           <View style={screenstyles.settingContainer}>
                 <Toolbar
-                    style={[styles.noBorderToolbar]}
+                    style={[screenstyles.noBorderToolbar]}
                     onClickLeftIcon={navigateBack}
                     iconName="back-arrow"
                     title="Settings" />
@@ -54,15 +55,15 @@ class Settings extends Component {
                     data={ this.state.data }
                     renderItem={({item}) =>
                     <TouchableOpacity onPress={()=>navigateTo(item.Scence)}>
-                        <View style={styles.settingListContainer}>
-                            <View style={styles.leftIconView}>
-                               <Image source={item.leftIconName} style={styles.settingIcons}  onPress={navigateBack}></Image>
+                        <View style={screenstyles.settingListContainer}>
+                            <View style={screenstyles.leftIconView}>
+                               <Image source={item.leftIconName} style={screenstyles.settingIcons}  onPress={navigateBack}></Image>
                             </View>
-                            <View style={styles.settingTitleView}>
-                                <Text style={styles.item} >{item.settingTitle}</Text>
+                            <View style={screenstyles.settingTitleView}>
+                                <Text style={screenstyles.item} >{item.settingTitle}</Text>
                             </View>
-                                <View style={styles.rightIconView}>
-                                <Image source={item.rightIconName} style={styles.settingIcons}  onPress={navigateBack}></Image>
+                                <View style={screenstyles.rightIconView}>
+                                <Image source={item.rightIconName} style={screenstyles.settingIcons}  onPress={navigateBack}></Image>
                                 </View>
                         </View>
                     </TouchableOpacity>

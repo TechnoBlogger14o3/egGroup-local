@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 
-import styles from "../../styles/componentStyles";
+import componentstyles from "../../styles/componentStyles";
 
 const defaultProps = {
     title: "Button",
@@ -16,7 +16,7 @@ class LinkButton extends Component {
         return (
           <TouchableOpacity onPress={this.props.onPress} disabled={this.props.disabled}>
               <Text
-                  style={[styles.buttonTitle, {color: this.props.color}]}>
+                  style={[componentstyles.buttonTitle, {color: this.props.color}]}>
                   {this.props.title}
               </Text>
           </TouchableOpacity>

@@ -1,74 +1,74 @@
 import React from 'react';
 import {Text, View, TouchableNativeFeedback,Image, ScrollView,StyleSheet} from 'react-native';
-import styles from "../../styles/componentStyles";
+import componentstyles from "../../styles/componentStyles";
 import { navigateTo } from "./../../helpers";
 class Sidebar extends React.Component {
   render() {
 
     return (
-      <ScrollView style={styles.sidebarContainer}>
+      <ScrollView style={componentstyles.sidebarContainer}>
           <TouchableNativeFeedback  onPress={()=>navigateTo("register")}>
-              <View style={styles.menifestContainer}>
-                  <View style={styles.sidebarIcon}>
+              <View style={componentstyles.menifestContainer}>
+                  <View style={componentstyles.sidebarIcon}>
                       <Image
                         source={require('./../../assets/images/randomIcon.png')}
-                        style={styles.sidebarIconImage}
+                        style={componentstyles.sidebarIconImage}
                       />
                   </View>
-                  <View style={styles.listViewCont}>
+                  <View style={componentstyles.listViewCont}>
                       <Text>Register</Text>
                   </View>
               </View>
           </TouchableNativeFeedback>
           <TouchableNativeFeedback  onPress={() => navigateTo("login")}>
-              <View style={styles.menifestContainer}>
-                  <View style={styles.sidebarIcon}>
+              <View style={componentstyles.menifestContainer}>
+                  <View style={componentstyles.sidebarIcon}>
                       <Image
                         source={require('./../../assets/images/randomIcon.png')}
-                        style={styles.sidebarIconImage}
+                        style={componentstyles.sidebarIconImage}
                       />
                   </View>
-                  <View style={styles.listViewCont}>
+                  <View style={componentstyles.listViewCont}>
                       <Text>Login</Text>
                   </View>
               </View>
           </TouchableNativeFeedback>
           <TouchableNativeFeedback onPress={() => navigateTo("forgotPassword")}>
-              <View style={styles.menifestContainer}>
-                  <View style={styles.sidebarIcon}>
+              <View style={componentstyles.menifestContainer}>
+                  <View style={componentstyles.sidebarIcon}>
                       <Image
                         source={require('./../../assets/images/randomIcon.png')}
-                        style={styles.sidebarIconImage}
+                        style={componentstyles.sidebarIconImage}
                       />
                   </View>
-                  <View style={styles.listViewCont}>
+                  <View style={componentstyles.listViewCont}>
                       <Text>forgotPassword</Text>
                   </View>
               </View>
           </TouchableNativeFeedback>
           <TouchableNativeFeedback onPress={() => navigateTo("socialLogin")}>
-              <View style={styles.menifestContainer}>
-                  <View style={styles.sidebarIcon}>
+              <View style={componentstyles.menifestContainer}>
+                  <View style={componentstyles.sidebarIcon}>
                       <Image
                         source={require('./../../assets/images/randomIcon.png')}
-                        style={styles.sidebarIconImage}
+                        style={componentstyles.sidebarIconImage}
                       />
                   </View>
-                  <View style={styles.listViewCont}>
+                  <View style={componentstyles.listViewCont}>
                       <Text>Social Login</Text>
                   </View>
               </View>
           </TouchableNativeFeedback>
 
           <TouchableNativeFeedback onPress={() => navigateTo("settings")}>
-              <View style={styles.menifestContainer}>
-                  <View style={styles.sidebarIcon}>
+              <View style={componentstyles.menifestContainer}>
+                  <View style={componentstyles.sidebarIcon}>
                       <Image
                         source={require('./../../assets/images/randomIcon.png')}
-                        style={styles.sidebarIconImage}
+                        style={componentstyles.sidebarIconImage}
                       />
                   </View>
-                  <View style={styles.listViewCont}>
+                  <View style={componentstyles.listViewCont}>
                       <Text>Settings</Text>
                   </View>
               </View>

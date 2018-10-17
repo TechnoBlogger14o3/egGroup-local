@@ -9,7 +9,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import { InputText, Button, Toolbar,CardItem } from "../components";
 import { navigateBack,navigateTo } from "../helpers";
 
-import styles from "../styles/screenStyles";
+import screenstyles from "../styles/screenStyles";
 
 class CoupensList extends Component {
 
@@ -93,9 +93,9 @@ class CoupensList extends Component {
 
   render() {
       return (
-        <View style={[styles.appContainer, styles.whiteBackground]}>
+        <View style={[screenstyles.appContainer, screenstyles.whiteBackground]}>
             <Toolbar
-                  style={[styles.noBorderToolbar,{borderBottomWidth:1,borderBottomColor:'rgb(204, 204, 204)'}]}
+                  style={[screenstyles.noBorderToolbar,{borderBottomWidth:1,borderBottomColor:'rgb(204, 204, 204)'}]}
                   onClickLeftIcon={navigateBack}
                   iconName="back-arrow"
                   title="Coupons" />
@@ -107,12 +107,12 @@ class CoupensList extends Component {
                   onRequestClose={() => { }}>
                       <View style={{flex: 1, backgroundColor: "rgba(0, 0, 0, 0.6)"}}>
                         <ScrollView>
-                            <View style={styles.CouponmodalView} >
+                            <View style={screenstyles.CouponmodalView} >
                                 <View>
                                     <ImageBackground
-                                        style={styles.CouponImageStyle}
+                                        style={screenstyles.CouponImageStyle}
                                         source={require('./../assets/images/mask.png')}>
-                                        <View style={styles.CouponIconStyle}>
+                                        <View style={screenstyles.CouponIconStyle}>
                                             <Icon
                                                 onPress={() => { this.toggleModal(!this.state.modalVisible) }}
                                                 reverseColor='red'
@@ -123,27 +123,27 @@ class CoupensList extends Component {
                                         </View>
                                     </ImageBackground>
                                 </View>
-                                    <Text style={styles.CouponOffText}>€2 OFF</Text>
-                                    <Text style={styles.CouponCodeText}>Coupon Code</Text>
-                                    <LinearGradient style={styles.CoupnSubwayText} start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={['#339933', '#006666', '#003366']}>
-                                    <Text style={styles.CouponSubwayTextColor}>SUBWAY OFF</Text>
+                                    <Text style={screenstyles.CouponOffText}>€2 OFF</Text>
+                                    <Text style={screenstyles.CouponCodeText}>Coupon Code</Text>
+                                    <LinearGradient style={screenstyles.CoupnSubwayText} start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={['#339933', '#006666', '#003366']}>
+                                    <Text style={screenstyles.CouponSubwayTextColor}>SUBWAY OFF</Text>
                                     </LinearGradient>
 
                                 <Image
-                                    style={styles.CouponBarcodeImage}
+                                    style={screenstyles.CouponBarcodeImage}
                                     source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa8mHRczu1flp3Evh0M9wM4tppSxHWYeBzfANDH-nbDlSxdgK6Rg' }} />
-                                <View style={styles.CouponSpace}>
-                                    <Text style={styles.CouponTermsText}>Terms & Conditions to redeem the </Text>
-                                    <Text style={styles.CouponTermsText}>coupon</Text>
+                                <View style={screenstyles.CouponSpace}>
+                                    <Text style={screenstyles.CouponTermsText}>Terms & Conditions to redeem the </Text>
+                                    <Text style={screenstyles.CouponTermsText}>coupon</Text>
                                 </View>
-                                <View style={styles.CouponSpaceText}>
-                                    <Text style={styles.CouponTextColor}>€2 OFF in your next purchase.  Lorem Ipsum is</Text>
-                                    <Text style={styles.CouponTextColor}>simply dummy text of the printing and</Text>
-                                    <Text style={styles.CouponTextColor}>typesetting industry. Lorem Ipsum has been the</Text>
-                                    <Text style={styles.CouponTextColor}>industry standard.</Text>
+                                <View style={screenstyles.CouponSpaceText}>
+                                    <Text style={screenstyles.CouponTextColor}>€2 OFF in your next purchase.  Lorem Ipsum is</Text>
+                                    <Text style={screenstyles.CouponTextColor}>simply dummy text of the printing and</Text>
+                                    <Text style={screenstyles.CouponTextColor}>typesetting industry. Lorem Ipsum has been the</Text>
+                                    <Text style={screenstyles.CouponTextColor}>industry standard.</Text>
                                 </View>
-                                <View style={styles.CouponValidityText}>
-                                    <Text style={styles.CouponValidTextDesign}>Valid till 02 Nov 2018</Text>
+                                <View style={screenstyles.CouponValidityText}>
+                                    <Text style={screenstyles.CouponValidTextDesign}>Valid till 02 Nov 2018</Text>
                                 </View>
                             </View>
                         </ScrollView>

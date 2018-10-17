@@ -244,6 +244,43 @@ const styles = StyleSheet.create({
         right: 0,
         zIndex: 1
     },
+    settingListContainer:{
+        flex:1,
+        flexDirection: 'row',
+        borderBottomColor:'rgb(200, 199, 204)',
+        borderBottomWidth:1,
+        marginHorizontal:16,
+        paddingVertical: 8
+    },
+    settingTitleView:{
+        flex:8,
+        justifyContent:'center',
+        textAlign:'center',
+        color:'rgb(0, 0, 0)'
+    },
+    faqListItemTitleTextStyle:{
+        color: "#000000",
+        fontSize: 16,
+    },
+    rightIconView:{
+        flex:1,
+        justifyContent:'flex-end',
+        alignItems:'flex-end',
+        //marginLeft:-10,
+        //backgroundColor:'red',
+        paddingTop:5,
+        paddingBottom:5
+    },
+    faqDescContainer:{
+        padding: 16
+    },
+    whiteBackground: {
+        backgroundColor: "#ffffff"
+    },
+    faqListItemDescTextStyle:{
+        color: "#000000",
+        fontSize: 13,
+    },
    
 });
 

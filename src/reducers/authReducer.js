@@ -13,12 +13,16 @@ export default (state = initialState, action) => {
 
       case AUTHENTICATE:
           return {
-              ...state
+              ...state,
+              token: action.token,
+              isLoggedin: true
           };
 
       case LOGOUT:
           return {
-              ...state
+              ...state,
+              token: "",
+              isLoggedin: false
           };
 
       case AUTH_ERROR:

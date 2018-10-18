@@ -84,8 +84,10 @@ class Register extends Component {
     }
 
     onSubmit = values => {
-     alert('Thank you for signing up. You will receive an email shortly with a link to confirm your email address');
-     navigateTo('login');
+     //alert('Thank you for signing up. You will receive an email shortly with a link to confirm your email address');
+     values.tncAcceptance = true;
+     delete values.confirmpassword;
+     this.props.handleRegisterUser(values);
     }
 
 
@@ -213,23 +215,15 @@ const validate = values => {
     if (!values.firstName) {
         errors.firstName = "Please enter a valid first name"
     }
-    //as per vikranth's request removed below validation
 
-    //  else if (values.firstName.length < 😎 {
-    //     errors.firstName = "Length should me greater than 8";
-    // }
-     else if (!/^[a-zA-Z ]+$/.test(values.firstName.trim())) {
+    else if (!/^[a-zA-Z ]+$/.test(values.firstName.trim())) {
         errors.name = "Please enter a valid first name"
     }
 
     if (!values.lastName) {
         errors.lastName = "Please enter a valid last name"
     }
-    //as per vikranth's request removed below validation
 
-    // else if (values.lastName.length < 😎 {
-    //     errors.lastName = "Length should me greater than 8";
-    // }
     else if (!/^[a-zA-Z ]+$/.test(values.lastName.trim())) {
         errors.name = "Please enter a valid last name"
     }
@@ -246,7 +240,7 @@ const validate = values => {
     }
 
     if (!values.confirmpassword) {
-        errors.confirmpassword = "Please enter a valid password"
+        errors.confirmpassword = "Please enter a valid confirm password"
     } else if (values.confirmpassword !== values.password){
         errors.confirmpassword = "Password and confirm password don't match"
     }
@@ -258,7 +252,10 @@ const mapStateToProps = state => ({
     formValues: getFormValues("register")(state)
 });
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({
+  handleRegisterUser: payload => dispatch(registerUser(payload))
+
+});
 
 
 export default compose(

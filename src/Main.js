@@ -31,7 +31,7 @@ class Main extends Component {
                 <StatusBar
                     backgroundColor="rgb(51, 51, 51)"
                     barStyle="light-content" />
-                <Routes />
+                <Routes isLoggedin={this.props.isLoggedin} />
             </View>
         );
     }
@@ -43,7 +43,9 @@ class Main extends Component {
 * @params {object} state
 * @returns {object} props
 */
-const mapStateToProps = () => ({});
+const mapStateToProps = state => ({
+    isLoggedin: state.auth.isLoggedin
+});
 
 /**
 * Converting redux state to props for the Main component

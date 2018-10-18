@@ -21,7 +21,7 @@ import NewsLetters from "../../screens/NewsLetters";
 import TermsAndConditions from "../../screens/TermsAndConditions";
 import Home from "../../screens/Home";
 import PushNotification from "../../screens/PushNotification";
-import CoupensList from "../../screens/CoupensList";
+import VoucherList from "../../screens/VoucherList";
 import PromotionsDetails from "../../screens/PromotionsDetails";
 import PromotionsList from "../../screens/PromotionsList";
 import PaymentListCards from "../../screens/PaymentListCards";
@@ -71,12 +71,12 @@ export default class Routes extends Component {
 		return (
 			<Router>
 					<Scene>
-							<Scene key="auth" hideNavBar={true} initial={false}>
+							<Scene key="auth" hideNavBar={true} initial={this.props.isLoggedin}>
 									<Scene key="login" component={Login} title="Login" />
 									<Scene key="register" component={Register} title="Register" />
 									<Scene key="forgotPassword" component={ForgotPassword} title="ForgotPassword" />
 							</Scene>
-							<Scene key="app" hideNavBar={true} initial={true}>
+							<Scene key="app" hideNavBar={true} initial={this.props.isLoggedin}>
 									<Scene tabs key="home" hideNavBar={true} swipeEnabled={true} tabBarPosition="bottom" tabBarStyle={{height: 56, paddingVertical: 4}}>
 											<Scene key="home" icon={this.renderHomeIcon} hideNavBar={true}  component={Home} title="Home" labelStyle={{paddingTop: 8}} />
 											<Scene key="settings" icon={this.renderSettingsIcon} hideNavBar={true} title="Settings" component={Settings} labelStyle={{paddingTop: 8}} />

@@ -13,7 +13,6 @@ export default async (url, method, reqBody = {}, headers = {}) => {
 
     if (body) {
       fetchParams.body = body;
-      fetchParams.headers.Accept = 'application/json';
       fetchParams.headers['Content-Type'] = 'application/json';
     }
 

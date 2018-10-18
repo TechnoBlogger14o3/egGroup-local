@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, Image, Alert, ScrollView, Platform } from 'react-native';
-import { connect } from 'react-redux';
-import { compose } from "redux";
-import { Field, reduxForm } from "redux-form";
+import React, {Component} from "react";
+import {View, Text, TouchableOpacity, Image, Platform} from "react-native";
+import {connect} from "react-redux";
+import {compose} from "redux";
+import {Field, reduxForm} from "redux-form";
 import validator from "validator";
 
 
-import { InputText, Button, LinkButton, ListPicker } from "../components";
-import { navigateTo, redirectTo } from "../helpers";
+import {InputText, Button, LinkButton, ListPicker} from "../components";
+import {navigateTo, redirectTo} from "../helpers";
 
-import logo from "../assets/images/signup/Loginlogo.png"
-import styles from '../styles';
+import logo from "../assets/images/signup/Loginlogo.png";
+import styles from "../styles";
 
 class Login extends Component {
 
@@ -19,18 +19,18 @@ class Login extends Component {
         this.state = {
             isPasswordShown: false,
             PickerValueHolder: "",
-            pickerViewHideIOS:false,
-            pickerViewHideAndroid:false,
+            pickerViewHideIOS: false,
+            pickerViewHideAndroid: false,
             language: "English",
             pickerValue: ""
         };
     }
 
-    onIconPress = () => {
-        this.setState({
-            isPasswordShown: !this.state.isPasswordShown
-        });
-    }
+     onIconPress = () => {
+         this.setState({
+             isPasswordShown: !this.state.isPasswordShown
+         });
+     }
 
     onChange = (key, value) => {
         this.setState({
@@ -38,12 +38,12 @@ class Login extends Component {
         });
     }
 
-    onSubmit = values => {
-        redirectTo("app")
+    onSubmit = () => {
+        redirectTo("app");
     }
 
     renderTextInput = (field) => {
-        const { meta: { touched, error }, placeholder, isPassword, onIconPress, keyboardType, label, secureTextEntry, input: { onChange, ...restInput } } = field;
+        const {meta: {touched, error}, placeholder, isPassword, onIconPress, keyboardType, label, secureTextEntry, input: {onChange, ...restInput}} = field;
         return (
             <View>
                 <InputText
@@ -59,65 +59,65 @@ class Login extends Component {
             </View>
         );
     }
-    pickerDoneBtnTapped = (value) => {
+
+    pickerDoneBtnTapped = () => {
         this.setState({
             language: this.state.pickerValue,
-            pickerViewHideIOS:false})
+            pickerViewHideIOS: false});
     }
 
     handlePickerValue = (value) => {
-        this.setState({pickerValue:value})
+        this.setState({pickerValue: value});
     }
 
-    //Checking the condition For Android & iOS to Display Different Pickers as per Wireframe
+    // Checking the condition For Android & iOS to Display Different Pickers as per Wireframe
     _segmentPicker = () => {
-        if (Platform.OS !== 'ios') {
-            alert('android picker ');
-            if (this.state.pickerViewHideIOS){
-                 return (
-                <ListPicker />
-            );
-         }
-        } else {
-                if (this.state.pickerViewHideIOS) {
-                    return (
-                        <View style={{height:230,backgroundColor:'white',position:'absolute', bottom:0,left:0,right:0}}>
-                        <View style={{left:0,right:0,height:40,flexDirection:'row',backgroundColor:"rgb(225, 224, 224)",justifyContent:'center',padding:10}}>
-                        <View style={{flex:1}}>
+        if (Platform.OS !== "ios") {
+            // alert("android picker ");
+            if (this.state.pickerViewHideIOS) {
+                return (
+                    <ListPicker />
+                );
+
+            }
+        } else if (this.state.pickerViewHideIOS) {
+            return (
+                <View style={styles.iosPickerHeaderView}>
+                    <View style={styles.iosPickerSubView}>
+                        {/* <View style={{flex: 1}} /> */}
+                        <View style={styles.iosPickerLanguageView}>
+                            <Text style={styles.iosPickerTextView}>Select Language</Text>
                         </View>
-                        <View style={{flex:3}}>
-                        <Text style={{alignSelf:'center',fontSize:17}}>Select Laungage</Text>
-                        </View>
-                        <View style={{flex:1}}>
+                        <View style={styles.iosPickerButtonView}>
                             <TouchableOpacity onPress={this.pickerDoneBtnTapped}>
-                                 <Text style={{alignSelf:'flex-end',color:'rgb(0, 122, 255)',fontSize:15}}>Done</Text>
+                                <Text style={styles.iosPickerButtonTextView}>Done</Text>
                             </TouchableOpacity>
                         </View>
-                        </View>
-                            <ListPicker onChangePickerValue={this.handlePickerValue}/>
-                        </View>
-                    );
-                }
+                    </View>
+                    <ListPicker onChangePickerValue={this.handlePickerValue} />
+                </View>
+            );
         }
     }
+
     languageButtonTapped = () => {
-        this.setState({pickerViewHideIOS:true})
+        this.setState({pickerViewHideIOS: true});
     }
 
 
     render() {
-        const { Email, Password, handleSubmit } = this.props;
+        const {handleSubmit} = this.props;
 
         return (
             <View style={[styles.appContainer, styles.whiteBackground]}>
-                <View style={{ flex: 8 }}>
+                <View style={styles.loginMainView}>
                     <View style={styles.loginFormCont}>
                         <View style={styles.loginLogoContainer}>
                             <Image source={logo} />
                         </View>
                         <View>
                             <Field
-                                style={{ marginTop: 0 }}
+                                style={styles.emailFieldView}
                                 name="email"
                                 label="Email"
                                 keyboardType="email-address"
@@ -134,11 +134,12 @@ class Login extends Component {
                                 secureTextEntry={!this.state.isPasswordShown}
                             />
                             <View style={styles.loginHelperCont}>
-                                {Platform.OS !== 'ios' ? <ListPicker onChangePickerValue={this.handlePickerValue}/>
-                                :
-                                <TouchableOpacity onPress={this.languageButtonTapped}>
-                                    <Text style={styles.languagePickerTitle}>{this.state.language}</Text>
-                                </TouchableOpacity>
+                                {Platform.OS !== "ios" ? <ListPicker onChangePickerValue={this.handlePickerValue} />
+                                    : (
+                                        <TouchableOpacity onPress={this.languageButtonTapped}>
+                                            <Text style={styles.languagePickerTitle}>{this.state.language}</Text>
+                                        </TouchableOpacity>
+                                    )
                                 }
                                 <LinkButton
                                     onPress={() => navigateTo("forgotPassword")}
@@ -148,7 +149,7 @@ class Login extends Component {
                         </View>
                     </View>
                 </View>
-                <View style={{justifyContent: "flex-end" }}>
+                <View style={styles.loginButtonView}>
                     <Button
                         title="Login"
                         backgroundColor="rgb(15, 113, 184)"
@@ -158,9 +159,9 @@ class Login extends Component {
                         backgroundColor="rgb(57, 83, 152)"
                         iconName="facebook" />
                     <View style={styles.loginFooterTextContainer}>
-                        <Text style={[styles.fontSize16, styles.colorBlack, { marginRight: 7 }]}>
+                        <Text style={[styles.fontSize16, styles.colorBlack, styles.marginRight ]}>
                             Do not have an account yet?
-                  </Text>
+                        </Text>
                         <LinkButton
                             onPress={() => navigateTo("register")}
                             title="Create One"
@@ -172,18 +173,18 @@ class Login extends Component {
     }
 }
 
-const validate = values => {
+const validate = (values) => {
     const errors = {};
     if (!values.email) {
-        errors.email = "Required"
+        errors.email = "Please enter valid email address";
     } else if (!validator.isEmail(values.email)) {
         errors.email = "Please enter valid email address";
     }
     if (!values.password) {
-        errors.password = "Required"
+        errors.password = "Please enter valid password";
     }
     return errors;
-}
+};
 
 const mapStateToProps = state => ({});
 

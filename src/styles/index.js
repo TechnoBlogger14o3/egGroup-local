@@ -392,10 +392,10 @@ const styles = StyleSheet.create({
         },
         profilePicImage:{
 
-         height:120,
+          height:120,
           width:120,
-          borderRadius: 500/2,
-          overflow: 'hidden'
+         // borderRadius: 500/2,
+         // overflow: 'hidden',
         },
         profileContainer: {
           flex: 6,
@@ -811,6 +811,51 @@ const styles = StyleSheet.create({
         color: "#000000",
         fontSize: 13,
      },
+     //ios
+     iosPickerHeaderView:{
+        height: 230, 
+        backgroundColor: "white",
+        position: "absolute",
+        bottom: 0,
+        left: 0,
+        right: 0
+     },
+     iosPickerSubView:{
+        left: 0, 
+        right: 0, 
+        height: 40, 
+        flexDirection: "row",
+        backgroundColor: "rgb(225, 224, 224)",
+        justifyContent: "center",
+        padding: 10
+     },
+     iosPickerLanguageView:{
+        flex: 3
+     },
+     iosPickerTextView:{
+        alignSelf: "center", 
+        fontSize: 17
+     },
+     iosPickerButtonView:{
+        flex: 1
+     },
+     iosPickerButtonTextView:{
+        alignSelf: "flex-end",
+        color: "rgb(0, 122, 255)", 
+        fontSize: 15
+     },
+     loginMainView:{
+        flex: 8
+     },
+     emailFieldView:{
+        marginTop: 0
+     },
+     loginButtonView:{
+        justifyContent: "flex-end"
+     },
+     marginRight:{
+        marginRight: 7
+     }
 });
 
 export default styles;

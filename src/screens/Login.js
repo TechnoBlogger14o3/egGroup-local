@@ -45,7 +45,7 @@ class Login extends Component {
                 this.responseInfoCallback
               );
              new GraphRequestManager().addRequest(infoRequest).start();
-           
+
           })
         }
 
@@ -64,9 +64,9 @@ class Login extends Component {
           );
           // Start the graph request.
           new GraphRequestManager().addRequest(infoRequest).start()
-    
+
         }
-    
+
       responseInfoCallback = (error, result) => {
         if (error) {
           console.log(error)
@@ -139,38 +139,29 @@ class Login extends Component {
               console.log('Login fail with error: ' + error)
             }
           )
-        
-               
-              
+
+
+
     }
 
     //Checking the condition For Android & iOS to Display Different Pickers as per Wireframe
     _segmentPicker = () => {
-        if (Platform.OS !== 'ios') {
-            alert('android picker ');
-            if (this.state.pickerViewHideIOS){
-                 return (
-                <ListPicker />
+        if (Platform.OS === 'ios' && this.state.pickerViewHideIOS) {
+            return (
+              <View style={screenstyles.iosPickerHeaderView}>
+                  <View style={screenstyles.iosPickerSubView}>
+                      <View style={screenstyles.iosPickerLanguageView}>
+                          <Text style={screenstyles.iosPickerTextView}>Select Language</Text>
+                      </View>
+                      <View style={screenstyles.iosPickerButtonView}>
+                          <TouchableOpacity onPress={this.pickerDoneBtnTapped}>
+                              <Text style={screenstyles.iosPickerButtonTextView}>Done</Text>
+                          </TouchableOpacity>
+                      </View>
+                  </View>
+                  <ListPicker onChangePickerValue={this.handlePickerValue} />
+              </View>
             );
-         }
-        } else {
-              if (this.state.pickerViewHideIOS) {
-                  return (
-                    <View style={styles.iosPickerHeaderView}>
-                        <View style={styles.iosPickerSubView}>
-                            <View style={styles.iosPickerLanguageView}>
-                                <Text style={styles.iosPickerTextView}>Select Language</Text>
-                            </View>
-                            <View style={styles.iosPickerButtonView}>
-                                <TouchableOpacity onPress={this.pickerDoneBtnTapped}>
-                                    <Text style={styles.iosPickerButtonTextView}>Done</Text>
-                                </TouchableOpacity>
-                            </View>
-                        </View>
-                        <ListPicker onChangePickerValue={this.handlePickerValue} />
-                    </View>
-                  );
-              }
         }
     }
 
@@ -232,7 +223,7 @@ class Login extends Component {
                         backgroundColor="rgb(57, 83, 152)"
                         iconName="facebook"
                         onPress={this.handleFacebookLogin} />
-                    
+
                     <View style={screenstyles.loginFooterTextContainer}>
                         <Text style={[screenstyles.fontSize16, screenstyles.colorBlack, { marginRight: 7 }]}>
                             Do not have an account yet?
@@ -243,6 +234,7 @@ class Login extends Component {
                             color="rgb(141, 198, 63)" />
                     </View>
                 </View>
+                {this._segmentPicker()}
             </View>
         );
     }

@@ -93,7 +93,7 @@ export default class Routes extends Component {
 									<Scene key="scanLoyaltyCard" component={ScanLoyaltyCard} title="Scan Loyalty Card" />
 									<Scene key="settings" component={Settings} title="Settings"/>
 									<Scene key="preferredStation" component={PreferredStation} title="Preferred Station"/>
-					    		    <Scene key="editProfile" component={EditProfile} title="Edit Profile"/>
+					    		<Scene key="editProfile" component={EditProfile} title="Edit Profile"/>
 									<Scene key="support" component={Support} title="Support"/>
 									<Scene key="privacyPolicy" component={PrivarcyPolicy} title="Privacy Policy"/>
 									<Scene key="notifications" component={Notifications} title="Notification Preference" />

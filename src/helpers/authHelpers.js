@@ -1,14 +1,17 @@
-import {redirectTo} from "./index";
+import {redirectTo, navigateTo} from "./index";
+import {AUTHENTICATE, AUTH_ERROR, LOGOUT} from "../constants/action-types";
+import api from "../services/appService";
 
 export const handleRegisterUser = async (dispatch, payload, url) => {
     try {
+      console.log(payload);
         const response = await api(url, "POST", payload);
+        console.log(response);
         if (response.status === 200) {
             const user = await response.json();
             if (user) {
-                dispatch({
-                    type: AUTHENTICATE
-                });
+                navigateTo("login");
+                alert('Thank you for signing up. You will receive an email shortly with a link to confirm your email address');
             } else {
                 throw new Error("Error. Please try again");
             }
@@ -26,16 +29,13 @@ export const handleRegisterUser = async (dispatch, payload, url) => {
 export const authenticateUser = async (dispatch, payload, url) => {
     try {
         const response = await api(url, "POST", payload);
-        if (response.status === 200) {
-            const user = await response.json();
-            if (user) {
-                dispatch({
-                    type: AUTHENTICATE
-                });
-                redirectTo("app");
-            } else {
-                throw new Error("Error. Please try again");
-            }
+        if (response.status === 200 && response.headers.get("authorization")) {
+              const token = response.headers.get("authorization");
+              dispatch({
+                  type: AUTHENTICATE,
+                  token
+              });
+              redirectTo("app");
         } else {
             throw new Error("Invalid User");
         }
@@ -48,5 +48,8 @@ export const authenticateUser = async (dispatch, payload, url) => {
 }
 
 export const handleUserLogout = (dispatch, payload, url) => {
-
+    dispatch({
+        type: LOGOUT
+    });
+    redirectTo("auth");
 }

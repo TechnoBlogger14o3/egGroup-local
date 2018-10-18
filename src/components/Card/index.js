@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity,StyleSheet,Image } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+
 import componentstyles from "../../styles/componentStyles";
 
 const defaultProps = {

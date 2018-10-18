@@ -10,6 +10,7 @@ import { View, ScrollView, Text, Image, StyleSheet, TouchableOpacity, Alert, Pla
 import { InputText, Button, DatePicker, Toolbar, DatePickerAndroid, DatePickerIos } from "../components";
 import Phone from "./../components/Phone";
 import { navigateBack, navigateTo, redirectTo } from "../helpers";
+import {logoutUser} from "../actions/authActions";
 
 import screenstyles from "../styles/screenStyles";
 
@@ -45,7 +46,7 @@ class EditProfile extends Component {
         {
           text: "Yes",
           onPress: () => {
-            redirectTo("auth");
+            this.props.handleLogoutUser();
           }
         }
       ],
@@ -314,7 +315,9 @@ const validate = (values) => {
 
 const mapStateToProps = state => ({});
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({
+    handleLogoutUser: () => dispatch(logoutUser())
+});
 
 export default compose(
   connect(

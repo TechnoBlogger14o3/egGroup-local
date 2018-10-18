@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { View, ScrollView, Text, Image, StyleSheet, TouchableOpacity, Alert, Platform, FlatList } from "react-native";
-import { InputText, Button, DatePicker, Toolbar } from "../components";
+import { InputText, Button, DatePicker, Toolbar, ExpandCollapseView } from "../components";
 import { navigateBack, navigateTo, redirectTo } from "../helpers";
 import screenstyles from "../styles";
-import ExpandCollapseView from "../components/ExpandCollapseView";
 
 class Faq extends Component {
 

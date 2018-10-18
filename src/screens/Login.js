@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { compose } from "redux";
 import { Field, reduxForm } from "redux-form";
 import validator from "validator";
+import { LoginButton, AccessToken, GraphRequest, GraphRequestManager, LoginManager  } from 'react-native-fbsdk';
 
 import { InputText, Button, LinkButton, ListPicker } from "../components";
 import { navigateTo, redirectTo } from "../helpers";
@@ -22,8 +23,58 @@ class Login extends Component {
             pickerViewHideIOS:false,
             pickerViewHideAndroid:false,
             language: "English",
-            pickerValue: ""
+            pickerValue: "",
+            name : '',
+            pic : ''
         };
+    }
+
+    componentDidMount() {
+        AccessToken.getCurrentAccessToken().then(
+          (data) => {
+              const infoRequest = new GraphRequest(
+                '/me',
+                {
+                  accessToken: data.accessToken || "",
+                  parameters: {
+                    fields: {
+                      string: 'email,name,first_name,middle_name,last_name,picture,id'
+                    }
+                  }
+                },
+                this.responseInfoCallback
+              );
+             new GraphRequestManager().addRequest(infoRequest).start();
+           
+          })
+        }
+
+        infoRequestNew(accessToken){
+          const infoRequest = new GraphRequest(
+            '/me',
+            {
+              accessToken: accessToken,
+              parameters: {
+                fields: {
+                  string: 'email,name,first_name,middle_name,last_name,picture,id'
+                }
+              }
+            },
+            this.responseInfoCallback
+          );
+          // Start the graph request.
+          new GraphRequestManager().addRequest(infoRequest).start()
+    
+        }
+    
+      responseInfoCallback = (error, result) => {
+        if (error) {
+          console.log(error)
+          alert('Error fetching data: ' + error.toString());
+        } else {
+          console.log(result)
+          this.setState({name: result.name, pic:result.picture.data.url});
+        }
     }
 
     onIconPress = () => {
@@ -67,6 +118,30 @@ class Login extends Component {
 
     handlePickerValue = (value) => {
         this.setState({pickerValue:value})
+    }
+
+    handleFacebookLogin(){
+        LoginManager.logInWithReadPermissions(['public_profile', 'email',]).then(
+            function (result) {
+              if (result.isCancelled) {
+                console.log('Login cancelled')
+              } else {
+                console.log('Login success with permissions: ' + result.grantedPermissions.toString());
+                AccessToken.getCurrentAccessToken().then(
+                    (data) => {
+                        const accessToken = data.accessToken
+                        this.infoRequestNew(accessToken);
+                    }
+                    )
+              }
+            },
+            function (error) {
+              console.log('Login fail with error: ' + error)
+            }
+          )
+        
+               
+              
     }
 
     //Checking the condition For Android & iOS to Display Different Pickers as per Wireframe
@@ -155,7 +230,9 @@ class Login extends Component {
                     <Button
                         title="Login with Facebook"
                         backgroundColor="rgb(57, 83, 152)"
-                        iconName="facebook" />
+                        iconName="facebook"
+                        onPress={this.handleFacebookLogin} />
+                    
                     <View style={screenstyles.loginFooterTextContainer}>
                         <Text style={[screenstyles.fontSize16, screenstyles.colorBlack, { marginRight: 7 }]}>
                             Do not have an account yet?

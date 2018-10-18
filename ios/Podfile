@@ -46,6 +46,8 @@ target 'EuroGarages' do
   pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
   pod 'Firebase'
   pod 'Firebase/Messaging'
+  pod 'react-native-fbsdk', :path => '../node_modules/react-native-fbsdk'
+
 end
 
 post_install do |installer|

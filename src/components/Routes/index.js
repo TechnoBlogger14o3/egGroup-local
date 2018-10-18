@@ -21,7 +21,7 @@ import NewsLetters from "../../screens/NewsLetters";
 import TermsAndConditions from "../../screens/TermsAndConditions";
 import Home from "../../screens/Home";
 import PushNotification from "../../screens/PushNotification";
-import CoupensList from "../../screens/CoupensList";
+import VoucherList from "../../screens/VoucherList";
 import PromotionsDetails from "../../screens/PromotionsDetails";
 import PromotionsList from "../../screens/PromotionsList";
 import PaymentListCards from "../../screens/PaymentListCards";
@@ -71,12 +71,12 @@ export default class Routes extends Component {
 		return (
 			<Router>
 					<Scene>
-							<Scene key="auth" hideNavBar={true} initial={false}>
+							<Scene key="auth" hideNavBar={true} initial={true}>
 									<Scene key="login" component={Login} title="Login" />
 									<Scene key="register" component={Register} title="Register" />
 									<Scene key="forgotPassword" component={ForgotPassword} title="ForgotPassword" />
 							</Scene>
-							<Scene key="app" hideNavBar={true} initial={true}>
+							<Scene key="app" hideNavBar={true} initial={false}>
 									<Scene tabs key="home" hideNavBar={true} swipeEnabled={true} tabBarPosition="bottom" tabBarStyle={{height: 56, paddingVertical: 4}}>
 											<Scene key="home" icon={this.renderHomeIcon} hideNavBar={true}  component={Home} title="Home" labelStyle={{paddingTop: 8}} />
 											<Scene key="settings" icon={this.renderSettingsIcon} hideNavBar={true} title="Settings" component={Settings} labelStyle={{paddingTop: 8}} />
@@ -92,7 +92,7 @@ export default class Routes extends Component {
 									<Scene key="scanLoyaltyCard" component={ScanLoyaltyCard} title="Scan Loyalty Card" />
 									<Scene key="settings" component={Settings} title="Settings"/>
 									<Scene key="preferredStation" component={PreferredStation} title="Preferred Station"/>
-					    		<Scene key="editProfile" component={EditProfile} title="Edit Profile"/>
+					    		    <Scene key="editProfile" component={EditProfile} title="Edit Profile"/>
 									<Scene key="support" component={Support} title="Support"/>
 									<Scene key="privacyPolicy" component={PrivarcyPolicy} title="Privacy Policy"/>
 									<Scene key="notifications" component={Notifications} title="Notification Preference" />
@@ -106,6 +106,7 @@ export default class Routes extends Component {
 									<Scene key="paymentSuccessfull" component={PaymentSuccessfull} title="Payment Successfull"/>
 									<Scene key="paymentBillingScreen" component={PaymentBillingScreen} title="Add Card"/>
 									<Scene key="addCreditCardForPayment" component={AddCreditCardForPayment} title="Add Card"/>
+									<Scene key="vouchers"  component={VoucherList} title="Vouchers"/>
 							</Scene>
 					</Scene>
 			</Router>

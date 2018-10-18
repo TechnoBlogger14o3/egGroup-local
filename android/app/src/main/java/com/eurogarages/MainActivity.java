@@ -28,6 +28,12 @@ public class MainActivity extends ReactActivity {
      super.onNewIntent(intent);
        super.setIntent(intent);
     }
+    
+    @Override
+     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        MainApplication.getCallbackManager().onActivityResult(requestCode, resultCode, data);
+    }
 
     @Override
     protected String getMainComponentName() {

@@ -15,8 +15,8 @@ class CardItem extends Component {
         let {
             image,
             cashOff,
-            coupenCode,
-            coupenValidity,
+            voucherCode,
+            voucherValidity,
             store,
             currencyIcon,
           } = this.props;
@@ -50,13 +50,13 @@ class CardItem extends Component {
                                     <Text style={componentstyles.coupenCodeTextStyle}>Coupon Code</Text>
                                 </View>
                                 <View style={componentstyles.CoupenCodeText}>
-                                    <Text style={componentstyles.codeTextStyle}>{coupenCode? coupenCode:'Code Not Found'}</Text>
+                                    <Text style={componentstyles.codeTextStyle}>{voucherCode? voucherCode:'Code Not Found'}</Text>
                                 </View>
                           </View>
                       </View>
                       <View style={[componentstyles.cardValidityView]}>
                             <View style={componentstyles.validityContentView}>
-                              <Text style={componentstyles.validityText}>Validity till {coupenValidity? coupenValidity:'DD MMM YYYY'}</Text>
+                              <Text style={componentstyles.validityText}>Validity till {voucherValidity? voucherValidity:'DD MMM YYYY'}</Text>
                             </View>
                       </View>
                    </LinearGradient>

@@ -71,6 +71,7 @@ export default class Routes extends Component {
 		return (
 			<Router>
 					<Scene>
+
 							<Scene key="auth" hideNavBar={true} initial={this.props.isLoggedin}>
 									<Scene key="login" component={Login} title="Login" />
 									<Scene key="register" component={Register} title="Register" />
@@ -92,7 +93,7 @@ export default class Routes extends Component {
 									<Scene key="scanLoyaltyCard" component={ScanLoyaltyCard} title="Scan Loyalty Card" />
 									<Scene key="settings" component={Settings} title="Settings"/>
 									<Scene key="preferredStation" component={PreferredStation} title="Preferred Station"/>
-					    		<Scene key="editProfile" component={EditProfile} title="Edit Profile"/>
+					    		    <Scene key="editProfile" component={EditProfile} title="Edit Profile"/>
 									<Scene key="support" component={Support} title="Support"/>
 									<Scene key="privacyPolicy" component={PrivarcyPolicy} title="Privacy Policy"/>
 									<Scene key="notifications" component={Notifications} title="Notification Preference" />
@@ -106,6 +107,7 @@ export default class Routes extends Component {
 									<Scene key="paymentSuccessfull" component={PaymentSuccessfull} title="Payment Successfull"/>
 									<Scene key="paymentBillingScreen" component={PaymentBillingScreen} title="Add Card"/>
 									<Scene key="addCreditCardForPayment" component={AddCreditCardForPayment} title="Add Card"/>
+									<Scene key="vouchers"  component={VoucherList} title="Vouchers"/>
 							</Scene>
 					</Scene>
 			</Router>

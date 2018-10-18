@@ -4,7 +4,7 @@ import { View, Text, TouchableOpacity, SafeAreaView, FlatList, Image, ScrollView
 import { Icon } from "react-native-elements";
 
 import { InputText, Button, Toolbar } from "../components";
-import { navigateBack } from "../helpers";
+import { navigateBack, navigateTo } from "../helpers";
 import LinearGradient from 'react-native-linear-gradient';
 
 import styles from '../styles';
@@ -156,7 +156,9 @@ class Home extends Component {
 
                         </View>
                         <View style={{ alignItems: 'flex-end' }}>
-                            <Text
+                        <TouchableOpacity style={styles.loginbutton} onPress={() => navigateTo("vouchers")}>
+                                        <View style={{ flex: 1, flexDirection: "row", justifyContent: "center" }}>
+                                        <Text
                                 style={{
                                     color: "#ffffff",
                                     fontSize: 17,
@@ -165,7 +167,10 @@ class Home extends Component {
                                 }}
                             >
                                 View All (20)
-                    </Text>
+                               </Text>
+                                          
+                                        </View>
+                                </TouchableOpacity>
                         </View>
 
 

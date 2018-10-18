@@ -30,7 +30,7 @@ class ScanLoyaltyCard extends Component {
       .then(card => {
         Vibration.vibrate();
         this.setState({ scanning: true });
-        navigateTo("LoyaltyCardList")
+        navigateTo("addLoyaltyCard");
         return;
       })
       .catch(() => {

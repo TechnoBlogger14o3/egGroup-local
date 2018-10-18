@@ -29,27 +29,26 @@ class Login extends Component {
         };
     }
 
-    componentDidMount() {
-        AccessToken.getCurrentAccessToken().then(
-          (data) => {
-              const infoRequest = new GraphRequest(
-                '/me',
-                {
-                  accessToken: data.accessToken || "",
-                  parameters: {
-                    fields: {
-                      string: 'email,name,first_name,middle_name,last_name,picture,id'
-                    }
-                  }
-                },
-                this.responseInfoCallback
-              );
-             new GraphRequestManager().addRequest(infoRequest).start();
+    // componentDidMount() {
+    //   AccessToken.getCurrentAccessToken().then(
+    //     (data) => {
+    //         const infoRequest = new GraphRequest(
+    //           '/me',
+    //           {
+    //             accessToken: data.accessToken || "",
+    //             parameters: {
+    //               fields: {
+    //                 string: 'email,name,first_name,middle_name,last_name,picture,id'
+    //               }
+    //             }
+    //           },
+    //           this.responseInfoCallback
+    //         );
+    //        new GraphRequestManager().addRequest(infoRequest).start();
+    //     })
+    //   }
 
-          })
-        }
-
-        infoRequestNew(accessToken){
+      infoRequestNew = (accessToken) => {
           const infoRequest = new GraphRequest(
             '/me',
             {
@@ -65,7 +64,7 @@ class Login extends Component {
           // Start the graph request.
           new GraphRequestManager().addRequest(infoRequest).start()
 
-        }
+      }
 
       responseInfoCallback = (error, result) => {
         if (error) {

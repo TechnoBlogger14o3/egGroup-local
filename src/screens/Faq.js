@@ -21,14 +21,14 @@ class Faq extends Component {
   showContentFunc = () => {
     this.setState({
       showContent: !this.state.showContent
-      });
+    });
   };
 
       render() {
         return (
           <View style={[screenstyles.appContainer, screenstyles.whiteBackground]}>
             <Toolbar
-                style={[screenstyles.noBorderToolbar, { backgroundColor: "#ffffff" }]}
+                style={screenstyles.noBorderToolbar}
                 onClickLeftIcon={navigateBack}
                 iconName="back-arrow"
                 title="Frequently asked questions"
@@ -37,8 +37,8 @@ class Faq extends Component {
                 <FlatList
                     data={ this.state.data }
                     renderItem={({item}) =>
-                      <ExpandCollapseView 
-                        title={item.faqTitle} 
+                      <ExpandCollapseView
+                        title={item.faqTitle}
                         desc = {item.faqDesc} />
                     }
                     keyExtractor={(item) => item.faqTitle}

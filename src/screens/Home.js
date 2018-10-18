@@ -224,8 +224,6 @@ class Home extends Component {
                                             }}>
                                             {item.Houres}
                                         </Text>
-
-
                                     </View>
                                     <TouchableOpacity style={styles.loginbutton} onPress={() => navigateTo("storeDetails")}>
                                         <View style={{ flex: 1, backgroundColor: "rgb(255, 255, 255)", flexDirection: "row", justifyContent: "center" }}>

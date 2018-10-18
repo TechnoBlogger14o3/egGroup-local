@@ -4,29 +4,33 @@ import { View, Text, ScrollView, Image, BackHandler, Alert, TouchableOpacity } f
 import { Icon } from "react-native-elements";
 import { compose } from "redux";
 import { Field, reduxForm, getFormValues } from "redux-form";
-import { InputText, Button, Toolbar, DatePicker } from "../components";
+import { InputText, Button, Toolbar, DatePickerAndroid } from "../components";
 import { navigateBack, navigateTo } from "../helpers";
 
-import styles from '../styles';
+import styles from "../styles/screenStyles";
 
 class PaymentBillingScreen extends Component {
+
       constructor(props) {
             super(props);
             this.state = {
                   errors: false
             };
       }
+
       componentWillReceiveProps(nextProps) {
             const that = this;
             if (nextProps.errors) {
                   that.setState({ errors: true })
             }
       }
+
       onChange = (key, value) => {
             this.setState({
                   [key]: value
             });
       }
+
       onSubmit = values => {
             alert('Your Go Fuel card added sucessfully!');
             navigateTo("loyaltyCardsList");
@@ -69,7 +73,7 @@ class PaymentBillingScreen extends Component {
             const { meta: { touched, error }, placeholder, label, input: { onChange, ...restInput } } = field;
             return (
                   <View>
-                        <DatePicker
+                        <DatePickerAndroid
                               label={label}
                               onChangeText={onChange}
                               // value={this.state.dateOfBirth}
@@ -139,7 +143,7 @@ class PaymentBillingScreen extends Component {
                                 <Text style={{fontSize:17,fontWeight:'bold',color:'rgb(142, 142, 147)'}}>Billing Address</Text>
                                 </View>
                                </View>
-                               
+
                                <View style={{height:450,backgroundColor: 'rgb(249, 249, 249)'}}>
                                <Field
                                                 name="cardNumber"
@@ -174,7 +178,7 @@ class PaymentBillingScreen extends Component {
                                                 placeholder="Enter State/Province"
                                                 component={this.renderDatePicker}
                                           />
-                                           
+
                                </View>
                               </ScrollView>
                               <View style={{
@@ -194,22 +198,22 @@ class PaymentBillingScreen extends Component {
                         );
                   }
             }
-            
+
 const validate = values => {
       const errors = {};
-                  
+
       if (!values.cardNumber) {
                               errors.cardNumber = "Rerquired"
                         } else if (values.cardNumber.length < 19) {
                               errors.cardNumber = "Please enter a valid card number";
                         }
-                  
+
       if (!values.datePicker) {
                               errors.datePicker = "Required"
                         }
                         return errors;
                   }
-                  
+
 const normalizePhone = (value, previousValue) => {
       if (!value) {
             return value
@@ -231,16 +235,16 @@ const normalizePhone = (value, previousValue) => {
                   }
                   return onlyNums.slice(0, 4) + ' ' + onlyNums.slice(4, 8) + ' ' + onlyNums.slice(8, 12) + ' ' + onlyNums.slice(12, 16)
             }
-            
-            
+
+
 const mapStateToProps = state => ({
-                              formValues: getFormValues("paymentBillingScreen")(state)
-                  });
-                  
+      formValues: getFormValues("paymentBillingScreen")(state)
+});
+
 const mapDispatchToProps = dispatch => ({});
-                        
-                        
-                        export default compose(
-                              connect(mapStateToProps, mapDispatchToProps),
-      reduxForm({form: "paymentBillingScreen", validate })
-                  )(PaymentBillingScreen);
+
+
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    reduxForm({form: "paymentBillingScreen", validate })
+)(PaymentBillingScreen);

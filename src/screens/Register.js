@@ -7,6 +7,7 @@ import validator from "validator";
 
 import { InputText, Button, LinkButton, Toolbar, Checkbox } from "../components";
 import { navigateBack,navigateTo } from "../helpers";
+import {registerUser} from "../actions/authActions";
 
 import logo from "../assets/images/signup/Loginlogo.png"
 import screenstyles from "../styles/screenStyles";

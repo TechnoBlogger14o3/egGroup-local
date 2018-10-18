@@ -8,13 +8,14 @@ import { Field, reduxForm, getFormValues } from "redux-form";
 import { InputText, Button, Toolbar, DatePicker } from "../components";
 import { navigateBack, navigateTo } from "../helpers";
 
-import styles from '../styles';
+import styles from "../styles/screenStyles";
 
 class PaymentSuccessfull extends Component {
 
       continueButtonTapped = () =>{
-            
+          navigateTo("home");
       }
+      
       render() {
             return (
                   <View style={[styles.appContainer, styles.whiteBackground]}>
@@ -56,7 +57,7 @@ class PaymentSuccessfull extends Component {
                               </View>
                         </ScrollView>
 
-                       
+
 
                          <View style={{
                               marginLeft: 16, marginRight: 16, height: 50, backgroundColor: 'rgb(15, 113, 184)', borderRadius: 5,
@@ -70,7 +71,7 @@ class PaymentSuccessfull extends Component {
                               <TouchableOpacity onPress={() => this.continueButtonTapped()}>
                                     <Text style={{ fontSize: 20, color: 'white', fontWeight: 'bold' }}>Go Home</Text>
                               </TouchableOpacity>
-                        </View> 
+                        </View>
                   </View>
             );
       }

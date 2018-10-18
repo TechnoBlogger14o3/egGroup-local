@@ -77,7 +77,7 @@ render() {
 
         <Text style={screenstyles.paragraphthree}>
              Hold the card inside the frame, it will {"\n"} be scanned automatically
-            </Text>
+        </Text>
         </View>
 
         <View style={{flex:4}}>

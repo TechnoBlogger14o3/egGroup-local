@@ -29,8 +29,8 @@ class Main extends Component {
         return (
             <View style={styles.appContainer}>
                 <StatusBar
-                    backgroundColor="#ffffff"
-                    barStyle="dark-content" />
+                    backgroundColor="rgb(51, 51, 51)"
+                    barStyle="light-content" />
                 <Routes />
             </View>
         );

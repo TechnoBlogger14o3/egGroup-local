@@ -8,11 +8,11 @@ import { Field, reduxForm, getFormValues } from "redux-form";
 import { InputText, Button, Toolbar, DatePicker } from "../components";
 import { navigateBack, navigateTo } from "../helpers";
 
-import styles from '../styles';
+import styles from "../styles/screenStyles";
 
 class StartFuelling extends Component {
       continueButtonTapped = () =>{
-            navigateTo('fuelFilling'); 
+            navigateTo('fuelFilling');
       }
       slectPaymentMethodTapped(){
             navigateTo('paymentListCards');

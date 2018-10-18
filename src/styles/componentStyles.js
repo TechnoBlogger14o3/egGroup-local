@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
         height: 80,
         borderTopEndRadius: 5,
         borderTopStartRadius: 5,
-    },  
+    },
     imageView:{
         flex:1.5,
         justifyContent:'center',
@@ -204,7 +204,7 @@ const styles = StyleSheet.create({
     },
     toolbarContainer: {
         height: 56,
-        backgroundColor: "#ffffff",
+        backgroundColor: "rgb(51, 51, 51)",
         width: "100%",
         flexDirection: "row",
         alignItems: "center",
@@ -229,7 +229,7 @@ const styles = StyleSheet.create({
     },
     appTitle: {
         fontSize: 18,
-        color: "#000000",
+        color: "#ffffff",
         textAlign: Platform.OS === "ios" ? "center" : "left",
 
     },
@@ -281,7 +281,7 @@ const styles = StyleSheet.create({
         color: "#000000",
         fontSize: 13,
     },
-   
+
 });
 
 export default styles;

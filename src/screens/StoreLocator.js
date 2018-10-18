@@ -1,6 +1,10 @@
-
+/**
+* @author Arun Kukkudapu <kukkudapu.arun@photoninfotech.net>
+* @version 1.0.0
+* @summary Implented search bar and list of stores nearby locations
+*/
 import React, { Component } from 'react';
-import { StyleSheet, Text, TextInput, View, Dimensions, TouchableOpacity,FlatList,Alert, Platform, Image,SafeAreaView } from 'react-native';
+import {  Text, View, Dimensions, TouchableOpacity,FlatList, Image,SafeAreaView,KeyboardAvoidingView } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import { SearchBar, Icon } from 'react-native-elements';
 
@@ -8,7 +12,8 @@ import StoreList from './StoreList';
 import { Toolbar } from "../components";
 import { navigateBack, navigateTo } from "../helpers";
 
-import screenstyles from "../styles/screenStyles";
+import styles from './../styles'
+import Converter from './Converter';
 
 const { width, height } = Dimensions.get('window');
 
@@ -16,10 +21,16 @@ const aspectRatio = width / height;
 const LATITUDE_DELTA = 0.0922;
 const LONGITUDE_DELTA = LATITUDE_DELTA * aspectRatio;
 
+/**
+* Represents Component.
+* @class StoreLocator
+* @extends Component
+*/
 class StoreLocator extends Component {
       constructor(props) {
             super(props);
             this.state = {
+                  distanceType:'km',
                   lat: 12.9317,
                   lng: 77.6914,
                   data: [],
@@ -28,42 +39,42 @@ class StoreLocator extends Component {
                               "name": "ESSO",
                               "address": "Marnixstraat 250, 1016 TL Amsterdam",
                               "Houres": "Today's Hours: 11 AM TO 4 PM",
-                              "Distance": "0.16 km"
+                              "Distance": 0.16
                         },
                         {
                               "name": "SHELL",
                               "address": "Ambachtsweg 50, Netherlands",
                               "Houres": "Today's Hours: 11 AM TO 4 PM",
-                              "Distance": "2.00 km"
+                              "Distance": 2
                         },
                         {
                               "name": "ESSO",
                               "address": "Marnixstraat 250, 1016 TL Amsterdam",
                               "Houres": "Today's Hours: 11 AM TO 4 PM",
-                              "Distance": "0.16 km"
+                              "Distance": 0.16
                         }
                   ],
                   iconName: 'search',
                   textInputValue: ''
             }
       }
-
-      componentDidMount() {
-
+      getCurrentLocation = ()=>{
             navigator.geolocation.getCurrentPosition((position) => {
-
+                  console.log(position);
                   this.setState({
                         lat: position.coords.latitude,
                         lng: position.coords.longitude,
                   });
-
+                  console.log(this.state)
             });
       }
-      distanceButtonTapped = (item, index) => {
-            var dataList = [...this.state.stationdata]
-            Alert.alert('Distance Button Tapped');
-            console.log('data after:: ', this.state.stationdata);
-          }
+
+      componentDidMount() {
+            //getting the current location of user and setting the lat and lng variables.
+            this.getCurrentLocation();
+            // this.props.actions.getStations();
+      }
+      //searchStore function is invoked when the user search for any ZipCode,State,City names.
       searchStore = (text) => {
             let searchedStore = text.toLowerCase();
             this.setState({ textInputValue: text });
@@ -137,16 +148,29 @@ class StoreLocator extends Component {
             this.setState({ lat: coordinates.latitude, lng: coordinates.longitude, data: [], textInputValue: name })
       }
 
+      //selectedDistype is invoked from converter component,This function is sent as props to converter component and invoked from there.
+      selectedDistype = (dist)=>{
+            this.setState({distanceType:dist})
+      }
+      /**
+            * @function render
+            * React render method for rendering the native elements
+      */
+
       render() {
             return (
                   <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
-                  <View style={screenstyles.mapContainer}>
+                  <View style={styles.mapContainer}>
                        <Toolbar
-                           style={[screenstyles.noBorderToolbar]}
+                           style={[styles.noBorderToolbar]}
                            onClickLeftIcon={navigateBack}
                            iconName="back-arrow"
                            title="Station Finder" />
                         <View style={{ flex: 3 }}>
+                        {/**
+                              Dimension is used to set auto height for different screens based on window height.
+
+                        */}
                               <MapView style={{ width: Dimensions.get('window').width, height: Dimensions.get('window').height/2, left: 0, right: 0, top: 0, bottom: 0, position: 'absolute' }}
                                     provider={MapView.PROVIDER_GOOGLE}
                                     showsUserLocation={true}
@@ -157,13 +181,16 @@ class StoreLocator extends Component {
                                           latitudeDelta: 0.0900,
                                           longitudeDelta: 0.0500,
                                     }}>
+                                    {/**
+                                          Marker is to show a location with a marker.
+                                    */}
                                     <MapView.Marker
                                           coordinate={{ latitude: this.state.lat, longitude: this.state.lng }} title={this.state.address}
                                           description={this.state.address}
                                     />
                               </MapView>
-                              <View style={screenstyles.inputView}>
-                                    <SearchBar lightTheme placeholder='Search' inputStyle={{ backgroundColor: 'rgb(250,250,250)' }}
+                              <View style={styles.inputView}>
+                                    <SearchBar lightTheme placeholder='State,City or Zip' inputStyle={{ backgroundColor: 'rgb(250,250,250)' }}
                                           containerStyle={{ backgroundColor: 'rgb(250,250,250)' }}
                                           icon={{ type: 'font-awesome', color: 'gray', name: this.state.iconName }}
                                           //as per vikranth request removed below event
@@ -171,10 +198,25 @@ class StoreLocator extends Component {
                                           onBlur={() => this.setState({ iconName: 'search' })}
                                           value={this.state.textInputValue}
                                           clearIcon={{ color: 'gray' }} onChangeText={this.searchStore} />
-
                                     <StoreList data={this.state.data} selectedStore={this.selectedStore} />
                               </View>
 
+                        </View>
+                        <KeyboardAvoidingView  behavior="height" enabled>
+                              <TouchableOpacity style={{alignSelf:'flex-end',zIndex:2,marginRight:10,marginBottom:30}} onPress={this.getCurrentLocation}>
+                              <View style={{backgroundColor:'white',width:50,height:50,borderRadius:50,justifyContent:'center',zIndex:2}}>
+                              <Icon name="my-location" size={28} color='rgb(97,97,97)' />
+                              </View>
+                              <View>
+
+                              </View>
+                        </TouchableOpacity>
+
+                      </KeyboardAvoidingView>
+
+
+                        <View  style={{marginLeft:250,marginBottom:-40,marginRight:10,zIndex:2,height:30}}>
+                              <Converter selectedDistype={this.selectedDistype} />
                         </View>
                         <View style={{ flex: 2 }}>
                               <FlatList
@@ -206,10 +248,10 @@ class StoreLocator extends Component {
                                                             </View>
 
                                                       </View>
-                                                      <TouchableOpacity style={screenstyles.loginbutton} onPress={() => navigateTo("storeDetails")}>
+                                                      <TouchableOpacity style={styles.loginbutton} onPress={() => navigateTo("storeDetails")}>
 
                                                       <View style={{ flex: 1, backgroundColor: 'rgb(255, 255, 255)', flexDirection: 'row', justifyContent: 'center' }}>
-                                                      <Text style={{ color: 'black', fontSize: 15, alignSelf: 'center' }}> {item.Distance} </Text>
+                                                      <Text style={{ color: 'black', fontSize: 15, alignSelf: 'center' }}>{this.state.distanceType=="km"?item.Distance+' kms' :(item.Distance*0.632).toFixed(2)+" miles"} </Text>
                                                       <Image style={{width: 15, height: 15,alignSelf:'center'}} source={require('../assets/images/Arrow.png')} />
                                                       </View>
                                                       </TouchableOpacity>
@@ -220,9 +262,12 @@ class StoreLocator extends Component {
                         </View>
 
                   </View>
+
+
                   </SafeAreaView>
             );
       }
 }
+
 
 export default StoreLocator;

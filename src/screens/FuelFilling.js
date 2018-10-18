@@ -8,7 +8,7 @@ import { Field, reduxForm, getFormValues } from "redux-form";
 import { InputText, Button, Toolbar, DatePicker } from "../components";
 import { navigateBack, navigateTo } from "../helpers";
 
-import styles from '../styles';
+import screenstyles from "../styles/screenStyles";
 
 class FuelFilling extends Component {
 
@@ -17,12 +17,12 @@ class FuelFilling extends Component {
                   navigateTo('paymentSuccessfull');
             },10000);
           }
-          
+
       render() {
             return (
-                  <View style={[styles.appContainer, styles.whiteBackground]}>
+                  <View style={[screenstyles.appContainer, screenstyles.whiteBackground]}>
                         <Toolbar
-                              style={styles.noBorderToolbar}
+                              style={screenstyles.noBorderToolbar}
                               onClickLeftIcon={navigateBack}
                               iconName="back-arrow"
                               title="Start Fuelling" />

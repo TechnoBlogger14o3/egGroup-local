@@ -33,63 +33,60 @@ class CoupensList extends Component {
         }
       }
 
-    state={
-        modalVisible: false,
-    }
+  state={
+      modalVisible: false,
+  }
 
-    toggleModal(visible) {
-        this.setState({ modalVisible: visible });
-    }
+  toggleModal(visible) {
+      this.setState({ modalVisible: visible });
+  }
 
-      _getProducts = (page = 1, limit = 5) => {
-        //this.props.actions.getProducts(page, limit);
-      };
+  _getProducts = (page = 1, limit = 5) => {
+    //this.props.actions.getProducts(page, limit);
+  };
 
-      /*  flat list supporting methods */
+    /*  flat list supporting methods */
 
-    _getMore = () => {
-        this._getProducts(++this.props.page, this.props.limit);
-    };
+  _getMore = () => {
+      this._getProducts(++this.props.page, this.props.limit);
+  };
 
-    _renderItem = ({ index, item }) => {
-      console.log(item);
-        return (
-            <CardItem
-                  {...this.props}
-                  cashOff={item.cashOff}
-                  coupenCode={item.coupenCode}
-                  coupenValidity={item.coupenValidity}
-                  store={item.store}
-                  currencyIcon={item.currencyIcon}
-                  image={item.image}
-                  onPress={()=>this.toggleModal(true)}
-            />
-        );
-     };
-
-      _keyExtractor = (item, index) => {
-        return index+"";
-      };
-
-      _onRefresh = () => {
-        //this.setState({ isRefreshing: true });
-        this._getProducts();
-      };
-
-      _renderRefreshControl() {
-        return (
-          <RefreshControl
-            onRefresh={this._onRefresh}
-            refreshing={this.props.isRefreshing}
-            tintColor={"#00ff80"}
-            title={"Refreshing..."}
-            titleColor={"#00ff80"}
+  _renderItem = ({ index, item }) => {
+    console.log(item);
+      return (
+          <CardItem
+                {...this.props}
+                cashOff={item.cashOff}
+                coupenCode={item.coupenCode}
+                coupenValidity={item.coupenValidity}
+                store={item.store}
+                currencyIcon={item.currencyIcon}
+                image={item.image}
+                onPress={()=>this.toggleModal(true)}
           />
-        );
-      }
+      );
+   };
 
+  _keyExtractor = (item, index) => {
+    return index+"";
+  };
 
+  _onRefresh = () => {
+    //this.setState({ isRefreshing: true });
+    this._getProducts();
+  };
 
+  _renderRefreshControl() {
+    return (
+      <RefreshControl
+        onRefresh={this._onRefresh}
+        refreshing={this.props.isRefreshing}
+        tintColor={"#00ff80"}
+        title={"Refreshing..."}
+        titleColor={"#00ff80"}
+      />
+    );
+  }
 
   render() {
       return (
@@ -150,7 +147,6 @@ class CoupensList extends Component {
                       </View>
                     </Modal>
              </View>
-
            <FlatList
             data={this.state.products}
             renderItem={this._renderItem}
@@ -159,8 +155,6 @@ class CoupensList extends Component {
             onEndReached={this._getMore}
             refreshControl={this._renderRefreshControl()}
           />
-
-
          </View>
       );
     }

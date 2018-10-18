@@ -1,28 +1,34 @@
 import React, { Component } from 'react';
-import {Text,View,TouchableOpacity} from 'react-native'; 
+import {Text,View,TouchableOpacity, UIManager, LayoutAnimation} from 'react-native';
 import { Icon } from "react-native-elements";
 import componentstyles from "../styles/componentStyles";
 
 class ExpandCollapseView extends Component {
-    
+
     constructor(props){
         super(props);
-
-        this.state = {      
+        this.state = {
             title       : props.title,
             desc        : props.desc,
             expanded    : false
         };
     }
 
+    _animate = () => {
+          UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
+          LayoutAnimation.easeInEaseOut();
+    }
+
     toggle(){
         this.setState({
-            expanded : !this.state.expanded 
+            expanded : !this.state.expanded
+        }, () => {
+          this._animate();
         });
     }
 
     render(){
-        return ( 
+        return (
             <View>
                 <View>
                     <TouchableOpacity onPress={this.toggle.bind(this)}>
@@ -42,10 +48,10 @@ class ExpandCollapseView extends Component {
                     </View>
                     <View>
                       { this.state.expanded &&
-                                  <View style={[componentstyles.faqDescContainer, componentstyles.whiteBackground]}>
-                                    <Text style={componentstyles.faqListItemDescTextStyle}>{this.state.desc}</Text>
-                                  </View> 
-                                }
+                          <View style={[componentstyles.faqDescContainer, componentstyles.whiteBackground]}>
+                            <Text style={componentstyles.faqListItemDescTextStyle}>{this.state.desc}</Text>
+                          </View>
+                      }
                 </View>
             </View>
         );

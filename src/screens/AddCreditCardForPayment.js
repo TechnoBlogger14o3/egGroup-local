@@ -5,7 +5,7 @@ import { Icon } from "react-native-elements";
 import { compose } from "redux";
 import { Field, reduxForm, getFormValues } from "redux-form";
 
-import { InputText, Button, Toolbar, DatePicker } from "../components";
+import { InputText, Button, Toolbar, DatePickerAndroid } from "../components";
 import { navigateBack, navigateTo } from "../helpers";
 
 import styles from '../styles';
@@ -70,7 +70,7 @@ class AddCreditCardForPayment extends Component {
             const { meta: { touched, error }, placeholder, label, input: { onChange, ...restInput } } = field;
             return (
                   <View>
-                        <DatePicker
+                        <DatePickerAndroid
                               label={label}
                               onChangeText={onChange}
                               // value={this.state.dateOfBirth}

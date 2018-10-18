@@ -5,7 +5,7 @@ import { Icon } from "react-native-elements";
 import { compose } from "redux";
 import { Field, reduxForm , getFormValues } from "redux-form";
 
-import { InputText, Button, Toolbar, DatePicker } from "../components";
+import { InputText, Button, Toolbar, DatePickerAndroid } from "../components";
 import { navigateBack,navigateTo } from "../helpers";
 
 import screenstyles from "../styles/screenStyles";
@@ -56,10 +56,9 @@ class AddLoyaltyCardManually extends Component {
         const { meta: { touched, error }, placeholder, label, input: { onChange, ...restInput } } = field;
         return (
             <View>
-                <DatePicker
+                <DatePickerAndroid
                     label={label}
                     onChangeText={onChange}
-                    // value={this.state.dateOfBirth}
                     placeholder={placeholder}
                     onChangeDate={onChange}
                     {...restInput} />
@@ -67,6 +66,7 @@ class AddLoyaltyCardManually extends Component {
             </View>
         );
     }
+
     render() {
         const { handleSubmit,submitting, pristine} = this.props;
         return (
@@ -110,7 +110,7 @@ const validate = values => {
         errors.cardNumber = "Rerquired"
     }  else if (values.cardNumber.length < 19) {
         errors.cardNumber = "Please enter a valid card number";
-    }  
+    }
 
     if (!values.datePicker) {
         errors.datePicker = "Required"

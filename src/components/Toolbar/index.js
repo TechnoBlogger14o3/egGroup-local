@@ -31,7 +31,7 @@ class Toolbar extends Component<{}> {
     };
 
     getColorIcon = () => {
-        return Platform.OS === "ios" ? "rgb(15, 113, 184)" : "rgb(0, 0, 0)";
+        return "#ffffff"
     };
 
     render() {

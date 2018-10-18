@@ -121,7 +121,7 @@ class EditProfile extends Component {
               onChangeDate={onChange}
               {...restInput}
             />
-            <Text style={styles.errorText}>{touched ? error : ""}</Text>
+            <Text style={screenstyles.errorText}>{touched ? error : ""}</Text>
           </View>
         );
     } else {
@@ -135,7 +135,7 @@ class EditProfile extends Component {
             onChangeDate={onChange}
             {...restInput}
           />
-          <Text style={styles.errorText}>{touched ? error : ""}</Text>
+          <Text style={screenstyles.errorText}>{touched ? error : ""}</Text>
         </View>
       );
     }
@@ -203,7 +203,7 @@ class EditProfile extends Component {
     return (
       <View style={[screenstyles.appContainer, screenstyles.whiteBackground]}>
         <Toolbar
-              style={[styles.noBorderToolbar, {backgroundColor: "#f5f5f5"}]}
+              style={[screenstyles.noBorderToolbar, {backgroundColor: "#f5f5f5"}]}
               onClickLeftIcon={this.backFunction}
               iconName="back-arrow"
               title="Edit Profile"

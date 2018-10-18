@@ -1,14 +1,16 @@
+/**
+* @author Arun Kukkudapu <kukkudapu.arun@photoninfotech.net>
+* @version 1.0.0
+* @summary Its a details screen show the details of selected store
+*/
 import React, { Component } from 'react';
 import { StyleSheet, Text, TextInput, View, Dimensions, TouchableOpacity, FlatList, Alert, Image, Platform,Linking } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
-import { SearchBar, Icon } from 'react-native-elements'
-
-import StoreList from './StoreList';
 
 import { Toolbar } from "../components";
 import { navigateBack, navigateTo } from "../helpers";
 
-import screenstyles from "../styles/screenStyles";
+import styles from './../styles';
 
 const { width, height } = Dimensions.get('window');
 
@@ -16,7 +18,12 @@ const aspectRatio = width / height
 const LATITUDE_DELTA = 0.0922
 const LONGITUDE_DELTA = LATITUDE_DELTA * aspectRatio
 
-class StoreLocator extends Component {
+/**
+* Represents Component.
+* @class StoreLocator
+* @extends Component
+*/
+class StoreDetails extends Component {
       constructor(props) {
             super(props);
             this.state = {
@@ -48,38 +55,32 @@ class StoreLocator extends Component {
 
             });
       }
+      /**
+       * distanceButtonTapped function is invoked when user press on distance button and this will open external maps app with respect to there platform
+       */
       distanceButtonTapped = () => {
             const scheme = Platform.select({ ios: 'maps:0,0?q=', android: 'geo:0,0?q=' });
             const latLng = `${this.state.lat},${this.state.lng}`;
             const label = 'Custom Label';
             const url = Platform.select({
               ios: `${scheme}${label}@${latLng}`,
-              android: `${scheme}${latLng}(${label})`
-            });
+              android: `${scheme}${latLng}(${label}`});
             Linking.openURL(url);
             var dataList = [...this.state.stationdata]
             Alert.alert('Distance Button Tapped');
             console.log('data after:: ', this.state.stationdata);
       }
 
-      getTypedIcon = () => {
-          return Platform.OS === "ios" ? "chevron-left" : "arrow-left";
-      };
-
-      getSizeIcon = () => {
-          return Platform.OS === "ios" ? 38 : 24;
-      };
-
-      getColorIcon = () => {
-          return Platform.OS === "ios" ? "rgb(15, 113, 184)" : "rgb(0, 0, 0)";
-      };
-
+      /**
+            * @function render
+            * React render method for rendering the native elements
+      */
 
       render() {
             return (
-                  <View style={screenstyles.mapContainer}>
+                  <View style={styles.mapContainer}>
                        <Toolbar
-                           style={screenstyles.noBorderToolbar}
+                           style={styles.noBorderToolbar}
                            onClickLeftIcon={navigateBack}
                            iconName="back-arrow"
                            title="Station Details" />
@@ -94,6 +95,9 @@ class StoreLocator extends Component {
                                           latitudeDelta: 0.0900,
                                           longitudeDelta: 0.0500,
                                     }}>
+                                    {/**
+                                          Marker is to show a location with a marker.
+                                    */}
                                     <MapView.Marker
                                           coordinate={{ latitude: this.state.lat, longitude: this.state.lng }} title={this.state.address}
                                           description={this.state.address}
@@ -106,6 +110,9 @@ class StoreLocator extends Component {
                               </View>
                         </View>
                         <View style={{ width: Dimensions.get('window').width, height: Dimensions.get('window').height/2}}>
+                         {/**
+                               This List is dispalyed when user select any of the store from list
+                        */}
                               <FlatList
                                     data={this.state.stationdata}
                                     keyExtractor={(item, index) => index.toString()}
@@ -163,7 +170,6 @@ class StoreLocator extends Component {
                                                             <Image style={{ width: 20,alignSelf: 'flex-end', height: 20 }} />
                                                       </View>
                                                 </View>
-
                                                  <View style={{ flexDirection: 'row', padding:16 }}>
                                                  <View style={{flex:1,justifyContent:'center' }}>
                                                             <Text style={{ color: 'black', alignSelf:'flex-start',fontSize: 15,marginTop:5,marginBottom:5 }}>Mon, Oct 08</Text>
@@ -183,18 +189,13 @@ class StoreLocator extends Component {
                                                             <Text style={{ color: 'black', alignSelf:'flex-end',fontSize: 15,marginTop:5,marginBottom:5 }}> 7:00 AM to 11:00 PM </Text>
                                                       </View>
                                                  </View>
-
-
                                           </View>
                                     }
                               />
                         </View>
-
                   </View>
-
-
             );
       }
 }
 
-export default StoreLocator;
+export default StoreDetails;

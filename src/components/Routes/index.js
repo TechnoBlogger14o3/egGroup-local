@@ -38,33 +38,34 @@ export default class Routes extends Component {
 
 	renderSettingsIcon = () => (<Icon
 				name="settings"
-				size={24}
+				size={28}
 				type="material-community"/>);
 
 	renderHomeIcon = () => (<Icon
-				name="home"
-				size={24}
+				name="home-outline"
+				size={28}
 				type="material-community"/>);
 
 	renderFindIcon = () => (<Icon
-			name="crosshairs"
-			size={24}
+			name="map-marker"
+			size={28}
 			type="material-community"/>);
 
-	renderCouponIcon = () => (<Icon
-			name="tag-multiple"
-			size={24}
-			type="material-community"/>);
 
 	renderLoyalityIcon = () => (<Icon
 			name="account-card-details"
-			size={24}
+			size={28}
 			type="material-community"/>);
 
-			renderPromotionIcon = () => (<Icon
-				name="account-card-details"
-				size={24}
-				type="material-community"/>);
+	renderPromotionIcon = () => (<Icon
+		name="account-card-details"
+		size={28}
+		type="material-community"/>);
+
+	renderPayIcon = () => (<Icon
+		name="wallet"
+		size={28}
+		type="material-community"/>);
 
 	render() {
 		return (
@@ -76,13 +77,12 @@ export default class Routes extends Component {
 									<Scene key="forgotPassword" component={ForgotPassword} title="ForgotPassword" />
 							</Scene>
 							<Scene key="app" hideNavBar={true} initial={true}>
-									<Scene tabs key="home" hideNavBar={true} swipeEnabled={true} tabBarPosition="bottom">
-											<Scene key="home" icon={this.renderHomeIcon} hideNavBar={true}  component={Home} title="Home" />
-											<Scene key="settings" icon={this.renderSettingsIcon} hideNavBar={true} title="Settings" component={Settings} />
-											<Scene key="storeLocator" icon={this.renderFindIcon} hideNavBar={true} title="Station Finder" component={StoreLocator} />
-											<Scene key="coupens" icon={this.renderCouponIcon} hideNavBar={true} title="Coupons" component={CoupensList} />
-											<Scene key="loyalityList" icon={this.renderLoyalityIcon} hideNavBar={true} title="Loyalty Cards" component={LoyaltyCardsList} />
-											<Scene key="promotionsList" icon={this.renderPromotionIcon} hideNavBar={true} title="Promotions List" component={PromotionsList} />
+									<Scene tabs key="home" hideNavBar={true} swipeEnabled={true} tabBarPosition="bottom" tabBarStyle={{height: 56, paddingVertical: 4}}>
+											<Scene key="home" icon={this.renderHomeIcon} hideNavBar={true}  component={Home} title="Home" labelStyle={{paddingTop: 8}} />
+											<Scene key="settings" icon={this.renderSettingsIcon} hideNavBar={true} title="Settings" component={Settings} labelStyle={{paddingTop: 8}} />
+											<Scene key="storeLocator" icon={this.renderFindIcon} hideNavBar={true} title="Stations" component={StoreLocator} labelStyle={{paddingTop: 8}} />
+											<Scene key="loyalityList" icon={this.renderLoyalityIcon} hideNavBar={true} title="Loyalty Cards" component={LoyaltyCardsList} labelStyle={{paddingTop: 8}} />
+											<Scene key="startFuelling" icon={this.renderPayIcon}  hideNavBar={true}  component={StartFuelling} title="Pay"/>
 									</Scene>
 									<Scene key="addLoyalityCardManually" component={AddLoyaltyCardManually} title="Add Card Manually"/>
 									<Scene key="storeDetails" component={StoreDetails} title="StoreDetails"/>
@@ -101,7 +101,6 @@ export default class Routes extends Component {
 									<Scene key="pushNotification" component={PushNotification} title="Push Notification" />
 									<Scene key="promotionsdetails" component={PromotionsDetails} title="PromotionsDetails" />
 									<Scene key="faqs" component={Faq} title="Frequently asked questions"/>
-									<Scene key="startFuelling" component={StartFuelling} title="Start Fuelling"/>
 									<Scene key="paymentListCards" component={PaymentListCards} title="Select Payment"/>
 									<Scene key="fuelFilling" component={FuelFilling} title="Select Payment"/>
 									<Scene key="paymentSuccessfull" component={PaymentSuccessfull} title="Payment Successfull"/>

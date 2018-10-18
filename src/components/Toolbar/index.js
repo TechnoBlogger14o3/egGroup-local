@@ -67,7 +67,7 @@ class Toolbar extends Component<{}> {
                       <LinkButton
                           onPress={this.props.onRightButtonPress}
                           title={this.props.rightButtonName}
-                          color="rgb(15, 113, 184)" />
+                          color="rgb(255, 255, 255)" />
                   </View>
               }
           </View>

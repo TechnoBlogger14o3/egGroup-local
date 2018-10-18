@@ -189,7 +189,7 @@ const styles = StyleSheet.create({
         languagePickerTitle: {
             color: "rgb(15, 113, 184)",
             fontSize:15
-    
+
         },
         loginFooterTextContainer: {
             flexDirection: "row",
@@ -200,7 +200,7 @@ const styles = StyleSheet.create({
         fontSize16: {
             fontSize: 16
         },
-    
+
         colorBlack: {
             color: "rgb(51, 51, 51)"
         },
@@ -503,6 +503,52 @@ const styles = StyleSheet.create({
         paddingTop:5,
         paddingBottom:5
       },
+
+      iosPickerHeaderView:{
+          height: 230,
+          backgroundColor: "white",
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+          right: 0
+       },
+       
+       iosPickerSubView:{
+          left: 0,
+          right: 0,
+          height: 40,
+          flexDirection: "row",
+          backgroundColor: "rgb(225, 224, 224)",
+          justifyContent: "center",
+          padding: 10
+       },
+       iosPickerLanguageView:{
+          flex: 3
+       },
+       iosPickerTextView:{
+          alignSelf: "center",
+          fontSize: 17
+       },
+       iosPickerButtonView:{
+          flex: 1
+       },
+       iosPickerButtonTextView:{
+          alignSelf: "flex-end",
+          color: "rgb(0, 122, 255)",
+          fontSize: 15
+       },
+       loginMainView:{
+          flex: 8
+       },
+       emailFieldView:{
+          marginTop: 0
+       },
+       loginButtonView:{
+          justifyContent: "flex-end"
+       },
+       marginRight:{
+          marginRight: 7
+       }
 
 
 });

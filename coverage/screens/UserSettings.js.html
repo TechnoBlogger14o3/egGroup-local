@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for screens/UserSettings.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">All files</a> / <a href="index.html">screens</a> UserSettings.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">59.09% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>26/44</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/6</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">9.09% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/11</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">53.85% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>14/26</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84</td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { connect } from 'react-redux';
+import React,{Component} from 'react';
+import {
+    Text,
+    View,
+    Image,
+    FlatList,Platform,TouchableOpacity
+  } from 'react-native';
+import { Icon } from "react-native-elements";
+import { Toolbar } from "../components";
+import Sidebar from "../components/Sidebar/Sidebar";
+import { navigateBack, navigateTo } from "../helpers";
+&nbsp;
+import screenstyles from "../styles/screenStyles";
+&nbsp;
+class Settings extends Component {
+    constru<span class="fstat-no" title="function not covered" >ctor(prop</span>s){<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >      super(props);<span class="cstat-no" title="statement not covered" ></span></span>
+      this.state={
+        data:[
+            {settingTitle:'Set Preferred Station',leftIconName:require('./../assets/images/settings/Setpreferredstation.png'),rightIconName:require('./../assets/images/settings/ArrowRight.png'),Scence:'preferredStation'},
+            {settingTitle:'Edit Profile',leftIconName:require('./../assets/images/settings/Editprofile.png'),rightIconName:require('./../assets/images/settings/ArrowRight.png'),Scence:'editProfile'},
+            {settingTitle:'Support',leftIconName:require('./../assets/images/settings/Support.png'),rightIconName:require('./../assets/images/settings/ArrowRight.png'),Scence:'support'},
+            {settingTitle:'Terms &amp; Conditions',leftIconName:require('./../assets/images/settings/T&amp;C.png'),rightIconName:require('./../assets/images/settings/ArrowRight.png'),Scence:'termsAndConditions'},
+            {settingTitle: 'Privacy Policy',leftIconName:require('./../assets/images/settings/Privacypolicy.png'),rightIconName:require('./../assets/images/settings/ArrowRight.png'),Scence:'privacyPolicy'},
+            {settingTitle: 'Frequently asked questions',leftIconName:require('./../assets/images/settings/FAQ.png'),rightIconName:require('./../assets/images/settings/ArrowRight.png'),Scence:'faqs'},
+            {settingTitle:'Notification Preferences',leftIconName:require('./../assets/images/settings/Notification.png'),rightIconName:require('./../assets/images/settings/ArrowRight.png'),Scence:'notifications'},
+            {settingTitle:'Newsletter Subscriptions',leftIconName:require('./../assets/images/settings/NewsletterSignup.png'),rightIconName:require('./../assets/images/settings/ArrowRight.png'),Scence:'newsLetters'}
+        ]
+      }
+    }
+&nbsp;
+    getTypedIcon = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+<span class="cstat-no" title="statement not covered" >        return Platform.OS === "ios" ? "chevron-left" : "arrow-left";</span>
+    };<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+    getSizeIcon = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+<span class="cstat-no" title="statement not covered" >        return Platform.OS === "ios" ? 38 : 24;</span>
+    };<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+    getColorIcon = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+<span class="cstat-no" title="statement not covered" >        return Platform.OS === "ios" ? "rgb(15, 113, 184)" : "rgb(0, 0, 0)";</span>
+    };<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span>
+&nbsp;
+    render() {
+        const navigationVie<span class="cstat-no" title="statement not covered" >w = (&lt;Sidebar/&gt;);</span>
+<span class="cstat-no" title="statement not covered" >      return (</span>
+           &lt;View style={screenstyles.settingContainer}&gt;
+                &lt;Toolbar
+                    style={[screenstyles.noBorderToolbar]}
+                    onClickLeftIcon={navigateBack}
+                    iconName="back-arrow"
+                    title="Settings" /&gt;
+                &lt;FlatList
+                    data={ this.state.data }
+                    renderItem=<span class="fstat-no" title="function not covered" >{({item}) =</span>&gt;<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span>
+                    &lt;TouchableOpacity onPress={()=&gt;navigateTo(item.Scence)}&gt;<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span>
+                        &lt;View style={screenstyles.settingListContainer}&gt;
+                            &lt;View style={screenstyles.leftIconView}&gt;
+                               &lt;Image source={item.leftIconName} style={screenstyles.settingIcons}  onPress={navigateBack}&gt;&lt;/Image&gt;
+                            &lt;/View&gt;
+                            &lt;View style={screenstyles.settingTitleView}&gt;
+                                &lt;Text style={screenstyles.item} &gt;{item.settingTitle}&lt;/Text&gt;
+                            &lt;/View&gt;
+                                &lt;View style={screenstyles.rightIconView}&gt;
+                                &lt;Image source={item.rightIconName} style={screenstyles.settingIcons}  onPress={navigateBack}&gt;&lt;/Image&gt;
+                                &lt;/View&gt;
+                        &lt;/View&gt;
+                    &lt;/TouchableOpacity&gt;
+                    }
+                    keyExtractor=<span class="fstat-no" title="function not covered" >{(item) =&gt; it</span>em.sett<span class="cstat-no" title="statement not covered" >ingTitle}</span>
+                  /&gt;
+           &lt;/View&gt;
+&nbsp;
+      );
+    }
+  }
+&nbsp;
+  const mapStateToProps = state<span class="fstat-no" title="function not covered" > =&gt; ({});<span class="cstat-no" title="statement not covered" ></span></span>
+&nbsp;
+  const mapDispatchToProps = dispa<span class="fstat-no" title="function not covered" >tch =&gt; ({});<span class="cstat-no" title="statement not covered" ></span></span>
+&nbsp;
+  export default connect(mapStateToProps, mapDispatchToProps)(Settings);
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Oct 18 2018 08:39:39 GMT+0530 (IST)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

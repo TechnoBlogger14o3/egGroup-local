@@ -86,7 +86,12 @@ class App extends Component {
     }
 
     myFunction() {
-
+        /* istanbul ignore else */
+        if (true) {
+          console.log("boom");
+        } else {
+          console.log("doom");
+        }
     }
     /**
     * @function render

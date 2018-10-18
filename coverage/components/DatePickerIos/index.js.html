@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for components/DatePickerIos/index.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">components/DatePickerIos</a> index.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">48.89% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>22/45</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/2</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">8.33% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/12</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">37.04% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>10/27</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116</td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component } from 'react';
+import { View, Text, TextInput, DatePickerIOS, TouchableOpacity, Modal } from 'react-native';
+import { Icon } from "react-native-elements";
+&nbsp;
+import styles from "../../styles";
+&nbsp;
+const defaultProps = {
+    mapElement: (n) =&gt; <span class="fstat-no" title="function not covered" >{},</span>
+    onSubmitEditing: () =&gt; {<span class="fstat-no" title="function not covered" >},</span>
+    value: "",
+    placeholder: "",
+    maxLength: 200,
+    keyboardType: "default",
+    secureTextEntry: false,
+    returnKeyType: "next",
+    label: "Label",
+    style: {},
+    openDatePicker: () =&gt; {<span class="fstat-no" title="function not covered" >}</span>
+}
+&nbsp;
+class DatePicker extends Component {<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span></span></span></span>
+&nbsp;
+    state = {
+      chosenDate: new Date(),
+      isDatePickerOpen: false<span class="cstat-no" title="statement not covered" ></span>
+    }
+&nbsp;
+    mapElement = <span class="fstat-no" title="function not covered" >(n</span>ode) =&gt; {
+<span class="cstat-no" title="statement not covered" >        this.datePicker = node;</span>
+    }<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+    renderDatePicker = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+<span class="cstat-no" title="statement not covered" >        return (</span>
+          &lt;Modal
+              animationType="fade"
+              transparent={true}
+              visible={this.state.isDatePickerOpen}
+              onRequestClose={() =&gt;<span class="fstat-no" title="function not covered" > {</span>
+<span class="cstat-no" title="statement not covered" >                console.log('Modal has been closed.</span>');
+              }}&gt;
+              &lt;View style={{height:230,backgroundColor:'white',position:'absolute', bottom:0,left:0,right:0,zIndex:1}}&gt;
+                  &lt;View style={{left:0,right:0,height:40,flexDirection:'row',backgroundColor:"rgb(225, 224, 224)",justifyContent:'center',padding:10}}&gt;
+                      &lt;View style={{flex:1}}&gt;&lt;/View&gt;
+                      &lt;View style={{flex:3}}&gt;
+                          &lt;Text style={{alignSelf:'center',fontSize:17}}&gt;Select DOB&lt;/Text&gt;
+                      &lt;/View&gt;
+                      &lt;View style={{flex:1}}&gt;
+                          &lt;TouchableOpacity onPress={this.datePickerDoneBtnTapped}&gt;
+                               &lt;Text style={{alignSelf:'flex-end',color:'rgb(0, 122, 255)',fontSize:15}}&gt;Done&lt;/Text&gt;
+                          &lt;/TouchableOpacity&gt;
+                      &lt;/View&gt;
+                  &lt;/View&gt;
+                   &lt;DatePickerIOS
+                      date={this.state.chosenDate}
+                      mode="date"
+                      onDateChange={this.setDateValue} /&gt;
+              &lt;/View&gt;
+          &lt;/Modal&gt;
+        )
+    }<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+    setDateValue = <span class="fstat-no" title="function not covered" >(v</span>alue) =&gt; {
+<span class="cstat-no" title="statement not covered" >        this.setState({</span>
+          chosenDate: value
+        })
+    }<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+    datePickerDoneBtnTapped = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+      const date <span class="cstat-no" title="statement not covered" >= new Date(this.state.chosenDate)</span>;
+      const month <span class="cstat-no" title="statement not covered" >= date.getMonth(</span>);
+      const day <span class="cstat-no" title="statement not covered" >= date.getDate(</span>);
+      const year <span class="cstat-no" title="statement not covered" >= date.getFullYear(</span>);
+<span class="cstat-no" title="statement not covered" >      this.props.onChangeDate(`${day}/${month+1}/${year}`);</span>
+<span class="cstat-no" title="statement not covered" >      this.setState({</span>
+        isDatePickerOpen: false
+      })
+    }<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+    openDatePicker = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+<span class="cstat-no" title="statement not covered" >        this.setState({</span>
+          isDatePickerOpen: true
+        })
+    }<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span>
+&nbsp;
+    render() {
+<span class="cstat-no" title="statement not covered" >        return (</span>
+            &lt;View style={[styles.textInputContainer, this.props.style]}&gt;
+                &lt;TouchableOpacity onPress={this.openDatePicker}&gt;
+                    &lt;View&gt;
+                        &lt;Text style={styles.textInputLabel}&gt;{this.props.label}&lt;/Text&gt;
+                        &lt;TextInput
+                            underlineColorAndroid="rgba(0,0,0,0)"
+                            placeholderTextColor="rgba(51, 51, 51, 0.6)"
+                            selectionColor= "rgb(51, 51, 51)"
+                            style={styles.textInputBox}
+                            ref= {this.mapElement}
+                            returnKeyType={this.props.returnKeyType}
+                            placeholder={this.props.placeholder}
+                            secureTextEntry={this.props.secureTextEntry}
+                            keyboardType= {this.props.keyboardType}
+                            maxLength= {this.props.maxLength}
+                            value= {this.props.value}
+                            onChangeText= {this.props.onChangeText} /&gt;
+                        &lt;View style={styles.dateOverlay} /&gt;
+                    &lt;/View&gt;
+                &lt;/TouchableOpacity&gt;
+                {this.state.isDatePickerOpen &amp;&amp; this.renderDatePicker()}
+            &lt;/View&gt;
+        );
+    }
+}
+&nbsp;
+DatePicker.defaultProps = defaultProps;
+&nbsp;
+export default DatePicker;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Oct 18 2018 08:39:39 GMT+0530 (IST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

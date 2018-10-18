@@ -204,7 +204,7 @@ class EditProfile extends Component {
     return (
       <View style={[screenstyles.appContainer, screenstyles.whiteBackground]}>
         <Toolbar
-              style={[screenstyles.noBorderToolbar, {backgroundColor: "#f5f5f5"}]}
+              style={[screenstyles.noBorderToolbar]}
               onClickLeftIcon={this.backFunction}
               iconName="back-arrow"
               title="Edit Profile"

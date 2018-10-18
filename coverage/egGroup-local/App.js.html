@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">85.71% </span>
+        <span class="strong">86.84% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>30/35</span>
+        <span class='fraction'>33/38</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
@@ -30,14 +30,14 @@
         <span class='fraction'>0/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">57.14% </span>
+        <span class="strong">50% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>4/7</span>
+        <span class='fraction'>4/8</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">76.19% </span>
+        <span class="strong">80% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>16/21</span>
+        <span class='fraction'>20/25</span>
       </div>
     </div>
   </div>
@@ -138,7 +138,18 @@
 93
 94
 95
-96</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -167,6 +178,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -175,6 +190,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -183,10 +199,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -211,8 +229,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -262,6 +284,10 @@ const persist = store();
 * @extends Component
 */
 class App extends Component {
+    constructor(props) {
+        super(props);
+        this.myFunction = this.myFunction.bind(this);
+    }
 &nbsp;
     /**
     * @function componentDidMount
@@ -272,11 +298,13 @@ class App extends Component {
         PushNotification.configure({
 &nbsp;
             // (optional) Called when Token is generated (iOS and Android)
-            onRegister: (toke<span class="fstat-no" title="function not covered" >n) =&gt; {</span>
+&nbsp;
+            onRegister: /* is<span class="fstat-no" title="function not covered" >tanbul igno</span>re next */ (token) =&gt; {
 <span class="cstat-no" title="statement not covered" >                console.log("TOKEN:", to</span>ken);
             },
 &nbsp;
             // (required) Called when a remote or local notification is opened or received
+            /* istanbul ignore next */
             onNotification: (noti<span class="fstat-no" title="function not covered" >fication) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >                console.log("NOTIFICATION:", notificat</span>ion);
                 // process the notification
@@ -285,6 +313,7 @@ class App extends Component {
             },
 &nbsp;
             // ANDROID ONLY: GCM or FCM Sender ID (product_number) (optional - not required for local notifications, but is need to receive remote push notifications)
+            /*istanbul ignore next*/
             senderID: "YOUR GCM (OR FCM) SENDER ID",
 &nbsp;
             // IOS ONLY (optional): default: all - Permissions to register.
@@ -306,12 +335,16 @@ class App extends Component {
             requestPermissions: true
         });
         setTimeou<span class="fstat-no" title="function not covered" >t(</span>() =&gt; {
+            /* istanbul ignore else */
 <span class="cstat-no" title="statement not covered" >            if (Platform.OS !== "ios") {</span>
 <span class="cstat-no" title="statement not covered" >                SplashScreen.hide();</span>
             }
         }, 2000);
-    }
+    }<span class="fstat-no" title="function not covered" ></span>
 &nbsp;
+    myFunction() {
+&nbsp;
+    }
     /**
     * @function render
     * React render method for rendering the native elements
@@ -334,7 +367,7 @@ export default App;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Oct 16 2018 16:06:56 GMT+0530 (IST)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Oct 17 2018 17:29:13 GMT+0530 (IST)
 </div>
 </div>
 <script src="../prettify.js"></script>

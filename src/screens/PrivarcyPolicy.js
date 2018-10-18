@@ -9,7 +9,8 @@ import { Icon } from "react-native-elements";
 import { Toolbar } from "../components";
 import { navigateBack } from "../helpers";
 import { navigateTo } from "../helpers";
-import styles from './../styles'
+import screenstyles from "../styles/screenStyles";
+
 
 class PrivacyPolicy extends Component{
     constructor(props){
@@ -24,18 +25,18 @@ class PrivacyPolicy extends Component{
 
     render(){
         return (
-             <View style={styles.PrivacytContainer}>
+             <View style={screenstyles.PrivacytContainer}>
                 <Toolbar
-                    style={[styles.noBorderToolbar,{borderBottomWidth:1,borderBottomColor:'rgb(204, 204, 204)'}]}
+                    style={[screenstyles.noBorderToolbar,{borderBottomWidth:1,borderBottomColor:'rgb(204, 204, 204)'}]}
                     onClickLeftIcon={navigateBack}
                     iconName="back-arrow"
                     title={this.props.title} />
                 <FlatList
                     data={ this.state.data }
                     renderItem={({item}) =>
-                        <View style={styles.TermsAndConditionsTextView}>
-                            <Text style={styles.headerText} >{item.header}</Text>
-                            <Text style={styles.contentText} >{item.content}</Text>
+                        <View style={screenstyles.TermsAndConditionsTextView}>
+                            <Text style={screenstyles.headerText} >{item.header}</Text>
+                            <Text style={screenstyles.contentText} >{item.content}</Text>
                         </View>
                     }
                     keyExtractor={(item) => item.header}

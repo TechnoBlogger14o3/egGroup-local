@@ -4,7 +4,13 @@ import {shallow} from "enzyme";
 
 import App from "../App";
 
-test("App SnapShot", () => {
-    const wrapper = shallow(<App />);
-    expect(wrapper.find(Provider)).toHaveLength(1);
+var focusOnTargetSpy = jest.fn();
+
+jest.spyOn(App.prototype, 'myFunction').mockImplementation(focusOnTargetSpy);
+
+describe("App component testing", () => {
+  it("App SnapShot", () => {
+      const wrapper = shallow(<App />);
+      expect(wrapper.find(Provider)).toHaveLength(1);
+  });
 });

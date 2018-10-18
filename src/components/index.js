@@ -3,7 +3,8 @@ import InputText from "./InputText";
 import Button from "./Button";
 import LinkButton from "./LinkButton";
 import Toolbar from "./Toolbar";
-import DatePicker from "./DatePicker";
+import DatePickerAndroid from "./DatePickerAndroid";
+import DatePickerIos from "./DatePickerIos";
 import Phone from "./Phone";
 import Checkbox from "./Checkbox";
 import ListPicker from "./ListPicker";
@@ -11,4 +12,4 @@ import PickerImage from "./PickerImage";
 import ToggleSwitch from "./ToggleSwitch";
 import CardItem from "./Card";
 
-export {Routes, InputText, Button, LinkButton, Toolbar, DatePicker, Phone, Checkbox, ListPicker, PickerImage, ToggleSwitch, CardItem};
+export {Routes, InputText, Button, LinkButton, Toolbar, DatePickerAndroid, DatePickerIos, Phone, Checkbox, ListPicker, PickerImage, ToggleSwitch, CardItem};

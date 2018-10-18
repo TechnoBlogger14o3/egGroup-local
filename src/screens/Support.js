@@ -7,7 +7,7 @@ import {Platform,Linking,
 import { Icon } from "react-native-elements";
 import { Toolbar } from "../components";
 import { navigateBack } from "../helpers";
-import styles from './../styles'
+import screenstyles from "../styles/screenStyles";
 
 class Support extends Component{
     constructor(props){
@@ -58,37 +58,37 @@ class Support extends Component{
 
     render(){
         return (
-             <View style={styles.supportContainer}>
+             <View style={screenstyles.supportContainer}>
                 <Toolbar
-                    style={[styles.noBorderToolbar,{backgroundColor: "#f5f5f5"}]}
+                    style={[screenstyles.noBorderToolbar,{backgroundColor: "#f5f5f5"}]}
                     onClickLeftIcon={navigateBack}
                     iconName="back-arrow"
                     title="Support"
                     rightIconName="plus"
                     onRightIconPress={this.logoutFunction} />
-                <View style={styles.supportView}>
-                    <Text style={styles.SupportTitleText}>EMAIL US ON</Text>
+                <View style={screenstyles.supportView}>
+                    <Text style={screenstyles.SupportTitleText}>EMAIL US ON</Text>
                 </View>
-                <View style={styles.emailSupportDetailView}>
-                    <View style={styles.supportleftIconView}>
-                       <Image source={require('./../assets/images/settings/Support.png')} style={styles.settingIcons}></Image>
+                <View style={screenstyles.emailSupportDetailView}>
+                    <View style={screenstyles.supportleftIconView}>
+                       <Image source={require('./../assets/images/settings/Support.png')} style={screenstyles.settingIcons}></Image>
                     </View>
-                    <View style={styles.contactView}>
+                    <View style={screenstyles.contactView}>
                         <TouchableOpacity onPress={this.sendAnEmail}>
-                             <Text style={styles.preferredStationDetails}>enquiries@eurogarages.com</Text>
+                             <Text style={screenstyles.preferredStationDetails}>enquiries@eurogarages.com</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
-                <View style={styles.supportView}>
-                    <Text style={styles.SupportTitleText}>CALL US ON</Text>
+                <View style={screenstyles.supportView}>
+                    <Text style={screenstyles.SupportTitleText}>CALL US ON</Text>
                 </View>
-                <View style={styles.emailSupportDetailView}>
-                    <View style={styles.supportleftIconView}>
-                       <Image source={require('./../assets/images/settings/Support.png')} style={styles.settingIcons}></Image>
+                <View style={screenstyles.emailSupportDetailView}>
+                    <View style={screenstyles.supportleftIconView}>
+                       <Image source={require('./../assets/images/settings/Support.png')} style={screenstyles.settingIcons}></Image>
                     </View>
-                    <View style={styles.contactView}>
+                    <View style={screenstyles.contactView}>
                        <TouchableOpacity onPress={this.makeACall}>
-                            <Text style={styles.preferredStationDetails}>01254 582111</Text>
+                            <Text style={screenstyles.preferredStationDetails}>01254 582111</Text>
                        </TouchableOpacity>
                     </View>
                 </View>

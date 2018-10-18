@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">68.97% </span>
+        <span class="strong">69.49% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>40/58</span>
+        <span class='fraction'>41/59</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>1/9</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">70% </span>
+        <span class="strong">70.73% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>28/40</span>
+        <span class='fraction'>29/41</span>
       </div>
     </div>
   </div>
@@ -142,10 +142,14 @@
 97
 98
 99
-100</td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+100
+101
+102
+103</td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -204,6 +208,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -267,6 +273,7 @@ import PushNotification from "../../screens/PushNotification";
 import CoupensList from "../../screens/CoupensList";
 import PromotionsDetails from "../../screens/PromotionsDetails";
 import PromotionsList from "../../screens/PromotionsList";
+import Faq from "../../screens/Faq";
 &nbsp;
 export default class Routes extends Component {<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span></span></span></span>
 &nbsp;
@@ -295,22 +302,23 @@ export default class Routes extends Component {<span class="cstat-no" title="sta
 			size={24}
 			type="material-community"/&gt;);<span class="cstat-no" title="statement not covered" ></span>
 &nbsp;
-	renderPromotionIcon = () <span class="fstat-no" title="function not covered" >=&gt;</span> (&lt;Icon<span class="cstat-no" title="statement not covered" ></span>
-			name="account-card-details"
-			size={24}
-			type="material-community"/&gt;);<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span>
+			renderPromotionIcon = (<span class="fstat-no" title="function not covered" >) </span>=&gt; (&lt;Icon<span class="cstat-no" title="statement not covered" ></span>
+				name="account-card-details"
+				size={24}
+				type="material-community"/&gt;);<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span>
 &nbsp;
 &nbsp;
 	render() {
 		retu<span class="cstat-no" title="statement not covered" >rn (</span>
 			&lt;Router&gt;
 					&lt;Scene&gt;
-							&lt;Scene key="auth" hideNavBar={true} initial={true}&gt;
+							&lt;Scene key="auth" hideNavBar={true} initial={false}&gt;
+&nbsp;
 									&lt;Scene key="login" component={Login} title="Login" /&gt;
 									&lt;Scene key="register" component={Register} title="Register" /&gt;
 									&lt;Scene key="forgotPassword" component={ForgotPassword} title="ForgotPassword" /&gt;
 							&lt;/Scene&gt;
-							&lt;Scene key="app" hideNavBar={true} initial={false}&gt;
+							&lt;Scene key="app" hideNavBar={true} initial={true}&gt;
 									&lt;Scene tabs key="home" hideNavBar={true} swipeEnabled={true} tabBarPosition="bottom"&gt;
 											&lt;Scene key="home" icon={this.renderHomeIcon} hideNavBar={true}  component={Home} title="Home" /&gt;
 											&lt;Scene key="settings" icon={this.renderSettingsIcon} hideNavBar={true} title="Settings" component={Settings} /&gt;
@@ -334,6 +342,7 @@ export default class Routes extends Component {<span class="cstat-no" title="sta
 									&lt;Scene key="newsLetters" component={NewsLetters} title="Newsletter subscriptions"/&gt;
 									&lt;Scene key="termsAndConditions" component={TermsAndConditions} title="Terms &amp; Conditions"/&gt;
 									&lt;Scene key="pushNotification" component={PushNotification} title="Push Notification" /&gt;
+									&lt;Scene key="faqs" component={Faq} title="Frequently asked questions"/&gt;
 							&lt;/Scene&gt;
 					&lt;/Scene&gt;
 			&lt;/Router&gt;
@@ -346,7 +355,7 @@ export default class Routes extends Component {<span class="cstat-no" title="sta
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Oct 16 2018 16:06:56 GMT+0530 (IST)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Oct 17 2018 17:29:13 GMT+0530 (IST)
 </div>
 </div>
 <script src="../../../../prettify.js"></script>

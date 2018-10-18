@@ -81,7 +81,7 @@ export default class Routes extends Component {
 									<Scene key="register" component={Register} title="Register" />
 									<Scene key="forgotPassword" component={ForgotPassword} title="ForgotPassword" />
 							</Scene>
-							<Scene key="app" hideNavBar={true} initial={false}>
+							<Scene key="app" hideNavBar={true} initial={true}>
 									<Scene tabs key="home" hideNavBar={true} swipeEnabled={true} tabBarPosition="bottom">
 											<Scene key="home" icon={this.renderHomeIcon} hideNavBar={true}  component={Home} title="Home" />
 											<Scene key="settings" icon={this.renderSettingsIcon} hideNavBar={true} title="Settings" component={Settings} />
@@ -106,6 +106,7 @@ export default class Routes extends Component {
 									<Scene key="newsLetters" component={NewsLetters} title="Newsletter subscriptions"/>
 									<Scene key="termsAndConditions" component={TermsAndConditions} title="Terms & Conditions"/>
 									<Scene key="pushNotification" component={PushNotification} title="Push Notification" />
+									<Scene key="promotionsdetails" component={PromotionsDetails} title="PromotionsDetails" />
 									<Scene key="faqs" component={Faq} title="Frequently asked questions"/>
 							</Scene>
 					</Scene>

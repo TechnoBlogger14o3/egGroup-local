@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Text,View,TouchableOpacity} from 'react-native'; 
 import { Icon } from "react-native-elements";
-import styles from "../styles";
+import componentstyles from "../styles/componentStyles";
 
 class ExpandCollapseView extends Component {
     
@@ -26,11 +26,11 @@ class ExpandCollapseView extends Component {
             <View>
                 <View>
                     <TouchableOpacity onPress={this.toggle.bind(this)}>
-                        <View style={styles.settingListContainer}>
-                            <View style={styles.settingTitleView}>
-                                <Text style={styles.faqListItemTitleTextStyle} >{this.state.title}</Text>
+                        <View style={componentstyles.settingListContainer}>
+                            <View style={componentstyles.settingTitleView}>
+                                <Text style={componentstyles.faqListItemTitleTextStyle} >{this.state.title}</Text>
                             </View>
-                            <View style={styles.rightIconView}>
+                            <View style={componentstyles.rightIconView}>
                             <Icon
                                 name= { this.state.expanded ? "minus" : "plus"}
                                 type="material-community"
@@ -42,8 +42,8 @@ class ExpandCollapseView extends Component {
                     </View>
                     <View>
                       { this.state.expanded &&
-                                  <View style={[styles.faqDescContainer, styles.whiteBackground]}>
-                                    <Text style={styles.faqListItemDescTextStyle}>{this.state.desc}</Text>
+                                  <View style={[componentstyles.faqDescContainer, componentstyles.whiteBackground]}>
+                                    <Text style={componentstyles.faqListItemDescTextStyle}>{this.state.desc}</Text>
                                   </View> 
                                 }
                 </View>

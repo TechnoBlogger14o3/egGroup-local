@@ -7,7 +7,7 @@ import feulcard from "../assets/images/go_fuel_card.png"
 import { InputText, Button, Toolbar } from "../components";
 import { navigateBack,navigateTo } from "../helpers";
 
-import styles from '../styles';
+import screenstyles from "../styles/screenStyles";
 
 class LoyaltyCardsList extends Component {
 
@@ -26,9 +26,9 @@ closeModal = () => {
 render() {
  
   return (
-    <View style={[styles.appContainer, styles.whiteBackground]}>
+    <View style={[screenstyles.appContainer, screenstyles.whiteBackground]}>
         <Toolbar
-            style={[styles.noBorderToolbar]}
+            style={[screenstyles.noBorderToolbar]}
             onClickLeftIcon={navigateBack}
             iconName="back-arrow"
             title="Loyalty Cards"

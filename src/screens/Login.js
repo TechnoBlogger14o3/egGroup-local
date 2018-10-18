@@ -1,16 +1,16 @@
-import React, {Component} from "react";
-import {View, Text, TouchableOpacity, Image, Platform} from "react-native";
-import {connect} from "react-redux";
-import {compose} from "redux";
-import {Field, reduxForm} from "redux-form";
+import React, { Component } from 'react';
+import { View, Text, TouchableOpacity, Image, Alert, ScrollView, Platform } from 'react-native';
+import { connect } from 'react-redux';
+import { compose } from "redux";
+import { Field, reduxForm } from "redux-form";
 import validator from "validator";
 
-
-import {InputText, Button, LinkButton, ListPicker} from "../components";
-import {navigateTo, redirectTo} from "../helpers";
-
+import { InputText, Button, LinkButton, ListPicker } from "../components";
+import { navigateTo, redirectTo } from "../helpers";
 import logo from "../assets/images/signup/Loginlogo.png";
-import styles from "../styles";
+import {loginUser} from "../actions/authActions";
+
+import screenstyles from "../styles/screenStyles";
 
 class Login extends Component {
 
@@ -19,18 +19,18 @@ class Login extends Component {
         this.state = {
             isPasswordShown: false,
             PickerValueHolder: "",
-            pickerViewHideIOS: false,
-            pickerViewHideAndroid: false,
+            pickerViewHideIOS:false,
+            pickerViewHideAndroid:false,
             language: "English",
             pickerValue: ""
         };
     }
 
-     onIconPress = () => {
-         this.setState({
-             isPasswordShown: !this.state.isPasswordShown
-         });
-     }
+    onIconPress = () => {
+        this.setState({
+            isPasswordShown: !this.state.isPasswordShown
+        });
+    }
 
     onChange = (key, value) => {
         this.setState({
@@ -38,12 +38,12 @@ class Login extends Component {
         });
     }
 
-    onSubmit = () => {
-        redirectTo("app");
+    onSubmit = values => {
+        this.props.handleLoginUser(values);
     }
 
     renderTextInput = (field) => {
-        const {meta: {touched, error}, placeholder, isPassword, onIconPress, keyboardType, label, secureTextEntry, input: {onChange, ...restInput}} = field;
+        const { meta: { touched, error }, placeholder, isPassword, onIconPress, keyboardType, label, secureTextEntry, input: { onChange, ...restInput } } = field;
         return (
             <View>
                 <InputText
@@ -55,69 +55,68 @@ class Login extends Component {
                     isPassword={isPassword}
                     placeholder={placeholder}
                     {...restInput} />
-                <Text style={styles.errorText}>{touched ? error : ""}</Text>
+                <Text style={screenstyles.errorText}>{touched ? error : ""}</Text>
             </View>
         );
     }
-
-    pickerDoneBtnTapped = () => {
+    pickerDoneBtnTapped = (value) => {
         this.setState({
             language: this.state.pickerValue,
-            pickerViewHideIOS: false});
+            pickerViewHideIOS:false})
     }
 
     handlePickerValue = (value) => {
-        this.setState({pickerValue: value});
+        this.setState({pickerValue:value})
     }
 
-    // Checking the condition For Android & iOS to Display Different Pickers as per Wireframe
+    //Checking the condition For Android & iOS to Display Different Pickers as per Wireframe
     _segmentPicker = () => {
-        if (Platform.OS !== "ios") {
-            // alert("android picker ");
-            if (this.state.pickerViewHideIOS) {
-                return (
-                    <ListPicker />
-                );
-
-            }
-        } else if (this.state.pickerViewHideIOS) {
-            return (
-                <View style={styles.iosPickerHeaderView}>
-                    <View style={styles.iosPickerSubView}>
-                        {/* <View style={{flex: 1}} /> */}
-                        <View style={styles.iosPickerLanguageView}>
-                            <Text style={styles.iosPickerTextView}>Select Language</Text>
-                        </View>
-                        <View style={styles.iosPickerButtonView}>
-                            <TouchableOpacity onPress={this.pickerDoneBtnTapped}>
-                                <Text style={styles.iosPickerButtonTextView}>Done</Text>
-                            </TouchableOpacity>
-                        </View>
-                    </View>
-                    <ListPicker onChangePickerValue={this.handlePickerValue} />
-                </View>
+        if (Platform.OS !== 'ios') {
+            alert('android picker ');
+            if (this.state.pickerViewHideIOS){
+                 return (
+                <ListPicker />
             );
+         }
+        } else {
+              if (this.state.pickerViewHideIOS) {
+                  return (
+                    <View style={styles.iosPickerHeaderView}>
+                        <View style={styles.iosPickerSubView}>
+                            <View style={styles.iosPickerLanguageView}>
+                                <Text style={styles.iosPickerTextView}>Select Language</Text>
+                            </View>
+                            <View style={styles.iosPickerButtonView}>
+                                <TouchableOpacity onPress={this.pickerDoneBtnTapped}>
+                                    <Text style={styles.iosPickerButtonTextView}>Done</Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                        <ListPicker onChangePickerValue={this.handlePickerValue} />
+                    </View>
+                  );
+              }
         }
     }
 
     languageButtonTapped = () => {
-        this.setState({pickerViewHideIOS: true});
+        this.setState({pickerViewHideIOS:true})
     }
 
 
     render() {
-        const {handleSubmit} = this.props;
+        const { Email, Password, handleSubmit } = this.props;
 
         return (
-            <View style={[styles.appContainer, styles.whiteBackground]}>
-                <View style={styles.loginMainView}>
-                    <View style={styles.loginFormCont}>
-                        <View style={styles.loginLogoContainer}>
+            <View style={[screenstyles.appContainer, screenstyles.whiteBackground]}>
+                <View style={{ flex: 8 }}>
+                    <View style={screenstyles.loginFormCont}>
+                        <View style={screenstyles.loginLogoContainer}>
                             <Image source={logo} />
                         </View>
                         <View>
                             <Field
-                                style={styles.emailFieldView}
+                                style={{ marginTop: 0 }}
                                 name="email"
                                 label="Email"
                                 keyboardType="email-address"
@@ -133,13 +132,12 @@ class Login extends Component {
                                 isPassword={true}
                                 secureTextEntry={!this.state.isPasswordShown}
                             />
-                            <View style={styles.loginHelperCont}>
-                                {Platform.OS !== "ios" ? <ListPicker onChangePickerValue={this.handlePickerValue} />
-                                    : (
-                                        <TouchableOpacity onPress={this.languageButtonTapped}>
-                                            <Text style={styles.languagePickerTitle}>{this.state.language}</Text>
-                                        </TouchableOpacity>
-                                    )
+                            <View style={screenstyles.loginHelperCont}>
+                                {Platform.OS !== 'ios' ? <ListPicker onChangePickerValue={this.handlePickerValue}/>
+                                :
+                                <TouchableOpacity onPress={this.languageButtonTapped}>
+                                    <Text style={screenstyles.languagePickerTitle}>{this.state.language}</Text>
+                                </TouchableOpacity>
                                 }
                                 <LinkButton
                                     onPress={() => navigateTo("forgotPassword")}
@@ -149,7 +147,7 @@ class Login extends Component {
                         </View>
                     </View>
                 </View>
-                <View style={styles.loginButtonView}>
+                <View style={{justifyContent: "flex-end" }}>
                     <Button
                         title="Login"
                         backgroundColor="rgb(15, 113, 184)"
@@ -158,10 +156,10 @@ class Login extends Component {
                         title="Login with Facebook"
                         backgroundColor="rgb(57, 83, 152)"
                         iconName="facebook" />
-                    <View style={styles.loginFooterTextContainer}>
-                        <Text style={[styles.fontSize16, styles.colorBlack, styles.marginRight ]}>
+                    <View style={screenstyles.loginFooterTextContainer}>
+                        <Text style={[screenstyles.fontSize16, screenstyles.colorBlack, { marginRight: 7 }]}>
                             Do not have an account yet?
-                        </Text>
+                  </Text>
                         <LinkButton
                             onPress={() => navigateTo("register")}
                             title="Create One"
@@ -173,22 +171,24 @@ class Login extends Component {
     }
 }
 
-const validate = (values) => {
+const validate = values => {
     const errors = {};
     if (!values.email) {
-        errors.email = "Please enter valid email address";
+        errors.email = "Email is required";
     } else if (!validator.isEmail(values.email)) {
         errors.email = "Please enter valid email address";
     }
     if (!values.password) {
-        errors.password = "Please enter valid password";
+        errors.password = "Password is required";
     }
     return errors;
-};
+}
 
 const mapStateToProps = state => ({});
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({
+    handleLoginUser: payload => dispatch(loginUser(payload))
+});
 
 export default compose(
     connect(mapStateToProps, mapDispatchToProps),

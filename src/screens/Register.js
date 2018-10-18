@@ -9,7 +9,7 @@ import { InputText, Button, LinkButton, Toolbar, Checkbox } from "../components"
 import { navigateBack,navigateTo } from "../helpers";
 
 import logo from "../assets/images/signup/Loginlogo.png"
-import styles from '../styles';
+import screenstyles from "../styles/screenStyles";
 
 class Register extends Component {
 
@@ -102,7 +102,7 @@ class Register extends Component {
                     secureTextEntry={secureTextEntry}
                     placeholder={placeholder}
                     {...restInput} />
-                <Text style={styles.errorText}>{touched ? error : ""}</Text>
+                <Text style={screenstyles.errorText}>{touched ? error : ""}</Text>
             </View>
         );
     }
@@ -112,14 +112,14 @@ class Register extends Component {
     render() {
         const { handleSubmit } = this.props;
         return (
-            <View style={[styles.appContainer, styles.whiteBackground]}>
+            <View style={[screenstyles.appContainer, screenstyles.whiteBackground]}>
                 <Toolbar
-                    style={styles.noBorderToolbar}
+                    style={screenstyles.noBorderToolbar}
                     onClickLeftIcon={this.handleBackNavigation}
                     iconName="back-arrow"
                     title="Registration" />
                 <ScrollView>
-                    <View style={styles.loginLogoContainer}>
+                    <View style={screenstyles.loginLogoContainer}>
                        <Image source={logo}/>
                     </View>
                     <Field
@@ -160,13 +160,13 @@ class Register extends Component {
                         placeholder="Re-enter password"
                         component={this.renderTextInput}
                     />
-                    <View style={styles.checkboxStyle}>
+                    <View style={screenstyles.checkboxStyle}>
                         <Checkbox
                             onPress={this.onActivateNewsletter}
                             checked={this.state.inActiveNewsletter}
                             labelComponent={
-                                    <View style={styles.subscribeStyle}>
-                                    <Text style={styles.checkboxText}>Subscribe the Newsletter</Text>
+                                    <View style={screenstyles.subscribeStyle}>
+                                    <Text style={screenstyles.checkboxText}>Subscribe the Newsletter</Text>
                                     {/* as per vikranth's request removed below toucahability */}
                                     {/*
                                      <LinkButton
@@ -179,14 +179,14 @@ class Register extends Component {
                             checked={this.state.termsConditions}
                             labelComponent={
                                 <View>
-                                    <View style={styles.checkboxAgree}>
-                                        <Text style={styles.checkboxText}>I agree to </Text>
+                                    <View style={screenstyles.checkboxAgree}>
+                                        <Text style={screenstyles.checkboxText}>I agree to </Text>
                                         <LinkButton
                                             title="Terms & Conditions"
                                             color="rgb(15, 113, 184)" />
                                     </View>
-                                    <View style={styles.checkboxPrivacy}>
-                                        <Text style={styles.checkboxText}> and </Text>
+                                    <View style={screenstyles.checkboxPrivacy}>
+                                        <Text style={screenstyles.checkboxText}> and </Text>
                                         <LinkButton
                                             title="Privacy Policy"
                                             color="rgb(15, 113, 184)" />

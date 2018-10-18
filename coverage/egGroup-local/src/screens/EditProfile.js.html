@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">26.61% </span>
+        <span class="strong">26.15% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>33/124</span>
+        <span class='fraction'>34/130</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/46</span>
+        <span class='fraction'>0/50</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">6.67% </span>
+        <span class="strong">6.25% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/15</span>
+        <span class='fraction'>1/16</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">24.39% </span>
+        <span class="strong">23.81% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>20/82</span>
+        <span class='fraction'>20/84</span>
       </div>
     </div>
   </div>
@@ -324,7 +324,32 @@
 279
 280
 281
-282</td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307</td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -350,14 +375,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -378,6 +399,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -402,8 +429,30 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -478,6 +527,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -611,8 +661,8 @@ import { compose } from "redux";
 import { Field, reduxForm } from "redux-form";
 import validator from "validator";
 import { Icon } from "react-native-elements";
-import { View, ScrollView, Text, Image, StyleSheet, TouchableOpacity, Alert, Platform, PixelRatio, PermissionsAndroid } from "react-native";
-import { InputText, Button, DatePicker, Toolbar } from "../components";
+import { View, ScrollView, Text, Image, StyleSheet, TouchableOpacity, Alert, Platform, PixelRatio, PermissionsAndroid,DatePickerIOS } from "react-native";
+import { InputText, Button, DatePicker, Toolbar, DatePickerAndroid, DatePickerIos } from "../components";
 import Phone from "./../components/Phone";
 import { navigateBack, navigateTo, redirectTo } from "../helpers";
 import styles from "../styles";
@@ -626,10 +676,12 @@ class EditProfile extends Component {
       lastname: "",
       datepicker: "",
       phone: "",
+      chosenDate: new Date(),
+      showDatePickerIOS: false,
       ImageSource: null
     };
+    this.setDate = this.setDate.bind(this);
   }
-&nbsp;
   onSubmit = ()<span class="fstat-no" title="function not covered" > =</span>&gt; {
     al<span class="cstat-no" title="statement not covered" >ert("Changes to your profile has been successfully updated");</span>
   };<span class="cstat-no" title="statement not covered" ></span>
@@ -677,6 +729,11 @@ class EditProfile extends Component {
     );
   };<span class="cstat-no" title="statement not covered" ></span>
 &nbsp;
+  setDate(newDate) {
+    console.log("newdate",newDate);
+    this.setState({chosenDate: newDate})
+  }
+&nbsp;
   renderDatePicker = fi<span class="fstat-no" title="function not covered" >el</span>d =&gt; {
     const {
       meta: { touched, error },
@@ -684,19 +741,36 @@ class EditProfile extends Component {
       label,
       input: { onChange, ...restInput }
     } <span class="cstat-no" title="statement not covered" >= field;<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span></span></span></span></span></span></span>
-    re<span class="cstat-no" title="statement not covered" >turn (</span>
-      &lt;View&gt;
-        &lt;DatePicker
-          label={label}
-          onChangeText={onChange}
-          value={this.state.dateOfBirth}
-          placeholder={placeholder}
-          onChangeDate={onChange}
-          {...restInput}
-        /&gt;
-        &lt;Text style={styles.errorText}&gt;{touched ? error : ""}&lt;/Text&gt;
-      &lt;/View&gt;
-    );
+&nbsp;
+    if<span class="cstat-no" title="statement not covered" > (Platform.OS !== "ios") {</span>
+<span class="cstat-no" title="statement not covered" >        return (</span>
+          &lt;View&gt;
+            &lt;DatePickerAndroid
+              label={label}
+              onChangeText={onChange}
+              value={this.state.dateOfBirth}
+              placeholder={placeholder}
+              onChangeDate={onChange}
+              {...restInput}
+            /&gt;
+            &lt;Text style={styles.errorText}&gt;{touched ? error : ""}&lt;/Text&gt;
+          &lt;/View&gt;
+        );
+    } else {
+      re<span class="cstat-no" title="statement not covered" >turn (</span>
+        &lt;View&gt;
+          &lt;DatePickerIos
+            label={label}
+            onChangeText={onChange}
+            value={this.state.dateOfBirth}
+            placeholder={placeholder}
+            onChangeDate={onChange}
+            {...restInput}
+          /&gt;
+          &lt;Text style={styles.errorText}&gt;{touched ? error : ""}&lt;/Text&gt;
+        &lt;/View&gt;
+      );
+    }
   };<span class="cstat-no" title="statement not covered" ></span>
 &nbsp;
   renderPhone = fi<span class="fstat-no" title="function not covered" >el</span>d =&gt; {
@@ -721,7 +795,7 @@ class EditProfile extends Component {
         &lt;Text style={styles.errorText}&gt;{touched ? error : ""}&lt;/Text&gt;
       &lt;/View&gt;
     );
-  };<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span>
+  };<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ></span></span></span></span></span></span></span>
 &nbsp;
   selectPhotoTappe<span class="cstat-no" title="statement not covered" >d() {</span>
     const options = <span class="cstat-no" title="statement not covered" >{</span>
@@ -822,6 +896,7 @@ class EditProfile extends Component {
             &lt;/View&gt;
           &lt;/View&gt;
         &lt;/ScrollView&gt;
+&nbsp;
       &lt;/View&gt;
     );
   }
@@ -892,7 +967,7 @@ export default compose(
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Oct 16 2018 16:06:56 GMT+0530 (IST)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Oct 17 2018 17:29:13 GMT+0530 (IST)
 </div>
 </div>
 <script src="../../../prettify.js"></script>

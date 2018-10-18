@@ -11,5 +11,6 @@ import ListPicker from "./ListPicker";
 import PickerImage from "./PickerImage";
 import ToggleSwitch from "./ToggleSwitch";
 import CardItem from "./Card";
+import ExpandCollapseView from "./ExpandCollapseView";
 
-export {Routes, InputText, Button, LinkButton, Toolbar, DatePickerAndroid, DatePickerIos, Phone, Checkbox, ListPicker, PickerImage, ToggleSwitch, CardItem};
+export {Routes, InputText, Button, LinkButton, Toolbar, DatePickerAndroid, DatePickerIos, Phone, Checkbox, ListPicker, PickerImage, ToggleSwitch, CardItem, ExpandCollapseView};

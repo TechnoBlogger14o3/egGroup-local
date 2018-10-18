@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Text,View,TouchableOpacity, UIManager, LayoutAnimation} from 'react-native';
 import { Icon } from "react-native-elements";
-import componentstyles from "../styles/componentStyles";
+import componentstyles from "../../styles/componentStyles";
 
 class ExpandCollapseView extends Component {
 

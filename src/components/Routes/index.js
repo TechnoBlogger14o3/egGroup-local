@@ -73,7 +73,7 @@ export default class Routes extends Component {
 					<Scene>
 
 							<Scene key="auth" hideNavBar={true} initial={this.props.isLoggedin}>
-							
+							      
 									<Scene key="login" component={Login} title="Login" />
 									<Scene key="register" component={Register} title="Register" />
 									<Scene key="forgotPassword" component={ForgotPassword} title="ForgotPassword" />

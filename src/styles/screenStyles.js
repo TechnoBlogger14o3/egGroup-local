@@ -132,6 +132,11 @@ const styles = StyleSheet.create({
         width: 200,
         borderColor: 'rgb(151,151,151)'
     },
+    
+    CouponSpaceText: {
+        marginLeft: 20,
+        marginTop: 5
+    },
 
     profilePic: {
         flex: 3,

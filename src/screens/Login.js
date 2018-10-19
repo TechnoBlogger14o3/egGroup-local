@@ -29,28 +29,6 @@ class Login extends Component {
         };
     }
 
-<<<<<<< HEAD
-        handleFacebookLogin(){
-            LoginManager.logInWithReadPermissions(['public_profile', 'email',]).then(
-                function (result) {
-                  if (result.isCancelled) {
-                    console.log('Login cancelled')
-                  } else {
-                    console.log('Login success with permissions: ' + result.grantedPermissions.toString());
-                    AccessToken.getCurrentAccessToken().then(
-                        (data) => {
-                            const accessToken = data.accessToken
-                            this.infoRequestNew(accessToken);
-                        }
-                        )
-                  }
-                },
-                function (error) {
-                  console.log('Login fail with error: ' + error)
-                }
-              )     
-        }
-=======
     // componentDidMount() {
     //   AccessToken.getCurrentAccessToken().then(
     //     (data) => {
@@ -69,7 +47,6 @@ class Login extends Component {
     //        new GraphRequestManager().addRequest(infoRequest).start();
     //     })
     //   }
->>>>>>> 110fbc6ec247728f25a7930397b9480bc8578f34
 
       infoRequestNew = (accessToken) => {
           const infoRequest = new GraphRequest(
@@ -85,17 +62,10 @@ class Login extends Component {
             this.responseInfoCallback
           );
           // Start the graph request.
-<<<<<<< HEAD
-          new GraphRequestManager().addRequest(infoRequest).start();
+        //  new GraphRequestManager().addRequest(infoRequest).start();
           
         }
     
-=======
-          new GraphRequestManager().addRequest(infoRequest).start()
-
-      }
-
->>>>>>> 110fbc6ec247728f25a7930397b9480bc8578f34
       responseInfoCallback = (error, result) => {
         if (error) {
           console.log(error)
@@ -149,9 +119,6 @@ class Login extends Component {
         this.setState({pickerValue:value})
     }
 
-<<<<<<< HEAD
-
-=======
     handleFacebookLogin(){
         LoginManager.logInWithReadPermissions(['public_profile', 'email',]).then(
             function (result) {
@@ -175,7 +142,6 @@ class Login extends Component {
 
 
     }
->>>>>>> 110fbc6ec247728f25a7930397b9480bc8578f34
 
     //Checking the condition For Android & iOS to Display Different Pickers as per Wireframe
     _segmentPicker = () => {

@@ -27,43 +27,23 @@ class vouchersList extends Component {
     /** @constructor */
     constructor(props) {
         super(props);
-<<<<<<< HEAD
-        this.state={
-            products:[
-              {store:'KFC',image:'bk3.jpg',cashOff:'2',voucherCode:'7DJHZ SHGY E',voucherValidity:'JAN 12 2019',currencyIcon:'\u20AC',barCode:''},
-              {store:'Subway',image:'subway.jpg',cashOff:'2',voucherCode:'SUBWAY SHGY E',voucherValidity:'DEC 12 2019',currencyIcon:'\u20AC',barCode:''},
-              {store:'Burger King',image:'bk.jpg',cashOff:'10',voucherCode:'GDOEWS SHGY T',voucherValidity:'NOV 15 2018',currencyIcon:'\u20AC',barCode:'', codeUsed},
-              {store:'Star bucks',image:'star2.jpg',cashOff:'5',voucherCode:'7DJHZ SHGY E',voucherValidity:'JUL 12 2019',currencyIcon:'\u20AC',barCode:''},
-              {store: 'KFC',image:'kfc3.jpg',cashOff:'3',voucherCode:'7DUOE SHGY Y',voucherValidity:'JAN 15 2018',currencyIcon:'\u20AC',barCode:''},
-              {store:'GREGGS',image:'greggs.jpg',cashOff:'2',voucherCode:'GDOEWS SHGY E',voucherValidity:'NOV 12 2018',currencyIcon:'\u20AC',barCode:'',},
-              {store:'Subway',image:'subway2.jpg',cashOff:'20',voucherCode:'SUBWAY SHGY E',voucherValidity:'AUG 15 2028',currencyIcon:'\u20AC',barCode:''},
-              {store:'Burger King',image:'bk3.jpg',cashOff:'6',voucherCode:'7DJHZ SHGY 4',voucherValidity:'AUG 12 2018',currencyIcon:'\u20AC',barCode:''},
-              {store:'KFC',image:'kfc.jpg',cashOff:'15',voucherCode:'7DJHZ SHGY E',voucherValidity:'NOV 12 2025',currencyIcon:'\u20AC',barCode:''},
-              {store:'GREGGS',image:'greggs2.jpg',cashOff:'10',voucherCode:'GDOEWS SHGY E',voucherValidity:'JAN 12 2018',currencyIcon:'\u20AC',barCode:''},
-              {store:'Star Bucks',image:'star.jpg',cashOff:'50',voucherCode:'7DJHZ SHGY T',voucherValidity:'NOV 15 2018',currencyIcon:'\u20AC',barCode:''},
-          ],
-          modalVisible: false,
-        }
-      }
-=======
         this.state = {
             products: [
                 {store: "KFC", image: "bk3.jpg", cashOff: "2", coupenCode: "7DJHZ SHGY E", coupenValidity: "JAN 12 2019", currencyIcon: "\u20AC", barCode: ""},
                 {store: "Subway", image: "subway.jpg", cashOff: "2", coupenCode: "SUBWAY SHGY E", coupenValidity: "DEC 12 2019", currencyIcon: "\u20AC", barCode: ""},
-                {store: "Burger King", image: "bk.jpg", cashOff: "10", coupenCode: "GDOEWS SHGY T", coupenValidity: "NOV 15 2018", currencyIcon: "\u20AC", barCode: ""},
+                {store: "Burger King", image: "bk.jpg", cashOff: "10", coupenCode: "GDOEWS SHGY T", coupenValidity: "NOV 15 2018", currencyIcon: "\u20AC", barCode: "",voucherUsed:"yes"},
                 {store: "Star bucks", image: "star2.jpg", cashOff: "5", coupenCode: "7DJHZ SHGY E", coupenValidity: "JUL 12 2019", currencyIcon: "\u20AC", barCode: ""},
                 {store: "KFC", image: "kfc3.jpg", cashOff: "3", coupenCode: "7DUOE SHGY Y", coupenValidity: "JAN 15 2018", currencyIcon: "\u20AC", barCode: ""},
-                {store: "GREGGS", image: "greggs.jpg", cashOff: "2", coupenCode: "GDOEWS SHGY E", coupenValidity: "NOV 12 2018", currencyIcon: "\u20AC", barCode: ""},
+                {store: "GREGGS", image: "greggs.jpg", cashOff: "2", coupenCode: "GDOEWS SHGY E", coupenValidity: "NOV 12 2018", currencyIcon: "\u20AC", barCode: "",voucherUsed:"yes"},
                 {store: "Subway", image: "subway2.jpg", cashOff: "20", coupenCode: "SUBWAY SHGY E", coupenValidity: "AUG 15 2028", currencyIcon: "\u20AC", barCode: ""},
                 {store: "Burger King", image: "bk3.jpg", cashOff: "6", coupenCode: "7DJHZ SHGY 4", coupenValidity: "AUG 12 2018", currencyIcon: "\u20AC", barCode: ""},
                 {store: "KFC", image: "kfc.jpg", cashOff: "15", coupenCode: "7DJHZ SHGY E", coupenValidity: "NOV 12 2025", currencyIcon: "\u20AC", barCode: ""},
-                {store: "GREGGS", image: "greggs2.jpg", cashOff: "10", coupenCode: "GDOEWS SHGY E", coupenValidity: "JAN 12 2018", currencyIcon: "\u20AC", barCode: ""},
+                {store: "GREGGS", image: "greggs2.jpg", cashOff: "10", coupenCode: "GDOEWS SHGY E", coupenValidity: "JAN 12 2018", currencyIcon: "\u20AC", barCode: "",voucherUsed:"yes"},
                 {store: "Star Bucks", image: "star.jpg", cashOff: "50", coupenCode: "7DJHZ SHGY T", coupenValidity: "NOV 15 2018", currencyIcon: "\u20AC", barCode: ""}
             ],
             modalVisible: false
         };
     }
->>>>>>> 110fbc6ec247728f25a7930397b9480bc8578f34
 
   /** By default modal is hide onclick it will open */
   state={
@@ -90,6 +70,7 @@ class vouchersList extends Component {
               store={item.store}
               currencyIcon={item.currencyIcon}
               image={item.image}
+              voucherUsed={item.voucherUsed}
               onPress={() => this.toggleModal(true)}
           />
       );

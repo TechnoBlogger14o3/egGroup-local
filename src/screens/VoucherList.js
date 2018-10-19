@@ -115,7 +115,7 @@ class vouchersList extends Component {
                   style={screenstyles.VoucherToolBar}
                   onClickLeftIcon={navigateBack}
                   iconName="back-arrow"
-                  title="Voucher List" />
+                  title={this.props.title} />
               <View style={[this.state.modalVisible ? {backgroundColor: "rgba(0,0,0,1)"} : ""]}>
                   <Modal // modal start
                       animationType="fade"

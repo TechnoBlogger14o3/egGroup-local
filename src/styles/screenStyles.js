@@ -548,6 +548,25 @@ const styles = StyleSheet.create({
        },
        marginRight:{
           marginRight: 7
+       },
+       //AddLoyaltyCardManually
+       LoyaltyDoneButton : {
+        flex: 3, 
+        justifyContent: "flex-end", 
+        paddingBottom: 8
+       },
+
+       //
+       VoucherToolBar: {
+           elevation: 0,
+           marginVertical: Platform.OS === "ios" ? 16 : 0,
+           borderBottomWidth: 1, 
+           borderBottomColor: "rgb(204, 204, 204)"
+       }, 
+
+       VoucherModalBackground: {
+           flex: 1, 
+           backgroundColor: "rgba(0, 0, 0, 0.6)"
        }
 
 

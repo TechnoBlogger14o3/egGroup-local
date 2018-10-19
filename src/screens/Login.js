@@ -29,6 +29,7 @@ class Login extends Component {
         };
     }
 
+<<<<<<< HEAD
         handleFacebookLogin(){
             LoginManager.logInWithReadPermissions(['public_profile', 'email',]).then(
                 function (result) {
@@ -49,8 +50,28 @@ class Login extends Component {
                 }
               )     
         }
+=======
+    // componentDidMount() {
+    //   AccessToken.getCurrentAccessToken().then(
+    //     (data) => {
+    //         const infoRequest = new GraphRequest(
+    //           '/me',
+    //           {
+    //             accessToken: data.accessToken || "",
+    //             parameters: {
+    //               fields: {
+    //                 string: 'email,name,first_name,middle_name,last_name,picture,id'
+    //               }
+    //             }
+    //           },
+    //           this.responseInfoCallback
+    //         );
+    //        new GraphRequestManager().addRequest(infoRequest).start();
+    //     })
+    //   }
+>>>>>>> 110fbc6ec247728f25a7930397b9480bc8578f34
 
-        infoRequestNew(accessToken){
+      infoRequestNew = (accessToken) => {
           const infoRequest = new GraphRequest(
             '/me',
             {
@@ -64,10 +85,17 @@ class Login extends Component {
             this.responseInfoCallback
           );
           // Start the graph request.
+<<<<<<< HEAD
           new GraphRequestManager().addRequest(infoRequest).start();
           
         }
     
+=======
+          new GraphRequestManager().addRequest(infoRequest).start()
+
+      }
+
+>>>>>>> 110fbc6ec247728f25a7930397b9480bc8578f34
       responseInfoCallback = (error, result) => {
         if (error) {
           console.log(error)
@@ -121,35 +149,52 @@ class Login extends Component {
         this.setState({pickerValue:value})
     }
 
+<<<<<<< HEAD
 
+=======
+    handleFacebookLogin(){
+        LoginManager.logInWithReadPermissions(['public_profile', 'email',]).then(
+            function (result) {
+              if (result.isCancelled) {
+                console.log('Login cancelled')
+              } else {
+                console.log('Login success with permissions: ' + result.grantedPermissions.toString());
+                AccessToken.getCurrentAccessToken().then(
+                    (data) => {
+                        const accessToken = data.accessToken
+                        this.infoRequestNew(accessToken);
+                    }
+                    )
+              }
+            },
+            function (error) {
+              console.log('Login fail with error: ' + error)
+            }
+          )
+
+
+
+    }
+>>>>>>> 110fbc6ec247728f25a7930397b9480bc8578f34
 
     //Checking the condition For Android & iOS to Display Different Pickers as per Wireframe
     _segmentPicker = () => {
-        if (Platform.OS !== 'ios') {
-            alert('android picker ');
-            if (this.state.pickerViewHideIOS){
-                 return (
-                <ListPicker />
+        if (Platform.OS === 'ios' && this.state.pickerViewHideIOS) {
+            return (
+              <View style={screenstyles.iosPickerHeaderView}>
+                  <View style={screenstyles.iosPickerSubView}>
+                      <View style={screenstyles.iosPickerLanguageView}>
+                          <Text style={screenstyles.iosPickerTextView}>Select Language</Text>
+                      </View>
+                      <View style={screenstyles.iosPickerButtonView}>
+                          <TouchableOpacity onPress={this.pickerDoneBtnTapped}>
+                              <Text style={screenstyles.iosPickerButtonTextView}>Done</Text>
+                          </TouchableOpacity>
+                      </View>
+                  </View>
+                  <ListPicker onChangePickerValue={this.handlePickerValue} />
+              </View>
             );
-         }
-        } else {
-              if (this.state.pickerViewHideIOS) {
-                  return (
-                    <View style={styles.iosPickerHeaderView}>
-                        <View style={styles.iosPickerSubView}>
-                            <View style={styles.iosPickerLanguageView}>
-                                <Text style={styles.iosPickerTextView}>Select Language</Text>
-                            </View>
-                            <View style={styles.iosPickerButtonView}>
-                                <TouchableOpacity onPress={this.pickerDoneBtnTapped}>
-                                    <Text style={styles.iosPickerButtonTextView}>Done</Text>
-                                </TouchableOpacity>
-                            </View>
-                        </View>
-                        <ListPicker onChangePickerValue={this.handlePickerValue} />
-                    </View>
-                  );
-              }
         }
     }
 
@@ -211,7 +256,7 @@ class Login extends Component {
                         backgroundColor="rgb(57, 83, 152)"
                         iconName="facebook"
                         onPress={this.handleFacebookLogin} />
-                    
+
                     <View style={screenstyles.loginFooterTextContainer}>
                         <Text style={[screenstyles.fontSize16, screenstyles.colorBlack, { marginRight: 7 }]}>
                             Do not have an account yet?
@@ -222,6 +267,7 @@ class Login extends Component {
                             color="rgb(141, 198, 63)" />
                     </View>
                 </View>
+                {this._segmentPicker()}
             </View>
         );
     }

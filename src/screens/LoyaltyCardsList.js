@@ -24,7 +24,7 @@ closeModal = () => {
 }
 
 render() {
- 
+
   return (
     <View style={[screenstyles.appContainer, screenstyles.whiteBackground]}>
         <Toolbar
@@ -34,7 +34,7 @@ render() {
             title="Loyalty Cards"
             rightIconName="plus"
             onClickRightIcon={() => {
-              navigateTo("addLoyalityCardManually")
+              navigateTo("addLoyaltyCard")
             }} />
         <Card
           animationType="slide"
@@ -42,7 +42,7 @@ render() {
           visible={this.state.modalVisible}
           onRequestClose={() => {alert("Modal has been closed.")}}>
 <View
-            
+
             style={{ flexDirection: 'row',justifyContent: 'space-between'}}>
 <View style={{paddingRight:10}}>
  <Image style={{width:130,height:80,borderRadius:5,alignSelf: 'stretch', flex: 1,alignItems: "center",}}source={feulcard}/>
@@ -69,7 +69,7 @@ render() {
           visible={this.state.modalVisible}
           onRequestClose={() => {alert("Modal has been closed.")}}>
 <View
-           
+
             style={{ flexDirection: 'row',justifyContent: 'space-between'}}>
 <View style={{paddingRight:10}}>
  <Image style={{width:130,height:80,borderRadius:5,alignSelf: 'stretch',flex: 1,alignItems: "center",}}source={feulcard}/>
@@ -95,7 +95,7 @@ render() {
           transparent={false}
           visible={this.state.modalVisible}
           onRequestClose={() => {alert("Modal has been closed.")}}>
-<View       
+<View
             style={{ flexDirection: 'row',justifyContent: 'space-between'}}>
 <View style={{paddingRight:10}}>
  <Image style={{width:130,height:80,borderRadius:5,alignSelf: 'stretch',flex: 1,alignItems: "center",}}source={feulcard}/>

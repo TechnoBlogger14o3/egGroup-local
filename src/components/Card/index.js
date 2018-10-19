@@ -25,7 +25,7 @@ class CardItem extends Component {
           if(voucherUsed=="yes"){
             return (
 
-                <TouchableOpacity activeOpacity={0.5} onPress={this.props.onPress}>
+                // <TouchableOpacity activeOpacity={0.5} onPress={this.props.onPress}>
                 
                     <View style={[componentstyles.cardcontainerForRedeemed]}>
                         <LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={['#339933', '#006666', '#003366']} style={[componentstyles.cardViewForRedeemed,this.props.styles]}>
@@ -66,7 +66,7 @@ class CardItem extends Component {
                         </LinearGradient>
                         
                     </View>
-                </TouchableOpacity>
+                // </TouchableOpacity>
                 );
           } else{
                 return (

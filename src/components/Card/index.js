@@ -33,7 +33,8 @@ class CardItem extends Component {
                                 <View style={componentstyles.imageView}>
                                         <View style={componentstyles.imageborderView}>
                                                 <Image
-                                                        source={image ? { uri: image } : require("./../../assets/images/noimage.jpg")}
+                                                         // source={image ? { uri: image } : require("./../../assets/images/noimage.jpg")}
+                                                        source={ require("./../../assets/images/burger.jpg") } 
                                                         style={componentstyles.image}
                                                         resizeMode="contain"
                                                     />
@@ -79,7 +80,8 @@ class CardItem extends Component {
                                 <View style={componentstyles.imageView}>
                                         <View style={componentstyles.imageborderView}>
                                                 <Image
-                                                        source={image ? { uri: image } : require("./../../assets/images/noimage.jpg")}
+                                                       // source={image ? { uri: image } : require("./../../assets/images/noimage.jpg")}
+                                                        source={ require("./../../assets/images/kfc.jpg") } 
                                                         style={componentstyles.image}
                                                         resizeMode="contain"
                                                     />

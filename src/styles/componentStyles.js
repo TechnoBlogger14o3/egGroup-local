@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     },
     cardcontainerForRedeemed:{
         flex: 1,
-       
+
     },
 
     cardView: {
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     validityText:{
         fontSize:12,
     },
-            
+
     imageView:{
         flex:1.5,
         justifyContent:'center',
@@ -289,8 +289,6 @@ const styles = StyleSheet.create({
         flex:1,
         justifyContent:'flex-end',
         alignItems:'flex-end',
-        //marginLeft:-10,
-        //backgroundColor:'red',
         paddingTop:5,
         paddingBottom:5
     },

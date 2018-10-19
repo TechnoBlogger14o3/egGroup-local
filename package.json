@@ -77,7 +77,7 @@
       "js"
     ],
     "transform": {
-      "^.+\\.(js)$": "/Users/Sharanagouda_k/Projects/egGroup-local/node_modules/react-native/jest/preprocessor.js"
+      "^.+\\.(js)$": "/Users/vineet_m/Desktop/eggroup/egGroup-local/node_modules/react-native/jest/preprocessor.js"
     },
     "transformIgnorePatterns": [
       "/node_modules/(?!react-native|react-navigation).+\\.js$"

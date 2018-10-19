@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
         width: 200,
         borderColor: 'rgb(151,151,151)'
     },
-    
+
     CouponSpaceText: {
         marginLeft: 20,
         marginTop: 5
@@ -517,7 +517,7 @@ const styles = StyleSheet.create({
           left: 0,
           right: 0
        },
-       
+
        iosPickerSubView:{
           left: 0,
           right: 0,
@@ -556,8 +556,8 @@ const styles = StyleSheet.create({
        },
        //AddLoyaltyCardManually
        LoyaltyDoneButton : {
-        flex: 3, 
-        justifyContent: "flex-end", 
+        flex: 3,
+        justifyContent: "flex-end",
         paddingBottom: 8
        },
 
@@ -565,14 +565,318 @@ const styles = StyleSheet.create({
        VoucherToolBar: {
            elevation: 0,
            marginVertical: Platform.OS === "ios" ? 16 : 0,
-           borderBottomWidth: 1, 
+           borderBottomWidth: 1,
            borderBottomColor: "rgb(204, 204, 204)"
-       }, 
+       },
 
        VoucherModalBackground: {
-           flex: 1, 
+           flex: 1,
            backgroundColor: "rgba(0, 0, 0, 0.6)"
-       }
+       },
+
+       homeContainer: {
+       flex: 1,
+       backgroundColor: "#333333"
+   },
+   homeHeader: {
+       flex: 3,
+       flexDirection: 'row',
+       margin: 30
+   },
+   homeHeaderHomeLogo: {
+       flex: 1,
+       alignItems: 'flex-start',
+       marginTop: 5
+   },
+   homeImageHomeLogo: {
+       width: 28,
+       height: 25,
+       alignItems: "center"
+   },
+   homeHeaderText: {
+       flex: 1,
+       alignItems: 'center',
+       justifyContent: "center"
+   },
+   homeHeaderTextFont: {
+       color: '#ffffff',
+       fontSize: 20,
+       fontWeight: 'bold'
+   },
+   homeHeaderBellicon: {
+       flex: 1,
+       alignItems: 'flex-end',
+       marginTop: 5
+   },
+   homeImageBellicon: {
+       width: 21,
+       height: 23,
+       alignItems: "center"
+   },
+   linearGradient: {
+       flexDirection: "row",
+       alignItems: "center",
+       height: 150
+   },
+   starBucks: {
+       backgroundColor: "#ffffff",
+       justifyContent: "center",
+       alignItems: "center",
+       borderRadius: 50,
+       height: 100,
+       width: 100,
+       marginLeft: 10
+   },
+   imageStarBucks: {
+       height: 100,
+       width: 100
+   },
+   burgerKing: {
+       backgroundColor: "#ffffff",
+       justifyContent: "center",
+       alignItems: "center",
+       borderRadius: 50,
+       height: 100,
+       width: 100,
+       marginLeft: 10
+   },
+   imageBurgerKing: {
+       height: 100,
+       width: 100
+   },
+   kfc: {
+       backgroundColor: "#ffffff",
+       justifyContent: "center",
+       alignItems: "center",
+       borderRadius: 50,
+       height: 100,
+       width: 100,
+       marginLeft: 10
+   },
+   imageKFC: {
+       height: 100,
+       width: 100
+   },
+   subway: {
+       backgroundColor: "#ffffff",
+       justifyContent: "center",
+       alignItems: "center",
+       borderRadius: 50,
+       height: 100,
+       width: 100,
+       marginLeft: 10
+   },
+   voucherImage: {
+       flex: 2,
+       flexDirection: 'row'
+   },
+   voucherImageColumn: {
+       flex: 1,
+       flexDirection: 'column',
+       paddingLeft: 16
+   },
+   voucherText: {
+       color: "#ffffff",
+       fontWeight: "bold",
+       fontSize: 20,
+       paddingLeft: 16,
+       marginTop: 20,
+       marginBottom: 20
+   },
+   voucherViewImage: {
+       flex: 3
+   },
+   voucherImageTurkey: {
+       borderWidth: 3,
+       borderColor: '#333333'
+   },
+   voucherBurgerBackground: {
+       height: 150,
+       width: 175,
+       borderRadius: 9
+   },
+   voucherViewBurger: {
+       backgroundColor: 'rgba(0, 0, 0, 0.5)',
+       marginTop: 110
+   },
+   vocherImageKText: {
+       color: '#ffffff',
+       fontWeight: 'bold'
+   },
+   vocherImageFamilyText: {
+       color: '#ffffff',
+       fontWeight: 'bold',
+       marginTop: 210
+   },
+   voucherImageEuro: {
+       color: '#ffffff'
+   },
+   voucherImageKfc: {
+       marginTop: 3,
+       borderWidth: 3,
+       borderColor: '#333333'
+   },
+   voucherKfcBackground: {
+       height: 250,
+       width: 175,
+       borderRadius: 9
+   },
+   voucherViewKfc: {
+       backgroundColor: 'rgba(0, 0, 0, 0.5)',
+       marginTop: 210
+   },
+   vocherImageKFCChizza: {
+       color: '#ffffff',
+       fontWeight: 'bold'
+   },
+   voucherImageColumnBurger: {
+       flex: 1,
+       flexDirection: 'column',
+       paddingLeft: 16
+   },
+   voucherImageColumnFamily: {
+       flex: 1,
+       flexDirection: 'column',
+       paddingRight: 16
+   },
+   voucherImageFamily: {
+       borderWidth: 3,
+       borderColor: '#333333'
+   },
+   voucherFamilyBackground: {
+       height: 250,
+       width: 175,
+       borderRadius: 9,
+   },
+   voucherViewFamily: {
+       height: 250,
+       width: 175,
+       borderRadius: 9
+   },
+   voucherImageColumnStarBucks: {
+       marginTop: 3,
+       borderWidth: 3,
+       borderColor: '#333333'
+   },
+   voucherStarBucksBackground: {
+       height: 150,
+       width: 175,
+       borderRadius: 9,
+   },
+   voucherViewStarBucks: {
+       backgroundColor: 'rgba(0, 0, 0, 0.5)',
+       marginTop: 110
+   },
+   voucherImageRowSweet: {
+       flex: 1,
+       flexDirection: "row",
+       marginTop: 15
+   },
+   voucherImageColorSweet: {
+       paddingLeft: 16,
+       paddingRight: 16,
+       borderWidth: 3,
+       borderColor: '#333333'
+   },
+   voucherSweetBackground: {
+       height: 170,
+       width: 370,
+       borderRadius: 9
+   },
+   voucherViewSweet: {
+       backgroundColor: 'rgba(0, 0, 0, 0.5)',
+       marginTop: 130
+   },
+   voucherTextEnd: {
+       alignItems: 'flex-end'
+   },
+   voucherViewText: {
+       flex: 1,
+       flexDirection: "row",
+       justifyContent: "center"
+   },
+   voucherText: {
+       color: "#ffffff",
+       fontSize: 17,
+       paddingRight: 20,
+       marginBottom: 10,
+   },
+   prefered: {
+       flex: 1
+   },
+   preferedText: {
+       color: "#ffffff",
+       fontWeight: "bold",
+       fontSize: 20,
+       paddingLeft: 16,
+       marginBottom: 10
+   },
+   itemSeperator: {
+       marginLeft: 0,
+       marginRight: 0,
+       height: 10
+   },
+   renderItem: {
+       flex: 1,
+       paddingLeft: 16,
+       paddingRight: 16,
+       height: 100
+   },
+   preferedView: {
+       flex: 1,
+       flexDirection: "row",
+       paddingTop: 10,
+       borderRadius: 5,
+       borderWidth: 3,
+       borderColor: "#ffffff",
+       paddingBottom: 20,
+       paddingLeft: 16,
+       paddingRight: 16,
+       backgroundColor: "rgb(255, 255, 255)"
+   },
+   preferedTextName: {
+       flex: 2.8,
+       justifyContent: "center",
+       backgroundColor: "rgb(255, 255, 255)"
+   },
+   preferedTextItemName: {
+       marginLeft: 5,
+       fontSize: 17,
+       fontWeight: "bold"
+   },
+   preferedTextItemAddress: {
+       marginLeft: 5,
+       color: "rgb(123, 122, 118)"
+   },
+   preferedTextOpen: {
+       marginLeft: 5,
+       color: "rgb(15, 113, 184)",
+       fontSize: 15
+   },
+   preferedTextItemHoures: {
+       marginLeft: 5,
+       fontSize: 17,
+       fontWeight: "bold"
+   },
+   touchView: {
+       flex: 1,
+       backgroundColor: "rgb(255, 255, 255)",
+       flexDirection: "row",
+       justifyContent: "center"
+   },
+   touchText: {
+       color: "black",
+       fontSize: 15,
+       alignSelf: "center"
+   },
+   touchImage: {
+       width: 15,
+       height: 15,
+       alignSelf: "center"
+   },
+   brandView:{
+       flex: 1
+   }
 
 
 });

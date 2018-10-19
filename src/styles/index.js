@@ -418,15 +418,18 @@ const styles = StyleSheet.create({
           flexDirection:'row',
           borderBottomWidth:1,
           borderBottomColor:'rgb(200, 199, 204)',
-          paddingLeft:5
+          paddingLeft:5,
+          paddingVertical:5
       },
       supportleftIconView:{
           justifyContent:'flex-start',
+          marginTop:5,
       },
       contactView:{
           flex:1,
           justifyContent:'flex-start',
-          paddingTop:1,
+          paddingTop:3,
+          paddingBottom:3
 
       },
       SupportTitleText:{

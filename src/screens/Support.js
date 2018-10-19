@@ -57,7 +57,7 @@ class Support extends Component{
                 </View>
                 <View style={styles.emailSupportDetailView}>
                     <View style={styles.supportleftIconView}>
-                       <Image source={require('./../assets/images/settings/Support.png')} style={styles.settingIcons}></Image>
+                    <Image source={require('./../assets/images/settings/email_Icon.png')} style={[styles.settingIcons,{height:18,width:18}]}></Image>
                     </View>
                     <View style={styles.contactView}>
                         <TouchableOpacity onPress={this.sendAnEmail}>
@@ -70,7 +70,7 @@ class Support extends Component{
                 </View>
                 <View style={styles.emailSupportDetailView}>
                     <View style={styles.supportleftIconView}>
-                       <Image source={require('./../assets/images/settings/Support.png')} style={styles.settingIcons}></Image>
+                    <Image source={require('./../assets/images/settings/call_Icon.png')} style={[styles.settingIcons,{height:18,width:18}]}></Image>
                     </View>
                     <View style={styles.contactView}>
                        <TouchableOpacity onPress={this.makeACall}>

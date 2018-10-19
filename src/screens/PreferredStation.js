@@ -20,9 +20,9 @@ class PreferredStation extends Component{
         super(props);
         this.state={
           data:[
-              {id:'1',stationName:'Esso', address:'Basement, Building No. 29, Seshadri Road, ', storeOpensAt:'07:00 AM',storeClosesAt:'11:00 PM', distanceOfTheStore:'1 Km',storeStatus:'Open', rightIconName:require('./../assets/images/settings/ArrowRight.png'), Scence:'preferredStation'},
-              {id:'2',stationName:'Kfc',address:'Hospital, KBR Mall 88 NH 44 Opposite to VIMS,', storeOpensAt:'07:00 AM',storeClosesAt:'11:00 PM', distanceOfTheStore:'2 Km',storeStatus:'Closed', rightIconName:require('./../assets/images/settings/ArrowRight.png'), Scence:'preferredStation'},
-              {id:'3',stationName:'Subway',address:'Basement, Building No. 29, Seshadri Road, ',  storeOpensAt:'07:00 AM',storeClosesAt:'11:00 PM', distanceOfTheStore:'18 Km',storeStatus:'Open',rightIconName:require('./../assets/images/settings/ArrowRight.png'), Scence:'preferredStation'},
+              {id:'1',stationName:'Esso', address:'Basement, Building No. 29, Seshadri Road, ', storeOpensAt:'07:00 AM',storeClosesAt:'11:00 PM', distanceOfTheStore:'1 Km',storeStatus:'Open', rightIconName:require('./../assets/images/settings/ArrowRight.png'), Scence:'storeDetails'},
+              {id:'2',stationName:'Kfc',address:'Hospital, KBR Mall 88 NH 44 Opposite to VIMS,', storeOpensAt:'07:00 AM',storeClosesAt:'11:00 PM', distanceOfTheStore:'2 Km',storeStatus:'Closed', rightIconName:require('./../assets/images/settings/ArrowRight.png'), Scence:'storeDetails'},
+              {id:'3',stationName:'Subway',address:'Basement, Building No. 29, Seshadri Road, ',  storeOpensAt:'07:00 AM',storeClosesAt:'11:00 PM', distanceOfTheStore:'18 Km',storeStatus:'Open',rightIconName:require('./../assets/images/settings/ArrowRight.png'), Scence:'storeDetails'},
           ]
         }
       }
@@ -44,7 +44,7 @@ class PreferredStation extends Component{
                         <FlatList
                             data={ this.state.data }
                             renderItem={({item}) =>
-                             <TouchableOpacity onPress={()=>alert('link to station finder')}>
+                             <TouchableOpacity onPress={()=>navigateTo(item.Scence)}>
                             {/* navigateTo(item.Scence) */}
                                 <View style={screenstyles.ListContainer}>
                                     <View style={screenstyles.preferredStationView}>

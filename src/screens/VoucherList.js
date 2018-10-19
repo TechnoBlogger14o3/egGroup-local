@@ -19,7 +19,7 @@ class vouchersList extends Component {
             products:[
               {store:'KFC',image:'bk3.jpg',cashOff:'2',voucherCode:'7DJHZ SHGY E',voucherValidity:'JAN 12 2019',currencyIcon:'\u20AC',barCode:''},
               {store:'Subway',image:'subway.jpg',cashOff:'2',voucherCode:'SUBWAY SHGY E',voucherValidity:'DEC 12 2019',currencyIcon:'\u20AC',barCode:''},
-              {store:'Burger King',image:'bk.jpg',cashOff:'10',voucherCode:'GDOEWS SHGY T',voucherValidity:'NOV 15 2018',currencyIcon:'\u20AC',barCode:'',},
+              {store:'Burger King',image:'bk.jpg',cashOff:'10',voucherCode:'GDOEWS SHGY T',voucherValidity:'NOV 15 2018',currencyIcon:'\u20AC',barCode:'', codeUsed},
               {store:'Star bucks',image:'star2.jpg',cashOff:'5',voucherCode:'7DJHZ SHGY E',voucherValidity:'JUL 12 2019',currencyIcon:'\u20AC',barCode:''},
               {store: 'KFC',image:'kfc3.jpg',cashOff:'3',voucherCode:'7DUOE SHGY Y',voucherValidity:'JAN 15 2018',currencyIcon:'\u20AC',barCode:''},
               {store:'GREGGS',image:'greggs.jpg',cashOff:'2',voucherCode:'GDOEWS SHGY E',voucherValidity:'NOV 12 2018',currencyIcon:'\u20AC',barCode:'',},

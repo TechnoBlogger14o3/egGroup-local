@@ -8,6 +8,7 @@
 import {connect} from "react-redux";
 import React, {Component} from "react";
 import {StatusBar, View} from "react-native";
+import { AccessToken, GraphRequest, GraphRequestManager, LoginManager  } from 'react-native-fbsdk';
 
 // Import custom classes
 import Routes from "./components/Routes/index";
@@ -21,6 +22,44 @@ import styles from "./styles";
 * @extends Component
 */
 class Main extends Component {
+
+    componentDidMount() {
+        AccessToken.getCurrentAccessToken().then(
+          (data) => {
+              const infoRequest = new GraphRequest(
+                '/me',
+                {
+                  accessToken: data.accessToken || "",
+                  parameters: {
+                    fields: {
+                      string: 'email,name,first_name,middle_name,last_name,picture,id'
+                    }
+                  }
+                },
+                this.responseInfoCallback
+              );
+             new GraphRequestManager().addRequest(infoRequest).start();
+           
+          })
+        }
+
+        infoRequestNew(accessToken){
+          const infoRequest = new GraphRequest(
+            '/me',
+            {
+              accessToken: accessToken,
+              parameters: {
+                fields: {
+                  string: 'email,name,first_name,middle_name,last_name,picture,id'
+                }
+              }
+            },
+            this.responseInfoCallback
+          );
+          // Start the graph request.
+          new GraphRequestManager().addRequest(infoRequest).start();
+          
+        }
     /**
     * @function render
     * React render method for rendering the native elements

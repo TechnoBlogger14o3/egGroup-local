@@ -295,8 +295,8 @@ const styles = StyleSheet.create({
         paddingBottom:5
       },
       settingIcons:{
-          width:25,
-          height:25,
+        height:18,
+        width:18
       },
 
       preferredStationContainer: {

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
-import { View, Text, ScrollView, Image, BackHandler, Alert, TouchableOpacity } from 'react-native';
+import { View, Text, ScrollView, Image, BackHandler, Alert, TouchableOpacity,ImageBackground } from 'react-native';
 import { Icon } from "react-native-elements";
 import { compose } from "redux";
 import { Field, reduxForm, getFormValues } from "redux-form";
@@ -30,21 +30,21 @@ class StartFuelling extends Component {
                                     <Text style={{ color: "rgb(15, 113, 184)", fontSize: 20, fontWeight: 'bold', marginBottom: 20 }}>Your Pump</Text>
                                     <Text style={{ color: "rgb(15, 113, 184)", fontSize: 20 }}>The fuel price displayed on the pump
 will be applied</Text>
-
                               </View>
-
                               <View style={{ marginLeft: 0, marginRight: 0, marginTop: 50, justifyContent: 'center', alignItems: 'center', flexDirection: 'row' }} >
-                                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', height: 100 }} >
-                                          <Image source={require('../assets/images/imgbgfuel1.png')} />
+                                    <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center', height: 125 }} >
+                                          <ImageBackground style={{width:'100%',height:'100%',justifyContent:'center',alignItems:'center'}} source={require('../assets/images/imgbgfuel1.png')} />
                                     </View>
-                                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', height: 100 }} />
-                                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', height: 100 }} >
-                                          <Image source={require('../assets/images/imgbgfuel.png')} />
+                                    <View style={{ width:10, justifyContent: 'center', alignItems: 'center', height: 125 }} />
+                                    <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center', height: 125}} >
+                                          <ImageBackground style={{width:'100%',height:'100%',justifyContent:'center',alignItems:'center'}} source={require('../assets/images/imgbgfuel.png')}>
+                                          <Text style={{fontSize:20}}>1</Text>
+                                          </ImageBackground>
                                     </View>
-                                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', height: 100 }} />
+                                    <View style={{ width:10, justifyContent: 'center', alignItems: 'center', height: 125 }} />
 
-                                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', height: 100 }} >
-                                          <Image source={require('../assets/images/imgbgfuel1.png')} />
+                                    <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center', height: 125 }} >
+                                          <ImageBackground style={{width:'100%',height:'100%',justifyContent:'center',alignItems:'center'}} source={require('../assets/images/imgbgfuel1.png')} />
 
                                     </View>
 

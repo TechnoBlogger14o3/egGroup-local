@@ -5,6 +5,7 @@ import { compose } from "redux";
 import { Field, reduxForm } from "redux-form";
 import validator from "validator";
 import { LoginButton, AccessToken, GraphRequest, GraphRequestManager, LoginManager  } from 'react-native-fbsdk';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import { InputText, Button, LinkButton, ListPicker } from "../components";
 import { navigateTo, redirectTo } from "../helpers";
@@ -29,25 +30,6 @@ class Login extends Component {
         };
     }
 
-    // componentDidMount() {
-    //   AccessToken.getCurrentAccessToken().then(
-    //     (data) => {
-    //         const infoRequest = new GraphRequest(
-    //           '/me',
-    //           {
-    //             accessToken: data.accessToken || "",
-    //             parameters: {
-    //               fields: {
-    //                 string: 'email,name,first_name,middle_name,last_name,picture,id'
-    //               }
-    //             }
-    //           },
-    //           this.responseInfoCallback
-    //         );
-    //        new GraphRequestManager().addRequest(infoRequest).start();
-    //     })
-    //   }
-
       infoRequestNew = (accessToken) => {
           const infoRequest = new GraphRequest(
             '/me',
@@ -63,9 +45,9 @@ class Login extends Component {
           );
           // Start the graph request.
         //  new GraphRequestManager().addRequest(infoRequest).start();
-          
+
         }
-    
+
       responseInfoCallback = (error, result) => {
         if (error) {
           console.log(error)
@@ -233,6 +215,12 @@ class Login extends Component {
                             color="rgb(141, 198, 63)" />
                     </View>
                 </View>
+                <TouchableOpacity onPress={()=>{navigateTo("storeLocator")}}>
+                    <View style={{flexDirection:'row',justifyContent:'center',alignContent:'center',marginBottom:10}}>
+                    <Icon name="map-marker" size={28} type="material-community" style={{paddingRight:10}}/>
+                    <Text style={{marginTop:3,color:'black'}}>Search Station near by you</Text>
+                    </View>
+                </TouchableOpacity>
                 {this._segmentPicker()}
             </View>
         );

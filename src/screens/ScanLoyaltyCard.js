@@ -17,7 +17,6 @@ class ScanLoyaltyCard extends Component {
           email: ""
       };
   }
-  
   componentWillMount() {
     if (Platform.OS === 'ios') {
       CardIOUtilities.preload();
@@ -90,48 +89,33 @@ class ScanLoyaltyCard extends Component {
     })
   }
 
-render() {
-  return (
-
-     <View style={[screenstyles.appContainer, screenstyles.whiteBackground]}>
-         <Toolbar style={screenstyles.noBorderToolbar}>
-               <Icon
-                   name="arrow-left"
-                   size={24}
-                   type="material-community"
-                   onPress={navigateBack}
-                   iconStyle={screenstyles.leftIconContainer}
-               />
-               <View style={screenstyles.toolbarUtils}>
-                   <Text style={{fontSize: 20,
-                    color: "#000000",
-                    padding:40,
-                      }}>Scan Loyalty card</Text>
+    render() {
+        return (
+           <View style={[screenstyles.appContainer, screenstyles.whiteBackground]}>
+               <Toolbar
+                     style={screenstyles.noBorderToolbar}
+                     onClickLeftIcon={navigateBack}
+                     iconName="back-arrow"
+                     title="Scan Loyalty card" />
+               <View style={{flex:3}}>
+                   <Text style={screenstyles.paragraphthree}>
+                        Hold the card inside the frame, it will {"\n"} be scanned automatically
+                   </Text>
                </View>
-         </Toolbar>
-         <View style={{flex:3}}>
-
-         <Text style={screenstyles.paragraphthree}>
-              Hold the card inside the frame, it will {"\n"} be scanned automatically
-         </Text>
-         </View>
-
-         <View style={{flex:4}}>
-
-        <TouchableOpacity onPress={this.scanCard.bind(this)}>
-         <Text style={{textAlign:"center",paddingTop:30}}>Scan card!</Text>
-       </TouchableOpacity>
-         </View>
-         <View >
-
-         <Button
-             title="Enter Manually"
-             onPress={() => navigateTo("addLoyaltyCardManually")}
-             backgroundColor="rgb(15, 113, 184)" />
-         </View>
-     </View>
-  );
-}
+               <View style={{flex:4}}>
+                  <TouchableOpacity onPress={this.scanCard.bind(this)}>
+                      <Text style={{textAlign:"center",paddingTop:30}}>Scan card!</Text>
+                  </TouchableOpacity>
+               </View>
+               <View>
+                   <Button
+                       title="Enter Manually"
+                       onPress={() => navigateTo("addLoyaltyCardManually")}
+                       backgroundColor="rgb(15, 113, 184)" />
+               </View>
+           </View>
+        );
+    }
 }
 
 const mapStateToProps = state => ({});

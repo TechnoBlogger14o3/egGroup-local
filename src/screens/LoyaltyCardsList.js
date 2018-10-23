@@ -49,6 +49,7 @@ closeModal = () => {
 * React render method for rendering the native elements
 */
 render() {
+
   return (
     <View style={[screenstyles.appContainer, screenstyles.whiteBackground]}>
         <Toolbar

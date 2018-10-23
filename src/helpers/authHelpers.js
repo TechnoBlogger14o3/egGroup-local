@@ -30,7 +30,10 @@ export const authenticateUser = async (dispatch, payload, url) => {
     try {
         const response = await api(url, "POST", payload);
         if (response.status === 200 && response.headers.get("authorization")) {
+          console.log(response);
               const token = response.headers.get("authorization");
+              console.log(token);
+
               dispatch({
                   type: AUTHENTICATE,
                   token

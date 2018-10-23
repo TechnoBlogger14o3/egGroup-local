@@ -18,28 +18,67 @@ const styles = StyleSheet.create({
         color: "#ffffff",
         fontSize: 16
     },
+    //Card component
+
     cardContainer: {
         flex: 1,
-      },
+    },
+    cardcontainerForRedeemed:{
+        flex: 1,
+
+    },
+
+    cardView: {
+        elevation:4,
+        height: 100,
+        flexDirection:'column',
+        margin: 10,
+        borderRadius: 5,
+    },
+
+    cardViewForRedeemed: {
+        elevation:4,
+        height: 100,
+        flexDirection:'column',
+        margin: 10,
+        borderRadius: 5,
+        opacity:0.5
+    },
     cardCoupenView:{
         flex:1,
         justifyContent:'flex-start',
         flexDirection:'row',
-        height: 80,
+        height: 70,
         borderTopEndRadius: 5,
         borderTopStartRadius: 5,
     },
+    cardValidityView:{
+        height: 25,
+        justifyContent:'flex-end',
+        backgroundColor:'#FFF',
+        borderBottomEndRadius: 5,
+        borderBottomStartRadius: 5,
+
+    },
+    validityContentView:{
+        marginLeft:10,
+        paddingBottom:3,
+
+    },
+    validityText:{
+        fontSize:12,
+    },
+
     imageView:{
         flex:1.5,
         justifyContent:'center',
         alignItems:'center',
         borderTopStartRadius: 5,
     },
-    imageView:{
-        flex:1.5,
-        justifyContent:'center',
-        alignItems:'center',
-        borderTopStartRadius: 5,
+    image: {
+        width: 50,
+        height: 50,
+        borderRadius:50,
     },
     imageborderView:{
         width: 52,
@@ -48,24 +87,20 @@ const styles = StyleSheet.create({
         borderWidth:1,
         borderColor:'#FFF',
     },
-    image: {
-        width: 50,
-        height: 50,
-        borderRadius:50,
-    },
     contentContainer:{
         flex:3,
         flexDirection:'column',
         justifyContent:'center',
         //paddingLeft:5,
     },
-    containtStore:{
-        justifyContent:'flex-start',
-    },
     storeTextStyle:{
         fontSize:14,
         color:'#FFF',
         fontWeight:'bold'
+    },
+
+    containtStore:{
+        justifyContent:'flex-start',
     },
     containtText:{
         justifyContent:'center',
@@ -79,6 +114,7 @@ const styles = StyleSheet.create({
         height:50,
         borderColor:'#fff',
         borderRightWidth:1,
+
     },
     coupenCodeView:{
         flex:2.2,
@@ -88,7 +124,9 @@ const styles = StyleSheet.create({
         alignSelf:'center',
         borderTopEndRadius: 5,
         height:50,
+
     },
+
     CoupenCodeTextView:{
         justifyContent:'center',
         paddingBottom:2
@@ -110,22 +148,7 @@ const styles = StyleSheet.create({
         paddingTop:2,
         paddingBottom:2,
     },
-    cardValidityView:{
-        height: 25,
-        justifyContent:'flex-end',
-        backgroundColor:'#FFF',
-        borderBottomEndRadius: 5,
-        borderBottomStartRadius: 5,
-
-    },
-    validityContentView:{
-        marginLeft:10,
-        paddingBottom:3,
-
-    },
-    validityText:{
-        fontSize:12,
-    },
+        ///////////
     checkboxContainer: {
         flexDirection: "row",
         paddingHorizontal: 16,
@@ -266,8 +289,6 @@ const styles = StyleSheet.create({
         flex:1,
         justifyContent:'flex-end',
         alignItems:'flex-end',
-        //marginLeft:-10,
-        //backgroundColor:'red',
         paddingTop:5,
         paddingBottom:5
     },

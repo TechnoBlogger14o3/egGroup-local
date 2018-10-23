@@ -18,6 +18,7 @@ import Converter from './Converter';
 import styles from './../styles'
 
 
+
 const { width, height } = Dimensions.get('window');
 
 const aspectRatio = width / height;

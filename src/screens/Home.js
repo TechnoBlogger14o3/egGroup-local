@@ -59,7 +59,7 @@ class Home extends Component {
     * @function render
     * React render method for rendering the native elements
     */
-    	
+
     render() {
         return (
 

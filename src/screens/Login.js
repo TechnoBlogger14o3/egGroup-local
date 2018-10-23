@@ -74,7 +74,6 @@ class Login extends Component {
         }
     }
 
-    // Toggling the Password Hide/Show Button
     onIconPress = () => {
         this.setState({
             isPasswordShown: !this.state.isPasswordShown
@@ -118,7 +117,6 @@ class Login extends Component {
         this.setState({pickerValue:value})
     }
 
-    // Handling the Facebook Login
     handleFacebookLogin(){
         LoginManager.logInWithReadPermissions(['public_profile', 'email',]).then(
             function (result) {
@@ -138,6 +136,9 @@ class Login extends Component {
               console.log('Login fail with error: ' + error)
             }
           )
+
+
+
     }
 
     //Checking the condition For Android & iOS to Display Different Pickers as per Wireframe

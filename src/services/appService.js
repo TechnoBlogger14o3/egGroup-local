@@ -15,7 +15,7 @@ export default async (url, method, reqBody = {}, headers = {}) => {
       fetchParams.body = body;
       fetchParams.headers['Content-Type'] = 'application/json';
     }
-
+    console.log(URL, fetchParams);
     const fetchPromise = fetch(URL, fetchParams);
     const timerPromise = new Promise((resolve, reject) => {
       setTimeout(() => {

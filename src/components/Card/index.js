@@ -24,7 +24,7 @@ const defaultProps = {
 */
 
 class CardItem extends Component {
-    
+
     /**
     * @function render
     * React render method for rendering the native elements
@@ -43,7 +43,7 @@ class CardItem extends Component {
             return (
 
                 // <TouchableOpacity activeOpacity={0.5} onPress={this.props.onPress}>
-                
+
                     <View style={[componentstyles.cardcontainerForRedeemed]}>
                         <LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={['#339933', '#006666', '#003366']} style={[componentstyles.cardViewForRedeemed,this.props.styles]}>
                             <View style={[componentstyles.cardCoupenView,this.props.styles]}>
@@ -51,7 +51,7 @@ class CardItem extends Component {
                                         <View style={componentstyles.imageborderView}>
                                                 <Image
                                                          // source={image ? { uri: image } : require("./../../assets/images/noimage.jpg")}
-                                                        source={ require("./../../assets/images/burger.jpg") } 
+                                                        source={ require("./../../assets/images/burger.jpg") }
                                                         style={componentstyles.image}
                                                         resizeMode="contain"
                                                     />
@@ -63,6 +63,7 @@ class CardItem extends Component {
                                     </View>
                                     <View style={componentstyles.containtText}>
                                         <Text style={componentstyles.cashoffTextStyle}>{currencyIcon ? currencyIcon :''}{cashOff? cashOff:'0'} OFF in your in your next purchase</Text>
+
                                     </View>
 
                                 </View>
@@ -82,7 +83,7 @@ class CardItem extends Component {
                                     </View>
                             </View>
                         </LinearGradient>
-                        
+
                     </View>
                 // </TouchableOpacity>
                 );
@@ -90,7 +91,7 @@ class CardItem extends Component {
                 return (
 
                 <TouchableOpacity activeOpacity={0.5} onPress={this.props.onPress}>
-                
+
                     <View style={[componentstyles.cardcontainer]}>
                         <LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={['#339933', '#006666', '#003366']} style={[componentstyles.cardView,this.props.styles]}>
                             <View style={[componentstyles.cardCoupenView,this.props.styles]}>
@@ -98,7 +99,7 @@ class CardItem extends Component {
                                         <View style={componentstyles.imageborderView}>
                                                 <Image
                                                        // source={image ? { uri: image } : require("./../../assets/images/noimage.jpg")}
-                                                        source={ require("./../../assets/images/kfc.jpg") } 
+                                                        source={ require("./../../assets/images/kfc.jpg") }
                                                         style={componentstyles.image}
                                                         resizeMode="contain"
                                                     />

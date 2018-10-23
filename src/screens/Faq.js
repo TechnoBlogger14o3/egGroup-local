@@ -1,10 +1,30 @@
+/**
+* @author Vineet Mishra <vineet.m@photoninfotech.net>
+* @version 1.0.0
+* @summary Implementing the FAQ Screen
+*/
+
+// import - npm modules
 import React, { Component } from "react";
 import { View, ScrollView, Text, Image, StyleSheet, TouchableOpacity, Alert, Platform, FlatList } from "react-native";
+
+// import - custom classes
 import { InputText, Button, DatePicker, Toolbar, ExpandCollapseView } from "../components";
 import { navigateBack, navigateTo, redirectTo } from "../helpers";
+
+// import - Styles
 import screenstyles from "../styles";
 
+
+/**
+* Represents FAQ Screen
+* @class Faq
+* @extends Component
+*/
+
 class Faq extends Component {
+
+  // All the Static Questions
 
   constructor(props){
     super(props);
@@ -34,6 +54,11 @@ class Faq extends Component {
     this.fetchList();
   }
 
+      /**
+        * @function render
+        * React render method for rendering the native elements
+        */
+	
       render() {
         return (
           <View style={[screenstyles.appContainer, screenstyles.whiteBackground]}>

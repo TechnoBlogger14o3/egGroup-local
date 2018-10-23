@@ -27,8 +27,12 @@ class StoreDetails extends Component {
       constructor(props) {
             super(props);
             this.state = {
-                  lat: 12.9317,
-                  lng: 77.6914,
+                  lat: 12.9428,
+                  lng: 77.6966,
+                  markercoords: {
+                        latitude: 12.951902,
+                        longitude: 77.698961
+                  },
                   data: [],
                   stationdata: [
                         {
@@ -60,7 +64,7 @@ class StoreDetails extends Component {
        */
       distanceButtonTapped = () => {
             const scheme = Platform.select({ ios: 'maps:0,0?q=', android: 'geo:0,0?q=' });
-            const latLng = `${this.state.lat},${this.state.lng}`;
+            const latLng = `${this.state.markercoords.latitude},${this.state.markercoords.longitude}`;
             const label = 'Custom Label';
             const url = Platform.select({
               ios: `${scheme}${label}@${latLng}`,
@@ -99,9 +103,11 @@ class StoreDetails extends Component {
                                           Marker is to show a location with a marker.
                                     */}
                                     <MapView.Marker
-                                          coordinate={{ latitude: this.state.lat, longitude: this.state.lng }} title={this.state.address}
+                                          coordinate={{ latitude: this.state.markercoords.latitude, longitude: this.state.markercoords.longitude }} title={this.state.address}
                                           description={this.state.address}
-                                    />
+                                    >
+                                     <Image style={{width: 20, height: 30,alignSelf:'center'}} source={require('../assets/images/rectangle.png')} />
+                                    </MapView.Marker>
                               </MapView>
                               <View style={{position:"absolute", bottom: -25, right: 16, zIndex: 1}}>
                                   <TouchableOpacity onPress={this.distanceButtonTapped}>
@@ -134,7 +140,6 @@ class StoreDetails extends Component {
 
                                                             <View style={{ flex: 1, backgroundColor: 'rgb(255, 255, 255)', flexDirection: 'row', justifyContent: 'center' }}>
                                                                   <Text style={{ color: 'black', fontSize: 15, alignSelf: 'center' }}> {item.Distance}</Text>
-                                                                  <Image style={{width: 15, height: 15,alignSelf:'center'}} source={require('../assets/images/Arrow.png')} />
                                                             </View>
 
 

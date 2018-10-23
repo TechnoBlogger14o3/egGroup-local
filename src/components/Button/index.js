@@ -1,7 +1,14 @@
+/**
+* @author Vineet Mishra <vineet.m@photoninfotech.net>
+* @version 1.0.0
+*/
+
+// import - npm modules
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { Icon } from "react-native-elements";
 
+// import - Styles
 import componentstyles from "../../styles/componentStyles";
 
 const defaultProps = {
@@ -12,8 +19,18 @@ const defaultProps = {
     disabled: false
 }
 
-class Button extends Component {
+/**
+* Represents Button.
+* @class Button
+* @extends Component
+*/
 
+class Button extends Component {
+    
+    /**
+    * @function render
+    * React render method for rendering the native elements
+    */
     render() {
         return (
             <View style={componentstyles.buttonContainer}>

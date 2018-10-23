@@ -4,7 +4,7 @@
 * @summary Implented search bar and list of stores nearby locations
 */
 import React, { Component } from 'react';
-import {  Text, View, Dimensions, TouchableOpacity,FlatList, Image,SafeAreaView,KeyboardAvoidingView } from 'react-native';
+import {  Text, View, Dimensions, TouchableOpacity,FlatList, Image,SafeAreaView,KeyboardAvoidingView,Platform } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import { SearchBar, Icon } from 'react-native-elements';
 
@@ -14,6 +14,7 @@ import { navigateBack, navigateTo } from "../helpers";
 
 import styles from './../styles'
 import Converter from './Converter';
+
 
 const { width, height } = Dimensions.get('window');
 
@@ -34,6 +35,10 @@ class StoreLocator extends Component {
                   lat: 12.9317,
                   lng: 77.6914,
                   data: [],
+                  markercoords: {
+                        latitude: 12.9428,
+                        longitude: 77.6966
+                  },
                   stationdata: [
                         {
                               "name": "ESSO",
@@ -166,10 +171,9 @@ class StoreLocator extends Component {
                            onClickLeftIcon={navigateBack}
                            iconName="back-arrow"
                            title="Station Finder" />
-                        <View style={{ flex: 3 }}>
+                        <View style={{ flex:1 }}>
                         {/**
                               Dimension is used to set auto height for different screens based on window height.
-
                         */}
                               <MapView style={{ width: Dimensions.get('window').width, height: Dimensions.get('window').height/2, left: 0, right: 0, top: 0, bottom: 0, position: 'absolute' }}
                                     provider={MapView.PROVIDER_GOOGLE}
@@ -179,15 +183,18 @@ class StoreLocator extends Component {
                                           latitude: this.state.lat,
                                           longitude: this.state.lng,
                                           latitudeDelta: 0.0900,
-                                          longitudeDelta: 0.0500,
+                                          longitudeDelta: 0.0500
                                     }}>
                                     {/**
                                           Marker is to show a location with a marker.
                                     */}
+
                                     <MapView.Marker
-                                          coordinate={{ latitude: this.state.lat, longitude: this.state.lng }} title={this.state.address}
+                                          coordinate={{ latitude: this.state.markercoords.latitude, longitude: this.state.markercoords.longitude }} title={this.state.address}
                                           description={this.state.address}
-                                    />
+                                    >
+                                     <Image style={{width: 20, height: 30,alignSelf:'center'}} source={require('../assets/images/rectangle.png')} />
+                                    </MapView.Marker>
                               </MapView>
                               <View style={styles.inputView}>
                                     <SearchBar lightTheme placeholder='State,City or Zip' inputStyle={{ backgroundColor: 'rgb(250,250,250)' }}
@@ -202,7 +209,7 @@ class StoreLocator extends Component {
                               </View>
 
                         </View>
-                        <KeyboardAvoidingView  behavior="height" enabled>
+                        {Platform.OS !== 'ios' ?<KeyboardAvoidingView  behavior="height" enabled>
                               <TouchableOpacity style={{alignSelf:'flex-end',zIndex:2,marginRight:10,marginBottom:30}} onPress={this.getCurrentLocation}>
                               <View style={{backgroundColor:'white',width:50,height:50,borderRadius:50,justifyContent:'center',zIndex:2}}>
                               <Icon name="my-location" size={28} color='rgb(97,97,97)' />
@@ -212,13 +219,14 @@ class StoreLocator extends Component {
                               </View>
                         </TouchableOpacity>
 
-                      </KeyboardAvoidingView>
+                      </KeyboardAvoidingView>:''
+ }
 
 
                         <View  style={{marginLeft:250,marginBottom:-40,marginRight:10,zIndex:2,height:30}}>
                               <Converter selectedDistype={this.selectedDistype} />
                         </View>
-                        <View style={{ flex: 2 }}>
+                        <View style={{ width: Dimensions.get('window').width, height: Dimensions.get('window').height/2-50}}>
                               <FlatList
                                     data={this.state.stationdata}
                                     keyExtractor={(item, index) => index.toString()}
@@ -260,6 +268,7 @@ class StoreLocator extends Component {
                                     }
                               />
                         </View>
+
 
                   </View>
 

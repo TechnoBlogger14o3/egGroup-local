@@ -1,14 +1,14 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, SafeAreaView, FlatList, Image, ScrollView, ImageBackground } from 'react-native';
+import { View, Text, TouchableOpacity, SafeAreaView, StyleSheet, FlatList, Image, ScrollView, ImageBackground } from 'react-native';
 import { Icon } from "react-native-elements";
+import Swiper from "react-native-swiper";
 
 import { InputText, Button, Toolbar } from "../components";
-import { navigateBack } from "../helpers";
+import { navigateBack, navigateTo } from "../helpers";
 import LinearGradient from 'react-native-linear-gradient';
 
-import styles from '../styles';
-import Swiper from "react-native-swiper";
+import Styles from '../styles/screenStyles';
 
 class Home extends Component {
 
@@ -43,204 +43,173 @@ class Home extends Component {
         return (
 
             <ScrollView>
-                <SafeAreaView style={{ flex: 1, backgroundColor: "#333333" }}>
-                    <View style={{ flex: 3, flexDirection: 'row', margin: 30 }}>
-                        <View style={{ flex: 1, alignItems: 'flex-start',marginTop:5 }}>
-                            <Image style={{ width: 28, height: 25, alignItems: "center", }} source={require('../assets/images/home-logo.png')} />
+                <SafeAreaView style={Styles.homeContainer}>
+
+                    {/* // BEGIN : Below  View is for the header Component in Home screen  */}
+                    <View style={Styles.homeHeader}>
+                        <View style={Styles.homeHeaderHomeLogo}>
+                            <Image style={Styles.homeImageHomeLogo} source={require('../assets/images/home-logo.png')} />
                         </View>
-                        <View style={{ flex: 1, alignItems: 'center', justifyContent: "center" }}>
-                            <Text style={{ color: '#ffffff', fontSize: 20, fontWeight: 'bold' }}>HI John!</Text>
+                        <View style={Styles.homeHeaderText}>
+                            <Text style={Styles.homeHeaderTextFont}>HI John!</Text>
                         </View>
-                        <View style={{ flex: 1, alignItems: 'flex-end', marginTop:5  }}>
-                            <Image style={{ width: 21, height: 23, alignItems: "center" }} source={require('../assets/images/Bell-icon.png')} />
+                        <View style={Styles.homeHeaderBellicon}>
+                            <Image style={Styles.homeImageBellicon} source={require('../assets/images/Bell-icon.png')} />
                         </View>
                     </View>
+                    {/* // END : Above  View is for the header Component in Home screen      */}
 
 
-                    <View style={{ flex: 1,}}>
-                        <LinearGradient colors={["#487f4a", "#29635d"]} style={{ flexDirection: "row", alignItems: "center", height: 150 }}>
+                    <View style={ Styles.brandView }>
+
+                        {/* // BEGIN : Below view is for showing the List of Brands having vouchers in courosel  */}
+                        <LinearGradient colors={["#487f4a", "#29635d"]} style={Styles.linearGradient}>
                             <ScrollView horizontal={true}>
-                                <View style={{ backgroundColor: "#ffffff", justifyContent: "center", alignItems: "center",  borderRadius:50, height: 100, width: 100, marginLeft: 10 }}>
-                                    <Image style={{ height: 100, width: 100 }} source={require("../assets/images/StarBucks.png")} />
+                                <View style={Styles.starBucks}>
+                                    <Image style={Styles.imageStarBucks} source={require("../assets/images/StarBucks.png")} />
                                 </View>
-                                <View style={{ backgroundColor: "#ffffff", justifyContent: "center", alignItems: "center", borderRadius: 50, height: 100, width: 100, marginLeft: 10 }}>
-                                    <Image style={{ height: 100, width: 100 }} source={require("../assets/images/BurgerKing.png")} />
+                                <View style={Styles.burgerKing}>
+                                    <Image style={Styles.imageBurgerKing} source={require("../assets/images/BurgerKing.png")} />
                                 </View>
-                                <View style={{ backgroundColor: "#ffffff", justifyContent: "center", alignItems: "center", borderRadius: 50, height: 100, width: 100, marginLeft: 10 }}>
-                                    <Image style={{ height: 100, width: 100 }} source={require("../assets/images/KFC.png")} />
+                                <View style={Styles.kfc}>
+                                    <Image style={Styles.imageKFC} source={require("../assets/images/KFC.png")} />
                                 </View>
-                                <View style={{ backgroundColor: "#ffffff", justifyContent: "center", alignItems: "center", borderRadius: 50, height: 100, width: 100, marginLeft: 10 }}>
+                                <View style={Styles.subway}>
                                     <Image source={require("../assets/images/Subway.png")} />
                                 </View>
-                                <View style={{ backgroundColor: "#ffffff", justifyContent: "center", alignItems: "center", borderRadius: 50, height: 100, width: 100, marginLeft: 10 }}>
-                                    <Image style={{ height: 100, width: 100 }} source={require("../assets/images/StarBucks.png")} />
+                                <View style={Styles.starBucks}>
+                                    <Image style={Styles.imageStarBucks} source={require("../assets/images/StarBucks.png")} />
                                 </View>
-                                <View style={{ backgroundColor: "#ffffff", justifyContent: "center", alignItems: "center", borderRadius: 50, height: 100, width: 100, marginLeft: 10 }}>
-                                    <Image style={{ height: 100, width: 100 }} source={require("../assets/images/BurgerKing.png")} />
+                                <View style={Styles.burgerKing}>
+                                    <Image style={Styles.imageBurgerKing} source={require("../assets/images/BurgerKing.png")} />
                                 </View>
-                                <View style={{ backgroundColor: "#ffffff", justifyContent: "center", alignItems: "center", borderRadius: 50, height: 100, width: 100, marginLeft: 10 }}>
-                                    <Image style={{ height: 100, width: 100 }} source={require("../assets/images/KFC.png")} />
+                                <View style={Styles.kfc}>
+                                    <Image style={Styles.imageKFC} source={require("../assets/images/KFC.png")} />
                                 </View>
-                                <View style={{ backgroundColor: "#ffffff", justifyContent: "center", alignItems: "center", borderRadius: 50, height: 100, width: 100, marginLeft: 10 }}>
+                                <View style={Styles.subway}>
                                     <Image source={require("../assets/images/Subway.png")} />
                                 </View>
                             </ScrollView>
                         </LinearGradient>
-         </View>
-
-
-
-                    <View style={{ flex: 3, }}>
-                        <Text
-                            style={{
-                                color: "#ffffff",
-                                fontWeight: "bold",
-                                fontSize: 20,
-                                paddingLeft: 16,
-                                marginTop: 20,
-                                marginBottom: 20
-
-                            }}
-                        >
-                            Vouchers
-                    </Text>
-                        <View style={{ flex: 2, flexDirection: 'row', }}>
-                            <View style={{ flex: 1, flexDirection: 'column', paddingLeft: 16 }}>
-                                <View style={{ borderWidth: 3, borderColor: '#333333', }}>
-                                    <ImageBackground style={{ height: 150, width: 175, borderRadius: 9, }} source={require("../assets/images/Burger.png")} >
-                                        <View style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)', marginTop: 110 }}>
-                                            <Text style={{ color: '#ffffff', fontWeight: 'bold' }}> Turkey Artisan </Text>
-                                            <Text style={{ color: '#ffffff', }}> Buy this and get &euro;2 off </Text>
-                                        </View>
-                                    </ImageBackground>
-                                </View>
-                                <View style={{ marginTop: 3, borderWidth: 3, borderColor: '#333333' }} >
-                                    <ImageBackground style={{ height: 250, width: 175, borderRadius: 9, }} source={require("../assets/images/KFC-Chessa.png")} >
-                                    <View style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)', marginTop: 210 }}>
-                                            <Text style={{ color: '#ffffff', fontWeight: 'bold' }}> KFC Chizza </Text>
-                                            <Text style={{ color: '#ffffff', }}> Buy this and get &euro;2 off </Text>
-                                        </View>
-                                        </ImageBackground>
-                                </View>
-                            </View>
-                            <View style={{ flex: 1, flexDirection: 'column', paddingRight: 16 }}>
-                                <View style={{ borderWidth: 3, borderColor: '#333333', }}>
-                                    <ImageBackground style={{ height: 250, width: 175, borderRadius: 9, }} source={require("../assets/images/FamilyBundle.png")} >
-                                    <View style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)', marginTop: 210 }}>
-                                            <Text style={{ color: '#ffffff', fontWeight: 'bold' }}> Family Bundle </Text>
-                                            <Text style={{ color: '#ffffff', }}> Buy this and get &euro;2 off </Text>
-                                        </View>
-                                    </ImageBackground>
-                                </View>
-                                <View style={{ marginTop: 3, borderWidth: 3, borderColor: '#333333' }}>
-                                    <ImageBackground style={{ height: 150, width: 175, borderRadius: 9, }} source={require("../assets/images/StarBucks-coffee.png")} >
-                                    <View style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)', marginTop: 110 }}>
-                                            <Text style={{ color: '#ffffff', fontWeight: 'bold' }}> Coffee </Text>
-                                            <Text style={{ color: '#ffffff', }}> Buy this and get &euro;1 off </Text>
-                                        </View>
-                                      </ImageBackground>
-                                </View>
-                            </View>
-                        </View>
-
-
-                        <View style={{ flex: 1, flexDirection: "row", marginTop: 15 }}>
-                            <View style={{ paddingLeft: 16, paddingRight: 16, borderWidth: 3, borderColor: '#333333' }}>
-                                <ImageBackground style={{ height: 170, width: 370, borderRadius: 9, }} source={require("../assets/images/SweetChillyCrunch.png")} >
-                                <View style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)', marginTop: 130 }}>
-                                            <Text style={{ color: '#ffffff', fontWeight: 'bold' }}> Sweet Chilly Crunch </Text>
-                                            <Text style={{ color: '#ffffff', }}> Buy this and get &euro;1 off </Text>
-                                        </View>
-                                </ImageBackground>
-                            </View>
-
-                        </View>
-                        <View style={{ alignItems: 'flex-end' }}>
-                            <Text
-                                style={{
-                                    color: "#ffffff",
-                                    fontSize: 17,
-                                    paddingRight: 20,
-                                    marginBottom: 10,
-                                }}
-                            >
-                                View All (20)
-                    </Text>
-                        </View>
-
-
-
+                        {/* // END : Above view is for showing the List of Brands having vouchers in courosel */}
                     </View>
 
-                    <View style={{ flex: 1 }}>
-                        <Text
-                            style={{
-                                color: "#ffffff",
-                                fontWeight: "bold",
-                                fontSize: 20,
-                                paddingLeft: 16,
-                                marginBottom: 10
 
-                            }}
-                        >
-                            Prefered Stations
-                    </Text>
 
-                        <View>
-                            <FlatList data={this.state.stationdata} keyExtractor={(item, index) => index.toString()} ref={ref => {
-                                this.flatListRef = ref;
-                            }} ItemSeparatorComponent={() => <View style={{ marginLeft: 0, marginRight: 0, height: 10 }} />} renderItem={({ item, index }) => <View style={{ flex: 1, paddingLeft: 16, paddingRight: 16, height: 100 }}>
-                                <View style={{ flex: 1, flexDirection: "row", paddingTop: 10, borderRadius: 5, borderWidth: 3, borderColor: "#ffffff", paddingBottom: 20, paddingLeft: 16, paddingRight: 16, backgroundColor: "rgb(255, 255, 255)" }}>
-                                    <View style={{ flex: 2.8, justifyContent: "center", backgroundColor: "rgb(255, 255, 255)" }}>
-                                        <Text
-                                            style={{
-                                                marginLeft: 5,
-                                                fontSize: 17,
-                                                fontWeight: "bold"
-                                            }}
-                                        >
-                                            {item.name}
-                                        </Text>
-                                        <Text
-                                            style={{
-                                                marginLeft: 5,
-                                                color: "rgb(123, 122, 118)"
-                                            }}>
-                                            {item.address}
-                                        </Text>
-                                        <Text
-                                            style={{
-                                                marginLeft: 5,
-                                                color: "rgb(15, 113, 184)",
-                                                fontSize: 15
-                                            }}>
-                                            Open
-                                        </Text>
-                                        <Text
-                                            style={{
-                                                marginLeft: 5,
-                                                fontSize: 17,
-                                                fontWeight: "bold"
-                                            }}>
-                                            {item.Houres}
-                                        </Text>
-                                    </View>
-                                    <TouchableOpacity style={styles.loginbutton} onPress={() => navigateTo("storeDetails")}>
-                                        <View style={{ flex: 1, backgroundColor: "rgb(255, 255, 255)", flexDirection: "row", justifyContent: "center" }}>
-                                            <Text
-                                                style={{
-                                                    color: "black",
-                                                    fontSize: 15,
-                                                    alignSelf: "center"
-                                                }}>
-                                                {" "}
-                                                {item.Distance}{" "}
-                                            </Text>
-                                            <Image style={{ width: 15, height: 15, alignSelf: "center" }} source={require("../assets/images/Arrow.png")} />
+                    <View style={Styles.voucherViewImage}>
+                        <Text style={Styles.voucherText}> Vouchers </Text>
+                        <View style={Styles.voucherImage}>
+
+                            {/* // BEGIN : Below view is for showing the Vouchers images in column direction  */}
+                            <View style={Styles.voucherImageColumnBurger}>
+                                <View style={Styles.voucherImageTurkey}>
+                                    <ImageBackground style={Styles.voucherBurgerBackground} source={require("../assets/images/Burger.png")} >
+                                        <View style={Styles.voucherViewBurger}>
+                                            <Text style={Styles.vocherImageKText}> Turkey Artisan </Text>
+                                            <Text style={Styles.voucherImageEuro}> Buy this and get &euro;2 off </Text>
                                         </View>
-                                    </TouchableOpacity>
+                                    </ImageBackground>
                                 </View>
-                            </View>} />
+                                <View style={Styles.voucherImageKfc} >
+                                    <ImageBackground style={Styles.voucherKfcBackground} source={require("../assets/images/KFC-Chessa.png")} >
+                                        <View style={Styles.voucherViewKfc}>
+                                            <Text style={Styles.vocherImageKText}> KFC Chizza </Text>
+                                            <Text style={Styles.voucherImageEuro}> Buy this and get &euro;2 off </Text>
+                                        </View>
+                                    </ImageBackground>
+                                </View>
+                            </View>
+
+                            {/* END : Above view is for showing the Vouchers images in column direction */}
+
+                            {/* // BEGIN : Below view is for showing the Vouchers images in column direction  */}
+                            <View style={Styles.voucherImageColumnFamily}>
+                                <View style={Styles.voucherImageFamily}>
+                                    <ImageBackground style={Styles.voucherFamilyBackground} source={require("../assets/images/FamilyBundle.png")} >
+                                        <View style={Styles.voucherViewFamily}>
+                                            <Text style={Styles.vocherImageFamilyText}> Family Bundle </Text>
+                                            <Text style={Styles.voucherImageEuro}> Buy this and get &euro;2 off </Text>
+                                        </View>
+                                    </ImageBackground>
+                                </View>
+                                <View style={Styles.voucherImageColumnStarBucks}>
+                                    <ImageBackground style={Styles.voucherStarBucksBackground} source={require("../assets/images/StarBucks-coffee.png")} >
+                                        <View style={Styles.voucherViewStarBucks}>
+                                            <Text style={Styles.vocherImageKText}> Coffee </Text>
+                                            <Text style={Styles.voucherImageEuro}> Buy this and get &euro;1 off </Text>
+                                        </View>
+                                    </ImageBackground>
+                                </View>
+                            </View>
+                            {/* END : Above view is for showing the Vouchers images in column direction */}
+                        </View>
+
+                        {/* // BEGIN : Below view is for showing the Vouchers images in row direction  */}
+                        <View style={Styles.voucherImageRowSweet }>
+                            <View style={Styles.voucherImageColorSweet }>
+                                <ImageBackground style={Styles.voucherSweetBackground} source={require("../assets/images/SweetChillyCrunch.png")} >
+                                    <View style={Styles.voucherViewSweet}>
+                                        <Text style={Styles.vocherImageKText}> Sweet Chilly Crunch </Text>
+                                        <Text style={Styles.voucherImageEuro}> Buy this and get &euro;1 off </Text>
+                                    </View>
+                                </ImageBackground>
+                            </View>
+                        </View>
+                        {/* END : Above view is for showing the Vouchers images in row direction */}
+
+                        {/* // BEGIN : On tap of the View all link, user will be navigated to vouchers list screen. */}
+                        <View style={Styles.voucherTextEnd}>
+                            <TouchableOpacity style={Styles.loginbutton} onPress={() => navigateTo("vouchers")}>
+                                <View style={Styles.voucherViewText}>
+                                    <Text style={Styles.voucherText}>View All (20)</Text>
+                                </View>
+                            </TouchableOpacity>
+                        </View>
+                        {/* // END : On tap of the View all link, user will be navigated to vouchers list screen. */}
+                    </View>
+
+                    <View style={Styles.prefered}>
+                        <Text style={Styles.preferedText}>Prefered Stations</Text>
+                        <View>
+
+                            {/* BEGIN : Below view is for the station name, address, open or close status and distance of the station in the station card. */}
+
+                            <FlatList
+                                data={this.state.stationdata}
+                                keyExtractor={(item, index) => index.toString()} ref={ref => {
+                                    this.flatListRef = ref;
+                                }} ItemSeparatorComponent={() => <View style={Styles.itemSeperator} />}
+                                renderItem={({ item, index }) => <View style={Styles.renderItem}>
+                                    <View style={Styles.preferedView}>
+                                        <View style={Styles.preferedTextName}>
+                                            <Text style={Styles.preferedTextItemName}>
+                                                {item.name}
+                                            </Text>
+                                            <Text style={Styles.preferedTextItemAddress}>
+                                                {item.address}
+                                            </Text>
+                                            <Text style={Styles.preferedTextOpen}>
+                                                Open
+                                                        </Text>
+                                            <Text style={Styles.preferedTextItemHoures}>
+                                                {item.Houres}
+                                            </Text>
+                                        </View>
+                                        {/* END : Above view is for the station name, address, open or close status and distance of the station in the station card. */}
+
+                                        {/* BEGIN : On tap of the card, user will be navigated to the station detail screen. */}
+                                        <TouchableOpacity style={Styles.loginbutton} onPress={() => navigateTo("storeDetails")}>
+                                            <View style={Styles.touchView}>
+                                                <Text style={Styles.touchText}>
+                                                    {" "}
+                                                    {item.Distance}{" "}
+                                                </Text>
+                                                <Image style={Styles.touchImage} source={require("../assets/images/Arrow.png")} />
+                                            </View>
+                                        </TouchableOpacity>
+                                        {/* END : On tap of the card, user will be navigated to the station detail screen. */}
+                                    </View>
+                                </View>} />
                         </View>
                     </View>
                 </SafeAreaView>

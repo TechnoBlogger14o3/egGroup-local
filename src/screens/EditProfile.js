@@ -1,3 +1,10 @@
+/**
+* @author Vineet Mishra <vineet.m@photoninfotech.net>
+* @version 1.0.0
+* @summary Modifying the Profile Screen
+*/
+
+// import - npm modules
 import { connect } from "react-redux";
 import React, { Component } from "react";
 import { compose } from "redux";
@@ -7,6 +14,7 @@ import { Icon } from "react-native-elements";
 import ImagePicker from 'react-native-image-picker';
 import { View, ScrollView, Text, Image, StyleSheet, TouchableOpacity, Alert, Platform, PixelRatio, PermissionsAndroid,DatePickerIOS } from "react-native";
 
+// import custom classes
 import { InputText, Button, DatePicker, Toolbar, DatePickerAndroid, DatePickerIos } from "../components";
 import Phone from "./../components/Phone";
 import { navigateBack, navigateTo, redirectTo } from "../helpers";
@@ -14,6 +22,11 @@ import {logoutUser} from "../actions/authActions";
 
 import screenstyles from "../styles/screenStyles";
 
+/**
+* Represents Edit Profile.
+* @class EditProfile
+* @extends Component
+*/
 
 class EditProfile extends Component {
   constructor(props) {
@@ -29,10 +42,13 @@ class EditProfile extends Component {
     };
     this.setDate = this.setDate.bind(this);
   }
+
+  // Showing alert on clicking the Submit Button
   onSubmit = () => {
     alert("Changes to your profile has been successfully updated");
   };
 
+  // Function for LogOut
   logoutFunction = () => {
     Alert.alert(
       "Logout!",
@@ -54,6 +70,7 @@ class EditProfile extends Component {
     );
   };
 
+  // On Clicking Back Button
   backFunction = () => {
      Alert.alert(
          "Please confirm!",
@@ -70,7 +87,6 @@ class EditProfile extends Component {
                  onPress: () => console.log("Cancel Pressed"),
                  style: "cancel"
              }
-
          ],
          {cancelable: false}
      );
@@ -103,6 +119,7 @@ class EditProfile extends Component {
     this.setState({chosenDate: newDate})
   }
 
+  // DatePicker will be selected as per the platform.
   renderDatePicker = field => {
     const {
       meta: { touched, error },
@@ -111,6 +128,7 @@ class EditProfile extends Component {
       input: { onChange, ...restInput }
     } = field;
 
+    // Function for DatePicker if platform is iOS
     if (Platform.OS !== "ios") {
         return (
           <View>
@@ -125,7 +143,9 @@ class EditProfile extends Component {
             <Text style={screenstyles.errorText}>{touched ? error : ""}</Text>
           </View>
         );
-    } else {
+    }  
+    // Function for DatePicker if platform is Android
+    else {
       return (
         <View>
           <DatePickerIos
@@ -176,6 +196,7 @@ class EditProfile extends Component {
       }
     };
 
+    // Image Picker for Profile Image
     ImagePicker.showImagePicker(options, (response) => {
       console.log('Response = ', response);
 
@@ -198,13 +219,16 @@ class EditProfile extends Component {
       }
     });
   }
-
+   /**
+    * @function render
+    * React render method for rendering the native elements
+    */
   render() {
     const { handleSubmit } = this.props;
     return (
       <View style={[screenstyles.appContainer, screenstyles.whiteBackground]}>
         <Toolbar
-              style={[screenstyles.noBorderToolbar, {backgroundColor: "#f5f5f5"}]}
+              style={[screenstyles.noBorderToolbar]}
               onClickLeftIcon={this.backFunction}
               iconName="back-arrow"
               title="Edit Profile"
@@ -271,6 +295,7 @@ class EditProfile extends Component {
   }
 }
 
+// Validating the Edit Profile Form
 const validate = (values) => {
     const errors = {};
     if (!values.firstname) {

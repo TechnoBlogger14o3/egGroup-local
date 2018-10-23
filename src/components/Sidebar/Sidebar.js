@@ -1,9 +1,29 @@
+/**
+* @author Vineet Mishra <vineet.m@photoninfotech.net>
+* @version 1.0.0
+*/
+
+// import - npm modules
 import React from 'react';
 import {Text, View, TouchableNativeFeedback,Image, ScrollView,StyleSheet} from 'react-native';
+
+// import - custom class
 import componentstyles from "../../styles/componentStyles";
 import { navigateTo } from "./../../helpers";
+
+/**
+* Represents Sidebar.
+* @class Sidebar
+* @extends React.Component
+*/
 class Sidebar extends React.Component {
-  render() {
+ 
+    /**
+    * @function render
+    * React render method for rendering the native elements
+    */
+ 
+    render() {
 
     return (
       <ScrollView style={componentstyles.sidebarContainer}>

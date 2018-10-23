@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { compose } from "redux";
 import { Field, reduxForm } from "redux-form";
 import validator from "validator";
+import { LoginButton, AccessToken, GraphRequest, GraphRequestManager, LoginManager  } from 'react-native-fbsdk';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import { InputText, Button, LinkButton, ListPicker } from "../components";
 import { navigateTo, redirectTo } from "../helpers";
@@ -22,8 +24,38 @@ class Login extends Component {
             pickerViewHideIOS:false,
             pickerViewHideAndroid:false,
             language: "English",
-            pickerValue: ""
+            pickerValue: "",
+            name : '',
+            pic : ''
         };
+    }
+
+      infoRequestNew = (accessToken) => {
+          const infoRequest = new GraphRequest(
+            '/me',
+            {
+              accessToken: accessToken,
+              parameters: {
+                fields: {
+                  string: 'email,name,first_name,middle_name,last_name,picture,id'
+                }
+              }
+            },
+            this.responseInfoCallback
+          );
+          // Start the graph request.
+        //  new GraphRequestManager().addRequest(infoRequest).start();
+
+        }
+
+      responseInfoCallback = (error, result) => {
+        if (error) {
+          console.log(error)
+          alert('Error fetching data: ' + error.toString());
+        } else {
+          console.log(result)
+          this.setState({name: result.name, pic:result.picture.data.url});
+        }
     }
 
     onIconPress = () => {
@@ -69,33 +101,48 @@ class Login extends Component {
         this.setState({pickerValue:value})
     }
 
+    handleFacebookLogin(){
+        LoginManager.logInWithReadPermissions(['public_profile', 'email',]).then(
+            function (result) {
+              if (result.isCancelled) {
+                console.log('Login cancelled')
+              } else {
+                console.log('Login success with permissions: ' + result.grantedPermissions.toString());
+                AccessToken.getCurrentAccessToken().then(
+                    (data) => {
+                        const accessToken = data.accessToken
+                        this.infoRequestNew(accessToken);
+                    }
+                    )
+              }
+            },
+            function (error) {
+              console.log('Login fail with error: ' + error)
+            }
+          )
+
+
+
+    }
+
     //Checking the condition For Android & iOS to Display Different Pickers as per Wireframe
     _segmentPicker = () => {
-        if (Platform.OS !== 'ios') {
-            alert('android picker ');
-            if (this.state.pickerViewHideIOS){
-                 return (
-                <ListPicker />
+        if (Platform.OS === 'ios' && this.state.pickerViewHideIOS) {
+            return (
+              <View style={screenstyles.iosPickerHeaderView}>
+                  <View style={screenstyles.iosPickerSubView}>
+                      <View style={screenstyles.iosPickerLanguageView}>
+                          <Text style={screenstyles.iosPickerTextView}>Select Language</Text>
+                      </View>
+                      <View style={screenstyles.iosPickerButtonView}>
+                          <TouchableOpacity onPress={this.pickerDoneBtnTapped}>
+                              <Text style={screenstyles.iosPickerButtonTextView}>Done</Text>
+                          </TouchableOpacity>
+                      </View>
+                  </View>
+                  <ListPicker onChangePickerValue={this.handlePickerValue} />
+              </View>
             );
-         }
-        } else {
-              if (this.state.pickerViewHideIOS) {
-                  return (
-                    <View style={styles.iosPickerHeaderView}>
-                        <View style={styles.iosPickerSubView}>
-                            <View style={styles.iosPickerLanguageView}>
-                                <Text style={styles.iosPickerTextView}>Select Language</Text>
-                            </View>
-                            <View style={styles.iosPickerButtonView}>
-                                <TouchableOpacity onPress={this.pickerDoneBtnTapped}>
-                                    <Text style={styles.iosPickerButtonTextView}>Done</Text>
-                                </TouchableOpacity>
-                            </View>
-                        </View>
-                        <ListPicker onChangePickerValue={this.handlePickerValue} />
-                    </View>
-                  );
-              }
         }
     }
 
@@ -155,7 +202,9 @@ class Login extends Component {
                     <Button
                         title="Login with Facebook"
                         backgroundColor="rgb(57, 83, 152)"
-                        iconName="facebook" />
+                        iconName="facebook"
+                        onPress={this.handleFacebookLogin} />
+
                     <View style={screenstyles.loginFooterTextContainer}>
                         <Text style={[screenstyles.fontSize16, screenstyles.colorBlack, { marginRight: 7 }]}>
                             Do not have an account yet?
@@ -166,6 +215,13 @@ class Login extends Component {
                             color="rgb(141, 198, 63)" />
                     </View>
                 </View>
+                <TouchableOpacity onPress={()=>{navigateTo("storeLocator")}}>
+                    <View style={{flexDirection:'row',justifyContent:'center',alignContent:'center',marginBottom:10}}>
+                    <Icon name="map-marker" size={28} type="material-community" style={{paddingRight:10}}/>
+                    <Text style={{marginTop:3,color:'black'}}>Search Station near by you</Text>
+                    </View>
+                </TouchableOpacity>
+                {this._segmentPicker()}
             </View>
         );
     }

@@ -1,3 +1,11 @@
+/**
+* @author Vineet Mishra <vineet.m@photoninfotech.net>
+* @version 1.0.0
+* @summary Creating 
+*/
+
+
+// import - npm modules
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import { View, Text, ScrollView, Image, BackHandler, Alert, TouchableOpacity } from 'react-native';
@@ -7,6 +15,8 @@ import { Field, reduxForm, getFormValues } from "redux-form";
 
 import { InputText, Button, Toolbar, DatePickerAndroid } from "../components";
 import { navigateBack, navigateTo } from "../helpers";
+
+// import - Styles
 
 import styles from '../styles';
 

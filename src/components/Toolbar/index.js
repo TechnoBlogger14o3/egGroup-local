@@ -1,9 +1,15 @@
+/**
+* @author Vineet Mishra <vineet.m@photoninfotech.net>
+* @version 1.0.0
+*/
+
+// import - npm modules
 import React, {Component} from "react";
 import {Text, View,TouchableNativeFeedback,Image, Platform } from "react-native";
 import { Icon } from "react-native-elements";
-
 import { LinkButton } from "../index";
 
+// import - Styles
 import componentstyles from "../../styles/componentStyles";
 
 const defaultProps = {
@@ -13,6 +19,11 @@ const defaultProps = {
     rightButtonName: ""
 }
 
+/**
+* Represents Toolbar.
+* @class Toolbar
+* @extends Component
+*/
 class Toolbar extends Component<{}> {
 
     getTypedIcon = (iconName) => {
@@ -33,6 +44,11 @@ class Toolbar extends Component<{}> {
     getColorIcon = () => {
         return "#ffffff"
     };
+
+    /**
+    * @function render
+    * React render method for rendering the native elements
+    */
 
     render() {
         return (
@@ -67,7 +83,7 @@ class Toolbar extends Component<{}> {
                       <LinkButton
                           onPress={this.props.onRightButtonPress}
                           title={this.props.rightButtonName}
-                          color="rgb(15, 113, 184)" />
+                          color="rgb(255, 255, 255)" />
                   </View>
               }
           </View>

@@ -1,7 +1,14 @@
+/**
+* @author Vineet Mishra <vineet.m@photoninfotech.net>
+* @version 1.0.0
+*/
+
+// import - npm modules
 import React, { Component } from "react";
 import { Router, Scene } from "react-native-router-flux";
 import { Icon } from "react-native-elements";
 
+// import - custom class
 import Login from "../../screens/Login";
 import ForgotPassword from "../../screens/ForgotPassword";
 import Register from "../../screens/Register";
@@ -30,10 +37,13 @@ import PaymentBillingScreen from "../../screens/PaymentBillingScreen";
 import StartFuelling from "../../screens/StartFuelling";
 import FuelFilling from "../../screens/FuelFilling";
 import PaymentSuccessfull from "../../screens/PaymentSuccessfull";
-
-
 import Faq from "../../screens/Faq";
 
+/**
+* Represents Routes.
+* @class Routes
+* @extends Component
+*/
 export default class Routes extends Component {
 
 	renderSettingsIcon = () => (<Icon
@@ -67,6 +77,11 @@ export default class Routes extends Component {
 		size={28}
 		type="material-community"/>);
 
+    /**
+    * @function render
+    * React render method for rendering the native elements
+    */
+
 	render() {
 		return (
 			<Router>
@@ -75,6 +90,8 @@ export default class Routes extends Component {
 									<Scene key="login" component={Login} title="Login" />
 									<Scene key="register" component={Register} title="Register" />
 									<Scene key="forgotPassword" component={ForgotPassword} title="ForgotPassword" />
+									<Scene key="storeLocator" title="Stations" component={StoreLocator} />
+									<Scene key="storeDetails" component={StoreDetails} title="StoreDetails"/>
 							</Scene>
 							<Scene key="app" hideNavBar={true} initial={this.props.isLoggedin}>
 									<Scene tabs key="home" hideNavBar={true} swipeEnabled={true} tabBarPosition="bottom" tabBarStyle={{height: 56, paddingVertical: 4}}>
@@ -106,6 +123,7 @@ export default class Routes extends Component {
 									<Scene key="paymentSuccessfull" component={PaymentSuccessfull} title="Payment Successfull"/>
 									<Scene key="paymentBillingScreen" component={PaymentBillingScreen} title="Add Card"/>
 									<Scene key="addCreditCardForPayment" component={AddCreditCardForPayment} title="Add Card"/>
+									<Scene key="vouchers"  component={VoucherList} title="Vouchers"/>
 							</Scene>
 					</Scene>
 			</Router>

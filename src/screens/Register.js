@@ -86,7 +86,7 @@ class Register extends Component {
     onSubmit = values => {
      //alert('Thank you for signing up. You will receive an email shortly with a link to confirm your email address');
      values.tncAcceptance = true;
-     delete values.confirmpassword;
+     //delete values.confirmpassword;
      this.props.handleRegisterUser(values);
     }
 

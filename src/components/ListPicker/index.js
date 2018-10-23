@@ -1,7 +1,21 @@
+/**
+* @author Vineet Mishra <vineet.m@photoninfotech.net>
+* @version 1.0.0
+*/
+
+// import - npm modules
 import React, { Component } from 'react';
 import { View, Picker } from 'react-native';
+
+// import - Styles
 import componentstyles from "../../styles/componentStyles";
 
+
+/**
+* Represents ListPicker.
+* @class ListPicker
+* @extends Component
+*/
 class ListPicker extends Component {
     constructor(props) {
         super(props);
@@ -16,6 +30,11 @@ class ListPicker extends Component {
         });
         this.props.onChangePickerValue(value);
     }
+
+    /**
+    * @function render
+    * React render method for rendering the native elements
+    */
 
     render() {
         return (

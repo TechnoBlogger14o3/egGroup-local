@@ -18,7 +18,7 @@ class Settings extends Component {
       super(props);
       this.state={
         data:[
-            {settingTitle:'Set Preferred Station',leftIconName:require('./../assets/images/settings/Setpreferredstation.png'),rightIconName:require('./../assets/images/settings/ArrowRight.png'),Scence:'preferredStation'},
+            {settingTitle:'Preferred Station',leftIconName:require('./../assets/images/settings/Setpreferredstation.png'),rightIconName:require('./../assets/images/settings/ArrowRight.png'),Scence:'preferredStation'},
             {settingTitle:'Edit Profile',leftIconName:require('./../assets/images/settings/Editprofile.png'),rightIconName:require('./../assets/images/settings/ArrowRight.png'),Scence:'editProfile'},
             {settingTitle:'Support',leftIconName:require('./../assets/images/settings/Support.png'),rightIconName:require('./../assets/images/settings/ArrowRight.png'),Scence:'support'},
             {settingTitle:'Terms & Conditions',leftIconName:require('./../assets/images/settings/T&C.png'),rightIconName:require('./../assets/images/settings/ArrowRight.png'),Scence:'termsAndConditions'},

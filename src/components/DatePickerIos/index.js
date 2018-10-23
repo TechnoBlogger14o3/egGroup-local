@@ -1,7 +1,14 @@
+/**
+* @author Vineet Mishra <vineet.m@photoninfotech.net>
+* @version 1.0.0
+*/
+
+// import - npm module
 import React, { Component } from 'react';
 import { View, Text, TextInput, DatePickerIOS, TouchableOpacity, Modal } from 'react-native';
 import { Icon } from "react-native-elements";
 
+// import - Styles
 import styles from "../../styles";
 
 const defaultProps = {
@@ -17,7 +24,11 @@ const defaultProps = {
     style: {},
     openDatePicker: () => {}
 }
-
+/**
+* Represents DatePicker for iOS
+* @class DatePicker
+* @extends Component
+*/
 class DatePicker extends Component {
 
     state = {
@@ -81,6 +92,11 @@ class DatePicker extends Component {
           isDatePickerOpen: true
         })
     }
+
+    /**
+    * @function render
+    * React render method for rendering the native elements
+    */
 
     render() {
         return (

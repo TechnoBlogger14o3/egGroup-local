@@ -1,3 +1,11 @@
+/**
+* @author Vineet Mishra <vineet.m@photoninfotech.net>
+* @version 1.0.0
+* @summary Implementing the Forget Password Screen
+*/
+
+// import - npm modules
+
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, Alert, BackHandler, Platform } from 'react-native';
@@ -6,11 +14,19 @@ import { compose } from "redux";
 import { Field, reduxForm, getFormValues } from "redux-form";
 import validator from "validator";
 
+// import - custom Classes
 import { navigateTo } from "../helpers";
 import { InputText, Button, Toolbar } from "../components";
 import { navigateBack } from "../helpers";
 
+// import - Styles
 import screenstyles from "../styles/screenStyles";
+
+/**
+* Represents Forget Password Screen.
+* @class ForgetPassword
+* @extends Component
+*/
 
 class ForgotPassword extends Component {
 

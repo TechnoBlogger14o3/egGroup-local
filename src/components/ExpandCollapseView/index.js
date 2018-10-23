@@ -1,8 +1,20 @@
+/**
+* @author Vineet Mishra <vineet.m@photoninfotech.net>
+* @version 1.0.0
+*/
+
+// import - npm modules
 import React, { Component } from 'react';
 import {Text,View,TouchableOpacity, UIManager, LayoutAnimation} from 'react-native';
 import { Icon } from "react-native-elements";
-import componentstyles from "../../styles/componentStyles";
 
+// import - Styles
+import componentstyles from "../../styles/componentStyles";
+/**
+* Represents ExpandCollapseView.
+* @class ExpandCollapseView
+* @extends Component
+*/
 class ExpandCollapseView extends Component {
 
     constructor(props){
@@ -26,6 +38,11 @@ class ExpandCollapseView extends Component {
           this._animate();
         });
     }
+
+    /**
+    * @function render
+    * React render method for rendering the native elements
+    */
 
     render(){
         return (

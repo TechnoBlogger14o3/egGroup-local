@@ -1,3 +1,11 @@
+/**
+* @author Vineet Mishra <vineet.m@photoninfotech.net>
+* @version 1.0.0
+* @summary FuelFilling Screen
+*/
+
+// import - npm modules
+
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import { View, Text, ScrollView, Image, BackHandler, Alert, TouchableOpacity } from 'react-native';
@@ -5,19 +13,33 @@ import { Icon } from "react-native-elements";
 import { compose } from "redux";
 import { Field, reduxForm, getFormValues } from "redux-form";
 
+// import Custom Classes
 import { InputText, Button, Toolbar, DatePicker } from "../components";
 import { navigateBack, navigateTo } from "../helpers";
 
+// import Styles
 import screenstyles from "../styles/screenStyles";
 
+
+/**
+* Represents Screen for Fuel Filling.
+* @class FuelFilling
+* @extends Component
+*/
 class FuelFilling extends Component {
 
+      // Setting a timeout for 10 Sec
       componentDidMount() {
             setTimeout( () => {
                   navigateTo('paymentSuccessfull');
             },10000);
           }
 
+
+          /**
+          * @function render
+          * React render method for rendering the native elements
+          */
       render() {
             return (
                   <View style={[screenstyles.appContainer, screenstyles.whiteBackground]}>

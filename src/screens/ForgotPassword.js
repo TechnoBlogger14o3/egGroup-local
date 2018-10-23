@@ -56,6 +56,7 @@ class ForgotPassword extends Component {
         });
     }
 
+    // Clicking Submit Button, a mail will be sent.
     onSubmit = values => {
         Alert.alert(
             '',
@@ -83,6 +84,10 @@ class ForgotPassword extends Component {
         );
     }
 
+    /**
+    * @function render
+    * React render method for rendering the native elements
+    */
     render() {
         const { email, handleSubmit } = this.props;
         return (
@@ -114,6 +119,7 @@ class ForgotPassword extends Component {
     }
 }
 
+// Validating the Input Field
 const validate = values => {
     const errors = {};
     if (!values.email) {

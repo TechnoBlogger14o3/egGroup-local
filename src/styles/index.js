@@ -1,3 +1,9 @@
+/**
+* @author Vineet Mishra <vineet.m@photoninfotech.net>
+* @version 1.0.0
+*/
+
+// import npm modules
 import { StyleSheet, Platform,Dimensions } from 'react-native';
 
 let deviceWidth = Dimensions.get('window').width
@@ -816,7 +822,7 @@ const styles = StyleSheet.create({
      },
      //ios
      iosPickerHeaderView:{
-        height: 230, 
+        height: 230,
         backgroundColor: "white",
         position: "absolute",
         bottom: 0,
@@ -824,9 +830,9 @@ const styles = StyleSheet.create({
         right: 0
      },
      iosPickerSubView:{
-        left: 0, 
-        right: 0, 
-        height: 40, 
+        left: 0,
+        right: 0,
+        height: 40,
         flexDirection: "row",
         backgroundColor: "rgb(225, 224, 224)",
         justifyContent: "center",
@@ -836,7 +842,7 @@ const styles = StyleSheet.create({
         flex: 3
      },
      iosPickerTextView:{
-        alignSelf: "center", 
+        alignSelf: "center",
         fontSize: 17
      },
      iosPickerButtonView:{
@@ -844,7 +850,7 @@ const styles = StyleSheet.create({
      },
      iosPickerButtonTextView:{
         alignSelf: "flex-end",
-        color: "rgb(0, 122, 255)", 
+        color: "rgb(0, 122, 255)",
         fontSize: 15
      },
      loginMainView:{

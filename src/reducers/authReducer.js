@@ -1,3 +1,9 @@
+/**
+* @author Vineet Mishra <vineet.m@photoninfotech.net>
+* @version 1.0.0
+*/
+
+// import constants
 import {AUTHENTICATE, LOGOUT, AUTH_ERROR} from "../constants/action-types";
 
 const initialState = {

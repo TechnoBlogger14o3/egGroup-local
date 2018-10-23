@@ -1,7 +1,15 @@
+/**
+* @author Vineet Mishra <vineet.m@photoninfotech.net>
+* @version 1.0.0
+* @summary Creating Auth Helper
+*/
+
+// import custom Classes
 import {redirectTo, navigateTo} from "./index";
 import {AUTHENTICATE, AUTH_ERROR, LOGOUT} from "../constants/action-types";
 import api from "../services/appService";
 
+// Handling New User API
 export const handleRegisterUser = async (dispatch, payload, url) => {
     try {
       console.log(payload);
@@ -26,6 +34,7 @@ export const handleRegisterUser = async (dispatch, payload, url) => {
     }
 }
 
+// Handling Login API
 export const authenticateUser = async (dispatch, payload, url) => {
     try {
         const response = await api(url, "POST", payload);
@@ -50,6 +59,7 @@ export const authenticateUser = async (dispatch, payload, url) => {
     }
 }
 
+// Handling LogOut
 export const handleUserLogout = (dispatch, payload, url) => {
     dispatch({
         type: LOGOUT

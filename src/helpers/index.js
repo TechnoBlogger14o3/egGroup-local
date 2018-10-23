@@ -1,5 +1,10 @@
+/**
+* @author Vineet Mishra <vineet.m@photoninfotech.net>
+* @version 1.0.0
+*/
+
+// import - npm modules
 import { Actions } from 'react-native-router-flux';
-//  import _ from 'lodash';
 
 export const redirectTo = (scene) => {
   if (Actions.currentScene) Actions.reset(scene);

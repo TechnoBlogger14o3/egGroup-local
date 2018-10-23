@@ -1,3 +1,9 @@
+/**
+* @author Vineet Mishra <vineet.m@photoninfotech.net>
+* @version 1.0.0
+*/
+
+// import npm modules
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({

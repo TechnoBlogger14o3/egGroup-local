@@ -1,3 +1,9 @@
+/**
+* @author Vineet Mishra <vineet.m@photoninfotech.net>
+* @version 1.0.0
+*/
+
+// import Settings
 import { BASE_URL } from '../config/settings';
 
 export default async (url, method, reqBody = {}, headers = {}) => {

@@ -1,7 +1,7 @@
 /**
 * @author Vineet Mishra <vineet.m@photoninfotech.net>
 * @version 1.0.0
-* @summary Creating 
+* @summary Creating
 */
 
 
@@ -38,6 +38,7 @@ class AddCreditCardForPayment extends Component {
                   [key]: value
             });
       }
+      
       continueButtonTapped = () => {
             Alert.alert(
                   "Alert!",

@@ -35,11 +35,10 @@ class FuelFilling extends Component {
             },10000);
           }
 
-
-          /**
-          * @function render
-          * React render method for rendering the native elements
-          */
+    /**
+      * @function render
+      * React render method for rendering the native elements
+      */
       render() {
             return (
                   <View style={[screenstyles.appContainer, screenstyles.whiteBackground]}>

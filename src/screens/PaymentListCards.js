@@ -1,8 +1,25 @@
+/**
+* @author Vineet Mishra <vineet.m@photoninfotech.net>
+* @version 1.0.0
+* @summary Creating List of Saved Cards for Payment
+*/
+
+// import - npm modules
+
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, Image, Alert, ScrollView, Platform, SectionList, StyleSheet, Dimensions } from 'react-native';
+
+// import custom Classes
 import { InputText, Button, Toolbar } from "../components";
 import { navigateBack, navigateTo } from "../helpers";
 const deviceWidth = Dimensions.get('window').width
+
+
+/**
+* Represents List of saved cards.
+* @class PaymentListCards
+* @extends Component
+*/
 
 class PaymentListCards extends Component {
 
@@ -82,6 +99,13 @@ class PaymentListCards extends Component {
                   />
             )
       }
+
+
+      /**
+      * @function render
+      * React render method for rendering the native elements
+      */
+
       render() {
             return (
                   <View style={{ flex: 1,backgroundColor:'white' }}>
@@ -147,7 +171,7 @@ class PaymentListCards extends Component {
                                               );
                                           }
                                     }
-                       
+
                                     }
                                     renderSectionHeader={({ section: { sectionTitle } }) => {
                                           if (sectionTitle == "Credit / Debit Card") {

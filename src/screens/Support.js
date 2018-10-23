@@ -1,14 +1,30 @@
+/**
+* @author Vineet Mishra <vineet.m@photoninfotech.net>
+* @version 1.0.0
+* @summary Creating Support Screen
+*/
+
+// import - npm modules
 import { connect } from 'react-redux';
 import React,{Component} from 'react';
 import {Platform,Linking,
     Text,Image,TouchableOpacity,
     View,
   } from 'react-native';
+
+// import custom Classes
 import { Toolbar } from "../components";
 import { navigateBack } from "../helpers";
 
+// import Styles
 import styles from './../styles'
 
+
+/**
+* Represents Support Screen.
+* @class Support
+* @extends Component
+*/
 class Support extends Component{
     constructor(props){
         super(props);
@@ -17,6 +33,7 @@ class Support extends Component{
         }
     }
 
+      // Function for Sending related querries to particular Email ID
       sendAnEmail=()=>{
         const url='mailto:?to=enquiries@eurogarages.com&subject=Feedback&body='
         Linking.canOpenURL(url).then(supported => {
@@ -29,6 +46,7 @@ class Support extends Component{
           }).catch(err => console.error('An error occurred', err));
       }
 
+      // Function for making a call for the related querries.
       makeACall=()=>{
         const url = 'tel:01254582111';
         Linking.canOpenURL(url)
@@ -44,6 +62,10 @@ class Support extends Component{
             .catch((err) => console.error('An error occurred', err));
       }
 
+    /**
+    * @function render
+    * React render method for rendering the native elements
+    */
     render(){
         return (
              <View style={styles.supportContainer}>

@@ -1,11 +1,30 @@
+/**
+* @author Vineet Mishra <vineet.m@photoninfotech.net>
+* @version 1.0.0
+* @summary Creating Store List Screens
+*/
+
+// import - npm modules
 import React, { Component } from "react";
 import { View, Text, FlatList,TouchableOpacity } from "react-native";
+
+
+/**
+* Represents Store List Screens.
+* @class StoreList
+* @extends Component
+*/
 
 class StoreList extends Component {
     selectedStore = (item)=>{
         alert(item.name);
         this.props.selectedStore(item.coordinates,item.name);
     }
+
+    /**
+    * @function render
+    * React render method for rendering the native elements
+    */
 
     render(){
         return(

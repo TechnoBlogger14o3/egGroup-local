@@ -1,3 +1,11 @@
+/**
+* @author Vineet Mishra <vineet.m@photoninfotech.net>
+* @version 1.0.0
+* @summary Creating Terms and Conditions Screens
+*/
+
+// import - npm modules
+
 import { connect } from 'react-redux';
 import React,{Component} from 'react';
 import {
@@ -6,12 +14,25 @@ import {
     FlatList,Platform
   } from 'react-native';
 import { Icon } from "react-native-elements";
+
+// import custom Classes
 import { Toolbar } from "../components";
 import { navigateBack } from "../helpers";
 import { navigateTo } from "../helpers";
+
+// import Styles
 import screenstyles from "../styles/screenStyles";
 
+
+/**
+* Represents Terms And Conditions Screen.
+* @class TermsAndConditions
+* @extends Component
+*/
+
 class TermsAndConditions extends Component{
+
+    // A constructor containing two static Conditions
     constructor(props){
         super(props);
         this.state={
@@ -21,6 +42,11 @@ class TermsAndConditions extends Component{
             ]
       }
     }
+
+    /**
+    * @function render
+    * React render method for rendering the native elements
+    */
 
     render(){
         return (

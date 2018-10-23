@@ -1,14 +1,34 @@
+/**
+* @author Vineet Mishra <vineet.m@photoninfotech.net>
+* @version 1.0.0
+* @summary Creating Promotion Details Screen
+*/
+
+// import - npm modules
+
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity,Alert,Image,Modal,TouchableHighlight,ImageBackground} from 'react-native';
 import { Icon, Card } from "react-native-elements";
+import LinearGradient from 'react-native-linear-gradient';
+
+// import required icons
 import logo from "../assets/images/signup/Loginlogo.png";
 import banner from "../assets/images/img_banner_esso.png";
-import LinearGradient from 'react-native-linear-gradient';
+
+// import Custom Classes
 import { InputText, Button, Toolbar } from "../components";
 import { navigateBack } from "../helpers";
+
+// import Styles
 import screenstyles from "../styles/screenStyles";
 
+
+/**
+* Represents Promotions Detail Screen.
+* @class PromotionsDetails
+* @extends Component
+*/
 
 class PromotionsDetails extends Component {
 state = {
@@ -27,6 +47,11 @@ setModalVisible(visible) {
   this.setState({modalVisible: visible});
 }
 
+/**
+* @function render
+* React render method for rendering the native elements
+*/
+
 render() {
   return (
     <View style={{padding:20,textAlign:"center"}}>
@@ -39,7 +64,7 @@ render() {
       }}>
       <View style={{ justifyContent:"center"}}>
         <View>
-    
+
   <View>
                             <ImageBackground style={{
                                 height: 150,
@@ -60,7 +85,7 @@ render() {
 
         <Text style={{fontSize:30,textAlign:"center", paddingTop:20,color:"rgb(51,51,51)",}}>20% OFF</Text>
         <Text style={{ textAlign:"center",color:"rgb(15,113,184)",paddingTop:20}}>Promo Code</Text>
-  
+
                         <LinearGradient style={{justifyContent: 'center', alignSelf: 'center', width: 150, padding: 10, marginTop: 10}} colors={['#339933', '#006666', '#003366']}>
                             <Text style={{ color: 'white', textAlign: 'center' }}>GET20</Text>
                             </LinearGradient>
@@ -81,13 +106,13 @@ render() {
                     <Text style={{color:"rgb(15,113,184)",padding:20}}>Terms & Conditions to redeem the offer </Text>
                     <Text style={{padding:20,paddingBottom:20,paddingTop:2,}}>Fill fuel above €20 in Esso fuel station and get{"\n"}20% OFF in KFC chicken</Text>
             </View>
-  
+
                     <Text style={{ textAlign:"center", paddingTop:90,}}>
-                        
+
 <Text>------------------------------------{"\n"}
 Valid till 02 NOV 2018{"\n"}
 ------------------------------------</Text>
-                        
+
                         </Text>
         </View>
       </View>

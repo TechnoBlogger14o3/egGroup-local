@@ -1,14 +1,30 @@
+/**
+* @author Vineet Mishra <vineet.m@photoninfotech.net>
+* @version 1.0.0
+* @summary Home Screen, after you successfully Logged in
+*/
+
+// import - npm modules
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, SafeAreaView, StyleSheet, FlatList, Image, ScrollView, ImageBackground } from 'react-native';
 import { Icon } from "react-native-elements";
 import Swiper from "react-native-swiper";
-
-import { InputText, Button, Toolbar } from "../components";
-import { navigateBack, navigateTo } from "../helpers";
 import LinearGradient from 'react-native-linear-gradient';
 
+// import custom classes
+import { InputText, Button, Toolbar } from "../components";
+import { navigateBack, navigateTo } from "../helpers";
+
+// import - Styles
 import Styles from '../styles/screenStyles';
+
+
+/**
+* Represents Home Sreen.
+* @class Home
+* @extends Component
+*/
 
 class Home extends Component {
 
@@ -39,6 +55,11 @@ class Home extends Component {
     }
 
 
+    /**
+    * @function render
+    * React render method for rendering the native elements
+    */
+    	
     render() {
         return (
 

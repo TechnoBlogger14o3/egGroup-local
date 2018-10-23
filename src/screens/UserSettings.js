@@ -1,3 +1,10 @@
+/**
+* @author Vineet Mishra <vineet.m@photoninfotech.net>
+* @version 1.0.0
+* @summary Creating Setting Screens
+*/
+
+// import - npm modules
 import { connect } from 'react-redux';
 import React,{Component} from 'react';
 import {
@@ -7,11 +14,21 @@ import {
     FlatList,Platform,TouchableOpacity
   } from 'react-native';
 import { Icon } from "react-native-elements";
+
+// import custom Classes
 import { Toolbar } from "../components";
 import Sidebar from "../components/Sidebar/Sidebar";
 import { navigateBack, navigateTo } from "../helpers";
 
+// import Styles
 import screenstyles from "../styles/screenStyles";
+
+
+/**
+* Represents Settings Screen.
+* @class Settings
+* @extends Component
+*/
 
 class Settings extends Component {
     constructor(props){
@@ -42,6 +59,11 @@ class Settings extends Component {
         return Platform.OS === "ios" ? "rgb(15, 113, 184)" : "rgb(0, 0, 0)";
     };
 
+
+    /**
+    * @function render
+    * React render method for rendering the native elements
+    */
     render() {
         const navigationView = (<Sidebar/>);
       return (

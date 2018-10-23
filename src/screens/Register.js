@@ -1,3 +1,11 @@
+/**
+* @author Vineet Mishra <vineet.m@photoninfotech.net>
+* @version 1.0.0
+* @summary Creating Register Screen
+*/
+
+// import - npm modules
+
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import { View, Text, ScrollView ,Image, BackHandler, Alert, Platform } from 'react-native';
@@ -5,12 +13,22 @@ import { compose } from "redux";
 import { Field, reduxForm , getFormValues } from "redux-form";
 import validator from "validator";
 
+// import custom Classes
 import { InputText, Button, LinkButton, Toolbar, Checkbox } from "../components";
 import { navigateBack,navigateTo } from "../helpers";
 import {registerUser} from "../actions/authActions";
 
+// import required logo
 import logo from "../assets/images/signup/Loginlogo.png"
+
+// import Styles
 import screenstyles from "../styles/screenStyles";
+
+/**
+* Represents Register Screen.
+* @class Register
+* @extends Component
+*/
 
 class Register extends Component {
 
@@ -32,11 +50,13 @@ class Register extends Component {
        BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
     }
 
+    // Handling Back Button
     handleBackPress = () => {
       this.handleBackNavigation();
       return true;
     }
 
+    // Handling Back Navigation
     handleBackNavigation = () => {
         if (this.props.formValues && Object.keys(this.props.formValues).length > 0) {
           Alert.alert(
@@ -77,19 +97,20 @@ class Register extends Component {
         });
     }
 
+    // Accepting Terms and Conditions
     acceptTermsConditions = () => {
         this.setState({
             termsConditions: !this.state.termsConditions
         });
     }
 
+    // Handling the Submit Button
     onSubmit = values => {
      //alert('Thank you for signing up. You will receive an email shortly with a link to confirm your email address');
      values.tncAcceptance = true;
      //delete values.confirmpassword;
      this.props.handleRegisterUser(values);
     }
-
 
     renderTextInput = (field) => {
         const { meta: { touched, error }, placeholder, keyboardType, onIconPress, isPassword, label, maxLength, secureTextEntry, input: { onChange, ...restInput } } = field;
@@ -111,6 +132,10 @@ class Register extends Component {
     }
 
 
+    /**
+    * @function render
+    * React render method for rendering the native elements
+    */
 
     render() {
         const { handleSubmit } = this.props;
@@ -207,7 +232,7 @@ class Register extends Component {
     }
 }
 
-
+// Validating the Register Input Fields
 
 const validate = values => {
     const errors = {};
@@ -254,7 +279,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   handleRegisterUser: payload => dispatch(registerUser(payload))
-
 });
 
 

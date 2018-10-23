@@ -1,13 +1,29 @@
+/**
+* @author Vineet Mishra <vineet.m@photoninfotech.net>
+* @version 1.0.0
+* @summary Creating Loyality Card Scan Screen
+*/
+
+// import - npm modules
 import {connect} from 'react-redux';
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity,Alert,Platform } from 'react-native';
 import { Icon,Card } from "react-native-elements";
 
+// import custom Classes
 import { InputText, Button, Toolbar } from "../components";
 import { navigateBack ,navigateTo} from "../helpers";
 import { CardIOModule,CardIOView, CardIOUtilities } from 'react-native-awesome-card-io';
 
+// import Styles
 import screenstyles from "../styles/screenStyles";
+
+
+/**
+* Represents Scan Loyalty Card Screen.
+* @class ScanLoyaltyCard
+* @extends Component
+*/
 
 class ScanLoyaltyCard extends Component {
 
@@ -53,6 +69,7 @@ class ScanLoyaltyCard extends Component {
     })
   }
 
+  // Function for Scanning Card
   scanCard() {
     CardIOModule
     .scanCard({
@@ -89,6 +106,12 @@ class ScanLoyaltyCard extends Component {
     })
   }
 
+
+    /**
+    * @function render
+    * React render method for rendering the native elements
+    */
+    	
     render() {
         return (
            <View style={[screenstyles.appContainer, screenstyles.whiteBackground]}>

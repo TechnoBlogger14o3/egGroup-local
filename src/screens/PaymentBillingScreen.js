@@ -1,13 +1,31 @@
+/**
+* @author Vineet Mishra <vineet.m@photoninfotech.net>
+* @version 1.0.0
+* @summary Creating Payment Screen
+*/
+
+// import - npm modules
+
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import { View, Text, ScrollView, Image, BackHandler, Alert, TouchableOpacity } from 'react-native';
 import { Icon } from "react-native-elements";
 import { compose } from "redux";
 import { Field, reduxForm, getFormValues } from "redux-form";
+
+// import custom Classes
 import { InputText, Button, Toolbar, DatePickerAndroid } from "../components";
 import { navigateBack, navigateTo } from "../helpers";
 
+// import Styles
 import styles from "../styles/screenStyles";
+
+
+/**
+* Represents Payment Billing Screen.
+* @class PaymentBillingScreen
+* @extends Component
+*/
 
 class PaymentBillingScreen extends Component {
 
@@ -84,6 +102,12 @@ class PaymentBillingScreen extends Component {
                   </View>
             );
       }
+
+      /**
+      * @function render
+      * React render method for rendering the native elements
+      */
+
       render() {
             const { handleSubmit, submitting, pristine } = this.props;
             return (
@@ -199,6 +223,7 @@ class PaymentBillingScreen extends Component {
                   }
             }
 
+// Validation for Payment Fields
 const validate = values => {
       const errors = {};
 
@@ -213,7 +238,7 @@ const validate = values => {
                         }
                         return errors;
                   }
-
+// Validating the Card Number and Formats
 const normalizePhone = (value, previousValue) => {
       if (!value) {
             return value

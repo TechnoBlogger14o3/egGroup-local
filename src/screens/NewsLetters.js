@@ -1,3 +1,11 @@
+/**
+* @author Vineet Mishra <vineet.m@photoninfotech.net>
+* @version 1.0.0
+* @summary Creating News Letter Screens
+*/
+
+// import - npm modules
+
 import { connect } from 'react-redux';
 import React,{Component} from 'react';
 import {
@@ -6,10 +14,20 @@ import {
     Platform
   } from 'react-native';
 import { Icon } from "react-native-elements";
+
+// import custom Classes
 import { Toolbar,ToggleSwitch } from "../components";
 import { navigateBack } from "../helpers";
 import { navigateTo } from "../helpers";
+
+// import Styles
 import screenstyles from "../styles/screenStyles";
+
+/**
+* Represents News Letters.
+* @class NewsLetters
+* @extends Component
+*/
 
 class NewsLetters extends Component{
 
@@ -24,6 +42,11 @@ class NewsLetters extends Component{
          this.setState({ switchValue: value })
      }
 
+     /**
+     * @function render
+     * React render method for rendering the native elements
+     */
+     	
     render(){
         return (
            <View style={screenstyles.newsLetterContainer}>

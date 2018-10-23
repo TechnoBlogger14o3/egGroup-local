@@ -8,12 +8,14 @@ import {  Text, View, Dimensions, TouchableOpacity,FlatList, Image,SafeAreaView,
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import { SearchBar, Icon } from 'react-native-elements';
 
+// import custom Classes
 import StoreList from './StoreList';
 import { Toolbar } from "../components";
 import { navigateBack, navigateTo } from "../helpers";
-
-import styles from './../styles'
 import Converter from './Converter';
+
+// import Styles
+import styles from './../styles'
 
 
 const { width, height } = Dimensions.get('window');
@@ -63,6 +65,7 @@ class StoreLocator extends Component {
                   textInputValue: ''
             }
       }
+      // Function for Getting Current Location.
       getCurrentLocation = ()=>{
             navigator.geolocation.getCurrentPosition((position) => {
                   console.log(position);

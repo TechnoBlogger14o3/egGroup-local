@@ -1,3 +1,11 @@
+/**
+* @author Vineet Mishra <vineet.m@photoninfotech.net>
+* @version 1.0.0
+* @summary Creating Preferrd Station Screen
+*/
+
+// import - npm modules
+
 import { connect } from 'react-redux';
 import React,{Component} from 'react';
 import {
@@ -8,13 +16,22 @@ import {
     FlatList,Platform,TouchableOpacity
   } from 'react-native';
 import { Icon } from "react-native-elements";
+
+// import custom Classes
 import { Toolbar } from "../components";
 import Sidebar from "../components/Sidebar/Sidebar";
 import { navigateBack } from "../helpers";
 import { navigateTo } from "../helpers";
 
+// import Styles
 import screenstyles from "../styles/screenStyles";
 
+
+/**
+* Represents Preferred Station Screen.
+* @class PreferredStation
+* @extends Component
+*/
 class PreferredStation extends Component{
     constructor(props){
         super(props);
@@ -26,6 +43,11 @@ class PreferredStation extends Component{
           ]
         }
       }
+
+    /**
+    * @function render
+    * React render method for rendering the native elements
+    */
 
     render(){
         const navigationView = (<Sidebar/>);

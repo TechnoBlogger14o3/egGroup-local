@@ -1,3 +1,10 @@
+/**
+* @author Vineet Mishra <vineet.m@photoninfotech.net>
+* @version 1.0.0
+* @summary Showing when Payment is Successfull
+*/
+
+// import - npm modules
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import { View, Text, ScrollView, Image, BackHandler, Alert, TouchableOpacity } from 'react-native';
@@ -5,17 +12,30 @@ import { Icon } from "react-native-elements";
 import { compose } from "redux";
 import { Field, reduxForm, getFormValues } from "redux-form";
 
+// import custom Classes
 import { InputText, Button, Toolbar, DatePicker } from "../components";
 import { navigateBack, navigateTo } from "../helpers";
 
+// import Styles
 import styles from "../styles/screenStyles";
 
+
+/**
+* Represents PaymentSuccessfull Screen.
+* @class PaymentSuccessfull
+* @extends Component
+*/
 class PaymentSuccessfull extends Component {
 
       continueButtonTapped = () =>{
           navigateTo("home");
       }
-      
+
+      /**
+      * @function render
+      * React render method for rendering the native elements
+      */
+
       render() {
             return (
                   <View style={[styles.appContainer, styles.whiteBackground]}>
@@ -82,7 +102,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({});
-
 
 export default compose(
       connect(mapStateToProps, mapDispatchToProps),

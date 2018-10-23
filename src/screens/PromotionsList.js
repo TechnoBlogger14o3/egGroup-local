@@ -1,11 +1,37 @@
+/**
+* @author Vineet Mishra <vineet.m@photoninfotech.net>
+* @version 1.0.0
+* @summary Creating
+*/
+
+// import - npm modules
+
 import React, { Component } from 'react';
 import {Platform, StyleSheet, Text, View, FlatList, Button, Image, AppRegistry, Modal, TouchableHighlight} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import { navigateTo } from "../helpers";
 import { connect } from 'react-redux';
+
+// import custom Classes
+import { navigateTo } from "../helpers";
+
+// import Styles
 import screenstyles from "../styles/screenStyles";
 
+
+/**
+* Represents Promotions List Screen.
+* @class PromotionsList
+* @extends Component
+*/
+
 export class PromotionsList extends Component {
+
+
+  /**
+  * @function render
+  * React render method for rendering the native elements
+  */
+
   render() {
     return (
       <View>

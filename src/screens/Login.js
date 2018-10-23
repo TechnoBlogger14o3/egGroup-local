@@ -1,3 +1,11 @@
+/**
+* @author Vineet Mishra <vineet.m@photoninfotech.net>
+* @version 1.0.0
+* @summary The Login Screen
+*/
+
+// import - npm modules
+
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, Image, Alert, ScrollView, Platform } from 'react-native';
 import { connect } from 'react-redux';
@@ -7,13 +15,21 @@ import validator from "validator";
 import { LoginButton, AccessToken, GraphRequest, GraphRequestManager, LoginManager  } from 'react-native-fbsdk';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
+// import Custom Classes
 import { InputText, Button, LinkButton, ListPicker } from "../components";
 import { navigateTo, redirectTo } from "../helpers";
 import logo from "../assets/images/signup/Loginlogo.png";
 import {loginUser} from "../actions/authActions";
 
+// import Styles
 import screenstyles from "../styles/screenStyles";
 
+
+/**
+* Represents LoginScreen.
+* @class Login
+* @extends Component
+*/
 class Login extends Component {
 
     constructor(props) {
@@ -58,6 +74,7 @@ class Login extends Component {
         }
     }
 
+    // Toggling the Password Hide/Show Button
     onIconPress = () => {
         this.setState({
             isPasswordShown: !this.state.isPasswordShown
@@ -101,6 +118,7 @@ class Login extends Component {
         this.setState({pickerValue:value})
     }
 
+    // Handling the Facebook Login
     handleFacebookLogin(){
         LoginManager.logInWithReadPermissions(['public_profile', 'email',]).then(
             function (result) {
@@ -120,9 +138,6 @@ class Login extends Component {
               console.log('Login fail with error: ' + error)
             }
           )
-
-
-
     }
 
     //Checking the condition For Android & iOS to Display Different Pickers as per Wireframe
@@ -151,6 +166,10 @@ class Login extends Component {
     }
 
 
+    /**
+    * @function render
+    * React render method for rendering the native elements
+    */
     render() {
         const { Email, Password, handleSubmit } = this.props;
 
@@ -227,6 +246,7 @@ class Login extends Component {
     }
 }
 
+// Validation for Login Input Fields
 const validate = values => {
     const errors = {};
     if (!values.email) {

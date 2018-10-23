@@ -1,3 +1,10 @@
+/**
+* @author Vineet Mishra <vineet.m@photoninfotech.net>
+* @version 1.0.0
+* @summary Creating Privacy Policy Screen
+*/
+
+// import - npm modules
 import { connect } from 'react-redux';
 import React,{Component} from 'react';
 import {
@@ -6,12 +13,21 @@ import {
     FlatList,Platform
   } from 'react-native';
 import { Icon } from "react-native-elements";
+
+// import custom Classes
 import { Toolbar } from "../components";
 import { navigateBack } from "../helpers";
 import { navigateTo } from "../helpers";
+
+// import Styles
 import screenstyles from "../styles/screenStyles";
 
 
+/**
+* Represents Privacy Policy.
+* @class PrivacyPolicy
+* @extends Component
+*/
 class PrivacyPolicy extends Component{
     constructor(props){
         super(props);
@@ -23,6 +39,10 @@ class PrivacyPolicy extends Component{
         }
     }
 
+    /**
+    * @function render
+    * React render method for rendering the native elements
+    */
     render(){
         return (
              <View style={screenstyles.PrivacytContainer}>

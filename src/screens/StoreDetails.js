@@ -7,9 +7,11 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, TextInput, View, Dimensions, TouchableOpacity, FlatList, Alert, Image, Platform,Linking } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 
+// import custom Classes
 import { Toolbar } from "../components";
 import { navigateBack, navigateTo } from "../helpers";
 
+// import Styles
 import styles from './../styles';
 
 const { width, height } = Dimensions.get('window');

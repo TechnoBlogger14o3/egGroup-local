@@ -1,13 +1,33 @@
+
+/**
+* @author Vineet Mishra <vineet.m@photoninfotech.net>
+* @version 1.0.0
+* @summary Creating Loyality Card List Screen
+*/
+
+// import - npm modules
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity,Alert,Image,TouchableHighlight,ImageBackground } from 'react-native';
 import { Icon, Card } from "react-native-elements";
+
+// import required Icons
 import logo from "../assets/images/signup/Loginlogo.png"
 import feulcard from "../assets/images/go_fuel_card.png"
+
+// import custom Classes
 import { InputText, Button, Toolbar } from "../components";
 import { navigateBack,navigateTo } from "../helpers";
 
+// import Styles
 import screenstyles from "../styles/screenStyles";
+
+
+/**
+* Represents Loyalty Cards List.
+* @class LoyaltyCardsList
+* @extends Component
+*/
 
 class LoyaltyCardsList extends Component {
 
@@ -23,8 +43,12 @@ closeModal = () => {
   this.setState({modalVisible: false})
 }
 
-render() {
 
+/**
+* @function render
+* React render method for rendering the native elements
+*/
+render() {
   return (
     <View style={[screenstyles.appContainer, screenstyles.whiteBackground]}>
         <Toolbar

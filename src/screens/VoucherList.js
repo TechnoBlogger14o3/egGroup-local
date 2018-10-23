@@ -45,7 +45,7 @@ class vouchersList extends Component {
         };
     }
 
-  /** By default modal is hide onclick it will open */
+  /** By default model is hide onclick it will open */
   state={
       modalVisible: false
   }
@@ -91,7 +91,7 @@ class vouchersList extends Component {
       this.setState({modalVisible: visible});
   }
 
-  // RefreshControl function
+  // Refresh Control function
   _renderRefreshControl() {
       return (
           <RefreshControl

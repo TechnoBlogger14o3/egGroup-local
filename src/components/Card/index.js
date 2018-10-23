@@ -3,6 +3,7 @@
 * @version 1.0.0
 */
 
+
 // import - npm modules
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity,StyleSheet,Image } from 'react-native';
@@ -18,17 +19,18 @@ const defaultProps = {
 }
 
 /**
-* Represents CardItem
-* @class CardItem
+* Represents Edit Profile.
+* @class EditProfile
 * @extends Component
 */
 
 class CardItem extends Component {
 
-    /**
-    * @function render
-    * React render method for rendering the native elements
-    */
+  /**
+  * @function render
+  * React render method for rendering the native elements
+  */
+
     render() {
         let {
             image,
@@ -51,7 +53,7 @@ class CardItem extends Component {
                                         <View style={componentstyles.imageborderView}>
                                                 <Image
                                                          // source={image ? { uri: image } : require("./../../assets/images/noimage.jpg")}
-                                                        source={ require("./../../assets/images/burger.jpg") }
+                                                        source={ require("./../../assets/images/burgerQueen.jpg") }
                                                         style={componentstyles.image}
                                                         resizeMode="contain"
                                                     />
@@ -63,7 +65,6 @@ class CardItem extends Component {
                                     </View>
                                     <View style={componentstyles.containtText}>
                                         <Text style={componentstyles.cashoffTextStyle}>{currencyIcon ? currencyIcon :''}{cashOff? cashOff:'0'} OFF in your in your next purchase</Text>
-
                                     </View>
 
                                 </View>
@@ -99,7 +100,7 @@ class CardItem extends Component {
                                         <View style={componentstyles.imageborderView}>
                                                 <Image
                                                        // source={image ? { uri: image } : require("./../../assets/images/noimage.jpg")}
-                                                        source={ require("./../../assets/images/kfc.jpg") }
+                                                        source={ require("./../../assets/images/kfc2.jpg") }
                                                         style={componentstyles.image}
                                                         resizeMode="contain"
                                                     />

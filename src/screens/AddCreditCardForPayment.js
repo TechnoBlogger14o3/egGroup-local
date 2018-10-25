@@ -1,9 +1,8 @@
 /**
 * @author Vineet Mishra <vineet.m@photoninfotech.net>
 * @version 1.0.0
-* @summary Creating
+* @summary Creating Adding Credit Card Screen.
 */
-
 
 // import - npm modules
 import { connect } from 'react-redux';
@@ -13,13 +12,18 @@ import { Icon } from "react-native-elements";
 import { compose } from "redux";
 import { Field, reduxForm, getFormValues } from "redux-form";
 
+// import custom Classes
 import { InputText, Button, Toolbar, DatePickerAndroid } from "../components";
 import { navigateBack, navigateTo } from "../helpers";
 
 // import - Styles
-
 import styles from '../styles';
 
+/**
+* Represents Adding Credit Card Screen.
+* @class AddCreditCardForPayment
+* @extends Component
+*/
 class AddCreditCardForPayment extends Component {
       constructor(props) {
             super(props);
@@ -38,7 +42,8 @@ class AddCreditCardForPayment extends Component {
                   [key]: value
             });
       }
-      
+
+      // FUnction when Continue Button is Clicked.
       continueButtonTapped = () => {
             Alert.alert(
                   "Alert!",
@@ -53,11 +58,14 @@ class AddCreditCardForPayment extends Component {
                   ],
               );
       }
+
+      // Handling Submit Button
       onSubmit = values => {
             alert('Your Go Fuel card added sucessfully!');
             navigateTo("loyaltyCardsList");
       }
 
+      // created render text input component for reusable
       renderTextInput = (field) => {
             const { meta: { touched, error }, placeholder, keyboardType, onIconPress, isPassword, label, secureTextEntry, maxLength, input: { onChange, ...restInput } } = field;
             return (
@@ -77,6 +85,8 @@ class AddCreditCardForPayment extends Component {
                   </View>
             );
       }
+
+      // Hanndling Date Picker
       renderDatePicker = (field) => {
             const { meta: { touched, error }, placeholder, label, input: { onChange, ...restInput } } = field;
             return (
@@ -92,6 +102,13 @@ class AddCreditCardForPayment extends Component {
                   </View>
             );
       }
+
+
+    /**
+    * @function render
+    * React render method for rendering the native elements
+    */
+
       render() {
             const { handleSubmit, submitting, pristine } = this.props;
             return (
@@ -156,11 +173,12 @@ class AddCreditCardForPayment extends Component {
       }
 }
 
+// Validating Card Number and Format
 const validate = values => {
       const errors = {};
 
       if (!values.cardNumber) {
-            errors.cardNumber = "Rerquired"
+            errors.cardNumber = "Required"
       } else if (values.cardNumber.length < 19) {
             errors.cardNumber = "Please enter a valid card number";
       }
@@ -171,6 +189,7 @@ const validate = values => {
       return errors;
 }
 
+// Validating the Mobile Number
 const normalizePhone = (value, previousValue) => {
       if (!value) {
             return value
@@ -199,7 +218,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({});
-
 
 export default compose(
       connect(mapStateToProps, mapDispatchToProps),

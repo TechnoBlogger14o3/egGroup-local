@@ -1,7 +1,6 @@
 /**
 * @author Kallayy Hiremath <kallayya@photoninfotech.net>
 * @version 1.0.0
-* @summary Creating CoupensList screen
 */
 
 // Import npm modules

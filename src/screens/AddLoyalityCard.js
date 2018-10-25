@@ -1,7 +1,7 @@
 /**
 * @author Vineet Mishra <vineet.m@photoninfotech.net>
 * @version 1.0.0
-* @summary Creating Loyality Card Screen
+* @summary Adding Loyality Card Screen
 */
 
 // import - npm modules
@@ -10,13 +10,20 @@ import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, Dimensions } from 'react-native';
 import { Icon } from "react-native-elements";
 
+// import custom Classes
 import { Toolbar } from "../components";
 import { navigateBack, navigateTo } from "../helpers";
 
+// import Styles
 import screenstyles from "../styles/screenStyles";
 
+/**
+* Represents Adding Loyality Card Screen.
+* @class AddLoyaltyCard
+* @extends Component
+*/
 class AddLoyaltyCard extends Component {
-  
+
     constructor(props) {
         super(props);
         this.state = {
@@ -30,6 +37,11 @@ class AddLoyaltyCard extends Component {
         });
     }
 
+
+    /**
+    * @function render
+    * React render method for rendering the native elements
+    */
     render() {
         return (
             <View style={[screenstyles.appContainer, screenstyles.whiteBackground]}>

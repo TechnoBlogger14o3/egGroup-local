@@ -20,6 +20,7 @@ import Phone from "./../components/Phone";
 import { navigateBack, navigateTo, redirectTo } from "../helpers";
 import {logoutUser} from "../actions/authActions";
 
+// import Styles
 import screenstyles from "../styles/screenStyles";
 
 /**
@@ -92,6 +93,7 @@ class EditProfile extends Component {
      );
  };
 
+  // created render text input component for reusable
   renderTextInput = field => {
     const {
       meta: { touched, error },
@@ -114,6 +116,8 @@ class EditProfile extends Component {
     );
   };
 
+
+  // Setting the Date
   setDate(newDate) {
     console.log("newdate",newDate);
     this.setState({chosenDate: newDate})
@@ -143,7 +147,7 @@ class EditProfile extends Component {
             <Text style={screenstyles.errorText}>{touched ? error : ""}</Text>
           </View>
         );
-    }  
+    }
     // Function for DatePicker if platform is Android
     else {
       return (
@@ -186,6 +190,7 @@ class EditProfile extends Component {
     );
   };
 
+  // Adding or Modifying the Profile Photo
   selectPhotoTapped() {
     const options = {
       quality: 1.0,
